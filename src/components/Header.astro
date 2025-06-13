@@ -1,11 +1,8 @@
 ---
 import HeaderLink from './HeaderLink.astro';
+import LanguageToggle from './LanguageToggle.astro';
 import { SITE_TITLE } from '../consts';
 ---
-
-<div class="theme-toggle" id="theme-toggle" title="Toggle Dark Mode">
-	<span class="theme-icon">🌙</span>
-</div>
 
 <header>
 	<nav class="nav-container">
@@ -16,17 +13,62 @@ import { SITE_TITLE } from '../consts';
 					<h2 class="logo-text">{SITE_TITLE}</h2>
 				</a>
 			</div>
-			<div class="nav-links">
-				<HeaderLink href="/">Home</HeaderLink>
-				<HeaderLink href="/about">About</HeaderLink>
-				<HeaderLink href="/blog">Blog</HeaderLink>
-				<HeaderLink href="/courses">Courses</HeaderLink>
-				<HeaderLink href="/contact">Contact</HeaderLink>
+			<div class="nav-right">
+				<div class="nav-links">
+					<HeaderLink href="/" data-translate="nav.home">Home</HeaderLink>
+					<HeaderLink href="/about" data-translate="nav.about">About</HeaderLink>
+					<HeaderLink href="/blog" data-translate="nav.blog">Blog</HeaderLink>
+					<HeaderLink href="/courses" data-translate="nav.courses">Courses</HeaderLink>
+					<HeaderLink href="/contact" data-translate="nav.contact">Contact</HeaderLink>
+				</div>
+				<div class="desktop-controls">
+					<LanguageToggle />
+					<div class="theme-toggle" id="theme-toggle" title="Toggle Dark Mode">
+						<span class="theme-icon">🌙</span>
+					</div>
+				</div>
 			</div>
 			<div class="mobile-menu-toggle" id="mobile-menu-toggle">
 				<span></span>
 				<span></span>
 				<span></span>
+			</div>
+			
+			<!-- Mobile Menu -->
+			<div class="mobile-menu" id="mobile-menu">
+				<div class="mobile-nav-links">
+					<HeaderLink href="/" data-translate="nav.home">Home</HeaderLink>
+					<HeaderLink href="/about" data-translate="nav.about">About</HeaderLink>
+					<HeaderLink href="/blog" data-translate="nav.blog">Blog</HeaderLink>
+					<HeaderLink href="/courses" data-translate="nav.courses">Courses</HeaderLink>
+					<HeaderLink href="/contact" data-translate="nav.contact">Contact</HeaderLink>
+				</div>
+				<div class="mobile-controls">
+					<div class="mobile-control-item">
+						<span class="control-label">Language</span>
+						<button class="mobile-language-button" id="mobile-language-button">
+							<span class="mobile-current-lang" id="mobile-current-lang">🇺🇸 EN</span>
+							<span class="mobile-lang-arrow">▼</span>
+						</button>
+						<div class="mobile-language-dropdown" id="mobile-language-dropdown">
+							<button class="mobile-language-option" data-lang="en" data-flag="🇺🇸">
+								<span class="flag">🇺🇸</span>
+								<span class="lang-text">English</span>
+							</button>
+							<button class="mobile-language-option" data-lang="ka" data-flag="🇬🇪">
+								<span class="flag">🇬🇪</span>
+								<span class="lang-text">ქართული</span>
+							</button>
+						</div>
+					</div>
+					<div class="mobile-control-item">
+						<span class="control-label">Theme</span>
+						<button class="mobile-theme-button" id="mobile-theme-toggle" title="Toggle Dark Mode">
+							<span class="mobile-theme-icon">🌙</span>
+							<span class="theme-label" id="theme-label">Dark Mode</span>
+						</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</nav>
@@ -94,10 +136,46 @@ import { SITE_TITLE } from '../consts';
 		background-clip: text;
 	}
 
+	.nav-right {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-md);
+	}
+
 	.nav-links {
 		display: flex;
 		align-items: center;
 		gap: var(--spacing-lg);
+	}
+
+	.desktop-controls {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-md);
+	}
+
+	.theme-toggle {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		border: 2px solid var(--border-color);
+		border-radius: 50%;
+		background: var(--card-bg);
+		cursor: pointer;
+		transition: all var(--transition-fast);
+		font-size: 1.2rem;
+	}
+
+	.theme-toggle:hover {
+		background: var(--ocean-blue);
+		border-color: var(--ocean-blue);
+		transform: scale(1.1);
+	}
+
+	.theme-toggle:hover .theme-icon {
+		filter: invert(1);
 	}
 
 	.mobile-menu-toggle {
@@ -128,26 +206,236 @@ import { SITE_TITLE } from '../consts';
 		transform: rotate(45deg) translate(-5px, -6px);
 	}
 
+	/* Mobile Menu */
+	.mobile-menu {
+		display: none;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		background: var(--card-bg);
+		box-shadow: var(--shadow-lg);
+		border-top: 1px solid var(--border-color);
+		z-index: 99;
+	}
+
+	.mobile-menu.show {
+		display: block;
+	}
+
+	.mobile-nav-links {
+		padding: var(--spacing-md);
+		border-bottom: 1px solid var(--border-color);
+	}
+
+	.mobile-nav-links :global(a) {
+		display: block;
+		padding: var(--spacing-sm) 0;
+		border-bottom: 1px solid var(--border-color);
+		text-decoration: none;
+		color: var(--text-primary);
+		font-weight: 500;
+		transition: color var(--transition-fast);
+	}
+
+	.mobile-nav-links :global(a:last-child) {
+		border-bottom: none;
+	}
+
+	.mobile-nav-links :global(a:hover) {
+		color: var(--ocean-blue);
+	}
+
+	.mobile-controls {
+		padding: var(--spacing-md);
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-md);
+	}
+
+	.mobile-control-item {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: var(--spacing-sm) 0;
+	}
+
+	.control-label {
+		font-weight: 600;
+		color: var(--text-heading);
+		font-size: 0.9rem;
+	}
+
+	.mobile-theme-button {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-xs);
+		background: var(--card-bg);
+		border: 2px solid var(--border-color);
+		border-radius: var(--radius-md);
+		padding: var(--spacing-xs) var(--spacing-sm);
+		cursor: pointer;
+		transition: all var(--transition-fast);
+		font-size: 0.9rem;
+		color: var(--text-primary);
+		min-width: 100px;
+		justify-content: space-between;
+	}
+
+	.mobile-theme-button:hover {
+		border-color: var(--ocean-blue);
+		background: rgba(0, 119, 190, 0.05);
+	}
+
+	.mobile-theme-icon {
+		font-size: 1rem;
+	}
+
+	.theme-label {
+		font-weight: 500;
+	}
+
+	/* Mobile Language Toggle */
+	.mobile-language-button {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-xs);
+		background: var(--card-bg);
+		border: 2px solid var(--border-color);
+		border-radius: var(--radius-md);
+		padding: var(--spacing-xs) var(--spacing-sm);
+		cursor: pointer;
+		transition: all var(--transition-fast);
+		font-size: 0.9rem;
+		color: var(--text-primary);
+		min-width: 100px;
+		justify-content: space-between;
+		position: relative;
+	}
+
+	.mobile-language-button:hover {
+		border-color: var(--ocean-blue);
+		background: rgba(0, 119, 190, 0.05);
+	}
+
+	.mobile-language-button.active {
+		border-color: var(--ocean-blue);
+		background: rgba(0, 119, 190, 0.1);
+	}
+
+	.mobile-current-lang {
+		display: flex;
+		align-items: center;
+		gap: 4px;
+		font-weight: 500;
+	}
+
+	.mobile-lang-arrow {
+		font-size: 0.7rem;
+		transition: transform var(--transition-fast);
+		color: var(--text-secondary);
+	}
+
+	.mobile-language-button.active .mobile-lang-arrow {
+		transform: rotate(180deg);
+	}
+
+	.mobile-language-dropdown {
+		position: absolute;
+		top: 100%;
+		right: 0;
+		left: auto;
+		background: var(--card-bg);
+		border: 2px solid var(--border-color);
+		border-radius: var(--radius-md);
+		box-shadow: var(--shadow-lg);
+		z-index: 1001;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-10px);
+		transition: all var(--transition-fast);
+		margin-top: 4px;
+		min-width: 120px;
+	}
+
+	.mobile-language-dropdown.show {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+
+	.mobile-language-option {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-xs);
+		width: 100%;
+		padding: var(--spacing-sm);
+		background: none;
+		border: none;
+		cursor: pointer;
+		transition: background-color var(--transition-fast);
+		color: var(--text-primary);
+		font-size: 0.9rem;
+	}
+
+	.mobile-language-option:hover {
+		background: rgba(0, 119, 190, 0.05);
+	}
+
+	.mobile-language-option:first-child {
+		border-radius: var(--radius-md) var(--radius-md) 0 0;
+	}
+
+	.mobile-language-option:last-child {
+		border-radius: 0 0 var(--radius-md) var(--radius-md);
+	}
+
+	.mobile-language-option.active {
+		background: rgba(0, 119, 190, 0.1);
+		color: var(--ocean-blue);
+		font-weight: 600;
+	}
+
 	@media (max-width: 768px) {
-		.nav-links {
-			display: none;
-			position: absolute;
-			top: 100%;
-			left: 0;
-			right: 0;
-			background: var(--card-bg);
-			box-shadow: var(--shadow-md);
-			flex-direction: column;
-			padding: var(--spacing-md);
-			gap: var(--spacing-sm);
+		.nav-content {
+			padding: var(--spacing-sm) var(--spacing-md);
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
 		}
 
-		.nav-links.mobile-open {
-			display: flex;
+		.nav-links {
+			display: none;
+		}
+
+		.desktop-controls {
+			display: none;
+		}
+
+		.nav-right {
+			display: none;
 		}
 
 		.mobile-menu-toggle {
 			display: flex;
+		}
+
+		.logo-text {
+			font-size: 1.3rem;
+		}
+
+		.wave-icon {
+			font-size: 1.5rem;
+		}
+	}
+
+	@media (min-width: 769px) {
+		.mobile-menu-toggle {
+			display: none;
+		}
+
+		.mobile-menu {
+			display: none !important;
 		}
 	}
 </style>
@@ -155,17 +443,29 @@ import { SITE_TITLE } from '../consts';
 <script>
 	// Theme toggle functionality
 	const themeToggle = document.getElementById('theme-toggle');
+	const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
 	const themeIcon = document.querySelector('.theme-icon');
+	const mobileThemeIcon = document.querySelector('.mobile-theme-icon');
+	const themeLabel = document.getElementById('theme-label');
 	const htmlElement = document.documentElement;
 
 	// Check for saved theme preference or default to 'light'
 	const currentTheme = localStorage.getItem('theme') || 'light';
 	htmlElement.setAttribute('data-theme', currentTheme);
-	updateThemeIcon(currentTheme);
+	updateThemeDisplay(currentTheme);
 
-	function updateThemeIcon(theme: string) {
+	function updateThemeDisplay(theme: string) {
+		const iconText = theme === 'dark' ? '☀️' : '🌙';
+		const labelText = theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+		
 		if (themeIcon) {
-			themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+			themeIcon.textContent = iconText;
+		}
+		if (mobileThemeIcon) {
+			mobileThemeIcon.textContent = iconText;
+		}
+		if (themeLabel) {
+			themeLabel.textContent = labelText;
 		}
 	}
 
@@ -175,17 +475,200 @@ import { SITE_TITLE } from '../consts';
 		
 		htmlElement.setAttribute('data-theme', newTheme);
 		localStorage.setItem('theme', newTheme);
-		updateThemeIcon(newTheme);
+		updateThemeDisplay(newTheme);
 	}
 
+	// Add event listeners for both theme toggles
 	themeToggle?.addEventListener('click', toggleTheme);
+	mobileThemeToggle?.addEventListener('click', toggleTheme);
 
 	// Mobile menu toggle functionality
 	const mobileToggle = document.getElementById('mobile-menu-toggle');
-	const navLinks = document.querySelector('.nav-links');
+	const mobileMenu = document.getElementById('mobile-menu');
 
-	mobileToggle?.addEventListener('click', () => {
-		navLinks?.classList.toggle('mobile-open');
-		mobileToggle.classList.toggle('active');
+	function toggleMobileMenu() {
+		const isOpen = mobileMenu?.classList.contains('show');
+		
+		if (isOpen) {
+			closeMobileMenu();
+		} else {
+			openMobileMenu();
+		}
+	}
+
+	function openMobileMenu() {
+		mobileMenu?.classList.add('show');
+		mobileToggle?.classList.add('active');
+		document.body.style.overflow = 'hidden'; // Prevent background scrolling
+	}
+
+	function closeMobileMenu() {
+		mobileMenu?.classList.remove('show');
+		mobileToggle?.classList.remove('active');
+		document.body.style.overflow = ''; // Restore scrolling
+	}
+
+	mobileToggle?.addEventListener('click', toggleMobileMenu);
+
+	// Close mobile menu when clicking on a link
+	const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+	mobileNavLinks.forEach(link => {
+		link.addEventListener('click', closeMobileMenu);
 	});
+
+	// Close mobile menu when clicking outside
+	document.addEventListener('click', (e) => {
+		const header = document.querySelector('header');
+		if (header && !header.contains(e.target as Node)) {
+			closeMobileMenu();
+		}
+	});
+
+	// Close mobile menu on escape key
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape') {
+			closeMobileMenu();
+		}
+	});
+
+	// Handle viewport changes
+	window.addEventListener('resize', () => {
+		if (window.innerWidth > 768) {
+			// Close mobile menu when switching to desktop
+			closeMobileMenu();
+		}
+	});
+
+	// Mobile Language Toggle functionality
+	const mobileLanguageButton = document.getElementById('mobile-language-button');
+	const mobileLanguageDropdown = document.getElementById('mobile-language-dropdown');
+	const mobileCurrentLangElement = document.getElementById('mobile-current-lang');
+	const mobileLanguageOptions = document.querySelectorAll('.mobile-language-option');
+
+	// Language data
+	const languages = {
+		en: { flag: '🇺🇸', code: 'EN', name: 'English' },
+		ka: { flag: '🇬🇪', code: 'KA', name: 'ქართული' }
+	};
+
+	// Get current language
+	let currentLanguage = localStorage.getItem('language') || 'en';
+
+	// Update language display for both desktop and mobile
+	function updateLanguageDisplay() {
+		const lang = languages[currentLanguage as keyof typeof languages];
+		
+		// Update mobile language display
+		if (mobileCurrentLangElement && lang) {
+			mobileCurrentLangElement.textContent = `${lang.flag} ${lang.code}`;
+		}
+		
+		// Update active state of mobile options
+		mobileLanguageOptions.forEach(option => {
+			const optionLang = option.getAttribute('data-lang');
+			option.classList.toggle('active', optionLang === currentLanguage);
+		});
+	}
+
+	// Mobile language dropdown functions
+	function toggleMobileLanguageDropdown() {
+		const isOpen = mobileLanguageDropdown?.classList.contains('show');
+		
+		if (isOpen) {
+			closeMobileLanguageDropdown();
+		} else {
+			openMobileLanguageDropdown();
+		}
+	}
+
+	function openMobileLanguageDropdown() {
+		mobileLanguageDropdown?.classList.add('show');
+		mobileLanguageButton?.classList.add('active');
+	}
+
+	function closeMobileLanguageDropdown() {
+		mobileLanguageDropdown?.classList.remove('show');
+		mobileLanguageButton?.classList.remove('active');
+	}
+
+	// Handle language selection
+	function selectLanguage(lang: string) {
+		if (lang && (lang === 'en' || lang === 'ka')) {
+			currentLanguage = lang;
+			localStorage.setItem('language', lang);
+			updateLanguageDisplay();
+			closeMobileLanguageDropdown();
+			
+			// Dispatch custom event for language change
+			window.dispatchEvent(new CustomEvent('languagechange', { 
+				detail: { language: lang } 
+			}));
+		}
+	}
+
+	// Mobile language toggle event listeners
+	mobileLanguageButton?.addEventListener('click', (e) => {
+		e.stopPropagation();
+		toggleMobileLanguageDropdown();
+	});
+
+	mobileLanguageOptions.forEach(option => {
+		option.addEventListener('click', (e) => {
+			e.stopPropagation();
+			const lang = option.getAttribute('data-lang');
+			if (lang) {
+				selectLanguage(lang);
+			}
+		});
+	});
+
+	// Close mobile language dropdown when clicking outside
+	document.addEventListener('click', (e) => {
+		if (mobileLanguageButton && !mobileLanguageButton.contains(e.target as Node) && 
+			mobileLanguageDropdown && !mobileLanguageDropdown.contains(e.target as Node)) {
+			closeMobileLanguageDropdown();
+		}
+	});
+
+	// Navigation translations
+	const navTranslations = {
+		en: {
+			'nav.home': 'Home',
+			'nav.about': 'About',
+			'nav.blog': 'Blog',
+			'nav.courses': 'Courses',
+			'nav.contact': 'Contact'
+		},
+		ka: {
+			'nav.home': 'მთავარი',
+			'nav.about': 'ჩვენ შესახებ',
+			'nav.blog': 'ბლოგი',
+			'nav.courses': 'კურსები',
+			'nav.contact': 'კონტაქტი'
+		}
+	};
+
+	function updateNavTranslations() {
+		const currentLang = localStorage.getItem('language') || 'en';
+		const elementsToTranslate = document.querySelectorAll('[data-translate]');
+		
+		elementsToTranslate.forEach(element => {
+			const translationKey = element.getAttribute('data-translate');
+			const translatedText = navTranslations[currentLang as keyof typeof navTranslations]?.[translationKey as keyof typeof navTranslations.en];
+			
+			if (translatedText) {
+				element.textContent = translatedText;
+			}
+		});
+	}
+
+	// Listen for language change events
+	window.addEventListener('languagechange', () => {
+		updateNavTranslations();
+		updateLanguageDisplay();
+	});
+
+	// Initialize everything
+	updateLanguageDisplay();
+	updateNavTranslations();
 </script>

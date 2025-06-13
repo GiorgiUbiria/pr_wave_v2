@@ -394,16 +394,96 @@ const posts = (await getCollection('blog')).sort(
 	}
 
 	@media (max-width: 768px) {
+		.hero {
+			padding: var(--spacing-lg) 0;
+		}
+
 		.hero h1 {
 			font-size: 2.5rem;
+			margin-bottom: var(--spacing-sm);
+		}
+
+		.hero p {
+			font-size: 1rem;
+		}
+
+		.section {
+			padding: var(--spacing-lg) 0;
+		}
+
+		.container {
+			padding: 0 var(--spacing-md);
+		}
+
+		.blog-grid {
+			gap: var(--spacing-lg);
+		}
+
+		.blog-card {
+			margin-bottom: var(--spacing-md);
+		}
+
+		.blog-image {
+			height: 200px;
+		}
+
+		.featured .blog-image {
+			height: 250px;
+		}
+
+		.blog-content {
+			padding: var(--spacing-md);
+		}
+
+		.featured .blog-content {
+			padding: var(--spacing-md);
+		}
+
+		.blog-title {
+			font-size: 1.3rem;
+			line-height: 1.4;
+		}
+
+		.featured .blog-title {
+			font-size: 1.6rem;
+		}
+
+		.blog-meta {
+			font-size: 0.8rem;
+			margin-bottom: var(--spacing-sm);
+		}
+
+		.blog-description {
+			font-size: 0.95rem;
+			margin-bottom: var(--spacing-md);
+		}
+
+		.featured-badge {
+			right: var(--spacing-md);
+			top: -var(--spacing-xs);
+			font-size: 0.7rem;
+			padding: var(--spacing-xs) var(--spacing-sm);
 		}
 
 		.newsletter-form .form-group {
 			flex-direction: column;
+			max-width: none;
 		}
 
 		.newsletter-form .btn {
 			width: 100%;
+		}
+
+		.newsletter-content {
+			padding: 0 var(--spacing-md);
+		}
+
+		.newsletter-content h2 {
+			font-size: 1.8rem;
+		}
+
+		.newsletter-content p {
+			font-size: 1rem;
 		}
 	}
 

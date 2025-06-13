@@ -1,0 +1,259 @@
+---
+// Language Toggle Component for English/Georgian support
+---
+
+<div class="language-toggle" id="language-toggle">
+	<button class="language-button" id="language-button" aria-label="Select Language">
+		<span class="current-lang" id="current-lang">🇺🇸 EN</span>
+		<span class="dropdown-arrow">▼</span>
+	</button>
+	<div class="language-dropdown" id="language-dropdown">
+		<button class="language-option" data-lang="en" data-flag="🇺🇸">
+			<span class="flag">🇺🇸</span>
+			<span class="lang-text">English</span>
+		</button>
+		<button class="language-option" data-lang="ka" data-flag="🇬🇪">
+			<span class="flag">🇬🇪</span>
+			<span class="lang-text">ქართული</span>
+		</button>
+	</div>
+</div>
+
+<style>
+	.language-toggle {
+		position: relative;
+		display: inline-block;
+	}
+
+	.language-button {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-xs);
+		background: var(--card-bg);
+		border: 2px solid var(--border-color);
+		border-radius: var(--radius-md);
+		padding: var(--spacing-xs) var(--spacing-sm);
+		cursor: pointer;
+		transition: all var(--transition-fast);
+		font-size: 0.9rem;
+		color: var(--text-primary);
+		min-width: 80px;
+		justify-content: space-between;
+	}
+
+	.language-button:hover {
+		border-color: var(--ocean-blue);
+		background: rgba(0, 119, 190, 0.05);
+	}
+
+	.language-button.active {
+		border-color: var(--ocean-blue);
+		background: rgba(0, 119, 190, 0.1);
+	}
+
+	.current-lang {
+		display: flex;
+		align-items: center;
+		gap: 4px;
+		font-weight: 500;
+	}
+
+	.dropdown-arrow {
+		font-size: 0.7rem;
+		transition: transform var(--transition-fast);
+		color: var(--text-secondary);
+	}
+
+	.language-button.active .dropdown-arrow {
+		transform: rotate(180deg);
+	}
+
+	.language-dropdown {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		background: var(--card-bg);
+		border: 2px solid var(--border-color);
+		border-radius: var(--radius-md);
+		box-shadow: var(--shadow-lg);
+		z-index: 1000;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-10px);
+		transition: all var(--transition-fast);
+		margin-top: 4px;
+		width: max-content;
+		min-width: 100%;
+	}
+
+	.language-dropdown.show {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+
+	.language-option {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-xs);
+		width: 100%;
+		padding: var(--spacing-sm);
+		background: none;
+		border: none;
+		cursor: pointer;
+		transition: background-color var(--transition-fast);
+		color: var(--text-primary);
+		font-size: 0.9rem;
+		white-space: nowrap;
+	}
+
+	.language-option:hover {
+		background: rgba(0, 119, 190, 0.05);
+	}
+
+	.language-option:first-child {
+		border-radius: var(--radius-md) var(--radius-md) 0 0;
+	}
+
+	.language-option:last-child {
+		border-radius: 0 0 var(--radius-md) var(--radius-md);
+	}
+
+	.language-option.active {
+		background: rgba(0, 119, 190, 0.1);
+		color: var(--ocean-blue);
+		font-weight: 600;
+	}
+
+	.flag {
+		font-size: 1rem;
+	}
+
+	.lang-text {
+		font-weight: 500;
+	}
+
+	/* Mobile responsive styling */
+	@media (max-width: 768px) {
+		.language-toggle {
+			min-width: 100px;
+		}
+
+		.language-button {
+			justify-content: space-between;
+			padding: var(--spacing-sm);
+			min-width: 100px;
+		}
+
+		.language-dropdown {
+			right: 0;
+			left: auto;
+			min-width: 120px;
+		}
+	}
+</style>
+
+<script>
+	// Language Toggle Functionality
+	const languageToggle = document.getElementById('language-toggle');
+	const languageButton = document.getElementById('language-button');
+	const languageDropdown = document.getElementById('language-dropdown');
+	const currentLangElement = document.getElementById('current-lang');
+	const languageOptions = document.querySelectorAll('.language-option');
+
+	// Get current language from localStorage or default to 'en'
+	let currentLanguage = localStorage.getItem('language') || 'en';
+
+	// Language data
+	const languages = {
+		en: { flag: '🇺🇸', code: 'EN', name: 'English' },
+		ka: { flag: '🇬🇪', code: 'KA', name: 'ქართული' }
+	};
+
+	// Initialize language display
+	function updateCurrentLanguage() {
+		const lang = languages[currentLanguage as keyof typeof languages];
+		if (currentLangElement && lang) {
+			currentLangElement.textContent = `${lang.flag} ${lang.code}`;
+		}
+		
+		// Update active state of options
+		languageOptions.forEach(option => {
+			const optionLang = option.getAttribute('data-lang');
+			option.classList.toggle('active', optionLang === currentLanguage);
+		});
+	}
+
+	// Toggle dropdown
+	function toggleDropdown() {
+		const isOpen = languageDropdown?.classList.contains('show');
+		
+		if (isOpen) {
+			closeDropdown();
+		} else {
+			openDropdown();
+		}
+	}
+
+	function openDropdown() {
+		languageDropdown?.classList.add('show');
+		languageButton?.classList.add('active');
+	}
+
+	function closeDropdown() {
+		languageDropdown?.classList.remove('show');
+		languageButton?.classList.remove('active');
+	}
+
+	// Handle language selection
+	function selectLanguage(lang: string) {
+		if (lang && (lang === 'en' || lang === 'ka') && languages[lang as keyof typeof languages]) {
+			currentLanguage = lang;
+			localStorage.setItem('language', lang);
+			updateCurrentLanguage();
+			closeDropdown();
+			
+			// Dispatch custom event for language change
+			window.dispatchEvent(new CustomEvent('languagechange', { 
+				detail: { language: lang } 
+			}));
+		}
+	}
+
+	// Event listeners
+	languageButton?.addEventListener('click', (e) => {
+		e.stopPropagation();
+		toggleDropdown();
+	});
+
+	languageOptions.forEach(option => {
+		option.addEventListener('click', (e) => {
+			e.stopPropagation();
+			const lang = option.getAttribute('data-lang');
+			if (lang) {
+				selectLanguage(lang);
+			}
+		});
+	});
+
+	// Close dropdown when clicking outside
+	document.addEventListener('click', (e) => {
+		if (languageToggle && e.target && !languageToggle.contains(e.target as Node)) {
+			closeDropdown();
+		}
+	});
+
+	// Close dropdown on escape key
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape') {
+			closeDropdown();
+		}
+	});
+
+	// Initialize
+	updateCurrentLanguage();
+
+	// Export for use in other components
+	(window as any).selectLanguage = selectLanguage;
+</script>

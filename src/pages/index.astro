@@ -3,6 +3,10 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION, COMPANY_NAME, COMPANY_TAGLINE, SERVICES } from '../consts';
+import { getTranslation, getCurrentLanguage } from '../i18n';
+
+// Get current language (this will be overridden by client-side)
+const currentLang = 'en'; // Default for SSR
 ---
 
 <!doctype html>
@@ -24,15 +28,15 @@ import { SITE_TITLE, SITE_DESCRIPTION, COMPANY_NAME, COMPANY_TAGLINE, SERVICES }
 					<div class="hero-content">
 						<div class="wave-icon-large animate-bounce">🌊</div>
 						<h1 class="hero-title">{COMPANY_NAME}</h1>
-						<p class="tagline">{COMPANY_TAGLINE}</p>
-						<p class="hero-description">
+						<p class="tagline" data-translate="hero.tagline">{COMPANY_TAGLINE}</p>
+						<p class="hero-description" data-translate="hero.description">
 							Transform your digital presence with our comprehensive social media management, 
 							advertising solutions, and expert mentorship. We help businesses ride the wave 
 							of digital success.
 						</p>
 						<div class="hero-buttons">
-							<a href="/contact" class="btn btn-primary">Get Started</a>
-							<a href="/about" class="btn btn-secondary">Learn More</a>
+							<a href="/contact" class="btn btn-primary" data-translate="hero.getStarted">Get Started</a>
+							<a href="/about" class="btn btn-secondary" data-translate="hero.learnMore">Learn More</a>
 						</div>
 					</div>
 				</div>
@@ -43,8 +47,8 @@ import { SITE_TITLE, SITE_DESCRIPTION, COMPANY_NAME, COMPANY_TAGLINE, SERVICES }
 		<section class="section bg-light">
 			<div class="container">
 				<div class="text-center mb-lg animate-on-scroll">
-					<h2>Our Services</h2>
-					<p>Comprehensive digital marketing solutions tailored to your business needs</p>
+					<h2 class="section-title" data-translate="services.title">Our Services</h2>
+					<p class="section-subtitle" data-translate="services.subtitle">Comprehensive digital marketing solutions tailored to your business needs</p>
 				</div>
 				<div class="grid grid-3">
 					{SERVICES.map((service, index) => (
@@ -79,16 +83,16 @@ import { SITE_TITLE, SITE_DESCRIPTION, COMPANY_NAME, COMPANY_TAGLINE, SERVICES }
 					<div class="container">
 						<div class="grid grid-2 about-preview">
 							<div class="about-content animate-on-scroll">
-								<h2>Meet Our Leaders</h2>
-								<p>
+								<h2 class="section-title" data-translate="about.title">Meet Our Leaders</h2>
+								<p data-translate="about.description">
 									PR Wave is led by two passionate digital marketing experts with years of experience 
 									in social media management, advertising, and business growth strategies.
 								</p>
-								<p>
+								<p data-translate="about.experience">
 									Our founders bring together decades of combined experience in helping businesses 
 									establish a strong digital presence and achieve their marketing goals.
 								</p>
-								<a href="/about" class="btn btn-primary mt-md">Learn About Our Team</a>
+								<a href="/about" class="btn btn-primary mt-md" data-translate="about.learnMore">Learn About Our Team</a>
 							</div>
 							<div class="leaders-preview animate-on-scroll">
 								<div class="leader-card animate-float">
@@ -112,8 +116,8 @@ import { SITE_TITLE, SITE_DESCRIPTION, COMPANY_NAME, COMPANY_TAGLINE, SERVICES }
 		<section class="section bg-light">
 			<div class="container">
 				<div class="text-center mb-lg animate-on-scroll">
-					<h2>Master Social Media</h2>
-					<p>Learn the ins and outs of social media platforms with our comprehensive courses</p>
+					<h2 class="section-title" data-translate="courses.title">Master Social Media</h2>
+					<p class="section-subtitle" data-translate="courses.subtitle">Learn the ins and outs of social media platforms with our comprehensive courses</p>
 				</div>
 				<div class="grid grid-2">
 					<div class="card course-card wave-animation animate-on-scroll stagger-1">
@@ -146,11 +150,11 @@ import { SITE_TITLE, SITE_DESCRIPTION, COMPANY_NAME, COMPANY_TAGLINE, SERVICES }
 		<section class="section cta-section">
 			<div class="animated-wave-bg"></div>
 			<div class="container text-center">
-				<h2 class="animate-on-scroll">Ready to Ride the Wave?</h2>
-				<p class="animate-on-scroll">Join hundreds of businesses that have transformed their digital presence with PR Wave</p>
+				<h2 class="section-title animate-on-scroll" data-translate="cta.title">Ready to Ride the Wave?</h2>
+				<p class="section-subtitle animate-on-scroll" data-translate="cta.subtitle">Join hundreds of businesses that have transformed their digital presence with PR Wave</p>
 				<div class="cta-buttons animate-on-scroll">
-					<a href="/contact" class="btn btn-primary">Start Your Journey</a>
-					<a href="/blog" class="btn btn-secondary">Read Our Blog</a>
+					<a href="/contact" class="btn btn-primary" data-translate="cta.startJourney">Start Your Journey</a>
+					<a href="/blog" class="btn btn-secondary" data-translate="cta.readBlog">Read Our Blog</a>
 				</div>
 			</div>
 		</section>
@@ -187,6 +191,39 @@ import { SITE_TITLE, SITE_DESCRIPTION, COMPANY_NAME, COMPANY_TAGLINE, SERVICES }
 		animation: drift 30s ease-in-out infinite alternate;
 	}
 
+	.animated-bg::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: 
+			radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.3), transparent),
+			radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.2), transparent),
+			radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.4), transparent),
+			radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.3), transparent),
+			radial-gradient(2px 2px at 160px 30px, rgba(255,255,255,0.2), transparent);
+		background-repeat: repeat;
+		background-size: 200px 100px;
+		animation: sparkle 4s linear infinite;
+	}
+
+	@keyframes sparkle {
+		0% { 
+			opacity: 0.3;
+			transform: translateY(0px);
+		}
+		50% { 
+			opacity: 0.8;
+			transform: translateY(-10px);
+		}
+		100% { 
+			opacity: 0.3;
+			transform: translateY(0px);
+		}
+	}
+
 	@keyframes drift {
 		0% { transform: translate(-10%, -10%) rotate(0deg); }
 		100% { transform: translate(-5%, -5%) rotate(5deg); }
@@ -219,9 +256,12 @@ import { SITE_TITLE, SITE_DESCRIPTION, COMPANY_NAME, COMPANY_TAGLINE, SERVICES }
 	.hero-title {
 		color: var(--white);
 		font-size: 4rem;
+		font-weight: 800;
 		margin-bottom: var(--spacing-sm);
 		animation: slideInUp 1s ease-out;
 		text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+		letter-spacing: -0.02em;
+		line-height: 1.1;
 	}
 
 	@keyframes slideInUp {
@@ -237,10 +277,12 @@ import { SITE_TITLE, SITE_DESCRIPTION, COMPANY_NAME, COMPANY_TAGLINE, SERVICES }
 
 	.tagline {
 		font-size: 1.8rem;
-		font-weight: 300;
+		font-weight: 400;
 		margin-bottom: var(--spacing-md);
 		opacity: 0.95;
 		animation: slideInUp 1s ease-out 0.3s both;
+		letter-spacing: 0.01em;
+		line-height: 1.4;
 	}
 
 	.hero-description {
@@ -329,23 +371,34 @@ import { SITE_TITLE, SITE_DESCRIPTION, COMPANY_NAME, COMPANY_TAGLINE, SERVICES }
 
 	.service-card:hover .service-icon {
 		transform: scale(1.2) rotate(5deg);
+		animation: pulse 0.6s ease-in-out;
+	}
+
+	@keyframes pulse {
+		0% { transform: scale(1.2) rotate(5deg); }
+		50% { transform: scale(1.3) rotate(8deg); }
+		100% { transform: scale(1.2) rotate(5deg); }
 	}
 
 	/* Enhanced Leader Cards */
 	.about-preview-section {
 		position: relative;
-		overflow: hidden;
+		overflow: visible;
+		padding: var(--spacing-xl) 0;
 	}
 
 	.about-preview-section .parallax-container {
 		position: relative;
 		transform-style: preserve-3d;
-		min-height: auto;
+		min-height: 600px;
 	}
 
 	.about-preview {
 		align-items: center;
 		gap: var(--spacing-xl);
+		position: relative;
+		z-index: 2;
+		padding: var(--spacing-lg) 0;
 	}
 
 	.leaders-preview {
@@ -458,36 +511,190 @@ import { SITE_TITLE, SITE_DESCRIPTION, COMPANY_NAME, COMPANY_TAGLINE, SERVICES }
 		flex-wrap: wrap;
 	}
 
+	/* Enhanced Typography */
+	.section-title {
+		font-size: 2.5rem;
+		font-weight: 700;
+		color: var(--text-heading);
+		margin-bottom: var(--spacing-md);
+		letter-spacing: -0.02em;
+		line-height: 1.2;
+		position: relative;
+	}
+
+	.section-title::after {
+		content: '';
+		position: absolute;
+		bottom: -8px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 60px;
+		height: 3px;
+		background: var(--wave-gradient);
+		border-radius: 2px;
+	}
+
+	.section-subtitle {
+		font-size: 1.2rem;
+		font-weight: 400;
+		color: var(--text-secondary);
+		line-height: 1.6;
+		letter-spacing: 0.01em;
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.cta-section .section-title {
+		color: var(--white);
+	}
+
+	.cta-section .section-subtitle {
+		color: rgba(255, 255, 255, 0.9);
+	}
+
+	/* Card Title Enhancement */
+	.service-card h3,
+	.course-card h3 {
+		font-weight: 600;
+		letter-spacing: -0.01em;
+		line-height: 1.3;
+	}
+
+	.leader-card h4 {
+		font-weight: 600;
+		letter-spacing: -0.01em;
+	}
+
 	/* Responsive Design */
 	@media (max-width: 768px) {
+		.section {
+			padding: var(--spacing-lg) 0;
+		}
+
+		.container {
+			padding: 0 var(--spacing-md);
+		}
+
+		.hero {
+			min-height: 70vh;
+			padding: var(--spacing-xl) 0;
+		}
+
+		.hero-content {
+			padding: var(--spacing-lg) var(--spacing-md);
+		}
+
 		.hero-title {
 			font-size: 2.5rem;
+			margin-bottom: var(--spacing-md);
 		}
 
 		.tagline {
 			font-size: 1.3rem;
+			margin-bottom: var(--spacing-md);
 		}
 
 		.hero-description {
+			font-size: 1rem;
+			margin-bottom: var(--spacing-lg);
+		}
+
+		.wave-icon-large {
+			font-size: 3rem;
+			margin-bottom: var(--spacing-md);
+		}
+
+		.grid {
+			gap: var(--spacing-md);
+		}
+
+		.grid-3 {
+			grid-template-columns: 1fr;
+		}
+
+		.grid-2 {
+			grid-template-columns: 1fr;
+			gap: var(--spacing-lg);
+		}
+
+		.service-card {
+			padding: var(--spacing-lg);
+		}
+
+		.service-icon {
+			font-size: 3rem;
+		}
+
+		.about-preview-section {
+			padding: var(--spacing-lg) 0;
+		}
+
+		.about-preview-section .parallax-container {
+			min-height: auto;
+		}
+
+		.about-content {
+			text-align: center;
+			margin-bottom: var(--spacing-lg);
+		}
+
+		.section-title {
+			font-size: 2rem;
+		}
+
+		.section-subtitle {
 			font-size: 1rem;
 		}
 
 		.leaders-preview {
 			flex-direction: column;
+			gap: var(--spacing-lg);
+			margin-top: var(--spacing-lg);
+		}
+
+		.leader-card {
+			padding: var(--spacing-md);
+		}
+
+		.leader-avatar {
+			font-size: 3rem;
+		}
+
+		.course-card {
+			padding: var(--spacing-lg);
 		}
 
 		.hero-buttons,
 		.cta-buttons {
 			flex-direction: column;
 			align-items: center;
+			gap: var(--spacing-md);
 		}
 
 		.btn {
 			width: 200px;
+			padding: var(--spacing-sm) var(--spacing-lg);
 		}
 
 		.floating-circle {
 			display: none; /* Hide floating elements on mobile for performance */
+		}
+
+		.parallax-layer {
+			position: static !important;
+		}
+
+		.parallax-container {
+			transform-style: initial !important;
+			perspective: none !important;
+		}
+
+		.cta-section h2 {
+			font-size: 2rem;
+		}
+
+		.cta-section p {
+			font-size: 1rem;
 		}
 	}
 </style>
@@ -550,4 +757,69 @@ import { SITE_TITLE, SITE_DESCRIPTION, COMPANY_NAME, COMPANY_TAGLINE, SERVICES }
 
 	// Initial animation check
 	handleScrollAnimations();
+
+	// Translation functionality
+	let currentLanguage = localStorage.getItem('language') || 'en';
+
+	const translations = {
+		en: {
+			'hero.tagline': 'Ride the Digital Wave',
+			'hero.description': 'Transform your digital presence with our comprehensive social media management, advertising solutions, and expert mentorship. We help businesses ride the wave of digital success.',
+			'hero.getStarted': 'Get Started',
+			'hero.learnMore': 'Learn More',
+			'services.title': 'Our Services',
+			'services.subtitle': 'Comprehensive digital marketing solutions tailored to your business needs',
+			'about.title': 'Meet Our Leaders',
+			'about.description': 'PR Wave is led by two passionate digital marketing experts with years of experience in social media management, advertising, and business growth strategies.',
+			'about.experience': 'Our founders bring together decades of combined experience in helping businesses establish a strong digital presence and achieve their marketing goals.',
+			'about.learnMore': 'Learn About Our Team',
+			'courses.title': 'Master Social Media',
+			'courses.subtitle': 'Learn the ins and outs of social media platforms with our comprehensive courses',
+			'cta.title': 'Ready to Ride the Wave?',
+			'cta.subtitle': 'Join hundreds of businesses that have transformed their digital presence with PR Wave',
+			'cta.startJourney': 'Start Your Journey',
+			'cta.readBlog': 'Read Our Blog'
+		},
+		ka: {
+			'hero.tagline': 'დაეშვით ციფრულ ტალღას',
+			'hero.description': 'გარდაქმენით თქვენი ციფრული არსებობა ჩვენი ყოვლისმომცველი სოციალური მედიის მართვით, სარეკლამო გადაწყვეტებით და ექსპერტის ხელმძღვანელობით. ჩვენ ვეხმარებით ბიზნესებს ციფრული წარმატების ტალღას დაეშვან.',
+			'hero.getStarted': 'დაწყება',
+			'hero.learnMore': 'მეტის შესწავლა',
+			'services.title': 'ჩვენი სერვისები',
+			'services.subtitle': 'ყოვლისმომცველი ციფრული მარკეტინგის გადაწყვეტები, რომლებიც მორგებულია თქვენი ბიზნესის საჭიროებებზე',
+			'about.title': 'გაიცანით ჩვენი ლიდერები',
+			'about.description': 'PR Wave-ს ხელმძღვანელობს ორი ვნებიანი ციფრული მარკეტინგის ექსპერტი, რომლებსაც წლების გამოცდილება აქვთ სოციალური მედიის მართვაში, რეკლამასა და ბიზნეს-ზრდის სტრატეგიებში.',
+			'about.experience': 'ჩვენი დამფუძნებლები ერთად აერთიანებენ ათწლეულების გამოცდილებას ბიზნესების დახმარებაში ძლიერი ციფრული პრეზენსის დამყარებისა და მარკეტინგული მიზნების მიღწევისთვის.',
+			'about.learnMore': 'გაიცანით ჩვენი გუნდი',
+			'courses.title': 'დაეუფლეთ სოციალურ მედიას',
+			'courses.subtitle': 'ისწავლეთ სოციალური მედიის პლატფორმების ყველა დეტალი ჩვენი ყოვლისმომცველი კურსებით',
+			'cta.title': 'მზად ხართ ტალღას დაეშვათ?',
+			'cta.subtitle': 'შეუერთდით ასობით ბიზნესს, რომლებმაც გარდაქმნეს თავიანთი ციფრული პრეზენსი PR Wave-თან ერთად',
+			'cta.startJourney': 'დაიწყეთ თქვენი მგზავრობა',
+			'cta.readBlog': 'წაიკითხეთ ჩვენი ბლოგი'
+		}
+	};
+
+	function updateTranslations() {
+		const elementsToTranslate = document.querySelectorAll('[data-translate]');
+		
+		elementsToTranslate.forEach(element => {
+			const translationKey = element.getAttribute('data-translate');
+			const translatedText = translations[currentLanguage as keyof typeof translations]?.[translationKey as keyof typeof translations.en];
+			
+			if (translatedText) {
+				element.textContent = translatedText;
+			}
+		});
+	}
+
+	// Listen for language change events
+	window.addEventListener('languagechange', (e: Event) => {
+		const customEvent = e as CustomEvent;
+		currentLanguage = customEvent.detail.language;
+		updateTranslations();
+	});
+
+	// Initialize translations based on current language
+	updateTranslations();
 </script>

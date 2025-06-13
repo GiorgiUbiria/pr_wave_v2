@@ -1,0 +1,507 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Courses - ${SITE_TITLE}`} description="Master social media marketing with PR Wave's comprehensive online courses. Learn platform strategies, content creation, and advanced advertising techniques." />
+		<link rel="stylesheet" href="/src/styles/global.css" />
+	</head>
+	<body>
+		<Header />
+		
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="container">
+				<h1>Master Social Media</h1>
+				<p>Comprehensive courses designed to transform you into a social media expert</p>
+			</div>
+		</section>
+
+		<!-- Courses Section -->
+		<section class="section">
+			<div class="container">
+				<div class="text-center mb-lg">
+					<h2>Our Course Catalog</h2>
+					<p>Learn from industry experts with hands-on, practical training</p>
+				</div>
+
+				<div class="grid grid-2 courses-grid">
+					<!-- Course 1 -->
+					<div class="card course-card">
+						<div class="course-header">
+							<div class="course-badge">Beginner</div>
+						</div>
+						<h3>Social Media Fundamentals</h3>
+						<p class="course-description">
+							Master the basics of social media marketing across all major platforms. 
+							Perfect for beginners and small business owners.
+						</p>
+						
+						<div class="course-details">
+							<div class="course-stat">
+								<span class="stat-icon">🎥</span>
+								<span>12 Video Lessons</span>
+							</div>
+							<div class="course-stat">
+								<span class="stat-icon">⏱️</span>
+								<span>8 Hours Total</span>
+							</div>
+							<div class="course-stat">
+								<span class="stat-icon">📱</span>
+								<span>All Platforms</span>
+							</div>
+						</div>
+						
+						<div class="course-curriculum">
+							<h4>What You'll Learn:</h4>
+							<ul>
+								<li>Platform-specific strategies for Facebook, Instagram, Twitter, LinkedIn</li>
+								<li>Content creation and planning techniques</li>
+								<li>Audience engagement and community building</li>
+								<li>Basic analytics and performance tracking</li>
+								<li>Content calendar development</li>
+							</ul>
+						</div>
+						
+						<div class="course-footer">
+							<div class="course-price">
+								<span class="price">$199</span>
+								<span class="price-note">One-time payment</span>
+							</div>
+							<button class="btn btn-primary course-btn" disabled>
+								Coming Soon
+							</button>
+						</div>
+					</div>
+
+					<!-- Course 2 -->
+					<div class="card course-card">
+						<div class="course-header">
+							<div class="course-badge advanced">Advanced</div>
+						</div>
+						<h3>Advanced Social Media Advertising</h3>
+						<p class="course-description">
+							Take your advertising campaigns to the next level with advanced targeting, 
+							optimization techniques, and ROI maximization strategies.
+						</p>
+						
+						<div class="course-details">
+							<div class="course-stat">
+								<span class="stat-icon">🎥</span>
+								<span>18 Video Lessons</span>
+							</div>
+							<div class="course-stat">
+								<span class="stat-icon">⏱️</span>
+								<span>12 Hours Total</span>
+							</div>
+							<div class="course-stat">
+								<span class="stat-icon">🎯</span>
+								<span>Ad Platforms</span>
+							</div>
+						</div>
+						
+						<div class="course-curriculum">
+							<h4>What You'll Learn:</h4>
+							<ul>
+								<li>Advanced targeting and audience segmentation</li>
+								<li>Campaign structure and optimization</li>
+								<li>Creative testing and development</li>
+								<li>Conversion tracking and attribution</li>
+								<li>Budget management and scaling strategies</li>
+							</ul>
+						</div>
+						
+						<div class="course-footer">
+							<div class="course-price">
+								<span class="price">$399</span>
+								<span class="price-note">One-time payment</span>
+							</div>
+							<button class="btn btn-primary course-btn" disabled>
+								Coming Soon
+							</button>
+						</div>
+					</div>
+
+					<!-- Course 3 -->
+					<div class="card course-card">
+						<div class="course-header">
+							<div class="course-badge intermediate">Intermediate</div>
+						</div>
+						<h3>Content Creation Mastery</h3>
+						<p class="course-description">
+							Learn to create engaging, high-converting content that drives results. 
+							From copywriting to visual design and video production.
+						</p>
+						
+						<div class="course-details">
+							<div class="course-stat">
+								<span class="stat-icon">🎥</span>
+								<span>15 Video Lessons</span>
+							</div>
+							<div class="course-stat">
+								<span class="stat-icon">⏱️</span>
+								<span>10 Hours Total</span>
+							</div>
+							<div class="course-stat">
+								<span class="stat-icon">🎨</span>
+								<span>Creative Focus</span>
+							</div>
+						</div>
+						
+						<div class="course-curriculum">
+							<h4>What You'll Learn:</h4>
+							<ul>
+								<li>Copywriting techniques for social media</li>
+								<li>Visual design principles and tools</li>
+								<li>Video content creation and editing</li>
+								<li>Content repurposing strategies</li>
+								<li>Brand voice and storytelling</li>
+							</ul>
+						</div>
+						
+						<div class="course-footer">
+							<div class="course-price">
+								<span class="price">$299</span>
+								<span class="price-note">One-time payment</span>
+							</div>
+							<button class="btn btn-primary course-btn" disabled>
+								Coming Soon
+							</button>
+						</div>
+					</div>
+
+					<!-- Course 4 -->
+					<div class="card course-card">
+						<div class="course-header">
+							<div class="course-badge expert">Expert</div>
+						</div>
+						<h3>Social Media Strategy & Analytics</h3>
+						<p class="course-description">
+							Develop comprehensive social media strategies and master analytics to 
+							measure success and optimize performance across all channels.
+						</p>
+						
+						<div class="course-details">
+							<div class="course-stat">
+								<span class="stat-icon">🎥</span>
+								<span>20 Video Lessons</span>
+							</div>
+							<div class="course-stat">
+								<span class="stat-icon">⏱️</span>
+								<span>14 Hours Total</span>
+							</div>
+							<div class="course-stat">
+								<span class="stat-icon">📊</span>
+								<span>Analytics Focus</span>
+							</div>
+						</div>
+						
+						<div class="course-curriculum">
+							<h4>What You'll Learn:</h4>
+							<ul>
+								<li>Strategic planning and goal setting</li>
+								<li>Advanced analytics and reporting</li>
+								<li>Competitive analysis techniques</li>
+								<li>ROI measurement and optimization</li>
+								<li>Team management and workflow optimization</li>
+							</ul>
+						</div>
+						
+						<div class="course-footer">
+							<div class="course-price">
+								<span class="price">$499</span>
+								<span class="price-note">One-time payment</span>
+							</div>
+							<button class="btn btn-primary course-btn" disabled>
+								Coming Soon
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Coming Soon Notice -->
+		<section class="section bg-light">
+			<div class="container text-center">
+				<h2>Courses Coming Soon!</h2>
+				<p>We're putting the finishing touches on our comprehensive course platform. Get notified when courses are available!</p>
+				
+				<div class="newsletter-signup">
+					<form class="signup-form" id="newsletter-form">
+						<input type="email" placeholder="Enter your email address" required>
+						<button type="submit" class="btn btn-primary">Notify Me</button>
+					</form>
+				</div>
+				
+				<div class="coming-features">
+					<h3>What to Expect:</h3>
+					<div class="grid grid-3 features-grid">
+						<div class="feature-item">
+							<div class="feature-icon">☁️</div>
+							<h4>Cloud-Based Learning</h4>
+							<p>Stream high-quality video content from Google Cloud Storage</p>
+						</div>
+						<div class="feature-item">
+							<div class="feature-icon">📱</div>
+							<h4>Mobile-Friendly</h4>
+							<p>Learn on any device, anywhere, anytime</p>
+						</div>
+						<div class="feature-item">
+							<div class="feature-icon">🏆</div>
+							<h4>Certificates</h4>
+							<p>Earn completion certificates for your professional portfolio</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.hero {
+		background: var(--wave-gradient);
+		color: var(--white);
+		text-align: center;
+		padding: var(--spacing-xl) 0;
+	}
+
+	.hero h1 {
+		color: var(--white);
+		font-size: 3rem;
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.hero p {
+		font-size: 1.2rem;
+		opacity: 0.9;
+	}
+
+	.courses-grid {
+		gap: var(--spacing-xl);
+	}
+
+	.course-card {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
+
+	.course-header {
+		display: flex;
+		justify-content: flex-end;
+		margin-bottom: var(--spacing-md);
+	}
+
+	.course-badge {
+		padding: var(--spacing-xs) var(--spacing-sm);
+		background: var(--ocean-blue);
+		color: var(--white);
+		border-radius: var(--radius-lg);
+		font-size: 0.8rem;
+		font-weight: 600;
+		text-transform: uppercase;
+	}
+
+	.course-badge.intermediate {
+		background: #ff9500;
+	}
+
+	.course-badge.advanced {
+		background: #ff6b35;
+	}
+
+	.course-badge.expert {
+		background: #8b5cf6;
+	}
+
+	.course-description {
+		flex-grow: 1;
+		margin-bottom: var(--spacing-md);
+	}
+
+	.course-details {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--spacing-md);
+		margin-bottom: var(--spacing-lg);
+		padding: var(--spacing-md);
+		background: var(--light-gray);
+		border-radius: var(--radius-md);
+	}
+
+	.course-stat {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-xs);
+		font-size: 0.9rem;
+	}
+
+	.stat-icon {
+		font-size: 1.1rem;
+	}
+
+	.course-curriculum {
+		margin-bottom: var(--spacing-lg);
+	}
+
+	.course-curriculum h4 {
+		margin-bottom: var(--spacing-sm);
+		color: var(--dark-blue);
+	}
+
+	.course-curriculum ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	.course-curriculum li {
+		padding: var(--spacing-xs) 0;
+		position: relative;
+		padding-left: var(--spacing-md);
+	}
+
+	.course-curriculum li::before {
+		content: '✓';
+		position: absolute;
+		left: 0;
+		color: var(--ocean-blue);
+		font-weight: bold;
+	}
+
+	.course-footer {
+		margin-top: auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-top: var(--spacing-md);
+		border-top: 1px solid var(--light-gray);
+	}
+
+	.course-price {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.price {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: var(--ocean-blue);
+	}
+
+	.price-note {
+		font-size: 0.8rem;
+		color: var(--gray);
+	}
+
+	.course-btn {
+		min-width: 120px;
+	}
+
+	.course-btn:disabled {
+		background: var(--gray);
+		cursor: not-allowed;
+		transform: none;
+	}
+
+	.newsletter-signup {
+		margin: var(--spacing-lg) 0;
+	}
+
+	.signup-form {
+		display: flex;
+		gap: var(--spacing-sm);
+		max-width: 400px;
+		margin: 0 auto;
+	}
+
+	.signup-form input {
+		flex: 1;
+		padding: var(--spacing-sm);
+		border: 2px solid var(--light-gray);
+		border-radius: var(--radius-md);
+		font-size: 1rem;
+	}
+
+	.signup-form input:focus {
+		outline: none;
+		border-color: var(--ocean-blue);
+	}
+
+	.coming-features {
+		margin-top: var(--spacing-xl);
+	}
+
+	.features-grid {
+		margin-top: var(--spacing-lg);
+	}
+
+	.feature-item {
+		text-align: center;
+	}
+
+	.feature-icon {
+		font-size: 2.5rem;
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.feature-item h4 {
+		margin-bottom: var(--spacing-xs);
+		color: var(--dark-blue);
+	}
+
+	@media (max-width: 768px) {
+		.hero h1 {
+			font-size: 2.5rem;
+		}
+
+		.courses-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.course-details {
+			flex-direction: column;
+			gap: var(--spacing-sm);
+		}
+
+		.course-footer {
+			flex-direction: column;
+			gap: var(--spacing-md);
+			text-align: center;
+		}
+
+		.signup-form {
+			flex-direction: column;
+		}
+
+		.features-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
+
+<script>
+	const newsletterForm = document.getElementById('newsletter-form') as HTMLFormElement;
+	newsletterForm?.addEventListener('submit', function(e) {
+		e.preventDefault();
+		
+		const email = (this.querySelector('input[type="email"]') as HTMLInputElement).value;
+		
+		// Here you would typically send the email to your backend
+		console.log('Newsletter signup:', email);
+		
+		// Show success message
+		alert('Thank you! We\'ll notify you when courses are available.');
+		
+		// Reset form
+		this.reset();
+	});
+</script> 

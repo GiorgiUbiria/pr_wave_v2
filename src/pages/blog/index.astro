@@ -2,7 +2,7 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { SITE_TITLE } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 import { Image } from 'astro:assets';
@@ -15,100 +15,451 @@ const posts = (await getCollection('blog')).sort(
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
+		<BaseHead title={`Blog - ${SITE_TITLE}`} description="Latest insights, tips, and trends in social media marketing and digital strategy from the PR Wave team." />
+		<link rel="stylesheet" href="/src/styles/global.css" />
 	</head>
 	<body>
 		<Header />
-		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
+		
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="container">
+				<h1>PR Wave Blog</h1>
+				<p>Latest insights, tips, and trends in social media marketing</p>
+			</div>
+		</section>
+
+		<!-- Blog Posts Section -->
+		<section class="section">
+			<div class="container">
+				{posts.length === 0 ? (
+					<div class="no-posts">
+						<div class="no-posts-icon">📝</div>
+						<h2>No Blog Posts Yet</h2>
+						<p>We're working on creating amazing content for you. Check back soon!</p>
+						<a href="/contact" class="btn btn-primary">Contact Us</a>
+					</div>
+				) : (
+					<div class="blog-grid">
+						{posts.map((post, index) => (
+							<article class={`blog-card ${index === 0 ? 'featured' : ''} animate-on-scroll stagger-${(index % 4) + 1}`}>
+								<a href={`/blog/${post.id}/`} class="blog-link">
 									{post.data.heroImage && (
-										<Image width={720} height={360} src={post.data.heroImage} alt="" />
+										<div class="blog-image">
+											<Image 
+												width={index === 0 ? 800 : 400} 
+												height={index === 0 ? 400 : 250} 
+												src={post.data.heroImage} 
+												alt={post.data.title}
+												class="image"
+											/>
+											<div class="image-overlay"></div>
+										</div>
 									)}
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
+									<div class="blog-content">
+										{index === 0 && <span class="featured-badge">Featured</span>}
+										<div class="blog-meta">
+											<FormattedDate date={post.data.pubDate} />
+											<span class="read-time">5 min read</span>
+										</div>
+										<h2 class="blog-title">{post.data.title}</h2>
+										<p class="blog-description">{post.data.description}</p>
+										<div class="read-more">
+											<span>Read More</span>
+											<span class="arrow">→</span>
+										</div>
+									</div>
 								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main>
+							</article>
+						))}
+					</div>
+				)}
+			</div>
+		</section>
+
+		<!-- Newsletter Section -->
+		<section class="section bg-light newsletter-section">
+			<div class="container">
+				<div class="newsletter-content">
+					<h2>Stay Updated</h2>
+					<p>Get the latest social media tips and digital marketing insights delivered to your inbox.</p>
+					<form class="newsletter-form" id="newsletter-form">
+						<div class="form-group">
+							<input type="email" placeholder="Enter your email address" required>
+							<button type="submit" class="btn btn-primary">Subscribe</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.hero {
+		background: var(--wave-gradient);
+		color: var(--white);
+		text-align: center;
+		padding: var(--spacing-xl) 0;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.hero::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+		animation: float 20s ease-in-out infinite;
+	}
+
+	.hero h1 {
+		color: var(--white);
+		font-size: 3rem;
+		margin-bottom: var(--spacing-sm);
+		position: relative;
+		z-index: 2;
+	}
+
+	.hero p {
+		font-size: 1.2rem;
+		opacity: 0.9;
+		position: relative;
+		z-index: 2;
+	}
+
+	/* No Posts State */
+	.no-posts {
+		text-align: center;
+		padding: var(--spacing-2xl) 0;
+		max-width: 500px;
+		margin: 0 auto;
+	}
+
+	.no-posts-icon {
+		font-size: 4rem;
+		margin-bottom: var(--spacing-lg);
+		opacity: 0.7;
+	}
+
+	.no-posts h2 {
+		margin-bottom: var(--spacing-md);
+		color: var(--text-heading);
+	}
+
+	.no-posts p {
+		margin-bottom: var(--spacing-lg);
+		color: var(--text-secondary);
+		font-size: 1.1rem;
+	}
+
+	/* Blog Grid */
+	.blog-grid {
+		display: grid;
+		gap: var(--spacing-xl);
+		grid-template-columns: 1fr;
+	}
+
+	/* Blog Cards */
+	.blog-card {
+		background: var(--card-bg);
+		border-radius: var(--radius-lg);
+		overflow: hidden;
+		box-shadow: var(--shadow-md);
+		transition: all var(--transition-normal);
+		border: 1px solid var(--border-color);
+		position: relative;
+	}
+
+	.blog-card:hover {
+		transform: translateY(-8px);
+		box-shadow: var(--shadow-lg);
+	}
+
+	.blog-card.featured {
+		grid-column: 1 / -1;
+	}
+
+	.blog-link {
+		display: block;
+		text-decoration: none;
+		color: inherit;
+		height: 100%;
+	}
+
+	/* Blog Images */
+	.blog-image {
+		position: relative;
+		overflow: hidden;
+		height: 250px;
+	}
+
+	.featured .blog-image {
+		height: 400px;
+	}
+
+	.image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform var(--transition-normal);
+	}
+
+	.blog-card:hover .image {
+		transform: scale(1.05);
+	}
+
+	.image-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(
+			180deg,
+			transparent 0%,
+			transparent 60%,
+			rgba(0, 0, 0, 0.3) 100%
+		);
+		opacity: 0;
+		transition: opacity var(--transition-normal);
+	}
+
+	.blog-card:hover .image-overlay {
+		opacity: 1;
+	}
+
+	/* Blog Content */
+	.blog-content {
+		padding: var(--spacing-lg);
+		position: relative;
+	}
+
+	.featured-badge {
+		position: absolute;
+		top: -var(--spacing-sm);
+		right: var(--spacing-lg);
+		background: var(--ocean-blue);
+		color: var(--white);
+		padding: var(--spacing-xs) var(--spacing-sm);
+		border-radius: var(--radius-lg);
+		font-size: 0.8rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+
+	.blog-meta {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-md);
+		margin-bottom: var(--spacing-md);
+		font-size: 0.9rem;
+		color: var(--text-secondary);
+	}
+
+	.read-time {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-xs);
+	}
+
+	.read-time::before {
+		content: '⏱️';
+		font-size: 0.8rem;
+	}
+
+	.blog-title {
+		font-size: 1.5rem;
+		margin-bottom: var(--spacing-sm);
+		color: var(--text-heading);
+		line-height: 1.3;
+		transition: color var(--transition-fast);
+	}
+
+	.featured .blog-title {
+		font-size: 2rem;
+	}
+
+	.blog-link:hover .blog-title {
+		color: var(--ocean-blue);
+	}
+
+	.blog-description {
+		color: var(--text-secondary);
+		line-height: 1.6;
+		margin-bottom: var(--spacing-lg);
+	}
+
+	.read-more {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-sm);
+		color: var(--ocean-blue);
+		font-weight: 600;
+		font-size: 0.9rem;
+	}
+
+	.arrow {
+		transition: transform var(--transition-fast);
+	}
+
+	.blog-card:hover .arrow {
+		transform: translateX(5px);
+	}
+
+	/* Newsletter Section */
+	.newsletter-section {
+		text-align: center;
+	}
+
+	.newsletter-content {
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.newsletter-content h2 {
+		margin-bottom: var(--spacing-sm);
+		color: var(--text-heading);
+	}
+
+	.newsletter-content p {
+		margin-bottom: var(--spacing-lg);
+		color: var(--text-secondary);
+		font-size: 1.1rem;
+	}
+
+	.newsletter-form .form-group {
+		display: flex;
+		gap: var(--spacing-sm);
+		max-width: 400px;
+		margin: 0 auto;
+	}
+
+	.newsletter-form input {
+		flex: 1;
+		padding: var(--spacing-sm) var(--spacing-md);
+		border: 2px solid var(--border-color);
+		border-radius: var(--radius-md);
+		font-size: 1rem;
+		background: var(--card-bg);
+		color: var(--text-primary);
+		transition: border-color var(--transition-fast);
+	}
+
+	.newsletter-form input:focus {
+		outline: none;
+		border-color: var(--ocean-blue);
+	}
+
+	.newsletter-form input::placeholder {
+		color: var(--text-secondary);
+	}
+
+	/* Responsive Design */
+	@media (min-width: 768px) {
+		.blog-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.featured {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			align-items: center;
+		}
+
+		.featured .blog-image {
+			height: 100%;
+			min-height: 300px;
+		}
+
+		.featured .blog-content {
+			padding: var(--spacing-xl);
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.blog-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		.featured {
+			grid-template-columns: 2fr 1fr;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.hero h1 {
+			font-size: 2.5rem;
+		}
+
+		.newsletter-form .form-group {
+			flex-direction: column;
+		}
+
+		.newsletter-form .btn {
+			width: 100%;
+		}
+	}
+
+	/* Animation Classes */
+	.animate-on-scroll {
+		opacity: 0;
+		transform: translateY(30px);
+		transition: all 0.8s ease;
+	}
+
+	.animate-on-scroll.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	.stagger-1 { transition-delay: 0.1s; }
+	.stagger-2 { transition-delay: 0.2s; }
+	.stagger-3 { transition-delay: 0.3s; }
+	.stagger-4 { transition-delay: 0.4s; }
+</style>
+
+<script>
+	// Scroll-triggered animations
+	function handleScrollAnimations() {
+		const animatedElements = document.querySelectorAll('.animate-on-scroll');
+		
+		animatedElements.forEach(element => {
+			const elementTop = element.getBoundingClientRect().top;
+			const elementVisible = 150;
+			
+			if (elementTop < window.innerHeight - elementVisible) {
+				element.classList.add('visible');
+			}
+		});
+	}
+
+	// Newsletter form submission
+	const newsletterForm = document.getElementById('newsletter-form') as HTMLFormElement;
+	newsletterForm?.addEventListener('submit', function(e) {
+		e.preventDefault();
+		
+		const email = (this.querySelector('input[type="email"]') as HTMLInputElement).value;
+		
+		// Here you would typically send the email to your backend
+		console.log('Newsletter signup:', email);
+		
+		// Show success message
+		alert('Thank you for subscribing! We\'ll keep you updated with our latest content.');
+		
+		// Reset form
+		this.reset();
+	});
+
+	// Event listeners
+	window.addEventListener('scroll', handleScrollAnimations);
+	
+	// Initial animation check
+	handleScrollAnimations();
+</script>

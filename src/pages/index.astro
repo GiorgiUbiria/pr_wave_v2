@@ -2,48 +2,552 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { SITE_TITLE, SITE_DESCRIPTION, COMPANY_NAME, COMPANY_TAGLINE, SERVICES } from '../consts';
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<link rel="stylesheet" href="/src/styles/global.css" />
 	</head>
 	<body>
 		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
+		
+		<!-- Hero Section with Parallax -->
+		<section class="hero parallax-container" id="hero">
+			<div class="parallax-layer parallax-back">
+				<div class="animated-bg"></div>
+			</div>
+			<div class="parallax-layer parallax-base">
+				<div class="container">
+					<div class="hero-content">
+						<div class="wave-icon-large animate-bounce">🌊</div>
+						<h1 class="hero-title">{COMPANY_NAME}</h1>
+						<p class="tagline">{COMPANY_TAGLINE}</p>
+						<p class="hero-description">
+							Transform your digital presence with our comprehensive social media management, 
+							advertising solutions, and expert mentorship. We help businesses ride the wave 
+							of digital success.
+						</p>
+						<div class="hero-buttons">
+							<a href="/contact" class="btn btn-primary">Get Started</a>
+							<a href="/about" class="btn btn-secondary">Learn More</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Services Section -->
+		<section class="section bg-light">
+			<div class="container">
+				<div class="text-center mb-lg animate-on-scroll">
+					<h2>Our Services</h2>
+					<p>Comprehensive digital marketing solutions tailored to your business needs</p>
+				</div>
+				<div class="grid grid-3">
+					{SERVICES.map((service, index) => (
+						<div class={`card service-card wave-animation animate-on-scroll stagger-${(index % 6) + 1}`}>
+							<div class="service-icon">
+								{service === 'Social Media Management' && '📱'}
+								{service === 'Digital Advertising' && '📊'}
+								{service === 'Business Mentorship' && '🎯'}
+								{service === 'Content Creation' && '✍️'}
+								{service === 'Brand Strategy' && '🎨'}
+								{service === 'Analytics & Reporting' && '📈'}
+							</div>
+							<h3>{service}</h3>
+							<p>Professional {service.toLowerCase()} services to help your business grow and succeed in the digital landscape.</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- About Preview Section with Parallax -->
+		<section class="section about-preview-section">
+			<div class="parallax-container">
+				<div class="parallax-layer parallax-back">
+					<div class="floating-elements">
+						<div class="floating-circle circle-1"></div>
+						<div class="floating-circle circle-2"></div>
+						<div class="floating-circle circle-3"></div>
+					</div>
+				</div>
+				<div class="parallax-layer parallax-base">
+					<div class="container">
+						<div class="grid grid-2 about-preview">
+							<div class="about-content animate-on-scroll">
+								<h2>Meet Our Leaders</h2>
+								<p>
+									PR Wave is led by two passionate digital marketing experts with years of experience 
+									in social media management, advertising, and business growth strategies.
+								</p>
+								<p>
+									Our founders bring together decades of combined experience in helping businesses 
+									establish a strong digital presence and achieve their marketing goals.
+								</p>
+								<a href="/about" class="btn btn-primary mt-md">Learn About Our Team</a>
+							</div>
+							<div class="leaders-preview animate-on-scroll">
+								<div class="leader-card animate-float">
+									<div class="leader-avatar">👩‍💼</div>
+									<h4>Sarah Johnson</h4>
+									<p>Co-Founder & Digital Strategy Expert</p>
+								</div>
+								<div class="leader-card animate-float" style="animation-delay: 1s;">
+									<div class="leader-avatar">👨‍💼</div>
+									<h4>Michael Chen</h4>
+									<p>Co-Founder & Social Media Specialist</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Courses Section -->
+		<section class="section bg-light">
+			<div class="container">
+				<div class="text-center mb-lg animate-on-scroll">
+					<h2>Master Social Media</h2>
+					<p>Learn the ins and outs of social media platforms with our comprehensive courses</p>
+				</div>
+				<div class="grid grid-2">
+					<div class="card course-card wave-animation animate-on-scroll stagger-1">
+						<h3>Social Media Fundamentals</h3>
+						<p>Master the basics of social media marketing across all major platforms.</p>
+						<ul class="course-features">
+							<li>Platform-specific strategies</li>
+							<li>Content creation techniques</li>
+							<li>Audience engagement methods</li>
+							<li>Analytics and optimization</li>
+						</ul>
+						<a href="/courses" class="btn btn-primary mt-md">View Courses</a>
+					</div>
+					<div class="card course-card wave-animation animate-on-scroll stagger-2">
+						<h3>Advanced Advertising</h3>
+						<p>Take your advertising campaigns to the next level with advanced techniques.</p>
+						<ul class="course-features">
+							<li>Advanced targeting strategies</li>
+							<li>Campaign optimization</li>
+							<li>ROI maximization</li>
+							<li>Creative development</li>
+						</ul>
+						<a href="/courses" class="btn btn-primary mt-md">View Courses</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA Section with Animated Background -->
+		<section class="section cta-section">
+			<div class="animated-wave-bg"></div>
+			<div class="container text-center">
+				<h2 class="animate-on-scroll">Ready to Ride the Wave?</h2>
+				<p class="animate-on-scroll">Join hundreds of businesses that have transformed their digital presence with PR Wave</p>
+				<div class="cta-buttons animate-on-scroll">
+					<a href="/contact" class="btn btn-primary">Start Your Journey</a>
+					<a href="/blog" class="btn btn-secondary">Read Our Blog</a>
+				</div>
+			</div>
+		</section>
+
 		<Footer />
 	</body>
 </html>
+
+<style>
+	/* Enhanced Hero Section */
+	.hero {
+		background: var(--wave-gradient);
+		color: var(--white);
+		text-align: center;
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		overflow: hidden;
+		perspective: 1px;
+	}
+
+	.animated-bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 200%;
+		height: 200%;
+		background: 
+			radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+			radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
+			radial-gradient(circle at 40% 80%, rgba(255,255,255,0.08) 0%, transparent 50%);
+		animation: drift 30s ease-in-out infinite alternate;
+	}
+
+	@keyframes drift {
+		0% { transform: translate(-10%, -10%) rotate(0deg); }
+		100% { transform: translate(-5%, -5%) rotate(5deg); }
+	}
+
+	.hero-content {
+		max-width: 800px;
+		margin: 0 auto;
+		position: relative;
+		z-index: 2;
+		padding: var(--spacing-xl) var(--spacing-md);
+	}
+
+	.wave-icon-large {
+		font-size: 4rem;
+		margin-bottom: var(--spacing-md);
+		display: inline-block;
+	}
+
+	.animate-bounce {
+		animation: customBounce 3s ease-in-out infinite;
+	}
+
+	@keyframes customBounce {
+		0%, 20%, 50%, 80%, 100% { transform: translateY(0) scale(1); }
+		40% { transform: translateY(-20px) scale(1.1); }
+		60% { transform: translateY(-10px) scale(1.05); }
+	}
+
+	.hero-title {
+		color: var(--white);
+		font-size: 4rem;
+		margin-bottom: var(--spacing-sm);
+		animation: slideInUp 1s ease-out;
+		text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+	}
+
+	@keyframes slideInUp {
+		from {
+			opacity: 0;
+			transform: translateY(50px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.tagline {
+		font-size: 1.8rem;
+		font-weight: 300;
+		margin-bottom: var(--spacing-md);
+		opacity: 0.95;
+		animation: slideInUp 1s ease-out 0.3s both;
+	}
+
+	.hero-description {
+		font-size: 1.2rem;
+		margin-bottom: var(--spacing-xl);
+		opacity: 0.9;
+		line-height: 1.7;
+		animation: slideInUp 1s ease-out 0.6s both;
+	}
+
+	.hero-buttons {
+		display: flex;
+		gap: var(--spacing-md);
+		justify-content: center;
+		flex-wrap: wrap;
+		animation: slideInUp 1s ease-out 0.9s both;
+	}
+
+	/* Floating Elements */
+	.floating-elements {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+	}
+
+	.floating-circle {
+		position: absolute;
+		border-radius: 50%;
+		background: rgba(0, 119, 190, 0.1);
+		animation: floatCircle 20s linear infinite;
+	}
+
+	.circle-1 {
+		width: 100px;
+		height: 100px;
+		top: 20%;
+		left: 10%;
+		animation-duration: 25s;
+	}
+
+	.circle-2 {
+		width: 60px;
+		height: 60px;
+		top: 60%;
+		right: 15%;
+		animation-duration: 30s;
+		animation-direction: reverse;
+	}
+
+	.circle-3 {
+		width: 80px;
+		height: 80px;
+		bottom: 20%;
+		left: 20%;
+		animation-duration: 35s;
+	}
+
+	@keyframes floatCircle {
+		0% { transform: translateY(0) translateX(0) rotate(0deg); }
+		33% { transform: translateY(-30px) translateX(30px) rotate(120deg); }
+		66% { transform: translateY(20px) translateX(-20px) rotate(240deg); }
+		100% { transform: translateY(0) translateX(0) rotate(360deg); }
+	}
+
+	/* Enhanced Service Cards */
+	.service-card {
+		text-align: center;
+		transition: all var(--transition-normal);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.service-card:hover {
+		transform: translateY(-8px) scale(1.02);
+	}
+
+	.service-icon {
+		font-size: 3.5rem;
+		margin-bottom: var(--spacing-md);
+		display: inline-block;
+		transition: transform var(--transition-normal);
+	}
+
+	.service-card:hover .service-icon {
+		transform: scale(1.2) rotate(5deg);
+	}
+
+	/* Enhanced Leader Cards */
+	.about-preview-section {
+		position: relative;
+		overflow: hidden;
+	}
+
+	.about-preview-section .parallax-container {
+		position: relative;
+		transform-style: preserve-3d;
+		min-height: auto;
+	}
+
+	.about-preview {
+		align-items: center;
+		gap: var(--spacing-xl);
+	}
+
+	.leaders-preview {
+		display: flex;
+		gap: var(--spacing-md);
+		justify-content: center;
+	}
+
+	.leader-card {
+		text-align: center;
+		padding: var(--spacing-md);
+		transition: transform var(--transition-normal);
+	}
+
+	.animate-float {
+		animation: gentleFloat 6s ease-in-out infinite;
+	}
+
+	@keyframes gentleFloat {
+		0%, 100% { transform: translateY(0); }
+		50% { transform: translateY(-10px); }
+	}
+
+	.leader-avatar {
+		font-size: 4rem;
+		margin-bottom: var(--spacing-sm);
+		transition: transform var(--transition-normal);
+	}
+
+	.leader-card:hover .leader-avatar {
+		transform: scale(1.1);
+	}
+
+	.leader-card h4 {
+		margin-bottom: var(--spacing-xs);
+		color: var(--text-heading);
+	}
+
+	.leader-card p {
+		color: var(--text-secondary);
+		font-size: 0.9rem;
+	}
+
+	/* Course Cards */
+	.course-card {
+		position: relative;
+		transition: all var(--transition-normal);
+	}
+
+	.course-features {
+		list-style: none;
+		padding: 0;
+		margin: var(--spacing-md) 0;
+	}
+
+	.course-features li {
+		padding: var(--spacing-xs) 0;
+		position: relative;
+		padding-left: var(--spacing-md);
+	}
+
+	.course-features li::before {
+		content: '✓';
+		position: absolute;
+		left: 0;
+		color: var(--ocean-blue);
+		font-weight: bold;
+	}
+
+	/* Enhanced CTA Section */
+	.cta-section {
+		background: var(--wave-gradient);
+		color: var(--white);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.animated-wave-bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 200%;
+		height: 100%;
+		background: 
+			linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.05) 50%, transparent 60%),
+			linear-gradient(-45deg, transparent 40%, rgba(255,255,255,0.05) 50%, transparent 60%);
+		animation: waveFlow 8s linear infinite;
+	}
+
+	@keyframes waveFlow {
+		0% { transform: translateX(-50%); }
+		100% { transform: translateX(0%); }
+	}
+
+	.cta-section h2 {
+		color: var(--white);
+		margin-bottom: var(--spacing-md);
+	}
+
+	.cta-section p {
+		font-size: 1.1rem;
+		margin-bottom: var(--spacing-lg);
+		opacity: 0.9;
+	}
+
+	.cta-buttons {
+		display: flex;
+		gap: var(--spacing-md);
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	/* Responsive Design */
+	@media (max-width: 768px) {
+		.hero-title {
+			font-size: 2.5rem;
+		}
+
+		.tagline {
+			font-size: 1.3rem;
+		}
+
+		.hero-description {
+			font-size: 1rem;
+		}
+
+		.leaders-preview {
+			flex-direction: column;
+		}
+
+		.hero-buttons,
+		.cta-buttons {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.btn {
+			width: 200px;
+		}
+
+		.floating-circle {
+			display: none; /* Hide floating elements on mobile for performance */
+		}
+	}
+</style>
+
+<script>
+	// Parallax scrolling effect
+	function handleParallax() {
+		const scrollTop = window.pageYOffset;
+		const parallaxElements = document.querySelectorAll('.parallax-back');
+		
+		parallaxElements.forEach(element => {
+			const speed = 0.5;
+			const yPos = -(scrollTop * speed);
+			(element as HTMLElement).style.transform = `translateY(${yPos}px)`;
+		});
+	}
+
+	// Scroll-triggered animations
+	function handleScrollAnimations() {
+		const animatedElements = document.querySelectorAll('.animate-on-scroll');
+		
+		animatedElements.forEach(element => {
+			const elementTop = element.getBoundingClientRect().top;
+			const elementVisible = 150;
+			
+			if (elementTop < window.innerHeight - elementVisible) {
+				element.classList.add('visible');
+			}
+		});
+	}
+
+	// Mouse movement parallax for hero section
+	function handleMouseParallax(e: MouseEvent) {
+		const hero = document.getElementById('hero');
+		if (!hero) return;
+		
+		const rect = hero.getBoundingClientRect();
+		const x = e.clientX - rect.left;
+		const y = e.clientY - rect.top;
+		
+		const centerX = rect.width / 2;
+		const centerY = rect.height / 2;
+		
+		const deltaX = (x - centerX) / centerX;
+		const deltaY = (y - centerY) / centerY;
+		
+		const animatedBg = hero.querySelector('.animated-bg') as HTMLElement;
+		if (animatedBg) {
+			animatedBg.style.transform = `translate(${deltaX * 10}px, ${deltaY * 10}px)`;
+		}
+	}
+
+	// Event listeners
+	window.addEventListener('scroll', () => {
+		handleParallax();
+		handleScrollAnimations();
+	});
+
+	document.addEventListener('mousemove', handleMouseParallax);
+
+	// Initial animation check
+	handleScrollAnimations();
+</script>

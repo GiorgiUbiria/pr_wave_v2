@@ -1,0 +1,350 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, CONTACT_INFO } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Contact - ${SITE_TITLE}`} description="Get in touch with PR Wave for professional social media management and digital marketing services." />
+		<link rel="stylesheet" href="/src/styles/global.css" />
+	</head>
+	<body>
+		<Header />
+		
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="container">
+				<h1>Get In Touch</h1>
+				<p>Ready to transform your digital presence? Let's start the conversation.</p>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section class="section">
+			<div class="container">
+				<div class="grid grid-2 contact-grid">
+					<!-- Contact Form -->
+					<div class="contact-form-container">
+						<div class="card">
+							<h2>Send Us a Message</h2>
+							<form class="contact-form" id="contact-form">
+								<div class="form-group">
+									<label for="name">Full Name</label>
+									<input type="text" id="name" name="name" required>
+								</div>
+								
+								<div class="form-group">
+									<label for="email">Email Address</label>
+									<input type="email" id="email" name="email" required>
+								</div>
+								
+								<div class="form-group">
+									<label for="company">Company Name</label>
+									<input type="text" id="company" name="company">
+								</div>
+								
+								<div class="form-group">
+									<label for="service">Service Interest</label>
+									<select id="service" name="service" required>
+										<option value="">Select a service</option>
+										<option value="social-media">Social Media Management</option>
+										<option value="advertising">Digital Advertising</option>
+										<option value="mentorship">Business Mentorship</option>
+										<option value="content">Content Creation</option>
+										<option value="strategy">Brand Strategy</option>
+										<option value="analytics">Analytics & Reporting</option>
+										<option value="courses">Courses</option>
+										<option value="other">Other</option>
+									</select>
+								</div>
+								
+								<div class="form-group">
+									<label for="budget">Budget Range</label>
+									<select id="budget" name="budget">
+										<option value="">Select budget range</option>
+										<option value="under-1k">Under $1,000/month</option>
+										<option value="1k-5k">$1,000 - $5,000/month</option>
+										<option value="5k-10k">$5,000 - $10,000/month</option>
+										<option value="10k-plus">$10,000+/month</option>
+									</select>
+								</div>
+								
+								<div class="form-group">
+									<label for="message">Message</label>
+									<textarea id="message" name="message" rows="5" placeholder="Tell us about your project and goals..." required></textarea>
+								</div>
+								
+								<button type="submit" class="btn btn-primary btn-full">Send Message</button>
+							</form>
+						</div>
+					</div>
+
+					<!-- Contact Information -->
+					<div class="contact-info">
+						<div class="card">
+							<h3>Contact Information</h3>
+							<div class="contact-item">
+								<div class="contact-icon">📧</div>
+								<div>
+									<h4>Email</h4>
+									<a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a>
+								</div>
+							</div>
+							
+							<div class="contact-item">
+								<div class="contact-icon">📞</div>
+								<div>
+									<h4>Phone</h4>
+									<a href={`tel:${CONTACT_INFO.phone}`}>{CONTACT_INFO.phone}</a>
+								</div>
+							</div>
+							
+							<div class="contact-item">
+								<div class="contact-icon">📍</div>
+								<div>
+									<h4>Address</h4>
+									<p>{CONTACT_INFO.address}</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<h3>Business Hours</h3>
+							<div class="hours-list">
+								<div class="hours-item">
+									<span>Monday - Friday</span>
+									<span>9:00 AM - 6:00 PM</span>
+								</div>
+								<div class="hours-item">
+									<span>Saturday</span>
+									<span>10:00 AM - 4:00 PM</span>
+								</div>
+								<div class="hours-item">
+									<span>Sunday</span>
+									<span>Closed</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<h3>Follow Us</h3>
+							<div class="social-links">
+								<a href="#" class="social-link">
+									<span class="social-icon">📘</span>
+									Facebook
+								</a>
+								<a href="#" class="social-link">
+									<span class="social-icon">📷</span>
+									Instagram
+								</a>
+								<a href="#" class="social-link">
+									<span class="social-icon">🐦</span>
+									Twitter
+								</a>
+								<a href="#" class="social-link">
+									<span class="social-icon">💼</span>
+									LinkedIn
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.hero {
+		background: var(--wave-gradient);
+		color: var(--white);
+		text-align: center;
+		padding: var(--spacing-xl) 0;
+	}
+
+	.hero h1 {
+		color: var(--white);
+		font-size: 3rem;
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.hero p {
+		font-size: 1.2rem;
+		opacity: 0.9;
+	}
+
+	.contact-grid {
+		gap: var(--spacing-xl);
+		align-items: start;
+	}
+
+	.contact-form {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-md);
+	}
+
+	.form-group {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.form-group label {
+		font-weight: 600;
+		margin-bottom: var(--spacing-xs);
+		color: var(--dark-blue);
+	}
+
+	.form-group input,
+	.form-group select,
+	.form-group textarea {
+		padding: var(--spacing-sm);
+		border: 2px solid var(--light-gray);
+		border-radius: var(--radius-md);
+		font-family: inherit;
+		font-size: 1rem;
+		transition: border-color 0.2s ease;
+	}
+
+	.form-group input:focus,
+	.form-group select:focus,
+	.form-group textarea:focus {
+		outline: none;
+		border-color: var(--ocean-blue);
+	}
+
+	.form-group textarea {
+		resize: vertical;
+		min-height: 120px;
+	}
+
+	.btn-full {
+		width: 100%;
+		padding: var(--spacing-md);
+		font-size: 1.1rem;
+	}
+
+	.contact-info {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-lg);
+	}
+
+	.contact-item {
+		display: flex;
+		align-items: flex-start;
+		gap: var(--spacing-md);
+		margin-bottom: var(--spacing-md);
+	}
+
+	.contact-icon {
+		font-size: 1.5rem;
+		margin-top: var(--spacing-xs);
+	}
+
+	.contact-item h4 {
+		margin-bottom: var(--spacing-xs);
+		color: var(--dark-blue);
+	}
+
+	.contact-item a {
+		color: var(--ocean-blue);
+		text-decoration: none;
+	}
+
+	.contact-item a:hover {
+		text-decoration: underline;
+	}
+
+	.contact-item p {
+		margin: 0;
+		color: var(--gray);
+	}
+
+	.hours-list {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-sm);
+	}
+
+	.hours-item {
+		display: flex;
+		justify-content: space-between;
+		padding: var(--spacing-xs) 0;
+		border-bottom: 1px solid var(--light-gray);
+	}
+
+	.hours-item:last-child {
+		border-bottom: none;
+	}
+
+	.social-links {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-sm);
+	}
+
+	.social-link {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-sm);
+		padding: var(--spacing-sm);
+		border-radius: var(--radius-md);
+		text-decoration: none;
+		color: var(--dark-gray);
+		transition: all 0.2s ease;
+	}
+
+	.social-link:hover {
+		background-color: var(--light-gray);
+		color: var(--ocean-blue);
+	}
+
+	.social-icon {
+		font-size: 1.2rem;
+	}
+
+	@media (max-width: 768px) {
+		.hero h1 {
+			font-size: 2.5rem;
+		}
+
+		.contact-grid {
+			grid-template-columns: 1fr;
+			gap: var(--spacing-lg);
+		}
+
+		.contact-form-container {
+			order: 2;
+		}
+
+		.contact-info {
+			order: 1;
+		}
+	}
+</style>
+
+<script>
+	const contactForm = document.getElementById('contact-form') as HTMLFormElement;
+	contactForm?.addEventListener('submit', function(e) {
+		e.preventDefault();
+		
+		// Get form data
+		const formData = new FormData(this);
+		const data = Object.fromEntries(formData);
+		
+		// Here you would typically send the data to your backend
+		console.log('Form submitted:', data);
+		
+		// Show success message (replace with actual implementation)
+		alert('Thank you for your message! We\'ll get back to you within 24 hours.');
+		
+		// Reset form
+		this.reset();
+	});
+</script> 

@@ -1,63 +1,529 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, COMPANY_NAME } from '../consts';
 ---
 
-<Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage={AboutHeroImage}
->
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`About - ${SITE_TITLE}`} description="Learn about PR Wave's mission, values, and the experienced team behind our social media management and digital marketing services." />
+		<link rel="stylesheet" href="/src/styles/global.css" />
+	</head>
+	<body>
+		<Header />
+		
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="container">
+				<h1>About {COMPANY_NAME}</h1>
+				<p>Empowering businesses to succeed in the digital landscape</p>
+			</div>
+		</section>
 
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
+		<!-- Company Story Section -->
+		<section class="section">
+			<div class="container">
+				<div class="grid grid-2 story-grid">
+					<div class="story-content">
+						<h2>Our Story</h2>
+						<p>
+							PR Wave was born from a simple observation: businesses were struggling to navigate 
+							the ever-changing world of social media marketing. Founded by two passionate digital 
+							marketing experts, we set out to bridge the gap between traditional marketing and 
+							the dynamic digital landscape.
+						</p>
+						<p>
+							What started as a small consultancy has grown into a comprehensive digital marketing 
+							solution provider, helping hundreds of businesses ride the wave of digital success. 
+							Our approach combines proven strategies with cutting-edge techniques to deliver 
+							measurable results for our clients.
+						</p>
+						<p>
+							Today, we're not just service providers – we're educators, mentors, and partners 
+							in our clients' success stories. Through our courses and mentorship programs, 
+							we're building a community of digitally-savvy entrepreneurs.
+						</p>
+					</div>
+					<div class="story-visual">
+						<div class="company-stats">
+							<div class="stat-item">
+								<div class="stat-number">500+</div>
+								<div class="stat-label">Clients Served</div>
+							</div>
+							<div class="stat-item">
+								<div class="stat-number">2M+</div>
+								<div class="stat-label">Social Impressions</div>
+							</div>
+							<div class="stat-item">
+								<div class="stat-number">95%</div>
+								<div class="stat-label">Client Satisfaction</div>
+							</div>
+							<div class="stat-item">
+								<div class="stat-number">3+</div>
+								<div class="stat-label">Years Experience</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
+		<!-- Mission & Values Section -->
+		<section class="section bg-light">
+			<div class="container">
+				<div class="text-center mb-lg">
+					<h2>Our Mission & Values</h2>
+					<p>The principles that guide everything we do</p>
+				</div>
+				
+				<div class="grid grid-3">
+					<div class="card value-card">
+						<div class="value-icon">🎯</div>
+						<h3>Results-Driven</h3>
+						<p>
+							We're not just about vanity metrics. Every strategy we implement is designed 
+							to deliver measurable business results and drive real growth for our clients.
+						</p>
+					</div>
+					
+					<div class="card value-card">
+						<div class="value-icon">🤝</div>
+						<h3>Partnership Approach</h3>
+						<p>
+							We believe in true partnerships. Your success is our success, and we work 
+							closely with you to understand your unique challenges and opportunities.
+						</p>
+					</div>
+					
+					<div class="card value-card">
+						<div class="value-icon">📚</div>
+						<h3>Continuous Learning</h3>
+						<p>
+							The digital landscape never stops evolving, and neither do we. We stay ahead 
+							of trends and constantly update our strategies to ensure optimal performance.
+						</p>
+					</div>
+					
+					<div class="card value-card">
+						<div class="value-icon">💡</div>
+						<h3>Innovation</h3>
+						<p>
+							We embrace new technologies and creative approaches to solve complex marketing 
+							challenges and help our clients stand out in crowded markets.
+						</p>
+					</div>
+					
+					<div class="card value-card">
+						<div class="value-icon">🌟</div>
+						<h3>Excellence</h3>
+						<p>
+							Quality is non-negotiable. From strategy development to execution, we maintain 
+							the highest standards in everything we deliver.
+						</p>
+					</div>
+					
+					<div class="card value-card">
+						<div class="value-icon">🚀</div>
+						<h3>Growth Mindset</h3>
+						<p>
+							We're passionate about growth – yours and ours. We celebrate wins, learn from 
+							challenges, and always look for ways to reach the next level.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
 
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
+		<!-- Team Section -->
+		<section class="section">
+			<div class="container">
+				<div class="text-center mb-lg">
+					<h2>Meet Our Founders</h2>
+					<p>The experienced leaders driving PR Wave's success</p>
+				</div>
+				
+				<div class="grid grid-2 founders-grid">
+					<!-- Founder 1 -->
+					<div class="card founder-card">
+						<div class="founder-image">
+							<div class="founder-avatar">👩‍💼</div>
+						</div>
+						<div class="founder-info">
+							<h3>Sarah Johnson</h3>
+							<h4>Co-Founder & Digital Strategy Expert</h4>
+							<p>
+								With over 8 years of experience in digital marketing, Sarah specializes in 
+								developing comprehensive social media strategies that drive business growth. 
+								She's helped over 200 businesses transform their online presence.
+							</p>
+							
+							<div class="founder-expertise">
+								<h5>Expertise:</h5>
+								<div class="expertise-tags">
+									<span class="tag">Social Media Strategy</span>
+									<span class="tag">Brand Development</span>
+									<span class="tag">Content Planning</span>
+									<span class="tag">Team Leadership</span>
+								</div>
+							</div>
+							
+							<div class="founder-background">
+								<h5>Background:</h5>
+								<ul>
+									<li>Former Digital Marketing Manager at TechCorp</li>
+									<li>MBA in Marketing from State University</li>
+									<li>Certified Google Ads & Facebook Marketing Expert</li>
+									<li>Speaker at 5+ industry conferences</li>
+								</ul>
+							</div>
+						</div>
+					</div>
 
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
-</Layout>
+					<!-- Founder 2 -->
+					<div class="card founder-card">
+						<div class="founder-image">
+							<div class="founder-avatar">👨‍💼</div>
+						</div>
+						<div class="founder-info">
+							<h3>Michael Chen</h3>
+							<h4>Co-Founder & Social Media Specialist</h4>
+							<p>
+								Michael brings 6 years of hands-on social media management experience, 
+								with a focus on content creation, community building, and advertising 
+								optimization. He's managed campaigns with over $2M in ad spend.
+							</p>
+							
+							<div class="founder-expertise">
+								<h5>Expertise:</h5>
+								<div class="expertise-tags">
+									<span class="tag">Paid Advertising</span>
+									<span class="tag">Content Creation</span>
+									<span class="tag">Analytics & Optimization</span>
+									<span class="tag">Video Production</span>
+								</div>
+							</div>
+							
+							<div class="founder-background">
+								<h5>Background:</h5>
+								<ul>
+									<li>Former Social Media Manager at StartupHub</li>
+									<li>BS in Communications from Tech Institute</li>
+									<li>Meta Blueprint & TikTok Marketing Certified</li>
+									<li>Created viral campaigns with 10M+ views</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Why Choose Us Section -->
+		<section class="section bg-light">
+			<div class="container">
+				<div class="text-center mb-lg">
+					<h2>Why Choose PR Wave?</h2>
+					<p>What sets us apart in the digital marketing landscape</p>
+				</div>
+				
+				<div class="grid grid-2 benefits-grid">
+					<div class="benefit-item">
+						<div class="benefit-icon">🏆</div>
+						<h3>Proven Track Record</h3>
+						<p>
+							Our strategies have generated millions in revenue for our clients across 
+							various industries, from startups to established enterprises.
+						</p>
+					</div>
+					
+					<div class="benefit-item">
+						<div class="benefit-icon">⚡</div>
+						<h3>Fast Implementation</h3>
+						<p>
+							We understand that time is money. Our streamlined processes ensure quick 
+							strategy implementation without compromising on quality.
+						</p>
+					</div>
+					
+					<div class="benefit-item">
+						<div class="benefit-icon">📊</div>
+						<h3>Data-Driven Approach</h3>
+						<p>
+							Every decision we make is backed by data. We provide detailed analytics 
+							and regular reports to track performance and ROI.
+						</p>
+					</div>
+					
+					<div class="benefit-item">
+						<div class="benefit-icon">🎓</div>
+						<h3>Educational Focus</h3>
+						<p>
+							We don't just do the work – we teach you how to succeed independently 
+							through our comprehensive courses and mentorship programs.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA Section -->
+		<section class="section cta-section">
+			<div class="container text-center">
+				<h2>Ready to Work With Us?</h2>
+				<p>Let's discuss how we can help your business ride the wave of digital success</p>
+				<div class="cta-buttons">
+					<a href="/contact" class="btn btn-primary">Get Started Today</a>
+					<a href="/courses" class="btn btn-secondary">Explore Our Courses</a>
+				</div>
+			</div>
+		</section>
+
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.hero {
+		background: var(--wave-gradient);
+		color: var(--white);
+		text-align: center;
+		padding: var(--spacing-xl) 0;
+	}
+
+	.hero h1 {
+		color: var(--white);
+		font-size: 3rem;
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.hero p {
+		font-size: 1.2rem;
+		opacity: 0.9;
+	}
+
+	.story-grid {
+		gap: var(--spacing-xl);
+		align-items: center;
+	}
+
+	.story-content {
+		font-size: 1.1rem;
+		line-height: 1.7;
+	}
+
+	.story-content h2 {
+		margin-bottom: var(--spacing-lg);
+	}
+
+	.story-content p {
+		margin-bottom: var(--spacing-md);
+	}
+
+	.company-stats {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--spacing-lg);
+		padding: var(--spacing-xl);
+		background: var(--light-gray);
+		border-radius: var(--radius-lg);
+	}
+
+	.stat-item {
+		text-align: center;
+	}
+
+	.stat-number {
+		font-size: 2.5rem;
+		font-weight: 700;
+		color: var(--ocean-blue);
+		margin-bottom: var(--spacing-xs);
+	}
+
+	.stat-label {
+		font-size: 0.9rem;
+		color: var(--gray);
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+
+	.value-card {
+		text-align: center;
+		transition: transform 0.3s ease;
+	}
+
+	.value-card:hover {
+		transform: translateY(-4px);
+	}
+
+	.value-icon {
+		font-size: 3rem;
+		margin-bottom: var(--spacing-md);
+	}
+
+	.founders-grid {
+		gap: var(--spacing-xl);
+	}
+
+	.founder-card {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
+
+	.founder-image {
+		text-align: center;
+		margin-bottom: var(--spacing-lg);
+	}
+
+	.founder-avatar {
+		font-size: 5rem;
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.founder-info h3 {
+		font-size: 1.5rem;
+		margin-bottom: var(--spacing-xs);
+		color: var(--dark-blue);
+	}
+
+	.founder-info h4 {
+		color: var(--ocean-blue);
+		font-weight: 600;
+		margin-bottom: var(--spacing-md);
+	}
+
+	.founder-info p {
+		margin-bottom: var(--spacing-lg);
+		line-height: 1.6;
+	}
+
+	.founder-expertise,
+	.founder-background {
+		margin-bottom: var(--spacing-lg);
+	}
+
+	.founder-expertise h5,
+	.founder-background h5 {
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--dark-blue);
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.expertise-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--spacing-xs);
+	}
+
+	.tag {
+		background: var(--ocean-blue);
+		color: var(--white);
+		padding: var(--spacing-xs) var(--spacing-sm);
+		border-radius: var(--radius-lg);
+		font-size: 0.8rem;
+		font-weight: 500;
+	}
+
+	.founder-background ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	.founder-background li {
+		padding: var(--spacing-xs) 0;
+		position: relative;
+		padding-left: var(--spacing-md);
+	}
+
+	.founder-background li::before {
+		content: '✓';
+		position: absolute;
+		left: 0;
+		color: var(--ocean-blue);
+		font-weight: bold;
+	}
+
+	.benefits-grid {
+		gap: var(--spacing-xl);
+	}
+
+	.benefit-item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: var(--spacing-md);
+		padding: var(--spacing-lg);
+	}
+
+	.benefit-icon {
+		font-size: 2.5rem;
+	}
+
+	.benefit-item h3 {
+		margin-bottom: var(--spacing-sm);
+		color: var(--dark-blue);
+	}
+
+	.cta-section {
+		background: var(--wave-gradient);
+		color: var(--white);
+	}
+
+	.cta-section h2 {
+		color: var(--white);
+		margin-bottom: var(--spacing-md);
+	}
+
+	.cta-section p {
+		font-size: 1.1rem;
+		margin-bottom: var(--spacing-lg);
+		opacity: 0.9;
+	}
+
+	.cta-buttons {
+		display: flex;
+		gap: var(--spacing-md);
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	@media (max-width: 768px) {
+		.hero h1 {
+			font-size: 2.5rem;
+		}
+
+		.story-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.company-stats {
+			grid-template-columns: 1fr;
+			gap: var(--spacing-md);
+		}
+
+		.founders-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.benefits-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.benefit-item {
+			padding: var(--spacing-md);
+		}
+
+		.cta-buttons {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.btn {
+			width: 200px;
+		}
+	}
+</style>

@@ -14,73 +14,367 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
+		<link rel="stylesheet" href="/src/styles/global.css" />
 	</head>
 
 	<body>
 		<Header />
-		<main>
-			<article>
+		
+		<!-- Hero Section -->
+		<section class="blog-hero">
+			{heroImage && (
 				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
+					<Image width={1200} height={600} src={heroImage} alt={title} class="hero-img" />
+					<div class="hero-overlay"></div>
 				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
+			)}
+			<div class="hero-content">
+				<div class="container">
+					<div class="blog-meta">
+						<FormattedDate date={pubDate} />
+						{updatedDate && (
+							<span class="updated-date">
+								Updated on <FormattedDate date={updatedDate} />
+							</span>
+						)}
+						<span class="read-time">📖 5 min read</span>
 					</div>
-					<slot />
+					<h1 class="blog-title">{title}</h1>
+					<p class="blog-description">{description}</p>
 				</div>
-			</article>
+			</div>
+		</section>
+
+		<!-- Blog Content -->
+		<main class="blog-main">
+			<div class="container">
+				<div class="blog-content">
+					<article class="prose">
+						<slot />
+					</article>
+					
+					<!-- Navigation -->
+					<div class="blog-navigation">
+						<a href="/blog" class="btn btn-secondary">← Back to Blog</a>
+						<div class="social-share">
+							<span>Share:</span>
+							<a href="#" class="share-btn" title="Share on Twitter">🐦</a>
+							<a href="#" class="share-btn" title="Share on LinkedIn">💼</a>
+							<a href="#" class="share-btn" title="Copy Link">🔗</a>
+						</div>
+					</div>
+				</div>
+			</div>
 		</main>
+
 		<Footer />
 	</body>
 </html>
+
+<style>
+	/* Blog Hero Section */
+	.blog-hero {
+		position: relative;
+		min-height: 60vh;
+		display: flex;
+		align-items: center;
+		background: var(--wave-gradient);
+		color: var(--white);
+		overflow: hidden;
+	}
+
+	.hero-image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+	}
+
+	.hero-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.hero-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			135deg,
+			rgba(0, 119, 190, 0.8) 0%,
+			rgba(0, 51, 102, 0.9) 100%
+		);
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 2;
+		width: 100%;
+		padding: var(--spacing-2xl) 0;
+	}
+
+	.blog-meta {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-md);
+		margin-bottom: var(--spacing-md);
+		font-size: 0.9rem;
+		opacity: 0.9;
+		flex-wrap: wrap;
+	}
+
+	.blog-meta > * {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-xs);
+	}
+
+	.updated-date {
+		font-style: italic;
+		opacity: 0.8;
+	}
+
+	.read-time::before {
+		content: attr(data-icon);
+	}
+
+	.blog-title {
+		color: var(--white);
+		font-size: 3rem;
+		line-height: 1.2;
+		margin-bottom: var(--spacing-md);
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+	}
+
+	.blog-description {
+		font-size: 1.2rem;
+		opacity: 0.9;
+		line-height: 1.6;
+		max-width: 800px;
+	}
+
+	/* Blog Content */
+	.blog-main {
+		padding: var(--spacing-2xl) 0;
+		background: var(--bg-primary);
+	}
+
+	.blog-content {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	/* Prose Styles */
+	.prose {
+		line-height: 1.8;
+		color: var(--text-primary);
+		font-size: 1.1rem;
+	}
+
+	.prose h1,
+	.prose h2,
+	.prose h3,
+	.prose h4,
+	.prose h5,
+	.prose h6 {
+		color: var(--text-heading);
+		margin-top: var(--spacing-xl);
+		margin-bottom: var(--spacing-md);
+		font-weight: 700;
+	}
+
+	.prose h2 {
+		font-size: 2rem;
+		border-bottom: 2px solid var(--ocean-blue);
+		padding-bottom: var(--spacing-xs);
+	}
+
+	.prose h3 {
+		font-size: 1.5rem;
+		color: var(--ocean-blue);
+	}
+
+	.prose p {
+		margin-bottom: var(--spacing-md);
+		line-height: 1.8;
+	}
+
+	.prose a {
+		color: var(--ocean-blue);
+		text-decoration: underline;
+		text-decoration-color: rgba(0, 119, 190, 0.3);
+		transition: all var(--transition-fast);
+	}
+
+	.prose a:hover {
+		text-decoration-color: var(--ocean-blue);
+		background: rgba(0, 119, 190, 0.1);
+		padding: 2px 4px;
+		border-radius: var(--radius-sm);
+	}
+
+	.prose ul,
+	.prose ol {
+		margin-bottom: var(--spacing-md);
+		padding-left: var(--spacing-lg);
+	}
+
+	.prose li {
+		margin-bottom: var(--spacing-xs);
+	}
+
+	.prose blockquote {
+		border-left: 4px solid var(--ocean-blue);
+		padding: var(--spacing-md) var(--spacing-lg);
+		margin: var(--spacing-lg) 0;
+		background: var(--bg-secondary);
+		border-radius: var(--radius-md);
+		font-style: italic;
+		position: relative;
+	}
+
+	.prose blockquote::before {
+		content: '"';
+		font-size: 4rem;
+		color: var(--ocean-blue);
+		opacity: 0.3;
+		position: absolute;
+		top: -10px;
+		left: var(--spacing-sm);
+	}
+
+	.prose code {
+		background: var(--bg-secondary);
+		color: var(--ocean-blue);
+		padding: 2px 6px;
+		border-radius: var(--radius-sm);
+		font-size: 0.9em;
+		font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+	}
+
+	.prose pre {
+		background: var(--bg-secondary);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-md);
+		padding: var(--spacing-md);
+		overflow-x: auto;
+		margin: var(--spacing-md) 0;
+	}
+
+	.prose pre code {
+		background: none;
+		color: var(--text-primary);
+		padding: 0;
+	}
+
+	.prose img {
+		max-width: 100%;
+		height: auto;
+		border-radius: var(--radius-md);
+		box-shadow: var(--shadow-md);
+		margin: var(--spacing-lg) 0;
+	}
+
+	.prose hr {
+		border: none;
+		height: 2px;
+		background: var(--wave-gradient);
+		margin: var(--spacing-xl) 0;
+		border-radius: 1px;
+	}
+
+	/* Blog Navigation */
+	.blog-navigation {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: var(--spacing-2xl);
+		padding-top: var(--spacing-xl);
+		border-top: 1px solid var(--border-color);
+	}
+
+	.social-share {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-sm);
+		color: var(--text-secondary);
+	}
+
+	.share-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background: var(--bg-secondary);
+		text-decoration: none;
+		font-size: 1.2rem;
+		transition: all var(--transition-fast);
+		border: 1px solid var(--border-color);
+	}
+
+	.share-btn:hover {
+		background: var(--ocean-blue);
+		color: var(--white);
+		transform: translateY(-2px);
+	}
+
+	/* Responsive Design */
+	@media (max-width: 768px) {
+		.blog-title {
+			font-size: 2rem;
+		}
+
+		.blog-description {
+			font-size: 1rem;
+		}
+
+		.blog-meta {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: var(--spacing-xs);
+		}
+
+		.blog-navigation {
+			flex-direction: column;
+			gap: var(--spacing-md);
+			text-align: center;
+		}
+
+		.prose {
+			font-size: 1rem;
+		}
+
+		.prose h2 {
+			font-size: 1.5rem;
+		}
+
+		.prose h3 {
+			font-size: 1.25rem;
+		}
+	}
+
+	/* Print Styles */
+	@media print {
+		.blog-hero {
+			background: white !important;
+			color: black !important;
+		}
+
+		.hero-overlay,
+		.hero-image {
+			display: none;
+		}
+
+		.blog-navigation,
+		.social-share {
+			display: none;
+		}
+	}
+</style>

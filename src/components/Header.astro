@@ -1,105 +1,246 @@
 ---
 import HeaderLink from './HeaderLink.astro';
 import LanguageToggle from './LanguageToggle.astro';
+import ThemeToggle from './ThemeToggle.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
-<header>
-	<nav class="nav-container">
+<header class="site-header" id="site-header">
+	<nav class="nav-container" role="navigation" aria-label="Main navigation">
 		<div class="nav-content">
-			<div class="logo">
-				<a href="/" class="logo-link">
-					<div class="wave-icon">🌊</div>
-					<h2 class="logo-text">{SITE_TITLE}</h2>
+			<!-- Logo Section -->
+			<div class="logo-section">
+				<a href="/" class="logo-link" aria-label={`${SITE_TITLE} - Go to homepage`}>
+					<div class="logo-icon">
+						<span class="wave-emoji" aria-hidden="true">🌊</span>
+						<div class="wave-ripple" aria-hidden="true"></div>
+					</div>
+					<div class="logo-text-wrapper">
+						<h1 class="logo-text">{SITE_TITLE}</h1>
+						<span class="logo-tagline" aria-hidden="true">Navigate Your Success</span>
+					</div>
 				</a>
 			</div>
-			<div class="nav-right">
-				<div class="nav-links">
+
+			<!-- Desktop Navigation -->
+			<div class="desktop-nav" role="menubar">
+				<div class="nav-links-wrapper">
 					<HeaderLink href="/" data-translate="nav.home">Home</HeaderLink>
 					<HeaderLink href="/about" data-translate="nav.about">About</HeaderLink>
+					<HeaderLink href="/services" data-translate="nav.services">Services</HeaderLink>
+					
+					<!-- Enhanced Learning Dropdown -->
+					<div class="nav-dropdown" role="group">
+						<button 
+							class="dropdown-trigger" 
+							data-translate="nav.learning"
+							aria-expanded="false"
+							aria-haspopup="true"
+							aria-controls="learning-dropdown"
+							role="menuitem"
+						>
+							<span class="dropdown-text">Learning</span>
+							<span class="dropdown-icon" aria-hidden="true">
+								<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+									<path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+							</span>
+						</button>
+						<div class="dropdown-menu" id="learning-dropdown" role="menu">
+							<div class="dropdown-content">
+								<HeaderLink href="/courses" variant="secondary" data-translate="nav.courses">Courses</HeaderLink>
+								<HeaderLink href="/masterclasses" variant="secondary" data-translate="nav.masterclasses">Masterclasses</HeaderLink>
+								<HeaderLink href="/success-stories" variant="secondary" data-translate="nav.successStories">Success Stories</HeaderLink>
+							</div>
+						</div>
+					</div>
+					
 					<HeaderLink href="/blog" data-translate="nav.blog">Blog</HeaderLink>
-					<HeaderLink href="/courses" data-translate="nav.courses">Courses</HeaderLink>
+					<HeaderLink href="/faq" data-translate="nav.faq">FAQ</HeaderLink>
 					<HeaderLink href="/contact" data-translate="nav.contact">Contact</HeaderLink>
 				</div>
+
+				<!-- Desktop Controls -->
 				<div class="desktop-controls">
 					<LanguageToggle />
-					<div class="theme-toggle" id="theme-toggle" title="Toggle Dark Mode">
-						<span class="theme-icon">🌙</span>
+					<ThemeToggle variant="desktop" />
+				</div>
+			</div>
+
+			<!-- Mobile Menu Button -->
+			<button 
+				class="mobile-menu-button" 
+				id="mobile-menu-button"
+				aria-label="Toggle mobile menu"
+				aria-expanded="false"
+				aria-controls="mobile-menu"
+				type="button"
+			>
+				<span class="hamburger-line" aria-hidden="true"></span>
+				<span class="hamburger-line" aria-hidden="true"></span>
+				<span class="hamburger-line" aria-hidden="true"></span>
+				<span class="menu-text sr-only">Menu</span>
+			</button>
+		</div>
+	</nav>
+
+	<!-- Enhanced Mobile Menu -->
+	<div class="mobile-menu" id="mobile-menu" role="menu" aria-hidden="true">
+		<div class="mobile-menu-overlay" aria-hidden="true"></div>
+		<div class="mobile-menu-content">
+			<div class="mobile-menu-header">
+				<div class="mobile-logo">
+					<span class="mobile-wave-icon" aria-hidden="true">🌊</span>
+					<span class="mobile-logo-text">{SITE_TITLE}</span>
+				</div>
+				<button 
+					class="mobile-close-button" 
+					id="mobile-close-button"
+					aria-label="Close mobile menu"
+					type="button"
+				>
+					<span class="close-icon" aria-hidden="true">✕</span>
+				</button>
+			</div>
+
+			<nav class="mobile-nav-links" role="menubar">
+				<HeaderLink href="/" variant="mobile" data-translate="nav.home">Home</HeaderLink>
+				<HeaderLink href="/about" variant="mobile" data-translate="nav.about">About</HeaderLink>
+				<HeaderLink href="/services" variant="mobile" data-translate="nav.services">Services</HeaderLink>
+				
+				<!-- Mobile Learning Section -->
+				<div class="mobile-section">
+					<div class="mobile-section-header">
+						<span class="mobile-section-title" data-translate="nav.learning">Learning</span>
+						<span class="mobile-section-icon" aria-hidden="true">📚</span>
+					</div>
+					<div class="mobile-section-items">
+						<HeaderLink href="/courses" variant="mobile" data-translate="nav.courses">Courses</HeaderLink>
+						<HeaderLink href="/masterclasses" variant="mobile" data-translate="nav.masterclasses">Masterclasses</HeaderLink>
+						<HeaderLink href="/success-stories" variant="mobile" data-translate="nav.successStories">Success Stories</HeaderLink>
 					</div>
 				</div>
-			</div>
-			<div class="mobile-menu-toggle" id="mobile-menu-toggle">
-				<span></span>
-				<span></span>
-				<span></span>
-			</div>
-			
-			<!-- Mobile Menu -->
-			<div class="mobile-menu" id="mobile-menu">
-				<div class="mobile-nav-links">
-					<HeaderLink href="/" data-translate="nav.home">Home</HeaderLink>
-					<HeaderLink href="/about" data-translate="nav.about">About</HeaderLink>
-					<HeaderLink href="/blog" data-translate="nav.blog">Blog</HeaderLink>
-					<HeaderLink href="/courses" data-translate="nav.courses">Courses</HeaderLink>
-					<HeaderLink href="/contact" data-translate="nav.contact">Contact</HeaderLink>
-				</div>
-				<div class="mobile-controls">
-					<div class="mobile-control-item">
-						<span class="control-label">Language</span>
-						<button class="mobile-language-button" id="mobile-language-button">
-							<span class="mobile-current-lang" id="mobile-current-lang">🇺🇸 EN</span>
-							<span class="mobile-lang-arrow">▼</span>
+				
+				<HeaderLink href="/blog" variant="mobile" data-translate="nav.blog">Blog</HeaderLink>
+				<HeaderLink href="/faq" variant="mobile" data-translate="nav.faq">FAQ</HeaderLink>
+				<HeaderLink href="/contact" variant="mobile" data-translate="nav.contact">Contact</HeaderLink>
+			</nav>
+
+			<!-- Enhanced Mobile Controls -->
+			<div class="mobile-controls">
+				<div class="mobile-control-group">
+					<div class="mobile-language-control">
+						<span class="control-label" data-translate="controls.language">Language</span>
+						<button 
+							class="mobile-language-button" 
+							id="mobile-language-button"
+							aria-expanded="false"
+							aria-haspopup="true"
+							type="button"
+						>
+							<span class="current-language" id="mobile-current-lang">🇺🇸 EN</span>
+							<span class="control-arrow" aria-hidden="true">
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+									<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+							</span>
 						</button>
-						<div class="mobile-language-dropdown" id="mobile-language-dropdown">
-							<button class="mobile-language-option" data-lang="en" data-flag="🇺🇸">
-								<span class="flag">🇺🇸</span>
-								<span class="lang-text">English</span>
+						<div class="mobile-language-dropdown" id="mobile-language-dropdown" role="menu">
+							<button class="language-option" data-lang="en" data-flag="🇺🇸" role="menuitem">
+								<span class="flag" aria-hidden="true">🇺🇸</span>
+								<span class="language-name">English</span>
 							</button>
-							<button class="mobile-language-option" data-lang="ka" data-flag="🇬🇪">
-								<span class="flag">🇬🇪</span>
-								<span class="lang-text">ქართული</span>
+							<button class="language-option" data-lang="ka" data-flag="🇬🇪" role="menuitem">
+								<span class="flag" aria-hidden="true">🇬🇪</span>
+								<span class="language-name">ქართული</span>
 							</button>
 						</div>
 					</div>
-					<div class="mobile-control-item">
-						<span class="control-label">Theme</span>
-						<button class="mobile-theme-button" id="mobile-theme-toggle" title="Toggle Dark Mode">
-							<span class="mobile-theme-icon">🌙</span>
-							<span class="theme-label" id="theme-label">Dark Mode</span>
-						</button>
-					</div>
+
+					<ThemeToggle variant="mobile" />
+				</div>
+
+				<div class="mobile-footer">
+					<p class="footer-text">© 2024 {SITE_TITLE}</p>
 				</div>
 			</div>
 		</div>
-	</nav>
+	</div>
 </header>
 
 <style>
-	header {
+	/* ===== HEADER BASE STYLES ===== */
+	.site-header {
 		background: var(--card-bg);
-		box-shadow: var(--shadow-sm);
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		box-shadow: 0 1px 20px rgba(0, 0, 0, 0.08);
 		position: sticky;
 		top: 0;
-		z-index: 100;
-		transition: background-color var(--transition-normal);
+		z-index: 1000;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		border-bottom: 1px solid var(--border-color);
+	}
+
+	.site-header.scrolled {
+		background: rgba(255, 255, 255, 0.95);
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+	}
+
+	[data-theme="dark"] .site-header {
+		background: var(--card-bg);
+		box-shadow: 0 1px 20px rgba(0, 0, 0, 0.3);
+	}
+
+	[data-theme="dark"] .site-header.scrolled {
+		background: rgba(13, 17, 23, 0.95);
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 	}
 
 	.nav-container {
 		padding: 0;
+		position: relative;
 	}
 
 	.nav-content {
-		max-width: 1200px;
+		max-width: 1400px;
 		margin: 0 auto;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: var(--spacing-sm) var(--spacing-md);
+		padding: var(--spacing-sm) var(--spacing-lg);
+		min-height: 75px;
+		position: relative;
+		gap: var(--spacing-md);
 	}
 
-	.logo {
+	/* Georgian language adjustments */
+	[data-lang="ka"] .nav-content {
+		max-width: 1600px;
+		padding: var(--spacing-sm) var(--spacing-xl);
+		gap: var(--spacing-lg);
+	}
+
+	/* Screen reader only */
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+
+	/* ===== LOGO SECTION ===== */
+	.logo-section {
 		display: flex;
 		align-items: center;
+		z-index: 10;
+		flex-shrink: 0;
+		min-width: fit-content;
 	}
 
 	.logo-link {
@@ -107,208 +248,521 @@ import { SITE_TITLE } from '../consts';
 		align-items: center;
 		text-decoration: none;
 		color: var(--text-heading);
-		transition: color var(--transition-fast);
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		padding: var(--spacing-xs);
+		border-radius: var(--radius-lg);
+		position: relative;
+		height: 100%;
 	}
 
 	.logo-link:hover {
-		color: var(--ocean-blue);
+		transform: translateY(-2px);
 	}
 
-	.wave-icon {
-		font-size: 2rem;
-		margin-right: var(--spacing-xs);
-		animation: bounce 2s infinite;
+	.logo-link:focus-visible {
+		outline: 2px solid var(--ocean-blue);
+		outline-offset: 4px;
 	}
 
-	@keyframes bounce {
-		0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-		40% { transform: translateY(-10px); }
-		60% { transform: translateY(-5px); }
+	.logo-icon {
+		position: relative;
+		margin-right: var(--spacing-sm);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		align-self: center;
+	}
+
+	.wave-emoji {
+		font-size: 2.5rem;
+		position: relative;
+		z-index: 2;
+		animation: gentle-bounce 3s ease-in-out infinite;
+	}
+
+	.wave-ripple {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 60px;
+		height: 60px;
+		background: radial-gradient(circle, rgba(0, 119, 190, 0.1) 0%, transparent 70%);
+		border-radius: 50%;
+		transform: translate(-50%, -50%) scale(0);
+		animation: ripple-pulse 3s ease-in-out infinite;
+	}
+
+	@keyframes gentle-bounce {
+		0%, 100% { transform: translateY(0) rotate(0deg); }
+		25% { transform: translateY(-3px) rotate(-2deg); }
+		50% { transform: translateY(0) rotate(0deg); }
+		75% { transform: translateY(-1px) rotate(1deg); }
+	}
+
+	@keyframes ripple-pulse {
+		0%, 100% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+		50% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+	}
+
+	.logo-text-wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+		position: relative;
+		min-height: 48px;
 	}
 
 	.logo-text {
-		font-size: 1.5rem;
+		font-size: 1.75rem;
 		font-weight: 700;
 		margin: 0;
 		background: var(--wave-gradient);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
+		line-height: 1.2;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		white-space: nowrap;
+		transform: translateY(0);
+		filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
 	}
 
-	.nav-right {
-		display: flex;
-		align-items: center;
-		gap: var(--spacing-md);
+	/* Adjust logo size for Georgian */
+	[data-lang="ka"] .logo-text {
+		font-size: 1.6rem;
 	}
 
-	.nav-links {
+	/* Dark theme logo filter */
+	[data-theme="dark"] .logo-text {
+		filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 1px rgba(255, 255, 255, 0.1));
+	}
+
+	.logo-tagline {
+		position: absolute;
+		top: calc(100% - 4px);
+		left: 0;
+		font-size: 0.65rem;
+		color: var(--text-secondary);
+		font-weight: 500;
+		letter-spacing: 0.3px;
+		text-transform: uppercase;
+		opacity: 0;
+		transform: translateY(4px);
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		white-space: nowrap;
+		pointer-events: none;
+		line-height: 1;
+	}
+
+	.logo-link:hover .logo-text {
+		transform: translateY(-6px);
+	}
+
+	.logo-link:hover .logo-tagline {
+		opacity: 1;
+		transform: translateY(-2px);
+	}
+
+	/* ===== DESKTOP NAVIGATION ===== */
+	.desktop-nav {
 		display: flex;
 		align-items: center;
 		gap: var(--spacing-lg);
+		flex: 1;
+		justify-content: center;
+		max-width: none;
 	}
 
+	.nav-links-wrapper {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-xs);
+		padding: var(--spacing-xs);
+		background: rgba(255, 255, 255, 0.8);
+		backdrop-filter: blur(10px);
+		border-radius: var(--radius-xl);
+		border: 1px solid var(--border-color);
+		box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+		flex-wrap: nowrap;
+		max-width: fit-content;
+		height: 56px;
+	}
+
+	/* Georgian navigation adjustments */
+	[data-lang="ka"] .nav-links-wrapper {
+		gap: var(--spacing-sm);
+		padding: var(--spacing-xs) var(--spacing-sm);
+	}
+
+	[data-theme="dark"] .nav-links-wrapper {
+		background: rgba(13, 17, 23, 0.9);
+		border-color: var(--border-color);
+		box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+	}
+
+	/* ===== DROPDOWN STYLES ===== */
+	.nav-dropdown {
+		position: relative;
+		display: inline-block;
+	}
+
+	.dropdown-trigger {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-xs);
+		color: #2c3e50;
+		background: transparent;
+		border: none;
+		padding: var(--spacing-sm) var(--spacing-md);
+		border-radius: var(--radius-lg);
+		font-weight: 600;
+		font-size: 1rem;
+		font-family: inherit;
+		cursor: pointer;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		white-space: nowrap;
+		letter-spacing: 0.025em;
+		text-rendering: optimizeLegibility;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-shadow: 
+			0 0 2px rgba(0, 0, 0, 0.5),
+			0 1px 3px rgba(0, 0, 0, 0.2),
+			0 0 1px rgba(255, 255, 255, 0.3);
+	}
+
+	[data-theme="dark"] .dropdown-trigger {
+		color: #ffffff;
+		font-weight: 600;
+		text-shadow: 
+			0 0 3px rgba(0, 0, 0, 1),
+			0 1px 4px rgba(0, 0, 0, 0.9),
+			0 0 2px rgba(255, 255, 255, 0.4),
+			0 0 1px rgba(0, 0, 0, 0.8);
+	}
+
+	.dropdown-trigger:hover,
+	.dropdown-trigger[aria-expanded="true"] {
+		color: #0077be;
+		background: rgba(0, 119, 190, 0.12);
+		transform: translateY(-2px);
+		font-weight: 700;
+		letter-spacing: 0.03em;
+		text-shadow: 
+			0 0 4px rgba(0, 119, 190, 0.6),
+			0 1px 4px rgba(0, 0, 0, 0.4),
+			0 0 2px rgba(255, 255, 255, 0.9),
+			0 0 1px rgba(0, 119, 190, 0.8);
+	}
+
+	[data-theme="dark"] .dropdown-trigger:hover,
+	[data-theme="dark"] .dropdown-trigger[aria-expanded="true"] {
+		color: #00aaff;
+		background: rgba(0, 170, 255, 0.2);
+		font-weight: 700;
+		letter-spacing: 0.03em;
+		transform: translateY(-2px);
+		text-shadow: 
+			0 0 6px rgba(0, 170, 255, 0.9),
+			0 1px 6px rgba(0, 0, 0, 1),
+			0 0 3px rgba(255, 255, 255, 0.6),
+			0 0 2px rgba(0, 170, 255, 1),
+			0 0 1px rgba(0, 0, 0, 0.9);
+	}
+
+	.dropdown-trigger:focus-visible {
+		outline: 2px solid var(--ocean-blue);
+		outline-offset: 2px;
+	}
+
+	.dropdown-icon {
+		transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		display: flex;
+		align-items: center;
+	}
+
+	.dropdown-trigger[aria-expanded="true"] .dropdown-icon {
+		transform: rotate(180deg);
+	}
+
+	.dropdown-menu {
+		position: absolute;
+		top: calc(100% + 8px);
+		left: 0;
+		background: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-radius: var(--radius-xl);
+		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+		z-index: 1000;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-10px) scale(0.95);
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		min-width: 240px;
+		overflow: hidden;
+	}
+
+	.dropdown-menu.show {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0) scale(1);
+	}
+
+	.dropdown-content {
+		padding: var(--spacing-sm);
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-xs);
+	}
+
+	/* ===== DESKTOP CONTROLS ===== */
 	.desktop-controls {
 		display: flex;
 		align-items: center;
-		gap: var(--spacing-md);
-	}
-
-	.theme-toggle {
-		display: flex;
-		align-items: center;
 		justify-content: center;
-		width: 40px;
-		height: 40px;
-		border: 2px solid var(--border-color);
-		border-radius: 50%;
-		background: var(--card-bg);
-		cursor: pointer;
-		transition: all var(--transition-fast);
-		font-size: 1.2rem;
+		gap: var(--spacing-md);
+		flex-shrink: 0;
+		height: 100%;
 	}
 
-	.theme-toggle:hover {
-		background: var(--ocean-blue);
-		border-color: var(--ocean-blue);
-		transform: scale(1.1);
-	}
 
-	.theme-toggle:hover .theme-icon {
-		filter: invert(1);
-	}
 
-	.mobile-menu-toggle {
+	/* ===== MOBILE MENU BUTTON ===== */
+	.mobile-menu-button {
 		display: none;
 		flex-direction: column;
+		justify-content: space-around;
+		width: 48px;
+		height: 48px;
+		background: transparent;
+		border: 2px solid var(--border-color);
+		border-radius: var(--radius-lg);
 		cursor: pointer;
-		padding: var(--spacing-xs);
+		padding: var(--spacing-sm);
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		z-index: 1001;
 	}
 
-	.mobile-menu-toggle span {
-		width: 25px;
+	.mobile-menu-button:hover {
+		border-color: var(--ocean-blue);
+		background: rgba(0, 119, 190, 0.05);
+		transform: scale(1.05);
+	}
+
+	.mobile-menu-button:focus-visible {
+		outline: 2px solid var(--ocean-blue);
+		outline-offset: 2px;
+	}
+
+	.hamburger-line {
+		width: 100%;
 		height: 3px;
 		background: var(--ocean-blue);
-		margin: 3px 0;
-		transition: var(--transition-normal);
 		border-radius: 2px;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		transform-origin: center;
 	}
 
-	.mobile-menu-toggle.active span:nth-child(1) {
-		transform: rotate(-45deg) translate(-5px, 6px);
+	.mobile-menu-button[aria-expanded="true"] .hamburger-line:nth-child(1) {
+		transform: rotate(45deg) translate(6px, 6px);
 	}
 
-	.mobile-menu-toggle.active span:nth-child(2) {
+	.mobile-menu-button[aria-expanded="true"] .hamburger-line:nth-child(2) {
 		opacity: 0;
+		transform: scaleX(0);
 	}
 
-	.mobile-menu-toggle.active span:nth-child(3) {
-		transform: rotate(45deg) translate(-5px, -6px);
+	.mobile-menu-button[aria-expanded="true"] .hamburger-line:nth-child(3) {
+		transform: rotate(-45deg) translate(6px, -6px);
 	}
 
-	/* Mobile Menu */
+	/* ===== MOBILE MENU ===== */
 	.mobile-menu {
-		display: none;
-		position: absolute;
-		top: 100%;
+		position: fixed;
+		top: 0;
 		left: 0;
 		right: 0;
-		background: var(--card-bg);
-		box-shadow: var(--shadow-lg);
-		border-top: 1px solid var(--border-color);
-		z-index: 99;
+		bottom: 0;
+		z-index: 1000;
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 	}
 
 	.mobile-menu.show {
-		display: block;
+		opacity: 1;
+		visibility: visible;
 	}
 
+	.mobile-menu-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.6);
+		backdrop-filter: blur(10px);
+		transition: all 0.4s ease;
+	}
+
+	.mobile-menu-content {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: min(400px, 90vw);
+		height: 100vh;
+		background: var(--card-bg);
+		box-shadow: -10px 0 50px rgba(0, 0, 0, 0.2);
+		transform: translateX(100%);
+		transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		overflow-y: auto;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.mobile-menu.show .mobile-menu-content {
+		transform: translateX(0);
+	}
+
+	.mobile-menu-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: var(--spacing-lg);
+		border-bottom: 1px solid var(--border-color);
+		background: var(--wave-gradient);
+		color: white;
+	}
+
+	.mobile-logo {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-sm);
+	}
+
+	.mobile-wave-icon {
+		font-size: 1.5rem;
+	}
+
+	.mobile-logo-text {
+		font-size: 1.25rem;
+		font-weight: 700;
+	}
+
+	.mobile-close-button {
+		width: 40px;
+		height: 40px;
+		background: rgba(255, 255, 255, 0.2);
+		border: 1px solid rgba(255, 255, 255, 0.3);
+		border-radius: 50%;
+		color: white;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.25rem;
+		transition: all 0.3s ease;
+	}
+
+	.mobile-close-button:hover {
+		background: rgba(255, 255, 255, 0.3);
+		transform: scale(1.1);
+	}
+
+	/* ===== MOBILE NAVIGATION ===== */
 	.mobile-nav-links {
-		padding: var(--spacing-md);
-		border-bottom: 1px solid var(--border-color);
+		flex: 1;
+		padding: var(--spacing-lg);
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-xs);
 	}
 
-	.mobile-nav-links :global(a) {
-		display: block;
-		padding: var(--spacing-sm) 0;
-		border-bottom: 1px solid var(--border-color);
-		text-decoration: none;
-		color: var(--text-primary);
-		font-weight: 500;
-		transition: color var(--transition-fast);
+	.mobile-section {
+		margin: var(--spacing-md) 0;
 	}
 
-	.mobile-nav-links :global(a:last-child) {
-		border-bottom: none;
+	.mobile-section-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: var(--spacing-sm) var(--spacing-md);
+		background: rgba(0, 119, 190, 0.05);
+		border-radius: var(--radius-lg);
+		margin-bottom: var(--spacing-sm);
 	}
 
-	.mobile-nav-links :global(a:hover) {
+	.mobile-section-title {
+		font-weight: 600;
 		color: var(--ocean-blue);
+		font-size: 1rem;
+		text-shadow: 
+			0 0 1px rgba(0, 0, 0, 0.3),
+			0 1px 2px rgba(0, 0, 0, 0.1);
 	}
 
+	[data-theme="dark"] .mobile-section-title {
+		color: var(--ocean-blue);
+		text-shadow: 
+			0 0 2px rgba(0, 119, 190, 0.4),
+			0 1px 3px rgba(0, 0, 0, 0.8),
+			0 0 1px rgba(255, 255, 255, 0.2);
+	}
+
+	.mobile-section-icon {
+		font-size: 1.25rem;
+	}
+
+	.mobile-section-items {
+		padding-left: var(--spacing-lg);
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-xs);
+	}
+
+	/* ===== MOBILE CONTROLS ===== */
 	.mobile-controls {
-		padding: var(--spacing-md);
+		padding: var(--spacing-lg);
+		border-top: 1px solid var(--border-color);
+		background: var(--background-secondary);
+	}
+
+	.mobile-control-group {
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing-md);
 	}
 
-	.mobile-control-item {
+	.mobile-language-control {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: var(--spacing-sm) 0;
 	}
 
 	.control-label {
 		font-weight: 600;
 		color: var(--text-heading);
-		font-size: 0.9rem;
-	}
-
-	.mobile-theme-button {
-		display: flex;
-		align-items: center;
-		gap: var(--spacing-xs);
-		background: var(--card-bg);
-		border: 2px solid var(--border-color);
-		border-radius: var(--radius-md);
-		padding: var(--spacing-xs) var(--spacing-sm);
-		cursor: pointer;
-		transition: all var(--transition-fast);
-		font-size: 0.9rem;
-		color: var(--text-primary);
-		min-width: 100px;
-		justify-content: space-between;
-	}
-
-	.mobile-theme-button:hover {
-		border-color: var(--ocean-blue);
-		background: rgba(0, 119, 190, 0.05);
-	}
-
-	.mobile-theme-icon {
 		font-size: 1rem;
 	}
 
-	.theme-label {
-		font-weight: 500;
+	[data-theme="dark"] .control-label {
+		color: var(--text-heading);
 	}
 
-	/* Mobile Language Toggle */
 	.mobile-language-button {
 		display: flex;
 		align-items: center;
-		gap: var(--spacing-xs);
+		gap: var(--spacing-sm);
 		background: var(--card-bg);
 		border: 2px solid var(--border-color);
-		border-radius: var(--radius-md);
-		padding: var(--spacing-xs) var(--spacing-sm);
+		border-radius: var(--radius-lg);
+		padding: var(--spacing-sm) var(--spacing-md);
 		cursor: pointer;
-		transition: all var(--transition-fast);
-		font-size: 0.9rem;
+		transition: all 0.3s ease;
+		font-size: 1rem;
 		color: var(--text-primary);
-		min-width: 100px;
+		min-width: 120px;
 		justify-content: space-between;
 		position: relative;
 	}
@@ -316,46 +770,41 @@ import { SITE_TITLE } from '../consts';
 	.mobile-language-button:hover {
 		border-color: var(--ocean-blue);
 		background: rgba(0, 119, 190, 0.05);
+		transform: scale(1.02);
 	}
 
-	.mobile-language-button.active {
-		border-color: var(--ocean-blue);
-		background: rgba(0, 119, 190, 0.1);
-	}
-
-	.mobile-current-lang {
+	.current-language {
 		display: flex;
 		align-items: center;
-		gap: 4px;
+		gap: var(--spacing-xs);
 		font-weight: 500;
 	}
 
-	.mobile-lang-arrow {
-		font-size: 0.7rem;
-		transition: transform var(--transition-fast);
-		color: var(--text-secondary);
+	.control-arrow {
+		transition: transform 0.3s ease;
+		display: flex;
+		align-items: center;
 	}
 
-	.mobile-language-button.active .mobile-lang-arrow {
+	.mobile-language-button[aria-expanded="true"] .control-arrow {
 		transform: rotate(180deg);
 	}
 
 	.mobile-language-dropdown {
 		position: absolute;
-		top: 100%;
+		top: calc(100% + 8px);
 		right: 0;
-		left: auto;
 		background: var(--card-bg);
 		border: 2px solid var(--border-color);
-		border-radius: var(--radius-md);
-		box-shadow: var(--shadow-lg);
+		border-radius: var(--radius-lg);
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 		z-index: 1001;
 		opacity: 0;
 		visibility: hidden;
 		transform: translateY(-10px);
-		transition: all var(--transition-fast);
-		margin-top: 4px;
-		min-width: 120px;
+		transition: all 0.3s ease;
+		min-width: 140px;
+		overflow: hidden;
 	}
 
 	.mobile-language-dropdown.show {
@@ -364,311 +813,486 @@ import { SITE_TITLE } from '../consts';
 		transform: translateY(0);
 	}
 
-	.mobile-language-option {
+	.language-option {
 		display: flex;
 		align-items: center;
-		gap: var(--spacing-xs);
+		gap: var(--spacing-sm);
 		width: 100%;
-		padding: var(--spacing-sm);
+		padding: var(--spacing-md);
 		background: none;
 		border: none;
 		cursor: pointer;
-		transition: background-color var(--transition-fast);
+		transition: all 0.3s ease;
 		color: var(--text-primary);
-		font-size: 0.9rem;
+		font-size: 1rem;
 	}
 
-	.mobile-language-option:hover {
-		background: rgba(0, 119, 190, 0.05);
-	}
-
-	.mobile-language-option:first-child {
-		border-radius: var(--radius-md) var(--radius-md) 0 0;
-	}
-
-	.mobile-language-option:last-child {
-		border-radius: 0 0 var(--radius-md) var(--radius-md);
-	}
-
-	.mobile-language-option.active {
+	.language-option:hover {
 		background: rgba(0, 119, 190, 0.1);
+		color: var(--ocean-blue);
+	}
+
+	.language-option.active {
+		background: rgba(0, 119, 190, 0.15);
 		color: var(--ocean-blue);
 		font-weight: 600;
 	}
 
+	.mobile-footer {
+		margin-top: var(--spacing-lg);
+		padding-top: var(--spacing-md);
+		border-top: 1px solid var(--border-color);
+		text-align: center;
+	}
+
+	.footer-text {
+		color: var(--text-secondary);
+		font-size: 0.875rem;
+		margin: 0;
+	}
+
+	/* ===== RESPONSIVE DESIGN ===== */
 	@media (max-width: 768px) {
-		.nav-content {
-			padding: var(--spacing-sm) var(--spacing-md);
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-		}
-
-		.nav-links {
+		.desktop-nav {
 			display: none;
 		}
 
-		.desktop-controls {
-			display: none;
-		}
-
-		.nav-right {
-			display: none;
-		}
-
-		.mobile-menu-toggle {
+		.mobile-menu-button {
 			display: flex;
 		}
 
 		.logo-text {
-			font-size: 1.3rem;
-		}
-
-		.wave-icon {
 			font-size: 1.5rem;
 		}
-	}
 
-	@media (min-width: 769px) {
-		.mobile-menu-toggle {
+		.wave-emoji {
+			font-size: 2rem;
+		}
+
+		.logo-tagline {
 			display: none;
 		}
 
-		.mobile-menu {
-			display: none !important;
+		.nav-content {
+			padding: var(--spacing-sm) var(--spacing-md);
+			min-height: 60px;
+			max-width: 100%;
 		}
+
+		[data-lang="ka"] .nav-content {
+			max-width: 100%;
+			padding: var(--spacing-sm) var(--spacing-md);
+		}
+	}
+
+	@media (max-width: 1024px) {
+		.nav-content {
+			max-width: 1300px;
+		}
+
+		[data-lang="ka"] .nav-content {
+			max-width: 1500px;
+		}
+
+		.nav-links-wrapper {
+			gap: 2px;
+		}
+
+		[data-lang="ka"] .nav-links-wrapper {
+			gap: var(--spacing-xs);
+		}
+
+		.dropdown-trigger {
+			padding: var(--spacing-xs) var(--spacing-sm);
+			font-size: 0.9rem;
+		}
+	}
+
+	@media (max-width: 900px) {
+		.nav-content {
+			max-width: 1200px;
+		}
+
+		[data-lang="ka"] .nav-content {
+			max-width: 1400px;
+		}
+
+		.nav-links-wrapper {
+			gap: 1px;
+		}
+
+		[data-lang="ka"] .nav-links-wrapper {
+			gap: 4px;
+		}
+
+		.dropdown-trigger {
+			padding: var(--spacing-xs) 6px;
+			font-size: 0.85rem;
+		}
+
+		[data-lang="ka"] .dropdown-trigger {
+			padding: var(--spacing-xs) var(--spacing-sm);
+			font-size: 0.9rem;
+		}
+	}
+
+	/* ===== ACCESSIBILITY & PREFERENCES ===== */
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+		}
+	}
+
+	@media (prefers-contrast: high) {
+		.nav-links-wrapper {
+			border-width: 2px;
+		}
+
+		.dropdown-menu {
+			border-width: 2px;
+		}
+
+		.mobile-menu-content {
+			border-left: 2px solid var(--border-color);
+		}
+	}
+
+	/* ===== LANGUAGE-SPECIFIC ADJUSTMENTS ===== */
+	[data-lang="ka"] .logo-text {
+		letter-spacing: 0.02em;
+	}
+
+	[data-lang="ka"] .dropdown-trigger {
+		padding-left: calc(var(--spacing-md) + 4px);
+		padding-right: calc(var(--spacing-md) + 4px);
+		letter-spacing: 0.02em;
+	}
+
+	[data-lang="ka"] .mobile-section-title,
+	[data-lang="ka"] .control-label {
+		font-size: 0.95rem;
+		letter-spacing: 0.01em;
+	}
+
+	/* Additional Georgian text optimizations */
+	[data-lang="ka"] .dropdown-text {
+		font-weight: 500;
+		letter-spacing: 0.01em;
+	}
+
+	[data-lang="ka"] .nav-links-wrapper {
+		min-width: fit-content;
+	}
+
+	/* Ensure Georgian text doesn't wrap */
+	[data-lang="ka"] .nav-link__text,
+	[data-lang="ka"] .dropdown-text {
+		white-space: nowrap;
+		overflow: visible;
 	}
 </style>
 
 <script>
-	// Theme toggle functionality
-	const themeToggle = document.getElementById('theme-toggle');
-	const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
-	const themeIcon = document.querySelector('.theme-icon');
-	const mobileThemeIcon = document.querySelector('.mobile-theme-icon');
-	const themeLabel = document.getElementById('theme-label');
-	const htmlElement = document.documentElement;
+	// Enhanced Header functionality with better performance and accessibility
+	class HeaderManager {
+		private elements: {
+			header: HTMLElement | null;
+			mobileMenuButton: HTMLElement | null;
+			mobileMenu: HTMLElement | null;
+			mobileCloseButton: HTMLElement | null;
+			dropdownTrigger: HTMLElement | null;
+			dropdownMenu: HTMLElement | null;
+			mobileLanguageButton: HTMLElement | null;
+			mobileLanguageDropdown: HTMLElement | null;
+		};
 
-	// Check for saved theme preference or default to 'light'
-	const currentTheme = localStorage.getItem('theme') || 'light';
-	htmlElement.setAttribute('data-theme', currentTheme);
-	updateThemeDisplay(currentTheme);
+		private state = {
+			isMobileMenuOpen: false,
+			isDropdownOpen: false,
+			isLanguageDropdownOpen: false,
+			currentLanguage: 'en'
+		};
 
-	function updateThemeDisplay(theme: string) {
-		const iconText = theme === 'dark' ? '☀️' : '🌙';
-		const labelText = theme === 'dark' ? 'Light Mode' : 'Dark Mode';
-		
-		if (themeIcon) {
-			themeIcon.textContent = iconText;
+		constructor() {
+					this.elements = {
+			header: document.getElementById('site-header'),
+			mobileMenuButton: document.getElementById('mobile-menu-button'),
+			mobileMenu: document.getElementById('mobile-menu'),
+			mobileCloseButton: document.getElementById('mobile-close-button'),
+			dropdownTrigger: document.querySelector('.dropdown-trigger'),
+			dropdownMenu: document.querySelector('.dropdown-menu'),
+			mobileLanguageButton: document.getElementById('mobile-language-button'),
+			mobileLanguageDropdown: document.getElementById('mobile-language-dropdown')
+		};
+
+			this.init();
 		}
-		if (mobileThemeIcon) {
-			mobileThemeIcon.textContent = iconText;
+
+		private init(): void {
+			this.setupEventListeners();
+			this.loadSavedPreferences();
+			this.setupScrollEffects();
+			this.updateTranslations();
 		}
-		if (themeLabel) {
-			themeLabel.textContent = labelText;
+
+		private setupEventListeners(): void {
+			// Mobile menu events
+			this.elements.mobileMenuButton?.addEventListener('click', this.toggleMobileMenu.bind(this));
+			this.elements.mobileCloseButton?.addEventListener('click', this.closeMobileMenu.bind(this));
+
+			// Dropdown events
+			this.elements.dropdownTrigger?.addEventListener('click', this.toggleDropdown.bind(this));
+
+			// Language dropdown events
+			this.elements.mobileLanguageButton?.addEventListener('click', this.toggleLanguageDropdown.bind(this));
+
+			// Language selection events
+			document.querySelectorAll('.language-option').forEach(option => {
+				option.addEventListener('click', this.handleLanguageSelection.bind(this));
+			});
+
+			// Close events
+			document.addEventListener('click', this.handleOutsideClick.bind(this));
+			document.addEventListener('keydown', this.handleKeydown.bind(this));
+			window.addEventListener('resize', this.handleResize.bind(this));
+
+			// Custom language change events
+			window.addEventListener('languagechange', this.updateTranslations.bind(this));
 		}
-	}
 
-	function toggleTheme() {
-		const currentTheme = htmlElement.getAttribute('data-theme');
-		const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-		
-		htmlElement.setAttribute('data-theme', newTheme);
-		localStorage.setItem('theme', newTheme);
-		updateThemeDisplay(newTheme);
-	}
-
-	// Add event listeners for both theme toggles
-	themeToggle?.addEventListener('click', toggleTheme);
-	mobileThemeToggle?.addEventListener('click', toggleTheme);
-
-	// Mobile menu toggle functionality
-	const mobileToggle = document.getElementById('mobile-menu-toggle');
-	const mobileMenu = document.getElementById('mobile-menu');
-
-	function toggleMobileMenu() {
-		const isOpen = mobileMenu?.classList.contains('show');
-		
-		if (isOpen) {
-			closeMobileMenu();
-		} else {
-			openMobileMenu();
+		private loadSavedPreferences(): void {
+			// Load language
+			this.state.currentLanguage = localStorage.getItem('language') || 'en';
+			document.documentElement.setAttribute('data-lang', this.state.currentLanguage);
+			
+			this.updateLanguageDisplay();
 		}
-	}
 
-	function openMobileMenu() {
-		mobileMenu?.classList.add('show');
-		mobileToggle?.classList.add('active');
-		document.body.style.overflow = 'hidden'; // Prevent background scrolling
-	}
+		private setupScrollEffects(): void {
+			let lastScrollY = 0;
+			let ticking = false;
 
-	function closeMobileMenu() {
-		mobileMenu?.classList.remove('show');
-		mobileToggle?.classList.remove('active');
-		document.body.style.overflow = ''; // Restore scrolling
-	}
+			const updateScrollEffects = () => {
+				const scrollY = window.scrollY;
+				
+				if (this.elements.header) {
+					this.elements.header.classList.toggle('scrolled', scrollY > 50);
+				}
 
-	mobileToggle?.addEventListener('click', toggleMobileMenu);
+				lastScrollY = scrollY;
+				ticking = false;
+			};
 
-	// Close mobile menu when clicking on a link
-	const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
-	mobileNavLinks.forEach(link => {
-		link.addEventListener('click', closeMobileMenu);
-	});
-
-	// Close mobile menu when clicking outside
-	document.addEventListener('click', (e) => {
-		const header = document.querySelector('header');
-		if (header && !header.contains(e.target as Node)) {
-			closeMobileMenu();
+			window.addEventListener('scroll', () => {
+				if (!ticking) {
+					requestAnimationFrame(updateScrollEffects);
+					ticking = true;
+				}
+			});
 		}
-	});
 
-	// Close mobile menu on escape key
-	document.addEventListener('keydown', (e) => {
-		if (e.key === 'Escape') {
-			closeMobileMenu();
+		private toggleMobileMenu(): void {
+			this.state.isMobileMenuOpen = !this.state.isMobileMenuOpen;
+			this.updateMobileMenuState();
 		}
-	});
 
-	// Handle viewport changes
-	window.addEventListener('resize', () => {
-		if (window.innerWidth > 768) {
+		private closeMobileMenu(): void {
+			this.state.isMobileMenuOpen = false;
+			this.updateMobileMenuState();
+		}
+
+		private updateMobileMenuState(): void {
+			const { mobileMenu, mobileMenuButton } = this.elements;
+			
+			if (mobileMenu && mobileMenuButton) {
+				mobileMenu.classList.toggle('show', this.state.isMobileMenuOpen);
+				mobileMenuButton.setAttribute('aria-expanded', this.state.isMobileMenuOpen.toString());
+				mobileMenu.setAttribute('aria-hidden', (!this.state.isMobileMenuOpen).toString());
+				
+				// Prevent body scroll when menu is open
+				document.body.style.overflow = this.state.isMobileMenuOpen ? 'hidden' : '';
+				
+				// Focus management
+				if (this.state.isMobileMenuOpen) {
+					this.elements.mobileCloseButton?.focus();
+				} else {
+					this.elements.mobileMenuButton?.focus();
+				}
+			}
+		}
+
+		private toggleDropdown(): void {
+			this.state.isDropdownOpen = !this.state.isDropdownOpen;
+			this.updateDropdownState();
+		}
+
+		private updateDropdownState(): void {
+			const { dropdownTrigger, dropdownMenu } = this.elements;
+			
+			if (dropdownTrigger && dropdownMenu) {
+				dropdownMenu.classList.toggle('show', this.state.isDropdownOpen);
+				dropdownTrigger.setAttribute('aria-expanded', this.state.isDropdownOpen.toString());
+			}
+		}
+
+		private toggleLanguageDropdown(): void {
+			this.state.isLanguageDropdownOpen = !this.state.isLanguageDropdownOpen;
+			this.updateLanguageDropdownState();
+		}
+
+		private updateLanguageDropdownState(): void {
+			const { mobileLanguageButton, mobileLanguageDropdown } = this.elements;
+			
+			if (mobileLanguageButton && mobileLanguageDropdown) {
+				mobileLanguageDropdown.classList.toggle('show', this.state.isLanguageDropdownOpen);
+				mobileLanguageButton.setAttribute('aria-expanded', this.state.isLanguageDropdownOpen.toString());
+			}
+		}
+
+		private handleLanguageSelection(event: Event): void {
+			const target = event.target as HTMLElement;
+			const option = target.closest('.language-option') as HTMLElement;
+			
+			if (option) {
+				const lang = option.getAttribute('data-lang');
+				if (lang && (lang === 'en' || lang === 'ka')) {
+					this.state.currentLanguage = lang;
+					localStorage.setItem('language', lang);
+					document.documentElement.setAttribute('data-lang', lang);
+					this.updateLanguageDisplay();
+					this.updateTranslations();
+					this.state.isLanguageDropdownOpen = false;
+					this.updateLanguageDropdownState();
+					
+					// Dispatch custom event
+					window.dispatchEvent(new CustomEvent('languagechange', { 
+						detail: { language: lang } 
+					}));
+				}
+			}
+		}
+
+
+
+		private updateLanguageDisplay(): void {
+			const languages = {
+				en: { flag: '🇺🇸', code: 'EN', name: 'English' },
+				ka: { flag: '🇬🇪', code: 'KA', name: 'ქართული' }
+			};
+
+			const lang = languages[this.state.currentLanguage as keyof typeof languages];
+			const mobileCurrentLang = document.getElementById('mobile-current-lang');
+			
+			if (mobileCurrentLang && lang) {
+				mobileCurrentLang.textContent = `${lang.flag} ${lang.code}`;
+			}
+
+			// Update active states
+			document.querySelectorAll('.language-option').forEach(option => {
+				const optionLang = option.getAttribute('data-lang');
+				option.classList.toggle('active', optionLang === this.state.currentLanguage);
+			});
+		}
+
+		private updateTranslations(): void {
+			const translations = {
+				en: {
+					'nav.home': 'Home',
+					'nav.about': 'About',
+					'nav.services': 'Services',
+					'nav.learning': 'Learning',
+					'nav.courses': 'Courses',
+					'nav.masterclasses': 'Masterclasses',
+					'nav.successStories': 'Success Stories',
+					'nav.blog': 'Blog',
+					'nav.faq': 'FAQ',
+					'nav.contact': 'Contact',
+					'controls.language': 'Language',
+					'controls.theme': 'Theme'
+				},
+				ka: {
+					'nav.home': 'მთავარი',
+					'nav.about': 'ჩვენ შესახებ',
+					'nav.services': 'სერვისები',
+					'nav.learning': 'სწავლება',
+					'nav.courses': 'კურსები',
+					'nav.masterclasses': 'მასტერკლასები',
+					'nav.successStories': 'წარმატების ისტორიები',
+					'nav.blog': 'ბლოგი',
+					'nav.faq': 'ხშირად დასმული კითხვები',
+					'nav.contact': 'კონტაქტი',
+					'controls.language': 'ენა',
+					'controls.theme': 'თემა'
+				}
+			};
+
+			const currentTranslations = translations[this.state.currentLanguage as keyof typeof translations];
+			
+			document.querySelectorAll('[data-translate]').forEach(element => {
+				const key = element.getAttribute('data-translate');
+				if (key && currentTranslations[key as keyof typeof currentTranslations]) {
+					element.textContent = currentTranslations[key as keyof typeof currentTranslations];
+				}
+			});
+		}
+
+		private handleOutsideClick(event: Event): void {
+			const target = event.target as HTMLElement;
+			
+			// Close dropdown if clicking outside
+			if (this.state.isDropdownOpen && 
+				!this.elements.dropdownTrigger?.contains(target) && 
+				!this.elements.dropdownMenu?.contains(target)) {
+				this.state.isDropdownOpen = false;
+				this.updateDropdownState();
+			}
+
+			// Close language dropdown if clicking outside
+			if (this.state.isLanguageDropdownOpen && 
+				!this.elements.mobileLanguageButton?.contains(target) && 
+				!this.elements.mobileLanguageDropdown?.contains(target)) {
+				this.state.isLanguageDropdownOpen = false;
+				this.updateLanguageDropdownState();
+			}
+
+			// Close mobile menu if clicking overlay
+			if (this.state.isMobileMenuOpen && target.classList.contains('mobile-menu-overlay')) {
+				this.closeMobileMenu();
+			}
+		}
+
+		private handleKeydown(event: KeyboardEvent): void {
+			// Close mobile menu on Escape
+			if (event.key === 'Escape') {
+				if (this.state.isMobileMenuOpen) {
+					this.closeMobileMenu();
+				}
+				if (this.state.isDropdownOpen) {
+					this.state.isDropdownOpen = false;
+					this.updateDropdownState();
+				}
+				if (this.state.isLanguageDropdownOpen) {
+					this.state.isLanguageDropdownOpen = false;
+					this.updateLanguageDropdownState();
+				}
+			}
+		}
+
+		private handleResize(): void {
 			// Close mobile menu when switching to desktop
-			closeMobileMenu();
-		}
-	});
-
-	// Mobile Language Toggle functionality
-	const mobileLanguageButton = document.getElementById('mobile-language-button');
-	const mobileLanguageDropdown = document.getElementById('mobile-language-dropdown');
-	const mobileCurrentLangElement = document.getElementById('mobile-current-lang');
-	const mobileLanguageOptions = document.querySelectorAll('.mobile-language-option');
-
-	// Language data
-	const languages = {
-		en: { flag: '🇺🇸', code: 'EN', name: 'English' },
-		ka: { flag: '🇬🇪', code: 'KA', name: 'ქართული' }
-	};
-
-	// Get current language
-	let currentLanguage = localStorage.getItem('language') || 'en';
-
-	// Update language display for both desktop and mobile
-	function updateLanguageDisplay() {
-		const lang = languages[currentLanguage as keyof typeof languages];
-		
-		// Update mobile language display
-		if (mobileCurrentLangElement && lang) {
-			mobileCurrentLangElement.textContent = `${lang.flag} ${lang.code}`;
-		}
-		
-		// Update active state of mobile options
-		mobileLanguageOptions.forEach(option => {
-			const optionLang = option.getAttribute('data-lang');
-			option.classList.toggle('active', optionLang === currentLanguage);
-		});
-	}
-
-	// Mobile language dropdown functions
-	function toggleMobileLanguageDropdown() {
-		const isOpen = mobileLanguageDropdown?.classList.contains('show');
-		
-		if (isOpen) {
-			closeMobileLanguageDropdown();
-		} else {
-			openMobileLanguageDropdown();
-		}
-	}
-
-	function openMobileLanguageDropdown() {
-		mobileLanguageDropdown?.classList.add('show');
-		mobileLanguageButton?.classList.add('active');
-	}
-
-	function closeMobileLanguageDropdown() {
-		mobileLanguageDropdown?.classList.remove('show');
-		mobileLanguageButton?.classList.remove('active');
-	}
-
-	// Handle language selection
-	function selectLanguage(lang: string) {
-		if (lang && (lang === 'en' || lang === 'ka')) {
-			currentLanguage = lang;
-			localStorage.setItem('language', lang);
-			updateLanguageDisplay();
-			closeMobileLanguageDropdown();
-			
-			// Dispatch custom event for language change
-			window.dispatchEvent(new CustomEvent('languagechange', { 
-				detail: { language: lang } 
-			}));
-		}
-	}
-
-	// Mobile language toggle event listeners
-	mobileLanguageButton?.addEventListener('click', (e) => {
-		e.stopPropagation();
-		toggleMobileLanguageDropdown();
-	});
-
-	mobileLanguageOptions.forEach(option => {
-		option.addEventListener('click', (e) => {
-			e.stopPropagation();
-			const lang = option.getAttribute('data-lang');
-			if (lang) {
-				selectLanguage(lang);
+			if (window.innerWidth > 768 && this.state.isMobileMenuOpen) {
+				this.closeMobileMenu();
 			}
-		});
-	});
-
-	// Close mobile language dropdown when clicking outside
-	document.addEventListener('click', (e) => {
-		if (mobileLanguageButton && !mobileLanguageButton.contains(e.target as Node) && 
-			mobileLanguageDropdown && !mobileLanguageDropdown.contains(e.target as Node)) {
-			closeMobileLanguageDropdown();
 		}
-	});
-
-	// Navigation translations
-	const navTranslations = {
-		en: {
-			'nav.home': 'Home',
-			'nav.about': 'About',
-			'nav.blog': 'Blog',
-			'nav.courses': 'Courses',
-			'nav.contact': 'Contact'
-		},
-		ka: {
-			'nav.home': 'მთავარი',
-			'nav.about': 'ჩვენ შესახებ',
-			'nav.blog': 'ბლოგი',
-			'nav.courses': 'კურსები',
-			'nav.contact': 'კონტაქტი'
-		}
-	};
-
-	function updateNavTranslations() {
-		const currentLang = localStorage.getItem('language') || 'en';
-		const elementsToTranslate = document.querySelectorAll('[data-translate]');
-		
-		elementsToTranslate.forEach(element => {
-			const translationKey = element.getAttribute('data-translate');
-			const translatedText = navTranslations[currentLang as keyof typeof navTranslations]?.[translationKey as keyof typeof navTranslations.en];
-			
-			if (translatedText) {
-				element.textContent = translatedText;
-			}
-		});
 	}
 
-	// Listen for language change events
-	window.addEventListener('languagechange', () => {
-		updateNavTranslations();
-		updateLanguageDisplay();
+	// Initialize header when DOM is loaded
+	document.addEventListener('DOMContentLoaded', () => {
+		new HeaderManager();
 	});
-
-	// Initialize everything
-	updateLanguageDisplay();
-	updateNavTranslations();
 </script>
+

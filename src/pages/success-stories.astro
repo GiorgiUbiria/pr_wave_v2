@@ -1,0 +1,893 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Success Stories - ${SITE_TITLE}`} description="Real client transformations and success stories from PR Wave's social media marketing services and SMM PLUS course." />
+	</head>
+	<body>
+		<Header />
+		
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="container">
+				<div class="hero-content">
+					<h1 class="hero-title" data-translate="hero.title">Success Stories</h1>
+					<p class="hero-description" data-translate="hero.description">
+						Discover how businesses transformed their digital presence with PR Wave. 
+						Real results, real growth, real success.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Featured Success Story -->
+		<section class="section featured-story">
+			<div class="container">
+				<div class="featured-card">
+					<div class="featured-content">
+						<div class="featured-badge" data-translate="featured.badge">Featured Success</div>
+						<h2 data-translate="featured.title">Restaurant Chain Increases Revenue by 400%</h2>
+						<p data-translate="featured.description">
+							Local Georgian restaurant chain transformed their social media presence, 
+							resulting in massive growth in both online engagement and foot traffic.
+						</p>
+						<div class="metrics-grid">
+							<div class="metric">
+								<div class="metric-number">400%</div>
+								<div class="metric-label" data-translate="featured.metric1">Revenue Increase</div>
+							</div>
+							<div class="metric">
+								<div class="metric-number">800%</div>
+								<div class="metric-label" data-translate="featured.metric2">Social Engagement</div>
+							</div>
+							<div class="metric">
+								<div class="metric-number">50K+</div>
+								<div class="metric-label" data-translate="featured.metric3">New Followers</div>
+							</div>
+							<div class="metric">
+								<div class="metric-number">3 months</div>
+								<div class="metric-label" data-translate="featured.metric4">Timeframe</div>
+							</div>
+						</div>
+					</div>
+					<div class="featured-visual">
+						<div class="before-after">
+							<div class="comparison-item">
+								<h4 data-translate="featured.before">Before</h4>
+								<div class="stats-before">
+									<p>📱 <span data-translate="featured.beforeFollowers">500 followers</span></p>
+									<p>💬 <span data-translate="featured.beforeEngagement">2% engagement</span></p>
+									<p>📈 <span data-translate="featured.beforeReach">Limited reach</span></p>
+								</div>
+							</div>
+							<div class="comparison-arrow">→</div>
+							<div class="comparison-item">
+								<h4 data-translate="featured.after">After</h4>
+								<div class="stats-after">
+									<p>📱 <span data-translate="featured.afterFollowers">50,500 followers</span></p>
+									<p>💬 <span data-translate="featured.afterEngagement">18% engagement</span></p>
+									<p>📈 <span data-translate="featured.afterReach">City-wide reach</span></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Client Case Studies -->
+		<section class="section case-studies bg-light">
+			<div class="container">
+				<div class="text-center mb-lg">
+					<h2 class="section-title" data-translate="cases.title">Client Transformations</h2>
+					<p class="section-subtitle" data-translate="cases.subtitle">See how different businesses achieved remarkable growth</p>
+				</div>
+				<div class="grid grid-2 cases-grid">
+					<div class="case-card">
+						<div class="case-header">
+							<div class="case-icon">🏪</div>
+							<div class="case-info">
+								<h3 data-translate="case1.title">Local Retail Store</h3>
+								<p class="case-industry" data-translate="case1.industry">Fashion & Lifestyle</p>
+							</div>
+						</div>
+						<div class="case-results">
+							<div class="result-item">
+								<span class="result-number">250%</span>
+								<span class="result-label" data-translate="case1.result1">Sales Increase</span>
+							</div>
+							<div class="result-item">
+								<span class="result-number">15K</span>
+								<span class="result-label" data-translate="case1.result2">New Customers</span>
+							</div>
+						</div>
+						<p class="case-description" data-translate="case1.description">
+							Through strategic Instagram and Facebook campaigns, this local boutique 
+							transformed from a neighborhood store to a regional fashion destination.
+						</p>
+						<div class="case-services">
+							<span class="service-tag" data-translate="case1.service1">Social Media Management</span>
+							<span class="service-tag" data-translate="case1.service2">Content Creation</span>
+							<span class="service-tag" data-translate="case1.service3">Paid Advertising</span>
+						</div>
+					</div>
+
+					<div class="case-card">
+						<div class="case-header">
+							<div class="case-icon">🏥</div>
+							<div class="case-info">
+								<h3 data-translate="case2.title">Healthcare Clinic</h3>
+								<p class="case-industry" data-translate="case2.industry">Medical Services</p>
+							</div>
+						</div>
+						<div class="case-results">
+							<div class="result-item">
+								<span class="result-number">180%</span>
+								<span class="result-label" data-translate="case2.result1">Patient Inquiries</span>
+							</div>
+							<div class="result-item">
+								<span class="result-number">95%</span>
+								<span class="result-label" data-translate="case2.result2">Positive Reviews</span>
+							</div>
+						</div>
+						<p class="case-description" data-translate="case2.description">
+							Built trust and credibility through educational content and patient testimonials, 
+							establishing the clinic as a leading healthcare provider in Tbilisi.
+						</p>
+						<div class="case-services">
+							<span class="service-tag" data-translate="case2.service1">Content Strategy</span>
+							<span class="service-tag" data-translate="case2.service2">Reputation Management</span>
+							<span class="service-tag" data-translate="case2.service3">Community Building</span>
+						</div>
+					</div>
+
+					<div class="case-card">
+						<div class="case-header">
+							<div class="case-icon">🚗</div>
+							<div class="case-info">
+								<h3 data-translate="case3.title">Auto Service Center</h3>
+								<p class="case-industry" data-translate="case3.industry">Automotive</p>
+							</div>
+						</div>
+						<div class="case-results">
+							<div class="result-item">
+								<span class="result-number">300%</span>
+								<span class="result-label" data-translate="case3.result1">Service Bookings</span>
+							</div>
+							<div class="result-item">
+								<span class="result-number">25K</span>
+								<span class="result-label" data-translate="case3.result2">Video Views</span>
+							</div>
+						</div>
+						<p class="case-description" data-translate="case3.description">
+							Showcased expertise through behind-the-scenes videos and customer testimonials, 
+							becoming the most trusted auto service in the region.
+						</p>
+						<div class="case-services">
+							<span class="service-tag" data-translate="case3.service1">Video Marketing</span>
+							<span class="service-tag" data-translate="case3.service2">Local SEO</span>
+							<span class="service-tag" data-translate="case3.service3">Customer Reviews</span>
+						</div>
+					</div>
+
+					<div class="case-card">
+						<div class="case-header">
+							<div class="case-icon">💻</div>
+							<div class="case-info">
+								<h3 data-translate="case4.title">Tech Startup</h3>
+								<p class="case-industry" data-translate="case4.industry">Technology</p>
+							</div>
+						</div>
+						<div class="case-results">
+							<div class="result-item">
+								<span class="result-number">500%</span>
+								<span class="result-label" data-translate="case4.result1">User Signups</span>
+							</div>
+							<div class="result-item">
+								<span class="result-number">100K</span>
+								<span class="result-label" data-translate="case4.result2">App Downloads</span>
+							</div>
+						</div>
+						<p class="case-description" data-translate="case4.description">
+							Launched a successful product with strategic social media campaigns, 
+							achieving market penetration and user acquisition goals ahead of schedule.
+						</p>
+						<div class="case-services">
+							<span class="service-tag" data-translate="case4.service1">Product Launch</span>
+							<span class="service-tag" data-translate="case4.service2">Influencer Marketing</span>
+							<span class="service-tag" data-translate="case4.service3">Growth Hacking</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Course Graduate Success -->
+		<section class="section graduate-success">
+			<div class="container">
+				<div class="text-center mb-lg">
+					<h2 class="section-title" data-translate="graduates.title">SMM PLUS Course Graduates</h2>
+					<p class="section-subtitle" data-translate="graduates.subtitle">Students who transformed their careers and businesses</p>
+				</div>
+				<div class="grid grid-3 graduates-grid">
+					<div class="graduate-card">
+						<div class="graduate-avatar">👩‍💼</div>
+						<h4 data-translate="graduate1.name">Nana Kiknadze</h4>
+						<p class="graduate-role" data-translate="graduate1.role">Freelance SMM Manager</p>
+						<p class="graduate-story" data-translate="graduate1.story">
+							"After completing SMM PLUS, I started my own social media agency. 
+							Now I manage 15+ clients and earn 3x more than my previous job."
+						</p>
+						<div class="graduate-achievement">
+							<span class="achievement-badge" data-translate="graduate1.achievement">15+ Clients</span>
+						</div>
+					</div>
+
+					<div class="graduate-card">
+						<div class="graduate-avatar">👨‍💼</div>
+						<h4 data-translate="graduate2.name">Giorgi Tsereteli</h4>
+						<p class="graduate-role" data-translate="graduate2.role">Restaurant Owner</p>
+						<p class="graduate-story" data-translate="graduate2.story">
+							"The course taught me how to manage my restaurant's social media. 
+							Our customer base doubled within 6 months of applying what I learned."
+						</p>
+						<div class="graduate-achievement">
+							<span class="achievement-badge" data-translate="graduate2.achievement">200% Growth</span>
+						</div>
+					</div>
+
+					<div class="graduate-card">
+						<div class="graduate-avatar">👩‍💻</div>
+						<h4 data-translate="graduate3.name">Mariam Beridze</h4>
+						<p class="graduate-role" data-translate="graduate3.role">Marketing Manager</p>
+						<p class="graduate-story" data-translate="graduate3.story">
+							"Got promoted to Head of Digital Marketing after completing the course. 
+							The practical experience with real clients made all the difference."
+						</p>
+						<div class="graduate-achievement">
+							<span class="achievement-badge" data-translate="graduate3.achievement">Career Promotion</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Testimonials -->
+		<section class="section testimonials-full bg-light">
+			<div class="container">
+				<div class="text-center mb-lg">
+					<h2 class="section-title" data-translate="testimonials.title">What Our Clients Say</h2>
+				</div>
+				<div class="testimonials-slider">
+					<div class="testimonial-item">
+						<div class="testimonial-content">
+							<div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+							<p class="testimonial-text" data-translate="testimonial1.text">
+								"PR Wave completely transformed our digital presence. Their team is professional, 
+								creative, and delivers results that exceed expectations."
+							</p>
+							<div class="testimonial-author">
+								<div class="author-info">
+									<h4 data-translate="testimonial1.name">David Kipiani</h4>
+									<p data-translate="testimonial1.company">CEO, Local Tech Company</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="testimonial-item">
+						<div class="testimonial-content">
+							<div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+							<p class="testimonial-text" data-translate="testimonial2.text">
+								"The SMM PLUS course gave me confidence and skills to manage social media professionally. 
+								Best investment I've made for my business."
+							</p>
+							<div class="testimonial-author">
+								<div class="author-info">
+									<h4 data-translate="testimonial2.name">Ana Maisuradze</h4>
+									<p data-translate="testimonial2.company">Small Business Owner</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA Section -->
+		<section class="section cta-section">
+			<div class="container text-center">
+				<h2 class="section-title" data-translate="cta.title">Ready to Write Your Success Story?</h2>
+				<p class="section-subtitle" data-translate="cta.subtitle">
+					Join hundreds of businesses that have transformed their digital presence with PR Wave
+				</p>
+				<div class="cta-buttons">
+					<a href="/contact" class="btn btn-primary" data-translate="cta.getStarted">Get Started Today</a>
+					<a href="/courses" class="btn btn-secondary" data-translate="cta.learnMore">Learn About SMM PLUS</a>
+				</div>
+			</div>
+		</section>
+
+		<Footer />
+	</body>
+</html>
+
+<style>
+	/* Hero Section */
+	.hero {
+		background: var(--wave-gradient);
+		color: var(--white);
+		text-align: center;
+		padding: var(--spacing-xl) 0;
+	}
+
+	.hero-title {
+		font-size: 3rem;
+		font-weight: 800;
+		margin-bottom: var(--spacing-md);
+		color: var(--white);
+	}
+
+	.hero-description {
+		font-size: 1.2rem;
+		opacity: 0.9;
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	/* Featured Story */
+	.featured-story {
+		padding: var(--spacing-xl) 0;
+	}
+
+	.featured-card {
+		background: var(--white);
+		border-radius: var(--border-radius-lg);
+		box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+		overflow: hidden;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0;
+		min-height: 500px;
+	}
+
+	.featured-content {
+		padding: var(--spacing-xl);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.featured-badge {
+		background: var(--success-color);
+		color: var(--white);
+		padding: var(--spacing-xs) var(--spacing-sm);
+		border-radius: var(--border-radius);
+		font-size: 0.8rem;
+		font-weight: 600;
+		width: fit-content;
+		margin-bottom: var(--spacing-md);
+	}
+
+	.featured-content h2 {
+		font-size: 2.2rem;
+		font-weight: 700;
+		margin-bottom: var(--spacing-md);
+		color: var(--text-heading);
+	}
+
+	.featured-content p {
+		font-size: 1.1rem;
+		color: var(--text-secondary);
+		margin-bottom: var(--spacing-lg);
+		line-height: 1.6;
+	}
+
+	.metrics-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--spacing-md);
+	}
+
+	.metric {
+		text-align: center;
+		padding: var(--spacing-md);
+		background: #f8f9fa;
+		border-radius: var(--border-radius);
+	}
+
+	.metric-number {
+		font-size: 2rem;
+		font-weight: 800;
+		color: var(--ocean-blue);
+		margin-bottom: var(--spacing-xs);
+	}
+
+	.metric-label {
+		font-size: 0.9rem;
+		color: var(--text-secondary);
+	}
+
+	.featured-visual {
+		background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+		padding: var(--spacing-xl);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.before-after {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-lg);
+		text-align: center;
+	}
+
+	.comparison-item h4 {
+		margin-bottom: var(--spacing-md);
+		color: var(--text-heading);
+	}
+
+	.comparison-arrow {
+		font-size: 2rem;
+		color: var(--ocean-blue);
+		font-weight: bold;
+	}
+
+	.stats-before p,
+	.stats-after p {
+		margin: var(--spacing-xs) 0;
+		font-size: 0.9rem;
+	}
+
+	/* Case Studies */
+	.cases-grid {
+		gap: var(--spacing-lg);
+	}
+
+	.case-card {
+		background: var(--white);
+		border-radius: var(--border-radius-lg);
+		padding: var(--spacing-xl);
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+		transition: transform var(--transition-normal);
+	}
+
+	.case-card:hover {
+		transform: translateY(-5px);
+	}
+
+	.case-header {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-md);
+		margin-bottom: var(--spacing-lg);
+	}
+
+	.case-icon {
+		font-size: 3rem;
+		width: 80px;
+		height: 80px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: var(--wave-gradient);
+		border-radius: 50%;
+		flex-shrink: 0;
+	}
+
+	.case-info h3 {
+		color: var(--text-heading);
+		margin-bottom: var(--spacing-xs);
+	}
+
+	.case-industry {
+		color: var(--text-secondary);
+		font-size: 0.9rem;
+		margin: 0;
+	}
+
+	.case-results {
+		display: flex;
+		gap: var(--spacing-lg);
+		margin-bottom: var(--spacing-lg);
+	}
+
+	.result-item {
+		text-align: center;
+	}
+
+	.result-number {
+		display: block;
+		font-size: 1.8rem;
+		font-weight: 800;
+		color: var(--ocean-blue);
+		margin-bottom: var(--spacing-xs);
+	}
+
+	.result-label {
+		font-size: 0.8rem;
+		color: var(--text-secondary);
+	}
+
+	.case-description {
+		color: var(--text-primary);
+		line-height: 1.6;
+		margin-bottom: var(--spacing-lg);
+	}
+
+	.case-services {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--spacing-xs);
+	}
+
+	.service-tag {
+		background: #e3f2fd;
+		color: var(--ocean-blue);
+		padding: var(--spacing-xs) var(--spacing-sm);
+		border-radius: var(--border-radius);
+		font-size: 0.8rem;
+		font-weight: 500;
+	}
+
+	/* Graduate Success */
+	.graduate-success {
+		background: var(--wave-gradient);
+		color: var(--white);
+	}
+
+	.graduate-success .section-title,
+	.graduate-success .section-subtitle {
+		color: var(--white);
+	}
+
+	.graduates-grid {
+		gap: var(--spacing-lg);
+	}
+
+	.graduate-card {
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
+		border-radius: var(--border-radius-lg);
+		padding: var(--spacing-xl);
+		text-align: center;
+		transition: transform var(--transition-normal);
+	}
+
+	.graduate-card:hover {
+		transform: translateY(-5px);
+	}
+
+	.graduate-avatar {
+		font-size: 4rem;
+		margin-bottom: var(--spacing-md);
+	}
+
+	.graduate-card h4 {
+		color: var(--white);
+		margin-bottom: var(--spacing-xs);
+	}
+
+	.graduate-role {
+		color: rgba(255, 255, 255, 0.8);
+		font-size: 0.9rem;
+		margin-bottom: var(--spacing-md);
+	}
+
+	.graduate-story {
+		color: rgba(255, 255, 255, 0.9);
+		line-height: 1.6;
+		margin-bottom: var(--spacing-lg);
+		font-style: italic;
+	}
+
+	.achievement-badge {
+		background: var(--success-color);
+		color: var(--white);
+		padding: var(--spacing-xs) var(--spacing-md);
+		border-radius: var(--border-radius);
+		font-size: 0.8rem;
+		font-weight: 600;
+	}
+
+	/* Testimonials */
+	.testimonials-slider {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--spacing-lg);
+	}
+
+	.testimonial-item {
+		background: var(--white);
+		border-radius: var(--border-radius-lg);
+		padding: var(--spacing-xl);
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	}
+
+	.testimonial-stars {
+		font-size: 1.2rem;
+		margin-bottom: var(--spacing-md);
+	}
+
+	.testimonial-text {
+		font-style: italic;
+		line-height: 1.6;
+		margin-bottom: var(--spacing-lg);
+		color: var(--text-primary);
+	}
+
+	.testimonial-author h4 {
+		margin-bottom: var(--spacing-xs);
+		color: var(--text-heading);
+	}
+
+	.testimonial-author p {
+		color: var(--text-secondary);
+		font-size: 0.9rem;
+		margin: 0;
+	}
+
+	/* CTA Section */
+	.cta-section {
+		background: var(--wave-gradient);
+		color: var(--white);
+		text-align: center;
+	}
+
+	.cta-section .section-title,
+	.cta-section .section-subtitle {
+		color: var(--white);
+	}
+
+	.cta-buttons {
+		display: flex;
+		gap: var(--spacing-md);
+		justify-content: center;
+		flex-wrap: wrap;
+		margin-top: var(--spacing-lg);
+	}
+
+	/* Responsive Design */
+	@media (max-width: 768px) {
+		.hero-title {
+			font-size: 2.5rem;
+		}
+
+		.featured-card {
+			grid-template-columns: 1fr;
+		}
+
+		.featured-visual {
+			padding: var(--spacing-lg);
+		}
+
+		.before-after {
+			flex-direction: column;
+			gap: var(--spacing-md);
+		}
+
+		.comparison-arrow {
+			transform: rotate(90deg);
+		}
+
+		.cases-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.graduates-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.testimonials-slider {
+			grid-template-columns: 1fr;
+		}
+
+		.metrics-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.case-results {
+			justify-content: space-around;
+		}
+
+		.cta-buttons {
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+</style>
+
+<script>
+	// Translation functionality
+	let currentLanguage = localStorage.getItem('language') || 'en';
+
+	const translations = {
+		en: {
+			'hero.title': 'Success Stories',
+			'hero.description': 'Discover how businesses transformed their digital presence with PR Wave. Real results, real growth, real success.',
+			'featured.badge': 'Featured Success',
+			'featured.title': 'Restaurant Chain Increases Revenue by 400%',
+			'featured.description': 'Local Georgian restaurant chain transformed their social media presence, resulting in massive growth in both online engagement and foot traffic.',
+			'featured.metric1': 'Revenue Increase',
+			'featured.metric2': 'Social Engagement',
+			'featured.metric3': 'New Followers',
+			'featured.metric4': 'Timeframe',
+			'featured.before': 'Before',
+			'featured.after': 'After',
+			'featured.beforeFollowers': '500 followers',
+			'featured.beforeEngagement': '2% engagement',
+			'featured.beforeReach': 'Limited reach',
+			'featured.afterFollowers': '50,500 followers',
+			'featured.afterEngagement': '18% engagement',
+			'featured.afterReach': 'City-wide reach',
+			'cases.title': 'Client Transformations',
+			'cases.subtitle': 'See how different businesses achieved remarkable growth',
+			'case1.title': 'Local Retail Store',
+			'case1.industry': 'Fashion & Lifestyle',
+			'case1.result1': 'Sales Increase',
+			'case1.result2': 'New Customers',
+			'case1.description': 'Through strategic Instagram and Facebook campaigns, this local boutique transformed from a neighborhood store to a regional fashion destination.',
+			'case1.service1': 'Social Media Management',
+			'case1.service2': 'Content Creation',
+			'case1.service3': 'Paid Advertising',
+			'case2.title': 'Healthcare Clinic',
+			'case2.industry': 'Medical Services',
+			'case2.result1': 'Patient Inquiries',
+			'case2.result2': 'Positive Reviews',
+			'case2.description': 'Built trust and credibility through educational content and patient testimonials, establishing the clinic as a leading healthcare provider in Tbilisi.',
+			'case2.service1': 'Content Strategy',
+			'case2.service2': 'Reputation Management',
+			'case2.service3': 'Community Building',
+			'case3.title': 'Auto Service Center',
+			'case3.industry': 'Automotive',
+			'case3.result1': 'Service Bookings',
+			'case3.result2': 'Video Views',
+			'case3.description': 'Showcased expertise through behind-the-scenes videos and customer testimonials, becoming the most trusted auto service in the region.',
+			'case3.service1': 'Video Marketing',
+			'case3.service2': 'Local SEO',
+			'case3.service3': 'Customer Reviews',
+			'case4.title': 'Tech Startup',
+			'case4.industry': 'Technology',
+			'case4.result1': 'User Signups',
+			'case4.result2': 'App Downloads',
+			'case4.description': 'Launched a successful product with strategic social media campaigns, achieving market penetration and user acquisition goals ahead of schedule.',
+			'case4.service1': 'Product Launch',
+			'case4.service2': 'Influencer Marketing',
+			'case4.service3': 'Growth Hacking',
+			'graduates.title': 'SMM PLUS Course Graduates',
+			'graduates.subtitle': 'Students who transformed their careers and businesses',
+			'graduate1.name': 'Nana Kiknadze',
+			'graduate1.role': 'Freelance SMM Manager',
+			'graduate1.story': 'After completing SMM PLUS, I started my own social media agency. Now I manage 15+ clients and earn 3x more than my previous job.',
+			'graduate1.achievement': '15+ Clients',
+			'graduate2.name': 'Giorgi Tsereteli',
+			'graduate2.role': 'Restaurant Owner',
+			'graduate2.story': 'The course taught me how to manage my restaurant\'s social media. Our customer base doubled within 6 months of applying what I learned.',
+			'graduate2.achievement': '200% Growth',
+			'graduate3.name': 'Mariam Beridze',
+			'graduate3.role': 'Marketing Manager',
+			'graduate3.story': 'Got promoted to Head of Digital Marketing after completing the course. The practical experience with real clients made all the difference.',
+			'graduate3.achievement': 'Career Promotion',
+			'testimonials.title': 'What Our Clients Say',
+			'testimonial1.text': 'PR Wave completely transformed our digital presence. Their team is professional, creative, and delivers results that exceed expectations.',
+			'testimonial1.name': 'David Kipiani',
+			'testimonial1.company': 'CEO, Local Tech Company',
+			'testimonial2.text': 'The SMM PLUS course gave me confidence and skills to manage social media professionally. Best investment I\'ve made for my business.',
+			'testimonial2.name': 'Ana Maisuradze',
+			'testimonial2.company': 'Small Business Owner',
+			'cta.title': 'Ready to Write Your Success Story?',
+			'cta.subtitle': 'Join hundreds of businesses that have transformed their digital presence with PR Wave',
+			'cta.getStarted': 'Get Started Today',
+			'cta.learnMore': 'Learn About SMM PLUS'
+		},
+		ka: {
+			'hero.title': 'წარმატების ისტორიები',
+			'hero.description': 'აღმოაჩინეთ, როგორ გარდაქმნეს ბიზნესებმა თავიანთი ციფრული პრეზენსი PR Wave-თან ერთად. რეალური შედეგები, რეალური ზრდა, რეალური წარმატება.',
+			'featured.badge': 'გამორჩეული წარმატება',
+			'featured.title': 'რესტორნების ქსელმა შემოსავალი 400%-ით გაზარდა',
+			'featured.description': 'ადგილობრივმა ქართულმა რესტორნების ქსელმა გარდაქმნა თავისი სოციალური მედიის პრეზენსი, რამაც გამოიწვია მასიური ზრდა როგორც ონლაინ ჩართულობაში, ასევე ფეხით მოსვლაში.',
+			'featured.metric1': 'შემოსავლის ზრდა',
+			'featured.metric2': 'სოციალური ჩართულობა',
+			'featured.metric3': 'ახალი მიმდევრები',
+			'featured.metric4': 'ვადები',
+			'featured.before': 'მანამდე',
+			'featured.after': 'მას შემდეგ',
+			'featured.beforeFollowers': '500 მიმდევარი',
+			'featured.beforeEngagement': '2% ჩართულობა',
+			'featured.beforeReach': 'შეზღუდული მიწვდომა',
+			'featured.afterFollowers': '50,500 მიმდევარი',
+			'featured.afterEngagement': '18% ჩართულობა',
+			'featured.afterReach': 'ქალაქის მასშტაბით მიწვდომა',
+			'cases.title': 'კლიენტების ტრანსფორმაცია',
+			'cases.subtitle': 'იხილეთ, როგორ მიაღწიეს სხვადასხვა ბიზნესებმა შესანიშნავ ზრდას',
+			'case1.title': 'ადგილობრივი საცალო მაღაზია',
+			'case1.industry': 'მოდა და ცხოვრების წესი',
+			'case1.result1': 'გაყიდვების ზრდა',
+			'case1.result2': 'ახალი მყიდველები',
+			'case1.description': 'Through strategic Instagram and Facebook campaigns, this local boutique transformed from a neighborhood store to a regional fashion destination.',
+			'case1.service1': 'სოციალური მედიის მართვა',
+			'case1.service2': 'კონტენტის შექმნა',
+			'case1.service3': 'ფასიანი რეკლამა',
+			'case2.title': 'სამედიცინო კლინიკა',
+			'case2.industry': 'სამედიცინო მომსახურებები',
+			'case2.result1': 'პაციენტების მოთხოვნები',
+			'case2.result2': 'დადებითი შეფასებები',
+			'case2.description': 'ააშენა ნდობა და სანდოობა საგანმანათლებლო კონტენტისა და პაციენტების მოწმობების მეშვეობით, კლინიკა დაამყარა თბილისში წამყვან ჯანდაცვის პროვაიდერად.',
+			'case2.service1': 'კონტენტის სტრატეგია',
+			'case2.service2': 'რეპუტაციის მართვა',
+			'case2.service3': 'საზოგადოების მშენებლობა',
+			'case3.title': 'ავტოსერვისის ცენტრი',
+			'case3.industry': 'ავტომობილური',
+			'case3.result1': 'სერვისის დაჯავშნები',
+			'case3.result2': 'ვიდეოს ნახვები',
+			'case3.description': 'აჩვენა ექსპერტიზა კულისებს მიღმა ვიდეოებისა და მომხმარებელთა მოწმობების მეშვეობით, გახდა რეგიონში ყველაზე სანდო ავტოსერვისი.',
+			'case3.service1': 'ვიდეო მარკეტინგი',
+			'case3.service2': 'ადგილობრივი SEO',
+			'case3.service3': 'მომხმარებელთა შეფასებები',
+			'case4.title': 'ტექ სტარტაპი',
+			'case4.industry': 'ტექნოლოგია',
+			'case4.result1': 'მომხმარებელთა რეგისტრაციები',
+			'case4.result2': 'აპლიკაციის ჩამოტვირთვები',
+			'case4.description': 'წარმატებულად გაუშვა პროდუქტი სტრატეგიული სოციალური მედიის კამპანიებით, მიაღწია ბაზრის შეღწევისა და მომხმარებელთა მოპოვების მიზნებს გრაფიკზე ადრე.',
+			'case4.service1': 'პროდუქტის გაშვება',
+			'case4.service2': 'ინფლუენსერ მარკეტინგი',
+			'case4.service3': 'ზრდის ჰაკინგი',
+			'graduates.title': 'SMM PLUS კურსის კურსდამთავრებულები',
+			'graduates.subtitle': 'სტუდენტები, რომლებმაც გარდაქმნეს თავიანთი კარიერა და ბიზნესი',
+			'graduate1.name': 'ნანა კიკნაძე',
+			'graduate1.role': 'ფრილანსერი SMM მენეჯერი',
+			'graduate1.story': 'SMM PLUS-ის დასრულების შემდეგ, დავიწყე საკუთარი სოციალური მედიის სააგენტო. ახლა ვმართავ 15+ კლიენტს და ვიღებ 3-ჯერ მეტს, ვიდრე ჩემს წინა სამუშაოზე.',
+			'graduate1.achievement': '15+ კლიენტი',
+			'graduate2.name': 'გიორგი წერეთელი',
+			'graduate2.role': 'რესტორნის მფლობელი',
+			'graduate2.story': 'კურსმა მასწავლა, როგორ მემართა ჩემი რესტორნის სოციალური მედია. ჩვენი მომხმარებელთა ბაზა გაორმაგდა 6 თვის განმავლობაში.',
+			'graduate2.achievement': '200% ზრდა',
+			'graduate3.name': 'მარიამ ბერიძე',
+			'graduate3.role': 'მარკეტინგის მენეჯერი',
+			'graduate3.story': 'კურსის დასრულების შემდეგ დავწინაურდი ციფრული მარკეტინგის ხელმძღვანელად. პრაქტიკული გამოცდილება რეალურ კლიენტებთან გადამწყვეტი იყო.',
+			'graduate3.achievement': 'კარიერული წინსვლა',
+			'testimonials.title': 'რას ამბობენ ჩვენი კლიენტები',
+			'testimonial1.text': 'PR Wave-მ სრულად გარდაქმნა ჩვენი ციფრული პრეზენსი. მათი გუნდი პროფესიონალური, შემოქმედებითი და აწვდის შედეგებს, რომლებიც აღემატება მოლოდინებს.',
+			'testimonial1.name': 'დავით კიპიანი',
+			'testimonial1.company': 'CEO, ადგილობრივი ტექ კომპანია',
+			'testimonial2.text': 'SMM PLUS კურსმა მომცა თავდაჯერებულობა და უნარები სოციალური მედიის პროფესიონალურად მართვისთვის. საუკეთესო ინვესტიცია, რაც ჩემი ბიზნესისთვის გავაკეთე.',
+			'testimonial2.name': 'ანა მაისურაძე',
+			'testimonial2.company': 'მცირე ბიზნესის მფლობელი',
+			'cta.title': 'მზად ხართ დაწეროთ თქვენი წარმატების ისტორია?',
+			'cta.subtitle': 'შეუერთდით ასობით ბიზნესს, რომლებმაც გარდაქმნეს თავიანთი ციფრული პრეზენსი PR Wave-თან ერთად',
+			'cta.getStarted': 'დაიწყეთ დღესვე',
+			'cta.learnMore': 'ისწავლეთ SMM PLUS-ის შესახებ'
+		}
+	};
+
+	function updateTranslations() {
+		const elementsToTranslate = document.querySelectorAll('[data-translate]');
+		
+		elementsToTranslate.forEach(element => {
+			const translationKey = element.getAttribute('data-translate');
+			const translatedText = translations[currentLanguage as keyof typeof translations]?.[translationKey as keyof typeof translations.en];
+			
+			if (translatedText) {
+				element.textContent = translatedText;
+			}
+		});
+	}
+
+	// Listen for language change events
+	window.addEventListener('languagechange', (e: Event) => {
+		const customEvent = e as CustomEvent;
+		currentLanguage = customEvent.detail.language;
+		updateTranslations();
+	});
+
+	// Initialize translations
+	updateTranslations();
+</script>
+</rewritten_file>

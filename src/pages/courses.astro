@@ -2,13 +2,17 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE } from '../consts';
+import { SITE_TITLE, PRICING } from '../consts';
+import { getTranslation } from '../i18n';
+
+// Get current language (defaults to 'en' on server side)
+const currentLang = 'en'; // Server-side default, will be updated client-side
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`Courses - ${SITE_TITLE}`} description="Master social media marketing with PR Wave's comprehensive online courses. Learn platform strategies, content creation, and advanced advertising techniques." />
+		<BaseHead title={`SMM PLUS Course - ${SITE_TITLE}`} description="Master social media marketing with PR Wave's comprehensive SMM PLUS course. 20 sessions over 7-8 weeks, hands-on training with real clients in Georgia." />
 		<link rel="stylesheet" href="/src/styles/global.css" />
 	</head>
 	<body>
@@ -17,252 +21,571 @@ import { SITE_TITLE } from '../consts';
 		<!-- Hero Section -->
 		<section class="hero">
 			<div class="container">
-				<h1>Master Social Media</h1>
-				<p>Comprehensive courses designed to transform you into a social media expert</p>
+				<h1 data-translate="course.title">SMM PLUS Course</h1>
+				<p data-translate="course.description">Your Journey to Social Media Marketing Mastery Starts Here</p>
+				<div class="hero-stats">
+					<div class="stat">
+						<span class="stat-number" data-translate="course.sessions">20</span>
+						<span class="stat-label">Sessions</span>
+					</div>
+					<div class="stat">
+						<span class="stat-number" data-translate="course.duration">7-8</span>
+						<span class="stat-label">Weeks</span>
+					</div>
+					<div class="stat">
+						<span class="stat-number">{PRICING.smmCourse.price}₾</span>
+						<span class="stat-label">Total Price</span>
+					</div>
+				</div>
 			</div>
 		</section>
 
-		<!-- Courses Section -->
+		<!-- Course Overview -->
+		<section class="section">
+			<div class="container">
+				<div class="grid grid-2 course-overview">
+					<div class="course-info">
+						<h2 data-translate="course.overview.title">Social Media Marketing Learning Course</h2>
+						<p class="course-description" data-translate="course.overview.description1">
+							This course includes comprehensive training consisting of various components such as: 
+							proper registration and automation of digital channels, content creation (copywriting, photo-video shooting, 
+							working with cameras, processing photo-video materials in applications, effective use of AI-powered platforms, 
+							creating banners for social channels - CANVA PRO, INSTAGRAM STORY/REEL formatting, etc.), proper advertising 
+							and advertising campaign analytics.
+						</p>
+						<p data-translate="course.overview.description2">
+							Additionally, during in-person meetings, students learn how to plan profitable PR campaigns, 
+							how to work for brand popularization, and many important details for successful business activities.
+						</p>
+						
+						<div class="course-highlights">
+							<h3 data-translate="course.highlights.title">What Makes This Course Special:</h3>
+							<ul>
+								<li data-translate="course.highlights.realClients">✅ Work with real clients during the course</li>
+								<li data-translate="course.highlights.handson">✅ Hands-on photo/video shooting experience</li>
+								<li data-translate="course.highlights.ai">✅ AI-powered platform training</li>
+								<li data-translate="course.highlights.mixed">✅ Mix of online and offline sessions</li>
+								<li data-translate="course.highlights.georgian">✅ Georgian market focus</li>
+								<li data-translate="course.highlights.practical">✅ Practical business applications</li>
+							</ul>
+						</div>
+					</div>
+					
+					<div class="course-details-card">
+						<div class="course-pricing">
+							<div class="price-section">
+								<span class="price">{PRICING.smmCourse.price}</span>
+								<span class="currency">{PRICING.smmCourse.currency}</span>
+							</div>
+							<div class="course-structure">
+								<div class="structure-item">
+									<span class="structure-label" data-translate="course.structure.totalSessions">Total Sessions:</span>
+									<span class="structure-value" data-translate="course.structure.sessionsValue">{PRICING.smmCourse.sessions} meetings</span>
+								</div>
+								<div class="structure-item">
+									<span class="structure-label" data-translate="course.structure.frequency">Frequency:</span>
+									<span class="structure-value" data-translate="course.structure.frequencyValue">3 meetings per week</span>
+								</div>
+								<div class="structure-item">
+									<span class="structure-label" data-translate="course.structure.duration">Duration:</span>
+									<span class="structure-value" data-translate="course.structure.durationValue">{PRICING.smmCourse.duration}</span>
+								</div>
+							</div>
+						</div>
+						
+						<a href="/contact" class="btn btn-primary btn-large" data-translate="course.enroll">Enroll Now</a>
+						
+						<div class="course-requirements">
+							<h4 data-translate="course.requirements.title">Requirements:</h4>
+							<ul>
+								<li data-translate="course.requirements.dedication">Dedication and commitment</li>
+								<li data-translate="course.requirements.computer">Computer (laptop/desktop)</li>
+								<li data-translate="course.requirements.phone">Mobile phone</li>
+								<li data-translate="course.requirements.english">English knowledge (minimum A1 level)</li>
+								<li data-translate="course.requirements.commitment">Weekly commitment: 2 hours online + exercises</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Course Curriculum -->
+		<section class="section bg-light">
+			<div class="container">
+				<h2 class="text-center mb-lg" data-translate="course.curriculum.title">Detailed Course Curriculum</h2>
+				<p class="text-center mb-lg" data-translate="course.curriculum.subtitle">20 comprehensive sessions covering everything from basics to advanced techniques</p>
+				
+				<div class="curriculum-grid">
+					<!-- Session 1 -->
+					<div class="session-card">
+						<div class="session-header">
+							<span class="session-number">01</span>
+							<div class="session-info">
+								<h3>Foundation</h3>
+								<span class="session-type online">Online</span>
+							</div>
+						</div>
+						<ul class="session-topics">
+							<li>Marketing and digital marketing essentials</li>
+							<li>Security rules before creating social networks</li>
+							<li>Gmail (Google platform) email registration</li>
+							<li>Facebook personal profile registration</li>
+						</ul>
+					</div>
+
+					<!-- Session 2 -->
+					<div class="session-card">
+						<div class="session-header">
+							<span class="session-number">02</span>
+							<div class="session-info">
+								<h3>Business Setup</h3>
+								<span class="session-type online">Online</span>
+							</div>
+						</div>
+						<ul class="session-topics">
+							<li>New business registration on Facebook platform</li>
+							<li>Instagram platform overview</li>
+							<li>Business profile creation</li>
+						</ul>
+					</div>
+
+					<!-- Session 3 -->
+					<div class="session-card">
+						<div class="session-header">
+							<span class="session-number">03</span>
+							<div class="session-info">
+								<h3>Real Client Work</h3>
+								<span class="session-type offline">Offline</span>
+							</div>
+						</div>
+						<ul class="session-topics">
+							<li>Meeting with real clients</li>
+							<li>Scenario development with mentor</li>
+							<li>Photo-video shooting process participation</li>
+							<li>Trending content discussion</li>
+						</ul>
+					</div>
+
+					<!-- Session 4 -->
+					<div class="session-card">
+						<div class="session-header">
+							<span class="session-number">04</span>
+							<div class="session-info">
+								<h3>Meta Business Suite</h3>
+								<span class="session-type online">Online</span>
+							</div>
+						</div>
+						<ul class="session-topics">
+							<li>Technical setup and insights</li>
+							<li>Complete interface overview</li>
+							<li>Connecting Instagram and Facebook profiles</li>
+						</ul>
+					</div>
+
+					<!-- Session 5 -->
+					<div class="session-card">
+						<div class="session-header">
+							<span class="session-number">05</span>
+							<div class="session-info">
+								<h3>Content Strategy</h3>
+								<span class="session-type online">Online</span>
+							</div>
+						</div>
+						<ul class="session-topics">
+							<li>Profitable vs prohibited content types</li>
+							<li>Best page examples (Georgian and foreign)</li>
+							<li>Content types and their importance</li>
+						</ul>
+					</div>
+
+					<!-- Session 6 -->
+					<div class="session-card">
+						<div class="session-header">
+							<span class="session-number">06</span>
+							<div class="session-info">
+								<h3>Content Creation</h3>
+								<span class="session-type online">Online</span>
+							</div>
+						</div>
+						<ul class="session-topics">
+							<li>Photo-video material processing</li>
+							<li>Platforms for creating effective posts</li>
+							<li>Story/Reel filters and interesting content</li>
+						</ul>
+					</div>
+
+					<!-- Session 7 -->
+					<div class="session-card">
+						<div class="session-header">
+							<span class="session-number">07</span>
+							<div class="session-info">
+								<h3>Practical Workshop</h3>
+								<span class="session-type offline">Offline</span>
+							</div>
+						</div>
+						<ul class="session-topics">
+							<li>Q&A session in real space</li>
+							<li>Video material creation with mentor</li>
+							<li>PR campaign types for business popularization</li>
+						</ul>
+					</div>
+
+					<!-- Session 8 -->
+					<div class="session-card">
+						<div class="session-header">
+							<span class="session-number">08</span>
+							<div class="session-info">
+								<h3>Copywriting</h3>
+								<span class="session-type online">Online</span>
+							</div>
+						</div>
+						<ul class="session-topics">
+							<li>Text writing technique (copywriting)</li>
+							<li>Selecting appropriate writing style (TOV)</li>
+							<li>Copywriting examples and practical assignment</li>
+						</ul>
+					</div>
+
+					<!-- Session 9 -->
+					<div class="session-card">
+						<div class="session-header">
+							<span class="session-number">09</span>
+							<div class="session-info">
+								<h3>Design Tools</h3>
+								<span class="session-type online">Online</span>
+							</div>
+						</div>
+						<ul class="session-topics">
+							<li>Canva (Premium) platform functionality</li>
+							<li>Related AI applications</li>
+							<li>Practical assignment</li>
+						</ul>
+					</div>
+
+					<!-- Session 10 -->
+					<div class="session-card">
+						<div class="session-header">
+							<span class="session-number">10</span>
+							<div class="session-info">
+								<h3>AI Tools</h3>
+								<span class="session-type online">Online</span>
+							</div>
+						</div>
+						<ul class="session-topics">
+							<li>Artificial Intelligence platforms</li>
+							<li>Active use in social media management</li>
+						</ul>
+					</div>
+
+					<!-- Session 11 -->
+					<div class="session-card">
+						<div class="session-header">
+							<span class="session-number">11</span>
+							<div class="session-info">
+								<h3>Performance Skills</h3>
+								<span class="session-type offline">Offline</span>
+							</div>
+						</div>
+						<ul class="session-topics">
+							<li>Acting skills important details</li>
+							<li>Camera interaction</li>
+							<li>Personal vlog production skills</li>
+						</ul>
+					</div>
+
+					<!-- Session 12 -->
+					<div class="session-card">
+						<div class="session-header">
+							<span class="session-number">12</span>
+							<div class="session-info">
+								<h3>Business Manager</h3>
+								<span class="session-type online">Online</span>
+							</div>
+						</div>
+						<ul class="session-topics">
+							<li>Facebook Business Manager creation</li>
+							<li>Complete setup and functionality</li>
+							<li>Practical assignment</li>
+						</ul>
+					</div>
+
+					<!-- Session 13 -->
+					<div class="session-card">
+						<div class="session-header">
+							<span class="session-number">13</span>
+							<div class="session-info">
+								<h3>Ads Manager</h3>
+								<span class="session-type online">Online</span>
+							</div>
+						</div>
+						<ul class="session-topics">
+							<li>Facebook Ads Manager creation</li>
+							<li>Advertising campaign overview</li>
+						</ul>
+					</div>
+
+					<!-- Session 14 -->
+					<div class="session-card">
+						<div class="session-header">
+							<span class="session-number">14</span>
+							<div class="session-info">
+								<h3>Ad Objectives</h3>
+								<span class="session-type online">Online</span>
+							</div>
+						</div>
+						<ul class="session-topics">
+							<li>Advertising objectives overview</li>
+							<li>Ad creation</li>
+						</ul>
+					</div>
+
+					<!-- Session 15 -->
+					<div class="session-card">
+						<div class="session-header">
+							<span class="session-number">15</span>
+							<div class="session-info">
+								<h3>Audience Creation</h3>
+								<span class="session-type online">Online</span>
+							</div>
+						</div>
+						<ul class="session-topics">
+							<li>Creating Custom audiences</li>
+							<li>Creating Lookalike audiences</li>
+						</ul>
+					</div>
+
+					<!-- Session 16 -->
+					<div class="session-card">
+						<div class="session-header">
+							<span class="session-number">16</span>
+							<div class="session-info">
+								<h3>Advanced Advertising</h3>
+								<span class="session-type mixed">Online & Offline</span>
+							</div>
+						</div>
+						<ul class="session-topics">
+							<li>Working on advertising objectives</li>
+							<li>Metrics overview with real clients</li>
+							<li>Creating several types of ads</li>
+							<li>Budgeting strategies</li>
+						</ul>
+					</div>
+
+					<!-- Session 17 -->
+					<div class="session-card">
+						<div class="session-header">
+							<span class="session-number">17</span>
+							<div class="session-info">
+								<h3>Additional Platforms</h3>
+								<span class="session-type online">Online</span>
+							</div>
+						</div>
+						<ul class="session-topics">
+							<li>LinkedIn profile and business page creation</li>
+							<li>LinkedIn algorithm overview</li>
+							<li>TikTok profile creation and advertising</li>
+						</ul>
+					</div>
+
+					<!-- Session 18 -->
+					<div class="session-card">
+						<div class="session-header">
+							<span class="session-number">18</span>
+							<div class="session-info">
+								<h3>Analytics & Tracking</h3>
+								<span class="session-type online">Online</span>
+							</div>
+						</div>
+						<ul class="session-topics">
+							<li>Facebook Pixel installation</li>
+							<li>Event creation</li>
+							<li>Campaign results review and analytics</li>
+							<li>Q&A on covered material</li>
+						</ul>
+					</div>
+
+					<!-- Sessions 19-20 -->
+					<div class="session-card final">
+						<div class="session-header">
+							<span class="session-number">19-20</span>
+							<div class="session-info">
+								<h3>Final Sessions</h3>
+								<span class="session-type mixed">Online & Final</span>
+							</div>
+						</div>
+						<ul class="session-topics">
+							<li>Meeting in physical space</li>
+							<li>Methods for increasing business visibility in Georgian market</li>
+							<li>Effective PR methods</li>
+							<li>Brand success formula</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Free Masterclasses -->
 		<section class="section">
 			<div class="container">
 				<div class="text-center mb-lg">
-					<h2>Our Course Catalog</h2>
-					<p>Learn from industry experts with hands-on, practical training</p>
+					<h2 data-translate="course.masterclass.title">Free Seasonal Masterclasses</h2>
+					<p data-translate="course.masterclass.subtitle">Join our free online masterclasses every season for valuable insights</p>
 				</div>
-
-				<div class="grid grid-2 courses-grid">
-					<!-- Course 1 -->
-					<div class="card course-card">
-						<div class="course-header">
-							<div class="course-badge">Beginner</div>
-						</div>
-						<h3>Social Media Fundamentals</h3>
-						<p class="course-description">
-							Master the basics of social media marketing across all major platforms. 
-							Perfect for beginners and small business owners.
-						</p>
-						
-						<div class="course-details">
-							<div class="course-stat">
-								<span class="stat-icon">🎥</span>
-								<span>12 Video Lessons</span>
-							</div>
-							<div class="course-stat">
-								<span class="stat-icon">⏱️</span>
-								<span>8 Hours Total</span>
-							</div>
-							<div class="course-stat">
-								<span class="stat-icon">📱</span>
-								<span>All Platforms</span>
-							</div>
-						</div>
-						
-						<div class="course-curriculum">
-							<h4>What You'll Learn:</h4>
-							<ul>
-								<li>Platform-specific strategies for Facebook, Instagram, Twitter, LinkedIn</li>
-								<li>Content creation and planning techniques</li>
-								<li>Audience engagement and community building</li>
-								<li>Basic analytics and performance tracking</li>
-								<li>Content calendar development</li>
-							</ul>
-						</div>
-						
-						<div class="course-footer">
-							<div class="course-price">
-								<span class="price">$199</span>
-								<span class="price-note">One-time payment</span>
-							</div>
-							<button class="btn btn-primary course-btn" disabled>
-								Coming Soon
-							</button>
-						</div>
-					</div>
-
-					<!-- Course 2 -->
-					<div class="card course-card">
-						<div class="course-header">
-							<div class="course-badge advanced">Advanced</div>
-						</div>
-						<h3>Advanced Social Media Advertising</h3>
-						<p class="course-description">
-							Take your advertising campaigns to the next level with advanced targeting, 
-							optimization techniques, and ROI maximization strategies.
-						</p>
-						
-						<div class="course-details">
-							<div class="course-stat">
-								<span class="stat-icon">🎥</span>
-								<span>18 Video Lessons</span>
-							</div>
-							<div class="course-stat">
-								<span class="stat-icon">⏱️</span>
-								<span>12 Hours Total</span>
-							</div>
-							<div class="course-stat">
-								<span class="stat-icon">🎯</span>
-								<span>Ad Platforms</span>
-							</div>
-						</div>
-						
-						<div class="course-curriculum">
-							<h4>What You'll Learn:</h4>
-							<ul>
-								<li>Advanced targeting and audience segmentation</li>
-								<li>Campaign structure and optimization</li>
-								<li>Creative testing and development</li>
-								<li>Conversion tracking and attribution</li>
-								<li>Budget management and scaling strategies</li>
-							</ul>
-						</div>
-						
-						<div class="course-footer">
-							<div class="course-price">
-								<span class="price">$399</span>
-								<span class="price-note">One-time payment</span>
-							</div>
-							<button class="btn btn-primary course-btn" disabled>
-								Coming Soon
-							</button>
-						</div>
-					</div>
-
-					<!-- Course 3 -->
-					<div class="card course-card">
-						<div class="course-header">
-							<div class="course-badge intermediate">Intermediate</div>
-						</div>
-						<h3>Content Creation Mastery</h3>
-						<p class="course-description">
-							Learn to create engaging, high-converting content that drives results. 
-							From copywriting to visual design and video production.
-						</p>
-						
-						<div class="course-details">
-							<div class="course-stat">
-								<span class="stat-icon">🎥</span>
-								<span>15 Video Lessons</span>
-							</div>
-							<div class="course-stat">
-								<span class="stat-icon">⏱️</span>
-								<span>10 Hours Total</span>
-							</div>
-							<div class="course-stat">
-								<span class="stat-icon">🎨</span>
-								<span>Creative Focus</span>
-							</div>
-						</div>
-						
-						<div class="course-curriculum">
-							<h4>What You'll Learn:</h4>
-							<ul>
-								<li>Copywriting techniques for social media</li>
-								<li>Visual design principles and tools</li>
-								<li>Video content creation and editing</li>
-								<li>Content repurposing strategies</li>
-								<li>Brand voice and storytelling</li>
-							</ul>
-						</div>
-						
-						<div class="course-footer">
-							<div class="course-price">
-								<span class="price">$299</span>
-								<span class="price-note">One-time payment</span>
-							</div>
-							<button class="btn btn-primary course-btn" disabled>
-								Coming Soon
-							</button>
-						</div>
-					</div>
-
-					<!-- Course 4 -->
-					<div class="card course-card">
-						<div class="course-header">
-							<div class="course-badge expert">Expert</div>
-						</div>
-						<h3>Social Media Strategy & Analytics</h3>
-						<p class="course-description">
-							Develop comprehensive social media strategies and master analytics to 
-							measure success and optimize performance across all channels.
-						</p>
-						
-						<div class="course-details">
-							<div class="course-stat">
-								<span class="stat-icon">🎥</span>
-								<span>20 Video Lessons</span>
-							</div>
-							<div class="course-stat">
-								<span class="stat-icon">⏱️</span>
-								<span>14 Hours Total</span>
-							</div>
-							<div class="course-stat">
-								<span class="stat-icon">📊</span>
-								<span>Analytics Focus</span>
-							</div>
-						</div>
-						
-						<div class="course-curriculum">
-							<h4>What You'll Learn:</h4>
-							<ul>
-								<li>Strategic planning and goal setting</li>
-								<li>Advanced analytics and reporting</li>
-								<li>Competitive analysis techniques</li>
-								<li>ROI measurement and optimization</li>
-								<li>Team management and workflow optimization</li>
-							</ul>
-						</div>
-						
-						<div class="course-footer">
-							<div class="course-price">
-								<span class="price">$499</span>
-								<span class="price-note">One-time payment</span>
-							</div>
-							<button class="btn btn-primary course-btn" disabled>
-								Coming Soon
-							</button>
-						</div>
+				
+				<div class="masterclass-info">
+					<div class="masterclass-card">
+						<div class="masterclass-icon">🎓</div>
+						<h3 data-translate="course.masterclass.whatYouGet">What You'll Get</h3>
+						<ul>
+							<li data-translate="course.masterclass.info">Valuable information about effective social media management</li>
+							<li data-translate="course.masterclass.knowledge">Knowledge needed for successful PR campaigns</li>
+							<li data-translate="course.masterclass.tips">Tips specifically for small business owners</li>
+							<li data-translate="course.masterclass.trends">Seasonal trends and strategies</li>
+						</ul>
+						<a href="/contact" class="btn btn-secondary" data-translate="course.masterclass.notify">Get Notified</a>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<!-- Coming Soon Notice -->
-		<section class="section bg-light">
+		<!-- CTA Section -->
+		<section class="section cta-section">
 			<div class="container text-center">
-				<h2>Courses Coming Soon!</h2>
-				<p>We're putting the finishing touches on our comprehensive course platform. Get notified when courses are available!</p>
-				
-				<div class="newsletter-signup">
-					<form class="signup-form" id="newsletter-form">
-						<input type="email" placeholder="Enter your email address" required>
-						<button type="submit" class="btn btn-primary">Notify Me</button>
-					</form>
-				</div>
-				
-				<div class="coming-features">
-					<h3>What to Expect:</h3>
-					<div class="grid grid-3 features-grid">
-						<div class="feature-item">
-							<div class="feature-icon">☁️</div>
-							<h4>Cloud-Based Learning</h4>
-							<p>Stream high-quality video content from Google Cloud Storage</p>
-						</div>
-						<div class="feature-item">
-							<div class="feature-icon">📱</div>
-							<h4>Mobile-Friendly</h4>
-							<p>Learn on any device, anywhere, anytime</p>
-						</div>
-						<div class="feature-item">
-							<div class="feature-icon">🏆</div>
-							<h4>Certificates</h4>
-							<p>Earn completion certificates for your professional portfolio</p>
-						</div>
-					</div>
+				<h2 data-translate="course.cta.title">Ready to Start Your SMM Journey?</h2>
+				<p data-translate="course.cta.subtitle">Join the SMM PLUS course and transform your social media marketing skills with hands-on training</p>
+				<div class="cta-buttons">
+					<a href="/contact" class="btn btn-primary btn-large" data-translate="course.cta.enroll">Enroll in SMM PLUS</a>
+					<a href="/services" class="btn btn-secondary" data-translate="course.cta.services">View Our Services</a>
 				</div>
 			</div>
 		</section>
 
 		<Footer />
+		
+		<script>
+			// Get current language
+			let currentLanguage = localStorage.getItem('language') || 'en';
+
+			// Simplified translation object for courses page
+			const coursesTranslations = {
+				en: {
+					'course.title': 'SMM PLUS Course',
+					'course.description': 'Your Journey to Social Media Marketing Mastery Starts Here',
+					'course.sessions': '20',
+					'course.duration': '7-8',
+					'course.enroll': 'Enroll Now',
+					'course.overview.title': 'Social Media Marketing Learning Course',
+					'course.overview.description1': 'This course includes comprehensive training consisting of various components such as: proper registration and automation of digital channels, content creation (copywriting, photo-video shooting, working with cameras, processing photo-video materials in applications, effective use of AI-powered platforms, creating banners for social channels - CANVA PRO, INSTAGRAM STORY/REEL formatting, etc.), proper advertising and advertising campaign analytics.',
+					'course.overview.description2': 'Additionally, during in-person meetings, students learn how to plan profitable PR campaigns, how to work for brand popularization, and many important details for successful business activities.',
+					'course.highlights.title': 'What Makes This Course Special:',
+					'course.highlights.realClients': 'Work with real clients during the course',
+					'course.highlights.handson': 'Hands-on photo/video shooting experience',
+					'course.highlights.ai': 'AI-powered platform training',
+					'course.highlights.mixed': 'Mix of online and offline sessions',
+					'course.highlights.georgian': 'Georgian market focus',
+					'course.highlights.practical': 'Practical business applications',
+					'course.structure.totalSessions': 'Total Sessions:',
+					'course.structure.frequency': 'Frequency:',
+					'course.structure.duration': 'Duration:',
+					'course.structure.sessionsValue': '20 meetings',
+					'course.structure.frequencyValue': '3 meetings per week',
+					'course.structure.durationValue': '7-8 weeks',
+					'course.requirements.title': 'Requirements:',
+					'course.requirements.dedication': 'Dedication and commitment',
+					'course.requirements.computer': 'Computer (laptop/desktop)',
+					'course.requirements.phone': 'Mobile phone',
+					'course.requirements.english': 'English knowledge (minimum A1 level)',
+					'course.requirements.commitment': 'Weekly commitment: 2 hours online + exercises',
+					'course.curriculum.title': 'Detailed Course Curriculum',
+					'course.curriculum.subtitle': '20 comprehensive sessions covering everything from basics to advanced techniques',
+					'course.masterclass.title': 'Free Seasonal Masterclasses',
+					'course.masterclass.subtitle': 'Join our free online masterclasses every season for valuable insights',
+					'course.masterclass.whatYouGet': 'What You\'ll Get',
+					'course.masterclass.info': 'Valuable information about effective social media management',
+					'course.masterclass.knowledge': 'Knowledge needed for successful PR campaigns',
+					'course.masterclass.tips': 'Tips specifically for small business owners',
+					'course.masterclass.trends': 'Seasonal trends and strategies',
+					'course.masterclass.notify': 'Get Notified',
+					'course.cta.title': 'Ready to Start Your SMM Journey?',
+					'course.cta.subtitle': 'Join the SMM PLUS course and transform your social media marketing skills with hands-on training',
+					'course.cta.enroll': 'Enroll in SMM PLUS',
+					'course.cta.services': 'View Our Services'
+				},
+				ka: {
+					'course.title': 'SMM PLUS კურსი',
+					'course.description': 'სოციალური მედიის მარკეტინგის შემსწავლელი კურსი',
+					'course.sessions': '20',
+					'course.duration': '7-8',
+					'course.enroll': 'ჩაწერა',
+					'course.overview.title': 'სოციალური მედიის მარკეტინგის შემსწავლელი კურსი',
+					'course.overview.description1': 'ეს კურსი მოიცავს ყოვლისმომცველ ტრენინგს, რომელიც შედგება სხვადასხვა კომპონენტისგან, როგორიცაა: ციფრული არხების სწორი რეგისტრაცია და ავტომატიზაცია, კონტენტის შექმნა (კოპირაითინგი, ფოტო-ვიდეო გადაღება, კამერებთან მუშაობა, ფოტო-ვიდეო მასალის დამუშავება აპლიკაციებში, AI-ით მომუშავე პლატფორმების ეფექტური გამოყენება, სოციალური არხებისთვის ბანერების შექმნა - CANVA PRO, INSTAGRAM STORY/REEL ფორმატირება და ა.შ.), სწორი რეკლამა და სარეკლამო კამპანიების ანალიტიკა.',
+					'course.overview.description2': 'გარდა ამისა, პირისპირ შეხვედრების დროს სტუდენტები სწავლობენ, როგორ დაგეგმონ მომგებიანი PR კამპანიები, როგორ იმუშაონ ბრენდის პოპულარიზაციისთვის და მრავალ მნიშვნელოვან დეტალს წარმატებული ბიზნეს საქმიანობისთვის.',
+					'course.highlights.title': 'რა ხდის ამ კურსს განსაკუთრებულს:',
+					'course.highlights.realClients': 'რეალურ კლიენტებთან მუშაობა კურსის განმავლობაში',
+					'course.highlights.handson': 'პრაქტიკული ფოტო/ვიდეო გადაღების გამოცდილება',
+					'course.highlights.ai': 'AI-ით მომუშავე პლატფორმების ტრენინგი',
+					'course.highlights.mixed': 'ონლაინ და ოფლაინ სესიების ნაზავი',
+					'course.highlights.georgian': 'ქართული ბაზრის ფოკუსი',
+					'course.highlights.practical': 'პრაქტიკული ბიზნეს აპლიკაციები',
+					'course.structure.totalSessions': 'სულ სესიები:',
+					'course.structure.frequency': 'სიხშირე:',
+					'course.structure.duration': 'ხანგრძლივობა:',
+					'course.structure.sessionsValue': '20 შეხვედრა',
+					'course.structure.frequencyValue': 'კვირაში 3 შეხვედრა',
+					'course.structure.durationValue': '7-8 კვირა',
+					'course.requirements.title': 'მოთხოვნები:',
+					'course.requirements.dedication': 'მონდომება და ერთგულება',
+					'course.requirements.computer': 'კომპიუტერი (ლეპტოპი/დესკტოპი)',
+					'course.requirements.phone': 'მობილური ტელეფონი',
+					'course.requirements.english': 'ინგლისური ენის ცოდნა (მინიმუმ A1 დონე)',
+					'course.requirements.commitment': 'კვირეული ვალდებულება: 2 საათი ონლაინ + სავარჯიშოები',
+					'course.curriculum.title': 'დეტალური კურსის სასწავლო გეგმა',
+					'course.curriculum.subtitle': '20 ყოვლისმომცველი სესია, რომელიც მოიცავს ყველაფერს საწყისი დონიდან მოწინავე ტექნიკებამდე',
+					'course.masterclass.title': 'უფასო სეზონური მასტერკლასები',
+					'course.masterclass.subtitle': 'შემოუერთდით ჩვენს უფასო ონლაინ მასტერკლასებს ყოველ სეზონზე ღირებული ინსაიტებისთვის',
+					'course.masterclass.whatYouGet': 'რას მიიღებთ',
+					'course.masterclass.info': 'ღირებული ინფორმაცია სოციალური მედიის ეფექტური მართვის შესახებ',
+					'course.masterclass.knowledge': 'ცოდნა, რომელიც საჭიროა წარმატებული PR კამპანიებისთვის',
+					'course.masterclass.tips': 'რჩევები სპეციალურად მცირე ბიზნესის მფლობელებისთვის',
+					'course.masterclass.trends': 'სეზონური ტრენდები და სტრატეგიები',
+					'course.masterclass.notify': 'შეტყობინების მიღება',
+					'course.cta.title': 'მზად ხართ დაიწყოთ თქვენი SMM მგზავრობა?',
+					'course.cta.subtitle': 'შემოუერთდით SMM PLUS კურსს და გარდაქმენით თქვენი სოციალური მედიის მარკეტინგის უნარები პრაქტიკული ტრენინგით',
+					'course.cta.enroll': 'ჩაირიცხეთ SMM PLUS-ში',
+					'course.cta.services': 'იხილეთ ჩვენი სერვისები'
+				}
+			};
+			
+			function updateTranslations() {
+				const elementsToTranslate = document.querySelectorAll('[data-translate]');
+				
+				elementsToTranslate.forEach(element => {
+					const translationKey = element.getAttribute('data-translate');
+					if (translationKey && (currentLanguage === 'en' || currentLanguage === 'ka')) {
+						const translatedText = (coursesTranslations[currentLanguage] as any)[translationKey];
+						
+						if (translatedText) {
+							element.textContent = translatedText;
+						}
+					}
+				});
+			}
+			
+			// Listen for language change events
+			window.addEventListener('languagechange', (e: any) => {
+				if (e.detail && e.detail.language) {
+					currentLanguage = e.detail.language;
+					updateTranslations();
+				}
+			});
+			
+			// Initialize translations on page load
+			document.addEventListener('DOMContentLoaded', () => {
+				currentLanguage = localStorage.getItem('language') || 'en';
+				updateTranslations();
+			});
+		</script>
 	</body>
 </html>
 
@@ -283,225 +606,339 @@ import { SITE_TITLE } from '../consts';
 	.hero p {
 		font-size: 1.2rem;
 		opacity: 0.9;
+		margin-bottom: var(--spacing-lg);
 	}
 
-	.courses-grid {
+	.hero-stats {
+		display: flex;
+		justify-content: center;
 		gap: var(--spacing-xl);
+		flex-wrap: wrap;
 	}
 
-	.course-card {
-		display: flex;
-		flex-direction: column;
-		height: 100%;
+	.stat {
+		text-align: center;
 	}
 
-	.course-header {
-		display: flex;
-		justify-content: flex-end;
-		margin-bottom: var(--spacing-md);
-	}
-
-	.course-badge {
-		padding: var(--spacing-xs) var(--spacing-sm);
-		background: var(--ocean-blue);
+	.stat-number {
+		display: block;
+		font-size: 2.5rem;
+		font-weight: 700;
 		color: var(--white);
-		border-radius: var(--radius-lg);
-		font-size: 0.8rem;
-		font-weight: 600;
+	}
+
+	.stat-label {
+		font-size: 0.9rem;
+		opacity: 0.8;
 		text-transform: uppercase;
+		letter-spacing: 1px;
 	}
 
-	.course-badge.intermediate {
-		background: #ff9500;
+	.course-overview {
+		gap: var(--spacing-xl);
+		align-items: start;
 	}
 
-	.course-badge.advanced {
-		background: #ff6b35;
-	}
-
-	.course-badge.expert {
-		background: #8b5cf6;
+	.course-info h2 {
+		color: var(--ocean-blue);
+		margin-bottom: var(--spacing-md);
 	}
 
 	.course-description {
-		flex-grow: 1;
+		font-size: 1.1rem;
+		line-height: 1.7;
 		margin-bottom: var(--spacing-md);
 	}
 
-	.course-details {
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--spacing-md);
-		margin-bottom: var(--spacing-lg);
-		padding: var(--spacing-md);
-		background: var(--light-gray);
-		border-radius: var(--radius-md);
+	.course-highlights {
+		margin-top: var(--spacing-lg);
 	}
 
-	.course-stat {
-		display: flex;
-		align-items: center;
-		gap: var(--spacing-xs);
-		font-size: 0.9rem;
+	.course-highlights h3 {
+		color: var(--ocean-blue);
+		margin-bottom: var(--spacing-md);
 	}
 
-	.stat-icon {
-		font-size: 1.1rem;
-	}
-
-	.course-curriculum {
-		margin-bottom: var(--spacing-lg);
-	}
-
-	.course-curriculum h4 {
-		margin-bottom: var(--spacing-sm);
-		color: var(--dark-blue);
-	}
-
-	.course-curriculum ul {
+	.course-highlights ul {
 		list-style: none;
 		padding: 0;
 	}
 
-	.course-curriculum li {
+	.course-highlights li {
+		padding: var(--spacing-xs) 0;
+		color: var(--dark-gray);
+	}
+
+	.course-details-card {
+		background: var(--white);
+		border-radius: var(--radius-lg);
+		padding: var(--spacing-xl);
+		box-shadow: var(--shadow-lg);
+		border: 2px solid var(--ocean-blue);
+		position: sticky;
+		top: var(--spacing-lg);
+	}
+
+	.course-pricing {
+		text-align: center;
+		margin-bottom: var(--spacing-lg);
+	}
+
+	.price-section {
+		margin-bottom: var(--spacing-lg);
+	}
+
+	.price {
+		font-size: 3rem;
+		font-weight: 700;
+		color: var(--ocean-blue);
+	}
+
+	.currency {
+		font-size: 1.5rem;
+		color: var(--gray);
+		margin-left: var(--spacing-xs);
+	}
+
+	.course-structure {
+		background: var(--light-blue);
+		padding: var(--spacing-md);
+		border-radius: var(--radius-md);
+		margin-bottom: var(--spacing-lg);
+	}
+
+	.structure-item {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: var(--spacing-xs);
+	}
+
+	.structure-item:last-child {
+		margin-bottom: 0;
+	}
+
+	.structure-label {
+		font-weight: 600;
+		color: var(--ocean-blue);
+	}
+
+	.structure-value {
+		color: var(--dark-gray);
+	}
+
+	.btn-large {
+		width: 100%;
+		padding: var(--spacing-md) var(--spacing-lg);
+		font-size: 1.1rem;
+		margin-bottom: var(--spacing-lg);
+	}
+
+	.course-requirements {
+		background: var(--light-gray);
+		padding: var(--spacing-md);
+		border-radius: var(--radius-md);
+	}
+
+	.course-requirements h4 {
+		color: var(--ocean-blue);
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.course-requirements ul {
+		margin: 0;
+		padding-left: var(--spacing-md);
+		font-size: 0.9rem;
+	}
+
+	.course-requirements li {
+		margin-bottom: var(--spacing-xs);
+	}
+
+	.curriculum-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: var(--spacing-lg);
+	}
+
+	.session-card {
+		background: var(--white);
+		border-radius: var(--radius-lg);
+		padding: var(--spacing-lg);
+		box-shadow: var(--shadow-md);
+		border-left: 4px solid var(--ocean-blue);
+		transition: transform 0.3s ease;
+	}
+
+	.session-card:hover {
+		transform: translateY(-5px);
+	}
+
+	.session-card.final {
+		border-left-color: var(--wave-teal);
+		background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
+	}
+
+	.session-header {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-md);
+		margin-bottom: var(--spacing-md);
+	}
+
+	.session-number {
+		background: var(--ocean-blue);
+		color: var(--white);
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: 700;
+		font-size: 0.9rem;
+	}
+
+	.session-info h3 {
+		margin: 0;
+		color: var(--ocean-blue);
+		font-size: 1.1rem;
+	}
+
+	.session-type {
+		font-size: 0.8rem;
+		padding: 2px 8px;
+		border-radius: 12px;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+	}
+
+	.session-type.online {
+		background: var(--light-blue);
+		color: var(--ocean-blue);
+	}
+
+	.session-type.offline {
+		background: var(--light-green);
+		color: var(--success-color);
+	}
+
+	.session-type.mixed {
+		background: var(--light-purple);
+		color: var(--purple);
+	}
+
+	.session-topics {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.session-topics li {
+		padding: var(--spacing-xs) 0;
+		color: var(--dark-gray);
+		position: relative;
+		padding-left: var(--spacing-md);
+	}
+
+	.session-topics li::before {
+		content: "•";
+		color: var(--ocean-blue);
+		position: absolute;
+		left: 0;
+		font-weight: 700;
+	}
+
+	.masterclass-info {
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.masterclass-card {
+		background: var(--white);
+		border-radius: var(--radius-lg);
+		padding: var(--spacing-xl);
+		box-shadow: var(--shadow-lg);
+		text-align: center;
+	}
+
+	.masterclass-icon {
+		font-size: 4rem;
+		margin-bottom: var(--spacing-md);
+	}
+
+	.masterclass-card h3 {
+		color: var(--ocean-blue);
+		margin-bottom: var(--spacing-md);
+	}
+
+	.masterclass-card ul {
+		list-style: none;
+		padding: 0;
+		margin-bottom: var(--spacing-lg);
+		text-align: left;
+	}
+
+	.masterclass-card li {
 		padding: var(--spacing-xs) 0;
 		position: relative;
 		padding-left: var(--spacing-md);
 	}
 
-	.course-curriculum li::before {
-		content: '✓';
+	.masterclass-card li::before {
+		content: "✓";
+		color: var(--success-color);
 		position: absolute;
 		left: 0;
-		color: var(--ocean-blue);
-		font-weight: bold;
-	}
-
-	.course-footer {
-		margin-top: auto;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding-top: var(--spacing-md);
-		border-top: 1px solid var(--light-gray);
-	}
-
-	.course-price {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.price {
-		font-size: 1.5rem;
 		font-weight: 700;
-		color: var(--ocean-blue);
 	}
 
-	.price-note {
-		font-size: 0.8rem;
-		color: var(--gray);
+	.cta-section {
+		background: var(--wave-gradient);
+		color: var(--white);
 	}
 
-	.course-btn {
-		min-width: 120px;
+	.cta-section h2 {
+		color: var(--white);
+		margin-bottom: var(--spacing-md);
 	}
 
-	.course-btn:disabled {
-		background: var(--gray);
-		cursor: not-allowed;
-		transform: none;
-	}
-
-	.newsletter-signup {
-		margin: var(--spacing-lg) 0;
-	}
-
-	.signup-form {
+	.cta-buttons {
 		display: flex;
-		gap: var(--spacing-sm);
-		max-width: 400px;
-		margin: 0 auto;
-	}
-
-	.signup-form input {
-		flex: 1;
-		padding: var(--spacing-sm);
-		border: 2px solid var(--light-gray);
-		border-radius: var(--radius-md);
-		font-size: 1rem;
-	}
-
-	.signup-form input:focus {
-		outline: none;
-		border-color: var(--ocean-blue);
-	}
-
-	.coming-features {
-		margin-top: var(--spacing-xl);
-	}
-
-	.features-grid {
+		gap: var(--spacing-md);
+		justify-content: center;
+		flex-wrap: wrap;
 		margin-top: var(--spacing-lg);
 	}
 
-	.feature-item {
-		text-align: center;
-	}
-
-	.feature-icon {
-		font-size: 2.5rem;
-		margin-bottom: var(--spacing-sm);
-	}
-
-	.feature-item h4 {
-		margin-bottom: var(--spacing-xs);
-		color: var(--dark-blue);
-	}
-
 	@media (max-width: 768px) {
-		.hero h1 {
-			font-size: 2.5rem;
-		}
-
-		.courses-grid {
+		.course-overview {
 			grid-template-columns: 1fr;
 		}
-
-		.course-details {
-			flex-direction: column;
-			gap: var(--spacing-sm);
+		
+		.course-details-card {
+			position: static;
 		}
-
-		.course-footer {
-			flex-direction: column;
+		
+		.hero-stats {
 			gap: var(--spacing-md);
-			text-align: center;
 		}
-
-		.signup-form {
-			flex-direction: column;
-		}
-
-		.features-grid {
+		
+		.curriculum-grid {
 			grid-template-columns: 1fr;
+		}
+		
+		.cta-buttons {
+			flex-direction: column;
+			align-items: center;
 		}
 	}
-</style>
 
-<script>
-	const newsletterForm = document.getElementById('newsletter-form') as HTMLFormElement;
-	newsletterForm?.addEventListener('submit', function(e) {
-		e.preventDefault();
-		
-		const email = (this.querySelector('input[type="email"]') as HTMLInputElement).value;
-		
-		// Here you would typically send the email to your backend
-		console.log('Newsletter signup:', email);
-		
-		// Show success message
-		alert('Thank you! We\'ll notify you when courses are available.');
-		
-		// Reset form
-		this.reset();
-	});
-</script> 
+	/* Custom colors for session types */
+	:root {
+		--light-green: #e8f5e8;
+		--success-color: #28a745;
+		--light-purple: #f3e8ff;
+		--purple: #8b5cf6;
+	}
+</style> 

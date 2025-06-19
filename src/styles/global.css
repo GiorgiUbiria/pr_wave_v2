@@ -22,7 +22,7 @@
 	--bg-primary: var(--white);
 	--bg-secondary: var(--light-gray);
 	--text-primary: var(--dark-gray);
-	--text-secondary: var(--gray);
+	--text-secondary: #9ca3af;
 	--text-heading: var(--dark-blue);
 	--border-color: var(--light-gray);
 	--card-bg: var(--white);
@@ -45,6 +45,11 @@
 	--radius-lg: 0.75rem;
 	--radius-xl: 1rem;
 	
+	/* Status Colors */
+	--success-color: #28a745;
+	--warning-color: #ffc107;
+	--error-color: #dc3545;
+	
 	/* Shadows */
 	--shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 	--shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -58,19 +63,37 @@
 
 /* Dark Mode Colors */
 [data-theme="dark"] {
-	--bg-primary: #1a1a1a;
-	--bg-secondary: #2d2d2d;
-	--text-primary: #e0e0e0;
-	--text-secondary: #b0b0b0;
+	/* Background Colors */
+	--bg-primary: #0f0f0f;
+	--bg-secondary: #1a1a1a;
+	--card-bg: #1e1e1e;
+	
+	/* Text Colors */
+	--text-primary: #e5e5e5;
+	--text-secondary: #a3a3a3;
 	--text-heading: #ffffff;
-	--border-color: #404040;
-	--card-bg: #2d2d2d;
-	--light-gray: #404040;
-	--gray: #b0b0b0;
-	--dark-gray: #e0e0e0;
-	--shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
-	--shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
-	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+	
+	/* Border and Structure */
+	--border-color: #333333;
+	--light-gray: #333333;
+	--gray: #a3a3a3;
+	--dark-gray: #e5e5e5;
+	
+	/* Brand Colors - Enhanced for dark mode */
+	--ocean-blue: #4a9eff;
+	--dark-blue: #2563eb;
+	--light-blue: #60a5fa;
+	--wave-gradient: linear-gradient(135deg, var(--ocean-blue), var(--dark-blue));
+	
+	/* Status Colors - Dark mode variants */
+	--success-color: #22c55e;
+	--warning-color: #eab308;
+	--error-color: #ef4444;
+	
+	/* Shadows - Enhanced for dark backgrounds */
+	--shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.6);
+	--shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.6), 0 2px 4px -2px rgb(0 0 0 / 0.5);
+	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.7), 0 4px 6px -4px rgb(0 0 0 / 0.6);
 }
 
 * {
@@ -142,6 +165,10 @@ a:hover {
 	transition: left var(--transition-slow);
 }
 
+[data-theme="dark"] .btn::before {
+	background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+}
+
 .btn:hover::before {
 	left: 100%;
 }
@@ -169,30 +196,7 @@ a:hover {
 	color: var(--white);
 }
 
-/* Dark Mode Toggle */
-.theme-toggle {
-	position: fixed;
-	top: 20px;
-	right: 20px;
-	z-index: 1000;
-	background: var(--card-bg);
-	border: 2px solid var(--border-color);
-	border-radius: var(--radius-lg);
-	width: 50px;
-	height: 50px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
-	font-size: 1.5rem;
-	transition: all var(--transition-fast);
-	box-shadow: var(--shadow-md);
-}
-
-.theme-toggle:hover {
-	transform: scale(1.1);
-	box-shadow: var(--shadow-lg);
-}
+/* Dark Mode Toggle - Styles moved to ThemeToggle.astro component */
 
 /* Layout */
 .container {
@@ -405,13 +409,7 @@ a:hover {
 		padding: var(--spacing-lg) 0;
 	}
 	
-	.theme-toggle {
-		top: 10px;
-		right: 10px;
-		width: 40px;
-		height: 40px;
-		font-size: 1.2rem;
-	}
+
 }
 
 /* Smooth scrolling */

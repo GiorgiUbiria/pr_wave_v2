@@ -1,0 +1,1753 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, PRICING } from '../consts';
+
+const currentLang = 'en';
+
+// Enhanced SEO metadata
+const pageTitle = `Professional Social Media Services - ${SITE_TITLE}`;
+const pageDescription = "Comprehensive social media management, advertising campaigns, and technical services for Georgian businesses. BASIC package starting at 1200 GEL. Professional content creation included.";
+const pageKeywords = "social media management Georgia, SMM services Tbilisi, Facebook Instagram TikTok management, digital marketing Georgia, social media advertising, content creation services";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={pageTitle} description={pageDescription} />
+		<meta name="keywords" content={pageKeywords} />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={pageDescription} />
+		<meta property="og:type" content="website" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={pageTitle} />
+		<meta name="twitter:description" content={pageDescription} />
+		<link rel="canonical" href="https://prwave.net/services" />
+		<link rel="stylesheet" href="/src/styles/global.css" />
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Service",
+			"name": "PR Wave Social Media Services",
+			"description": "Professional social media management and digital marketing services for Georgian businesses",
+			"provider": {
+				"@type": "Organization",
+				"name": "PR Wave",
+				"url": "https://prwave.net"
+			},
+			"serviceType": "Social Media Management",
+			"areaServed": "Georgia",
+			"offers": [
+				{
+					"@type": "Offer",
+					"name": "BASIC Service Package",
+					"price": "1200",
+					"priceCurrency": "GEL",
+					"description": "Complete social media management across Facebook, Instagram, and TikTok"
+				},
+				{
+					"@type": "Offer",
+					"name": "Primary Technical Service",
+					"price": "1000",
+					"priceCurrency": "GEL",
+					"description": "Technical setup and optimization of social media presence"
+				}
+			]
+		}
+		</script>
+	</head>
+	<body>
+		<Header />
+		
+		<!-- Enhanced Hero Section -->
+		<section class="hero services-hero">
+			<div class="hero-bg-animation"></div>
+			<div class="container">
+				<div class="hero-content animate-on-scroll">
+					<div class="hero-badge">
+						<span class="badge-icon">🚀</span>
+						<span data-translate="services.hero.badge">Professional SMM Services</span>
+					</div>
+					<h1 class="hero-title" data-translate="services.title">Our Services</h1>
+					<p class="hero-subtitle" data-translate="services.subtitle">Comprehensive digital marketing solutions tailored for Georgian businesses</p>
+					<div class="hero-stats">
+						<div class="stat animate-on-scroll stagger-1">
+							<div class="stat-number">3</div>
+							<div class="stat-label" data-translate="services.hero.platforms">Platforms</div>
+						</div>
+						<div class="stat animate-on-scroll stagger-2">
+							<div class="stat-number">1200</div>
+							<div class="stat-label" data-translate="services.hero.startingPrice">Starting at GEL</div>
+						</div>
+						<div class="stat animate-on-scroll stagger-3">
+							<div class="stat-number">100+</div>
+							<div class="stat-label" data-translate="services.hero.clients">Happy Clients</div>
+						</div>
+					</div>
+					<div class="hero-cta">
+						<a href="#services-overview" class="btn btn-primary btn-lg smooth-scroll" data-translate="services.hero.exploreServices">Explore Services</a>
+						<a href="/contact" class="btn btn-secondary btn-lg" data-translate="services.hero.getQuote">Get Free Quote</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Services Overview -->
+		<section id="services-overview" class="section services-section">
+			<div class="container">
+				<div class="section-header text-center animate-on-scroll">
+					<h2 class="section-title" data-translate="services.overview.title">Choose Your Perfect Package</h2>
+					<p class="section-subtitle" data-translate="services.overview.subtitle">Professional social media management solutions designed for every business need</p>
+				</div>
+				<div class="services-grid">
+					
+					<!-- BASIC Service Package -->
+					<div class="service-card featured most-popular animate-on-scroll stagger-1">
+						<div class="popular-badge" data-translate="services.mostPopular">Most Popular</div>
+						<div class="service-icon">
+							<div class="icon-bg">📱</div>
+						</div>
+						<div class="service-header">
+							<h2 data-translate="services.basic.title">BASIC Service Package</h2>
+							<div class="service-price">
+								<span class="price">{PRICING.basicPackage.price}</span>
+								<span class="currency">{PRICING.basicPackage.currency}</span>
+								<div class="price-period" data-translate="services.perMonth">/month</div>
+							</div>
+						</div>
+						
+						<div class="service-description">
+							<p data-translate="services.basic.description">Complete management of your social media presence across all major platforms</p>
+						</div>
+						
+						<div class="service-includes">
+							<h3 data-translate="services.whatsIncluded">What's Included:</h3>
+							<ul>
+								<li>✅ <span data-translate="services.basic.item1">Facebook, Instagram, and TikTok channel management</span></li>
+								<li>✅ <span data-translate="services.basic.item2">Content creation with photo/video material shooting 1-2 times per month</span></li>
+								<li>✅ <span data-translate="services.basic.item3">On-site visits to capture photos and trending videos</span></li>
+								<li>✅ <span data-translate="services.basic.item4">Professional material processing for banners and reels</span></li>
+								<li>✅ <span data-translate="services.basic.item5">2 posts per week posting schedule</span></li>
+								<li>✅ <span data-translate="services.basic.item6">Daily stories for 5 days per week (1-3 per day)</span></li>
+								<li>✅ <span data-translate="services.basic.item7">TikTok video content with client participation</span></li>
+								<li>✅ <span data-translate="services.basic.item8">Model services for video content (participation and voiceover)</span></li>
+							</ul>
+						</div>
+						
+						<div class="service-details">
+							<h4 data-translate="services.platformBreakdown">Platform Breakdown:</h4>
+							<div class="platform-details">
+								<div class="platform">
+									<strong data-translate="services.facebookInstagram">Facebook & Instagram:</strong>
+									<ul>
+										<li data-translate="services.basic.platform1">2 posts per week</li>
+										<li data-translate="services.basic.platform2">Stories 5 days/week</li>
+										<li data-translate="services.basic.platform3">Professional photo/video content</li>
+									</ul>
+								</div>
+								<div class="platform">
+									<strong data-translate="services.tiktok">TikTok:</strong>
+									<ul>
+										<li data-translate="services.basic.platform4">Regular video posting</li>
+										<li data-translate="services.basic.platform5">Client participation required</li>
+										<li data-translate="services.basic.platform6">Live engagement support</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						
+						<a href="/contact" class="btn btn-primary" data-translate="common.getStarted">Get Started</a>
+					</div>
+
+					<!-- Advertising Services -->
+					<div class="service-card animate-on-scroll stagger-2">
+						<div class="service-icon">
+							<div class="icon-bg">📊</div>
+						</div>
+						<div class="service-header">
+							<h2 data-translate="services.advertising.title">Advertising Services</h2>
+							<div class="service-price">
+								<span class="price-note" data-translate="services.individualPricing">Individual Pricing</span>
+								<div class="price-subtitle" data-translate="services.advertising.priceSubtitle">Based on your needs</div>
+							</div>
+						</div>
+						
+						<div class="service-description">
+							<p data-translate="services.advertising.description">Strategic paid advertising campaigns tailored to your budget and requirements</p>
+						</div>
+						
+						<div class="service-includes">
+							<h3 data-translate="services.whatsIncluded">What's Included:</h3>
+							<ul>
+								<li>✅ <span data-translate="services.advertising.item1">Campaign planning according to client requirements</span></li>
+								<li>✅ <span data-translate="services.advertising.item2">Appropriate budget allocation</span></li>
+								<li>✅ <span data-translate="services.advertising.item3">Maximum 2 advertising campaigns per month</span></li>
+								<li>✅ <span data-translate="services.advertising.item4">Campaign creation and setup</span></li>
+								<li>✅ <span data-translate="services.advertising.item5">Ongoing monitoring and optimization</span></li>
+								<li>✅ <span data-translate="services.advertising.item6">Performance reporting</span></li>
+							</ul>
+						</div>
+						
+						<div class="service-note">
+							<p><strong data-translate="services.note">Note:</strong> <span data-translate="services.advertising.note">Pricing is determined individually based on your specific requirements and campaign scope.</span></p>
+						</div>
+						
+						<a href="/contact" class="btn btn-secondary" data-translate="services.requestQuote">Request Quote</a>
+					</div>
+
+					<!-- Primary Technical Service -->
+					<div class="service-card animate-on-scroll stagger-3">
+						<div class="service-icon">
+							<div class="icon-bg">⚙️</div>
+						</div>
+						<div class="service-header">
+							<h2 data-translate="services.technical.title">Primary Technical Service</h2>
+							<div class="service-price">
+								<span class="price">{PRICING.technicalService.price}</span>
+								<span class="currency">{PRICING.technicalService.currency}</span>
+								<div class="price-period" data-translate="services.oneTime">One-time</div>
+							</div>
+						</div>
+						
+						<div class="service-description">
+							<p data-translate="services.technical.description">Complete technical setup and optimization of your social media presence</p>
+						</div>
+						
+						<div class="service-includes">
+							<h3 data-translate="services.whatsIncluded">What's Included:</h3>
+							<ul>
+								<li>✅ <span data-translate="services.technical.item1">Comprehensive analysis of existing social media accounts</span></li>
+								<li>✅ <span data-translate="services.technical.item2">Professional setup and configuration</span></li>
+								<li>✅ <span data-translate="services.technical.item3">Technical optimization for better performance</span></li>
+								<li>✅ <span data-translate="services.technical.item4">Initial strategy development</span></li>
+								<li>✅ <span data-translate="services.technical.item5">Account security and privacy settings</span></li>
+								<li>✅ <span data-translate="services.technical.item6">Integration setup between platforms</span></li>
+							</ul>
+						</div>
+						
+						<div class="service-note">
+							<p><strong data-translate="services.perfectFor">Perfect for:</strong> <span data-translate="services.technical.note">New businesses or those looking to optimize their existing social media setup.</span></p>
+						</div>
+						
+						<a href="/contact" class="btn btn-secondary" data-translate="services.bookService">Book Service</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Client Testimonials -->
+		<section class="section testimonials-section">
+			<div class="container">
+				<div class="section-header text-center animate-on-scroll">
+					<h2 class="section-title" data-translate="services.testimonials.title">What Our Clients Say</h2>
+					<p class="section-subtitle" data-translate="services.testimonials.subtitle">Real results from real Georgian businesses</p>
+				</div>
+				<div class="testimonials-grid">
+					<div class="testimonial-card animate-on-scroll stagger-1">
+						<div class="testimonial-content">
+							<div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+							<p class="testimonial-text" data-translate="services.testimonials.testimonial1">"PR Wave transformed our social media presence completely. Our engagement increased by 300% in just 3 months!"</p>
+							<div class="testimonial-author">
+								<div class="author-info">
+									<div class="author-name" data-translate="services.testimonials.author1">Nino K.</div>
+									<div class="author-company" data-translate="services.testimonials.company1">Local Restaurant Owner</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="testimonial-card animate-on-scroll stagger-2">
+						<div class="testimonial-content">
+							<div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+							<p class="testimonial-text" data-translate="services.testimonials.testimonial2">"The technical service was exactly what we needed. Professional setup and great ongoing support."</p>
+							<div class="testimonial-author">
+								<div class="author-info">
+									<div class="author-name" data-translate="services.testimonials.author2">Giorgi M.</div>
+									<div class="author-company" data-translate="services.testimonials.company2">Tech Startup Founder</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="testimonial-card animate-on-scroll stagger-3">
+						<div class="testimonial-content">
+							<div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+							<p class="testimonial-text" data-translate="services.testimonials.testimonial3">"Amazing content creation and professional photography. Our brand looks incredible now!"</p>
+							<div class="testimonial-author">
+								<div class="author-info">
+									<div class="author-name" data-translate="services.testimonials.author3">Mariam T.</div>
+									<div class="author-company" data-translate="services.testimonials.company3">Fashion Boutique</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Service Comparison Table -->
+		<section class="section bg-light comparison-section">
+			<div class="container">
+				<div class="section-header text-center animate-on-scroll">
+					<h2 class="section-title" data-translate="services.comparison.title">Service Comparison</h2>
+					<p class="section-subtitle" data-translate="services.comparison.subtitle">Detailed breakdown of what each platform includes</p>
+				</div>
+				
+				<div class="comparison-table animate-on-scroll">
+					<table>
+						<thead>
+							<tr>
+								<th data-translate="services.comparison.platform">Platform</th>
+								<th data-translate="services.comparison.frequency">Frequency</th>
+								<th data-translate="services.comparison.contentType">Content Type</th>
+								<th data-translate="services.comparison.additional">Additional Services</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td data-translate="services.comparison.facebook"><strong>Facebook</strong></td>
+								<td data-translate="services.comparison.fbFreq">2 posts/week, Stories 5 days/week</td>
+								<td data-translate="services.comparison.photoVideo">Photo/Video content creation</td>
+								<td data-translate="services.comparison.campaigns">2 advertising campaigns/month</td>
+							</tr>
+							<tr>
+								<td data-translate="services.comparison.instagram"><strong>Instagram</strong></td>
+								<td data-translate="services.comparison.igFreq">2 posts/week, Stories 5 days/week</td>
+								<td data-translate="services.comparison.photoVideo">Photo/Video content creation</td>
+								<td data-translate="services.comparison.shooting">Content shooting 1-2 times/month</td>
+							</tr>
+							<tr>
+								<td data-translate="services.comparison.tiktok"><strong>TikTok</strong></td>
+								<td data-translate="services.comparison.ttFreq">Regular posting</td>
+								<td data-translate="services.comparison.videoParticipation">Video content with client participation</td>
+								<td data-translate="services.comparison.shooting">Content shooting 1-2 times/month</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				
+				<div class="table-note" data-translate="services.comparison.note">
+					<p><strong>Note:</strong> Additional services can be arranged based on specific needs.</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Why Choose Our Services -->
+		<section class="section why-choose-section">
+			<div class="container">
+				<div class="section-header text-center animate-on-scroll">
+					<h2 class="section-title" data-translate="services.why.title">Why Choose PR Wave Services?</h2>
+					<p class="section-subtitle" data-translate="services.why.subtitle">We're not just another agency - we're your digital growth partners</p>
+				</div>
+				
+				<div class="benefits-grid">
+					<div class="benefit-card animate-on-scroll stagger-1">
+						<div class="benefit-icon">🎯</div>
+						<h3 data-translate="services.why.georgian.title">Georgian Market Focus</h3>
+						<p data-translate="services.why.georgian.desc">We understand the Georgian market and create content that resonates with local audiences.</p>
+					</div>
+					
+					<div class="benefit-card animate-on-scroll stagger-2">
+						<div class="benefit-icon">📸</div>
+						<h3 data-translate="services.why.content.title">Professional Content Creation</h3>
+						<p data-translate="services.why.content.desc">Our team visits your location to create authentic, high-quality photo and video content.</p>
+					</div>
+					
+					<div class="benefit-card animate-on-scroll stagger-3">
+						<div class="benefit-icon">📊</div>
+						<h3 data-translate="services.why.data.title">Data-Driven Results</h3>
+						<p data-translate="services.why.data.desc">Every strategy is backed by analytics and optimized for maximum engagement and ROI.</p>
+					</div>
+					
+					<div class="benefit-card animate-on-scroll stagger-4">
+						<div class="benefit-icon">🤝</div>
+						<h3 data-translate="services.why.collaborative.title">Collaborative Approach</h3>
+						<p data-translate="services.why.collaborative.desc">We work closely with you, involving you in content creation for authentic brand representation.</p>
+					</div>
+					
+					<div class="benefit-card animate-on-scroll stagger-5">
+						<div class="benefit-icon">⚡</div>
+						<h3 data-translate="services.why.trending.title">Trending Content</h3>
+						<p data-translate="services.why.trending.desc">Stay ahead with the latest social media trends and platform-specific optimizations.</p>
+					</div>
+					
+					<div class="benefit-card animate-on-scroll stagger-6">
+						<div class="benefit-icon">🎓</div>
+						<h3 data-translate="services.why.educational.title">Educational Support</h3>
+						<p data-translate="services.why.educational.desc">Learn alongside our services with insights and tips to grow your digital marketing knowledge.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Enhanced CTA Section -->
+		<section class="section cta-section enhanced-cta">
+			<div class="cta-bg-animation"></div>
+			<div class="container text-center">
+				<div class="cta-content animate-on-scroll">
+					<div class="cta-icon">🚀</div>
+					<h2 class="cta-title" data-translate="services.cta.title">Ready to Transform Your Digital Presence?</h2>
+					<p class="cta-subtitle" data-translate="services.cta.subtitle">Choose the service that best fits your business needs and start your journey to digital success</p>
+					<div class="cta-features">
+						<div class="cta-feature animate-on-scroll stagger-1">
+							<span class="feature-icon">✅</span>
+							<span data-translate="services.cta.feature1">Free Consultation</span>
+						</div>
+						<div class="cta-feature animate-on-scroll stagger-2">
+							<span class="feature-icon">✅</span>
+							<span data-translate="services.cta.feature2">Custom Strategy</span>
+						</div>
+						<div class="cta-feature animate-on-scroll stagger-3">
+							<span class="feature-icon">✅</span>
+							<span data-translate="services.cta.feature3">Guaranteed Results</span>
+						</div>
+					</div>
+					<div class="cta-buttons">
+						<a href="/contact" class="btn btn-primary btn-lg" data-translate="services.cta.getStarted">Get Started Today</a>
+						<a href="/courses" class="btn btn-secondary btn-lg" data-translate="services.cta.exploreCourses">Explore Our SMM Course</a>
+					</div>
+					<div class="cta-note">
+						<p data-translate="services.cta.note">🎁 Special offer: Get 20% off your first month when you sign up this week!</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<Footer />
+		
+		<script>
+			let currentLanguage = localStorage.getItem('language') || 'en';
+
+			const servicesTranslations = {
+				en: {
+					// Enhanced Hero Section
+					'services.hero.badge': 'Professional SMM Services',
+					'services.hero.platforms': 'Platforms',
+					'services.hero.startingPrice': 'Starting at GEL',
+					'services.hero.clients': 'Happy Clients',
+					'services.hero.exploreServices': 'Explore Services',
+					'services.hero.getQuote': 'Get Free Quote',
+					
+					// Enhanced Overview Section
+					'services.overview.title': 'Choose Your Perfect Package',
+					'services.overview.subtitle': 'Professional social media management solutions designed for every business need',
+					'services.mostPopular': 'Most Popular',
+					'services.perMonth': '/month',
+					'services.oneTime': 'One-time',
+					'services.advertising.priceSubtitle': 'Based on your needs',
+					
+					// Testimonials Section
+					'services.testimonials.title': 'What Our Clients Say',
+					'services.testimonials.subtitle': 'Real results from real Georgian businesses',
+					'services.testimonials.testimonial1': '"PR Wave transformed our social media presence completely. Our engagement increased by 300% in just 3 months!"',
+					'services.testimonials.author1': 'Nino K.',
+					'services.testimonials.company1': 'Local Restaurant Owner',
+					'services.testimonials.testimonial2': '"The technical service was exactly what we needed. Professional setup and great ongoing support."',
+					'services.testimonials.author2': 'Giorgi M.',
+					'services.testimonials.company2': 'Tech Startup Founder',
+					'services.testimonials.testimonial3': '"Amazing content creation and professional photography. Our brand looks incredible now!"',
+					'services.testimonials.author3': 'Mariam T.',
+					'services.testimonials.company3': 'Fashion Boutique',
+					
+					// Enhanced Comparison Section
+					'services.comparison.subtitle': 'Detailed breakdown of what each platform includes',
+					
+					// Enhanced Why Choose Section
+					'services.why.subtitle': "We're not just another agency - we're your digital growth partners",
+					
+					// Enhanced CTA Section
+					'services.cta.feature1': 'Free Consultation',
+					'services.cta.feature2': 'Custom Strategy',
+					'services.cta.feature3': 'Guaranteed Results',
+					'services.cta.note': '🎁 Special offer: Get 20% off your first month when you sign up this week!',
+					'services.title': 'Our Services',
+					'services.subtitle': 'Comprehensive digital marketing solutions tailored for Georgian businesses',
+					'services.basic.title': 'BASIC Service Package',
+					'services.basic.description': 'Complete management of your social media presence across all major platforms',
+					'services.advertising.title': 'Advertising Services',
+					'services.advertising.description': 'Strategic paid advertising campaigns tailored to your budget and requirements',
+					'services.technical.title': 'Primary Technical Service',
+					'services.technical.description': 'Complete technical setup and optimization of your social media presence',
+					'common.getStarted': 'Get Started',
+					'services.comparison.title': 'Service Comparison',
+					'services.comparison.platform': 'Platform',
+					'services.comparison.frequency': 'Frequency',
+					'services.comparison.contentType': 'Content Type',
+					'services.comparison.additional': 'Additional Services',
+					'services.comparison.facebook': 'Facebook',
+					'services.comparison.instagram': 'Instagram',
+					'services.comparison.tiktok': 'TikTok',
+					'services.comparison.fbFreq': '2 posts/week, Stories 5 days/week',
+					'services.comparison.igFreq': '2 posts/week, Stories 5 days/week',
+					'services.comparison.ttFreq': 'Regular posting',
+					'services.comparison.photoVideo': 'Photo/Video content creation',
+					'services.comparison.videoParticipation': 'Video content with client participation',
+					'services.comparison.campaigns': '2 advertising campaigns/month',
+					'services.comparison.shooting': 'Content shooting 1-2 times/month',
+					'services.comparison.note': 'Additional services can be arranged based on specific needs.',
+					'services.why.title': 'Why Choose PR Wave Services?',
+					'services.why.georgian.title': 'Georgian Market Focus',
+					'services.why.georgian.desc': 'We understand the Georgian market and create content that resonates with local audiences.',
+					'services.why.content.title': 'Professional Content Creation',
+					'services.why.content.desc': 'Our team visits your location to create authentic, high-quality photo and video content.',
+					'services.why.data.title': 'Data-Driven Results',
+					'services.why.data.desc': 'Every strategy is backed by analytics and optimized for maximum engagement and ROI.',
+					'services.why.collaborative.title': 'Collaborative Approach',
+					'services.why.collaborative.desc': 'We work closely with you, involving you in content creation for authentic brand representation.',
+					'services.why.trending.title': 'Trending Content',
+					'services.why.trending.desc': 'Stay ahead with the latest social media trends and platform-specific optimizations.',
+					'services.why.educational.title': 'Educational Support',
+					'services.why.educational.desc': 'Learn alongside our services with insights and tips to grow your digital marketing knowledge.',
+					'services.cta.title': 'Ready to Transform Your Digital Presence?',
+					'services.cta.subtitle': 'Choose the service that best fits your business needs and start your journey to digital success',
+					'services.cta.getStarted': 'Get Started Today',
+					'services.cta.exploreCourses': 'Explore Our SMM Course',
+					
+					// Services What's Included
+					'services.whatsIncluded': "What's Included:",
+					'services.platformBreakdown': 'Platform Breakdown:',
+					'services.facebookInstagram': 'Facebook & Instagram:',
+					'services.tiktok': 'TikTok:',
+					'services.note': 'Note:',
+					'services.perfectFor': 'Perfect for:',
+					'services.individualPricing': 'Individual Pricing',
+					'services.requestQuote': 'Request Quote',
+					'services.bookService': 'Book Service',
+					
+					// BASIC Package Details
+					'services.basic.item1': 'Facebook, Instagram, and TikTok channel management',
+					'services.basic.item2': 'Content creation with photo/video material shooting 1-2 times per month',
+					'services.basic.item3': 'On-site visits to capture photos and trending videos',
+					'services.basic.item4': 'Professional material processing for banners and reels',
+					'services.basic.item5': '2 posts per week posting schedule',
+					'services.basic.item6': 'Daily stories for 5 days per week (1-3 per day)',
+					'services.basic.item7': 'TikTok video content with client participation',
+					'services.basic.item8': 'Model services for video content (participation and voiceover)',
+					'services.basic.platform1': '2 posts per week',
+					'services.basic.platform2': 'Stories 5 days/week',
+					'services.basic.platform3': 'Professional photo/video content',
+					'services.basic.platform4': 'Regular video posting',
+					'services.basic.platform5': 'Client participation required',
+					'services.basic.platform6': 'Live engagement support',
+					
+					// Advertising Package Details
+					'services.advertising.item1': 'Campaign planning according to client requirements',
+					'services.advertising.item2': 'Appropriate budget allocation',
+					'services.advertising.item3': 'Maximum 2 advertising campaigns per month',
+					'services.advertising.item4': 'Campaign creation and setup',
+					'services.advertising.item5': 'Ongoing monitoring and optimization',
+					'services.advertising.item6': 'Performance reporting',
+					'services.advertising.note': 'Pricing is determined individually based on your specific requirements and campaign scope.',
+					
+					// Technical Service Details
+					'services.technical.item1': 'Comprehensive analysis of existing social media accounts',
+					'services.technical.item2': 'Professional setup and configuration',
+					'services.technical.item3': 'Technical optimization for better performance',
+					'services.technical.item4': 'Initial strategy development',
+					'services.technical.item5': 'Account security and privacy settings',
+					'services.technical.item6': 'Integration setup between platforms',
+					'services.technical.note': 'New businesses or those looking to optimize their existing social media setup.'
+				},
+				ka: {
+					// Enhanced Hero Section
+					'services.hero.badge': 'პროფესიონალური SMM სერვისები',
+					'services.hero.platforms': 'პლატფორმები',
+					'services.hero.startingPrice': 'იწყება ლარიდან',
+					'services.hero.clients': 'კმაყოფილი კლიენტები',
+					'services.hero.exploreServices': 'სერვისების გაცნობა',
+					'services.hero.getQuote': 'უფასო კონსულტაცია',
+					
+					// Enhanced Overview Section
+					'services.overview.title': 'აირჩიეთ თქვენი იდეალური პაკეტი',
+					'services.overview.subtitle': 'პროფესიონალური სოციალური მედიის მართვის გადაწყვეტები ყველა ბიზნესის საჭიროებისთვის',
+					'services.mostPopular': 'ყველაზე პოპულარული',
+					'services.perMonth': '/თვეში',
+					'services.oneTime': 'ერთჯერადი',
+					'services.advertising.priceSubtitle': 'თქვენი საჭიროებების მიხედვით',
+					
+					// Testimonials Section
+					'services.testimonials.title': 'რას ამბობენ ჩვენი კლიენტები',
+					'services.testimonials.subtitle': 'რეალური შედეგები ქართული ბიზნესებისგან',
+					'services.testimonials.testimonial1': '"PR Wave-მ სრულიად გარდაქმნა ჩვენი სოციალური მედიის პრეზენსი. ჩართულობა 300%-ით გაიზარდა მხოლოდ 3 თვეში!"',
+					'services.testimonials.author1': 'ნინო კ.',
+					'services.testimonials.company1': 'ადგილობრივი რესტორნის მფლობელი',
+					'services.testimonials.testimonial2': '"ტექნიკური სერვისი ზუსტად ის იყო, რაც გვჭირდებოდა. პროფესიონალური მოწყობა და შესანიშნავი მხარდაჭერა."',
+					'services.testimonials.author2': 'გიორგი მ.',
+					'services.testimonials.company2': 'ტექ სტარტაპის დამფუძნებელი',
+					'services.testimonials.testimonial3': '"საოცარი კონტენტის შექმნა და პროფესიონალური ფოტოგრაფია. ჩვენი ბრენდი ახლა უზარმაზარი ჩანს!"',
+					'services.testimonials.author3': 'მარიამ ტ.',
+					'services.testimonials.company3': 'მოდის ბუტიკი',
+					
+					// Enhanced Comparison Section
+					'services.comparison.subtitle': 'დეტალური დაყოფა თითოეული პლატფორმის შემცველობისა',
+					
+					// Enhanced Why Choose Section
+					'services.why.subtitle': 'ჩვენ არ ვართ უბრალოდ კიდევ ერთი სააგენტო - ჩვენ ვართ თქვენი ციფრული ზრდის პარტნიორები',
+					
+					// Enhanced CTA Section
+					'services.cta.feature1': 'უფასო კონსულტაცია',
+					'services.cta.feature2': 'ინდივიდუალური სტრატეგია',
+					'services.cta.feature3': 'გარანტირებული შედეგები',
+					'services.cta.note': '🎁 სპეციალური შეთავაზება: მიიღეთ 20% ფასდაკლება პირველ თვეზე, თუ ამ კვირაში დარეგისტრირდებით!',
+					
+					'services.title': 'ჩვენი სერვისები',
+					'services.subtitle': 'ყოვლისმომცველი ციფრული მარკეტინგის გადაწყვეტები, რომლებიც მორგებულია ქართული ბიზნესის საჭიროებებზე',
+					'services.basic.title': 'BASIC სერვისის პაკეტი',
+					'services.basic.description': 'სოციალური მედიის სრული მართვა ყველა მთავარ პლატფორმაზე',
+					'services.advertising.title': 'რეკლამირების სერვისები',
+					'services.advertising.description': 'სტრატეგიული ფასიანი სარეკლამო კამპანიები თქვენი ბიუჯეტისა და მოთხოვნების შესაბამისად',
+					'services.technical.title': 'პირველადი ტექნიკური სერვისი',
+					'services.technical.description': 'სოციალური მედიის სრული ტექნიკური მოწყობა და ოპტიმიზაცია',
+					'common.getStarted': 'დაწყება',
+					'services.comparison.title': 'სერვისების შედარება',
+					'services.comparison.platform': 'პლატფორმა',
+					'services.comparison.frequency': 'სიხშირე',
+					'services.comparison.contentType': 'კონტენტის ტიპი',
+					'services.comparison.additional': 'დამატებითი სერვისები',
+					'services.comparison.facebook': 'ფეისბუკი',
+					'services.comparison.instagram': 'ინსტაგრამი',
+					'services.comparison.tiktok': 'ტიკტოკი',
+					'services.comparison.fbFreq': '2 პოსტი/კვირაში, სტორი 5 დღე/კვირაში',
+					'services.comparison.igFreq': '2 პოსტი/კვირაში, სტორი 5 დღე/კვირაში',
+					'services.comparison.ttFreq': 'რეგულარული პოსტინგი',
+					'services.comparison.photoVideo': 'ფოტო/ვიდეო კონტენტის შექმნა',
+					'services.comparison.videoParticipation': 'ვიდეო კონტენტი კლიენტის მონაწილეობით',
+					'services.comparison.campaigns': '2 სარეკლამო კამპანია/თვეში',
+					'services.comparison.shooting': 'კონტენტის გადაღება 1-2-ჯერ/თვეში',
+					'services.comparison.note': 'დამატებითი სერვისები შეიძლება მოეწყოს კონკრეტული საჭიროებების მიხედვით.',
+					'services.why.title': 'რატომ აირჩიოთ PR Wave-ის სერვისები?',
+					'services.why.georgian.title': 'ქართული ბაზრის ფოკუსი',
+					'services.why.georgian.desc': 'ჩვენ ვიცნობთ ქართულ ბაზარს და ვქმნით კონტენტს, რომელიც რეზონანსს ახდენს ადგილობრივ აუდიტორიასთან.',
+					'services.why.content.title': 'პროფესიონალური კონტენტის შექმნა',
+					'services.why.content.desc': 'ჩვენი გუნდი სტუმრობს თქვენს ლოკაციას, რათა შექმნას ავთენტური, მაღალი ხარისხის ფოტო და ვიდეო კონტენტი.',
+					'services.why.data.title': 'მონაცემებზე დაფუძნებული შედეგები',
+					'services.why.data.desc': 'ყველა სტრატეგია მხარდაჭერილია ანალიტიკით და ოპტიმიზებულია მაქსიმალური ჩართულობისა და ROI-სთვის.',
+					'services.why.collaborative.title': 'კოლაბორაციული მიდგომა',
+					'services.why.collaborative.desc': 'ჩვენ მჭიდროდ ვთანამშრომლობთ თქვენთან, ჩავრთავთ თქვენ კონტენტის შექმნაში ავთენტური ბრენდის წარმოდგენისთვის.',
+					'services.why.trending.title': 'ტრენდული კონტენტი',
+					'services.why.trending.desc': 'იყავით წინ უახლესი სოციალური მედიის ტრენდებით და პლატფორმა-სპეციფიკური ოპტიმიზაციებით.',
+					'services.why.educational.title': 'საგანმანათლებლო მხარდაჭერა',
+					'services.why.educational.desc': 'ისწავლეთ ჩვენი სერვისების პარალელურად ინსაიტებითა და რჩევებით, რათა გაზარდოთ თქვენი ციფრული მარკეტინგის ცოდნა.',
+					'services.cta.title': 'მზად ხართ გარდაქმნათ თქვენი ციფრული პრეზენსი?',
+					'services.cta.subtitle': 'აირჩიეთ სერვისი, რომელიც ყველაზე კარგად შეესაბამება თქვენი ბიზნესის საჭიროებებს და დაიწყეთ მგზავრობა ციფრული წარმატებისკენ',
+					'services.cta.getStarted': 'დაიწყეთ დღესვე',
+					'services.cta.exploreCourses': 'გაეცანით ჩვენს SMM კურსს',
+					
+					// Services What's Included
+					'services.whatsIncluded': 'რა შედის:',
+					'services.platformBreakdown': 'პლატფორმების დაყოფა:',
+					'services.facebookInstagram': 'Facebook და Instagram:',
+					'services.tiktok': 'TikTok:',
+					'services.note': 'შენიშვნა:',
+					'services.perfectFor': 'იდეალურია:',
+					'services.individualPricing': 'ინდივიდუალური ფასდაწესება',
+					'services.requestQuote': 'ფასის მოთხოვნა',
+					'services.bookService': 'სერვისის დაჯავშნა',
+					
+					// BASIC Package Details
+					'services.basic.item1': 'Facebook, Instagram და TikTok არხების მართვა',
+					'services.basic.item2': 'კონტენტის შექმნა ფოტო/ვიდეო მასალის გადაღებით თვეში 1-2-ჯერ',
+					'services.basic.item3': 'ადგილზე ვიზიტები ფოტოებისა და ტრენდული ვიდეოების გადასაღებად',
+					'services.basic.item4': 'მასალის პროფესიონალური დამუშავება ბანერებისა და რილებისთვის',
+					'services.basic.item5': 'კვირაში 2 პოსტის განრიგი',
+					'services.basic.item6': 'ყოველდღიური სტორები კვირაში 5 დღე (დღეში 1-3)',
+					'services.basic.item7': 'TikTok ვიდეო კონტენტი კლიენტის მონაწილეობით',
+					'services.basic.item8': 'მოდელის სერვისები ვიდეო კონტენტისთვის (მონაწილეობა და ხმის თანხლება)',
+					'services.basic.platform1': 'კვირაში 2 პოსტი',
+					'services.basic.platform2': 'სტორები კვირაში 5 დღე',
+					'services.basic.platform3': 'პროფესიონალური ფოტო/ვიდეო კონტენტი',
+					'services.basic.platform4': 'რეგულარული ვიდეო პოსტინგი',
+					'services.basic.platform5': 'კლიენტის მონაწილეობა აუცილებელია',
+					'services.basic.platform6': 'ცოცხალი ჩართულობის მხარდაჭერა',
+					
+					// Advertising Package Details
+					'services.advertising.item1': 'კამპანიის დაგეგმვა კლიენტის მოთხოვნების შესაბამისად',
+					'services.advertising.item2': 'შესაბამისი ბიუჯეტის განაწილება',
+					'services.advertising.item3': 'მაქსიმუმ 2 სარეკლამო კამპანია თვეში',
+					'services.advertising.item4': 'კამპანიის შექმნა და მოწყობა',
+					'services.advertising.item5': 'მუდმივი მონიტორინგი და ოპტიმიზაცია',
+					'services.advertising.item6': 'შესრულების ანგარიშგება',
+					'services.advertising.note': 'ფასდაწესება განისაზღვრება ინდივიდუალურად თქვენი კონკრეტული მოთხოვნებისა და კამპანიის მასშტაბის მიხედვით.',
+					
+					// Technical Service Details
+					'services.technical.item1': 'არსებული სოციალური მედიის ანგარიშების ყოვლისმომცველი ანალიზი',
+					'services.technical.item2': 'პროფესიონალური მოწყობა და კონფიგურაცია',
+					'services.technical.item3': 'ტექნიკური ოპტიმიზაცია უკეთესი შესრულებისთვის',
+					'services.technical.item4': 'საწყისი სტრატეგიის შემუშავება',
+					'services.technical.item5': 'ანგარიშის უსაფრთხოებისა და კონფიდენციალურობის პარამეტრები',
+					'services.technical.item6': 'პლატფორმებს შორის ინტეგრაციის მოწყობა',
+					'services.technical.note': 'ახალი ბიზნესები ან ისინი, ვინც სურთ არსებული სოციალური მედიის მოწყობის ოპტიმიზაცია.'
+				}
+			};
+			
+			function updateTranslations() {
+				const elementsToTranslate = document.querySelectorAll('[data-translate]');
+				
+				elementsToTranslate.forEach(element => {
+					const translationKey = element.getAttribute('data-translate');
+					if (translationKey && (currentLanguage === 'en' || currentLanguage === 'ka')) {
+						const translatedText = (servicesTranslations[currentLanguage] as any)[translationKey];
+						
+						if (translatedText) {
+							element.textContent = translatedText;
+						}
+					}
+				});
+			}
+			
+			// Listen for language change events
+			window.addEventListener('languagechange', (e: any) => {
+				if (e.detail && e.detail.language) {
+					currentLanguage = e.detail.language;
+					updateTranslations();
+				}
+			});
+			
+			// Initialize translations on page load
+			document.addEventListener('DOMContentLoaded', () => {
+				currentLanguage = localStorage.getItem('language') || 'en';
+				updateTranslations();
+				initializeAnimations();
+				initializeSmoothScrolling();
+			});
+			
+			// Enhanced Animation System
+			function initializeAnimations() {
+				const observerOptions = {
+					threshold: 0.1,
+					rootMargin: '0px 0px -50px 0px'
+				};
+				
+				const observer = new IntersectionObserver((entries) => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('visible');
+						}
+					});
+				}, observerOptions);
+				
+				// Observe all elements with animation classes
+				document.querySelectorAll('.animate-on-scroll').forEach(el => {
+					observer.observe(el);
+				});
+				
+				// Counter animation for hero stats
+				const counters = document.querySelectorAll('.stat-number');
+				counters.forEach(counter => {
+					const target = parseInt(counter.textContent || '0');
+					const increment = target / 50;
+					let current = 0;
+					
+					const updateCounter = () => {
+						if (current < target) {
+							current += increment;
+							counter.textContent = Math.ceil(current).toString();
+							requestAnimationFrame(updateCounter);
+						} else {
+							counter.textContent = target.toString();
+						}
+					};
+					
+					// Start animation when element is visible
+					const counterObserver = new IntersectionObserver((entries) => {
+						entries.forEach(entry => {
+							if (entry.isIntersecting) {
+								updateCounter();
+								counterObserver.unobserve(entry.target);
+							}
+						});
+					});
+					
+					counterObserver.observe(counter);
+				});
+			}
+			
+			// Smooth Scrolling for Internal Links
+			function initializeSmoothScrolling() {
+				document.querySelectorAll('.smooth-scroll').forEach(link => {
+					link.addEventListener('click', (e) => {
+						e.preventDefault();
+						const href = link.getAttribute('href');
+						if (href) {
+							const targetId = href.substring(1);
+							const targetElement = document.getElementById(targetId);
+							
+							if (targetElement) {
+								targetElement.scrollIntoView({
+									behavior: 'smooth',
+									block: 'start'
+								});
+							}
+						}
+					});
+				});
+			}
+			
+			// Enhanced Hover Effects for Service Cards
+			document.querySelectorAll('.service-card').forEach(card => {
+				const htmlCard = card as HTMLElement;
+				card.addEventListener('mouseenter', () => {
+					htmlCard.style.transform = 'translateY(-10px) scale(1.02)';
+				});
+				
+				card.addEventListener('mouseleave', () => {
+					htmlCard.style.transform = 'translateY(0) scale(1)';
+				});
+			});
+		</script>
+	</body>
+</html>
+
+<style>
+	/* Enhanced Services Page Styles */
+	
+	/* Hero Section Enhancements */
+	.services-hero {
+		position: relative;
+		background: var(--wave-gradient);
+		color: var(--white);
+		text-align: center;
+		padding: var(--spacing-2xl) 0;
+		overflow: hidden;
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+	}
+	
+	.hero-bg-animation {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(45deg, 
+			rgba(255,255,255,0.1) 25%, 
+			transparent 25%, 
+			transparent 75%, 
+			rgba(255,255,255,0.1) 75%);
+		background-size: 60px 60px;
+		animation: moveBackground 20s linear infinite;
+		opacity: 0.3;
+	}
+	
+	@keyframes moveBackground {
+		0% { transform: translateX(0) translateY(0); }
+		100% { transform: translateX(60px) translateY(60px); }
+	}
+	
+	.hero-content {
+		position: relative;
+		z-index: 2;
+	}
+	
+	.hero-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: var(--spacing-xs);
+		background: rgba(255,255,255,0.2);
+		padding: var(--spacing-xs) var(--spacing-md);
+		border-radius: 50px;
+		margin-bottom: var(--spacing-lg);
+		backdrop-filter: blur(10px);
+		border: 1px solid rgba(255,255,255,0.3);
+	}
+	
+	.badge-icon {
+		font-size: 1.2rem;
+		animation: pulse 2s infinite;
+	}
+	
+	@keyframes pulse {
+		0%, 100% { transform: scale(1); }
+		50% { transform: scale(1.1); }
+	}
+	
+	.hero-title {
+		font-size: 4rem;
+		font-weight: 800;
+		margin-bottom: var(--spacing-md);
+		background: linear-gradient(135deg, var(--white), rgba(255,255,255,0.8));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		line-height: 1.1;
+	}
+	
+	.hero-subtitle {
+		font-size: 1.4rem;
+		opacity: 0.9;
+		margin-bottom: var(--spacing-xl);
+		max-width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.hero-stats {
+		display: flex;
+		justify-content: center;
+		gap: var(--spacing-xl);
+		margin-bottom: var(--spacing-xl);
+		flex-wrap: wrap;
+	}
+	
+	.stat {
+		text-align: center;
+		opacity: 0;
+		transform: translateY(30px);
+		transition: all 0.6s ease;
+	}
+	
+	.stat.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	
+	.stat-number {
+		font-size: 3rem;
+		font-weight: 800;
+		color: var(--white);
+		display: block;
+		line-height: 1;
+	}
+	
+	.stat-label {
+		font-size: 0.9rem;
+		opacity: 0.8;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		margin-top: var(--spacing-xs);
+	}
+	
+	.hero-cta {
+		display: flex;
+		gap: var(--spacing-md);
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	
+	.btn-lg {
+		padding: var(--spacing-md) var(--spacing-xl);
+		font-size: 1.1rem;
+		border-radius: var(--radius-lg);
+	}
+
+	/* Section Enhancements */
+	.services-section {
+		padding: var(--spacing-2xl) 0;
+	}
+	
+	.section-header {
+		margin-bottom: var(--spacing-2xl);
+		opacity: 0;
+		transform: translateY(30px);
+		transition: all 0.8s ease;
+	}
+	
+	.section-header.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	
+	.section-title {
+		font-size: 3rem;
+		font-weight: 800;
+		margin-bottom: var(--spacing-md);
+		background: var(--wave-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+	
+	.section-subtitle {
+		font-size: 1.2rem;
+		color: var(--text-secondary);
+		max-width: 600px;
+		margin: 0 auto;
+		line-height: 1.6;
+	}
+
+	/* Enhanced Service Cards */
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+		gap: var(--spacing-xl);
+		margin-bottom: var(--spacing-xl);
+		align-items: start;
+	}
+
+	.service-card {
+		position: relative;
+		background: var(--card-bg);
+		border-radius: var(--radius-xl);
+		padding: var(--spacing-xl);
+		box-shadow: var(--shadow-lg);
+		border: 2px solid transparent;
+		transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		height: fit-content;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+		opacity: 0;
+		transform: translateY(50px);
+		overflow: hidden;
+	}
+	
+	.service-card.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	
+	.service-card::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 4px;
+		background: var(--wave-gradient);
+		transform: scaleX(0);
+		transition: transform 0.3s ease;
+	}
+	
+	.service-card:hover::before {
+		transform: scaleX(1);
+	}
+
+	.service-card.featured {
+		border-color: var(--ocean-blue);
+		transform: translateY(0) scale(1.02);
+		box-shadow: 0 20px 40px rgba(0, 119, 190, 0.15);
+	}
+	
+	.service-card.featured.visible {
+		transform: translateY(0) scale(1.02);
+	}
+	
+	.most-popular {
+		position: relative;
+	}
+	
+	.popular-badge {
+		position: absolute;
+		top: -10px;
+		right: var(--spacing-lg);
+		background: var(--wave-gradient);
+		color: var(--white);
+		padding: var(--spacing-xs) var(--spacing-md);
+		border-radius: 20px;
+		font-size: 0.85rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+		z-index: 2;
+	}
+	
+	.service-icon {
+		text-align: center;
+		margin-bottom: var(--spacing-lg);
+	}
+	
+	.icon-bg {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 80px;
+		height: 80px;
+		background: linear-gradient(135deg, var(--light-blue), var(--ocean-blue));
+		border-radius: 50%;
+		font-size: 2rem;
+		color: var(--white);
+		margin-bottom: var(--spacing-md);
+		position: relative;
+		overflow: hidden;
+	}
+	
+	.icon-bg::before {
+		content: '';
+		position: absolute;
+		top: -50%;
+		left: -50%;
+		width: 200%;
+		height: 200%;
+		background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+		transform: rotate(45deg);
+		animation: shimmer 3s infinite;
+	}
+	
+	@keyframes shimmer {
+		0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+		100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+	}
+
+	.service-header {
+		text-align: center;
+		margin-bottom: var(--spacing-lg);
+		padding-bottom: var(--spacing-lg);
+		border-bottom: 1px solid var(--border-color);
+		position: relative;
+	}
+	
+	.service-header::after {
+		content: '';
+		position: absolute;
+		bottom: -1px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 60px;
+		height: 2px;
+		background: var(--wave-gradient);
+	}
+
+	.service-header h2 {
+		color: var(--text-heading);
+		margin-bottom: var(--spacing-md);
+		line-height: 1.3;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+		font-size: 1.8rem;
+		font-weight: 700;
+	}
+
+	.service-price {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: var(--spacing-xs);
+	}
+
+	.price {
+		font-size: 3rem;
+		font-weight: 800;
+		background: var(--wave-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		line-height: 1;
+	}
+
+	.currency {
+		font-size: 1.4rem;
+		color: var(--text-secondary);
+		font-weight: 600;
+	}
+	
+	.price-period {
+		font-size: 0.9rem;
+		color: var(--text-secondary);
+		opacity: 0.7;
+	}
+
+	.price-note {
+		font-size: 1.3rem;
+		background: var(--wave-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		font-weight: 700;
+	}
+	
+	.price-subtitle {
+		font-size: 0.9rem;
+		color: var(--text-secondary);
+		opacity: 0.8;
+		margin-top: var(--spacing-xs);
+	}
+
+	.service-description {
+		margin-bottom: var(--spacing-lg);
+		text-align: center;
+	}
+
+	.service-description p {
+		font-size: 1.1rem;
+		color: var(--gray);
+		line-height: 1.6;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+
+	.service-includes {
+		margin-bottom: var(--spacing-lg);
+	}
+
+	.service-includes h3 {
+		color: var(--ocean-blue);
+		margin-bottom: var(--spacing-md);
+	}
+
+	.service-includes ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	.service-includes li {
+		padding: var(--spacing-xs) 0;
+		color: var(--dark-gray);
+		line-height: 1.5;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+
+	.service-details {
+		margin-bottom: var(--spacing-lg);
+	}
+
+	.service-details h4 {
+		color: var(--ocean-blue);
+		margin-bottom: var(--spacing-md);
+	}
+
+	.platform-details {
+		display: grid;
+		gap: var(--spacing-md);
+	}
+
+	.platform {
+		background: var(--light-gray);
+		padding: var(--spacing-md);
+		border-radius: var(--radius-md);
+	}
+
+	.platform strong {
+		color: var(--ocean-blue);
+		display: block;
+		margin-bottom: var(--spacing-xs);
+	}
+
+	.platform ul {
+		margin: 0;
+		padding-left: var(--spacing-md);
+	}
+
+	.platform li {
+		line-height: 1.5;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+
+	.service-note {
+		background: var(--light-blue);
+		padding: var(--spacing-md);
+		border-radius: var(--radius-md);
+		margin-bottom: var(--spacing-lg);
+	}
+
+	.service-note p {
+		margin: 0;
+		color: var(--ocean-blue);
+		line-height: 1.5;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+	
+	/* Testimonials Section */
+	.testimonials-section {
+		background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+		padding: var(--spacing-2xl) 0;
+	}
+	
+	.testimonials-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		gap: var(--spacing-xl);
+		margin-top: var(--spacing-xl);
+	}
+	
+	.testimonial-card {
+		background: var(--card-bg);
+		border-radius: var(--radius-xl);
+		padding: var(--spacing-xl);
+		box-shadow: var(--shadow-md);
+		transition: all 0.4s ease;
+		opacity: 0;
+		transform: translateY(30px);
+		position: relative;
+		overflow: hidden;
+	}
+	
+	.testimonial-card.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	
+	.testimonial-card::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 4px;
+		background: var(--wave-gradient);
+	}
+	
+	.testimonial-card:hover {
+		transform: translateY(-5px);
+		box-shadow: var(--shadow-lg);
+	}
+	
+	.testimonial-content {
+		position: relative;
+		z-index: 2;
+	}
+	
+	.testimonial-stars {
+		font-size: 1.2rem;
+		margin-bottom: var(--spacing-md);
+		color: #ffd700;
+	}
+	
+	.testimonial-text {
+		font-size: 1.1rem;
+		line-height: 1.6;
+		color: var(--text-primary);
+		margin-bottom: var(--spacing-lg);
+		font-style: italic;
+		position: relative;
+	}
+	
+	.testimonial-text::before {
+		content: '"';
+		font-size: 4rem;
+		color: var(--ocean-blue);
+		opacity: 0.3;
+		position: absolute;
+		top: -20px;
+		left: -10px;
+		font-family: serif;
+	}
+	
+	.testimonial-author {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-md);
+	}
+	
+	.author-info {
+		flex: 1;
+	}
+	
+	.author-name {
+		font-weight: 700;
+		color: var(--text-heading);
+		margin-bottom: var(--spacing-xs);
+	}
+	
+	.author-company {
+		color: var(--text-secondary);
+		font-size: 0.9rem;
+	}
+
+	.comparison-table {
+		overflow-x: auto;
+		margin-bottom: var(--spacing-lg);
+	}
+
+	.comparison-table table {
+		width: 100%;
+		border-collapse: collapse;
+		background: var(--white);
+		border-radius: var(--radius-lg);
+		overflow: hidden;
+		box-shadow: var(--shadow-md);
+	}
+
+	.comparison-table th,
+	.comparison-table td {
+		padding: var(--spacing-md);
+		text-align: left;
+		border-bottom: 1px solid var(--light-gray);
+	}
+
+	.comparison-table th {
+		background: var(--ocean-blue);
+		color: var(--white);
+		font-weight: 600;
+	}
+
+	.comparison-table tr:hover {
+		background: var(--light-blue);
+	}
+
+	.table-note {
+		text-align: center;
+		color: var(--gray);
+		font-style: italic;
+	}
+
+	.benefits-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: var(--spacing-xl);
+		align-items: start;
+	}
+
+	.benefit-card {
+		text-align: center;
+		padding: var(--spacing-lg);
+		background: var(--white);
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow-md);
+		transition: transform 0.3s ease;
+		height: fit-content;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		min-height: 280px;
+	}
+
+	.benefit-card:hover {
+		transform: translateY(-5px);
+	}
+
+	.benefit-icon {
+		font-size: 3rem;
+		margin-bottom: var(--spacing-md);
+		flex-shrink: 0;
+	}
+
+	.benefit-card h3 {
+		color: var(--ocean-blue);
+		margin-bottom: var(--spacing-sm);
+		line-height: 1.3;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+		flex-shrink: 0;
+	}
+
+	.benefit-card p {
+		line-height: 1.6;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+		flex-grow: 1;
+		display: flex;
+		align-items: center;
+	}
+
+	/* Enhanced CTA Section */
+	.enhanced-cta {
+		position: relative;
+		background: var(--wave-gradient);
+		color: var(--white);
+		padding: var(--spacing-2xl) 0;
+		overflow: hidden;
+	}
+	
+	.cta-bg-animation {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+					radial-gradient(circle at 70% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+		animation: floatAnimation 6s ease-in-out infinite;
+	}
+	
+	@keyframes floatAnimation {
+		0%, 100% { transform: translateY(0px) rotate(0deg); }
+		50% { transform: translateY(-20px) rotate(1deg); }
+	}
+	
+	.cta-content {
+		position: relative;
+		z-index: 2;
+		opacity: 0;
+		transform: translateY(30px);
+		transition: all 0.8s ease;
+	}
+	
+	.cta-content.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	
+	.cta-icon {
+		font-size: 4rem;
+		margin-bottom: var(--spacing-lg);
+		animation: bounce 2s infinite;
+	}
+	
+	@keyframes bounce {
+		0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+		40% { transform: translateY(-10px); }
+		60% { transform: translateY(-5px); }
+	}
+
+	.cta-title {
+		font-size: 3.5rem;
+		font-weight: 800;
+		color: var(--white);
+		margin-bottom: var(--spacing-md);
+		line-height: 1.1;
+	}
+	
+	.cta-subtitle {
+		font-size: 1.3rem;
+		opacity: 0.9;
+		margin-bottom: var(--spacing-xl);
+		max-width: 700px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.cta-features {
+		display: flex;
+		justify-content: center;
+		gap: var(--spacing-xl);
+		margin-bottom: var(--spacing-xl);
+		flex-wrap: wrap;
+	}
+	
+	.cta-feature {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-xs);
+		background: rgba(255,255,255,0.2);
+		padding: var(--spacing-sm) var(--spacing-md);
+		border-radius: 30px;
+		backdrop-filter: blur(10px);
+		border: 1px solid rgba(255,255,255,0.3);
+		opacity: 0;
+		transform: translateY(20px);
+		transition: all 0.6s ease;
+	}
+	
+	.cta-feature.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	
+	.feature-icon {
+		font-size: 1.2rem;
+	}
+
+	.cta-buttons {
+		display: flex;
+		gap: var(--spacing-md);
+		justify-content: center;
+		flex-wrap: wrap;
+		margin-bottom: var(--spacing-lg);
+	}
+	
+	.cta-note {
+		margin-top: var(--spacing-lg);
+		padding: var(--spacing-md);
+		background: rgba(255,255,255,0.15);
+		border-radius: var(--radius-lg);
+		backdrop-filter: blur(10px);
+		border: 1px solid rgba(255,255,255,0.2);
+		max-width: 500px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.cta-note p {
+		margin: 0;
+		font-size: 1rem;
+		color: var(--white);
+	}
+
+	/* Enhanced Responsive Design */
+	@media (max-width: 1024px) {
+		.hero-title {
+			font-size: 3.5rem;
+		}
+		
+		.services-grid {
+			grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		}
+		
+		.testimonials-grid {
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		}
+	}
+	
+	@media (max-width: 768px) {
+		.services-hero {
+			min-height: 80vh;
+			padding: var(--spacing-xl) 0;
+		}
+		
+		.hero-title {
+			font-size: 2.8rem;
+		}
+		
+		.hero-subtitle {
+			font-size: 1.2rem;
+		}
+		
+		.hero-stats {
+			gap: var(--spacing-lg);
+		}
+		
+		.stat-number {
+			font-size: 2.5rem;
+		}
+		
+		.section-title {
+			font-size: 2.5rem;
+		}
+		
+		.services-grid {
+			grid-template-columns: 1fr;
+			gap: var(--spacing-lg);
+		}
+		
+		.service-card {
+			padding: var(--spacing-lg);
+		}
+		
+		.service-card.featured {
+			transform: none;
+		}
+		
+		.service-card.featured.visible {
+			transform: none;
+		}
+		
+		.service-includes li {
+			padding: var(--spacing-sm) 0;
+			font-size: 0.95rem;
+		}
+		
+		.testimonials-grid {
+			grid-template-columns: 1fr;
+			gap: var(--spacing-lg);
+		}
+		
+		.benefits-grid {
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: var(--spacing-lg);
+		}
+		
+		.benefit-card {
+			min-height: 240px;
+			padding: var(--spacing-md);
+		}
+		
+		.cta-title {
+			font-size: 2.8rem;
+		}
+		
+		.cta-features {
+			flex-direction: column;
+			align-items: center;
+			gap: var(--spacing-md);
+		}
+		
+		.cta-buttons {
+			flex-direction: column;
+			align-items: center;
+		}
+		
+		.comparison-table {
+			font-size: 0.9rem;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.services-hero {
+			min-height: 70vh;
+		}
+		
+		.hero-title {
+			font-size: 2.2rem;
+		}
+		
+		.hero-subtitle {
+			font-size: 1.1rem;
+		}
+		
+		.hero-stats {
+			flex-direction: column;
+			gap: var(--spacing-md);
+		}
+		
+		.stat-number {
+			font-size: 2rem;
+		}
+		
+		.section-title {
+			font-size: 2rem;
+		}
+		
+		.services-grid {
+			grid-template-columns: 1fr;
+			gap: var(--spacing-md);
+		}
+		
+		.service-card {
+			padding: var(--spacing-md);
+		}
+		
+		.service-includes li {
+			font-size: 0.9rem;
+			padding: var(--spacing-xs) 0;
+		}
+		
+		.service-description p {
+			font-size: 1rem;
+		}
+		
+		.price {
+			font-size: 2.5rem;
+		}
+		
+		.testimonials-grid {
+			gap: var(--spacing-md);
+		}
+		
+		.testimonial-card {
+			padding: var(--spacing-md);
+		}
+		
+		.benefits-grid {
+			grid-template-columns: 1fr;
+			gap: var(--spacing-md);
+		}
+		
+		.benefit-card {
+			min-height: 200px;
+			padding: var(--spacing-sm);
+		}
+		
+		.benefit-card h3 {
+			font-size: 1.2rem;
+		}
+		
+		.benefit-card p {
+			font-size: 0.95rem;
+		}
+		
+		.cta-title {
+			font-size: 2.2rem;
+		}
+		
+		.cta-subtitle {
+			font-size: 1.1rem;
+		}
+		
+		.btn-lg {
+			padding: var(--spacing-sm) var(--spacing-lg);
+			font-size: 1rem;
+		}
+	}
+	
+	/* Animation Classes */
+	.animate-on-scroll {
+		opacity: 0;
+		transform: translateY(30px);
+		transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+	
+	.animate-on-scroll.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	
+	/* Smooth scrolling for the entire page */
+	html {
+		scroll-behavior: smooth;
+	}
+</style> 

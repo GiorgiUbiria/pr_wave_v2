@@ -1,0 +1,858 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Free Masterclasses - ${SITE_TITLE}`} description="Join PR Wave's free seasonal masterclasses on social media marketing. Learn from experts and transform your digital presence." />
+	</head>
+	<body>
+		<Header />
+		
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="container">
+				<div class="hero-content">
+					<h1 class="hero-title" data-translate="hero.title">Free Masterclasses</h1>
+					<p class="hero-description" data-translate="hero.description">
+						Join our exclusive seasonal masterclasses and learn the latest social media marketing strategies from industry experts.
+					</p>
+					<div class="hero-badge" data-translate="hero.badge">🎯 100% Free • 🎓 Expert-Led • 📈 Actionable Insights</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Upcoming Masterclass -->
+		<section class="section upcoming-masterclass">
+			<div class="container">
+				<div class="masterclass-spotlight">
+					<div class="spotlight-content">
+						<div class="spotlight-badge" data-translate="upcoming.badge">Next Masterclass</div>
+						<h2 data-translate="upcoming.title">Instagram Reels Mastery: Go Viral in 2024</h2>
+						<p data-translate="upcoming.description">
+							Learn the secrets of creating viral Instagram Reels that drive engagement, 
+							followers, and sales. Perfect for businesses and content creators.
+						</p>
+						
+						<div class="masterclass-details">
+							<div class="detail-item">
+								<div class="detail-icon">📅</div>
+								<div class="detail-info">
+									<h4 data-translate="upcoming.date">Date</h4>
+									<p data-translate="upcoming.dateValue">March 15, 2024 • 7:00 PM</p>
+								</div>
+							</div>
+							<div class="detail-item">
+								<div class="detail-icon">⏰</div>
+								<div class="detail-info">
+									<h4 data-translate="upcoming.duration">Duration</h4>
+									<p data-translate="upcoming.durationValue">90 minutes + Q&A</p>
+								</div>
+							</div>
+							<div class="detail-item">
+								<div class="detail-icon">💻</div>
+								<div class="detail-info">
+									<h4 data-translate="upcoming.format">Format</h4>
+									<p data-translate="upcoming.formatValue">Live Online + Recording</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="what-you-learn">
+							<h3 data-translate="upcoming.whatYouLearn">What You'll Learn:</h3>
+							<ul>
+								<li data-translate="upcoming.learn1">✓ Viral content formulas that work in 2024</li>
+								<li data-translate="upcoming.learn2">✓ Instagram algorithm secrets revealed</li>
+								<li data-translate="upcoming.learn3">✓ How to hook viewers in the first 3 seconds</li>
+								<li data-translate="upcoming.learn4">✓ Trending audio and hashtag strategies</li>
+								<li data-translate="upcoming.learn5">✓ Converting views into followers and sales</li>
+							</ul>
+						</div>
+
+						<div class="cta-section">
+							<button class="btn btn-primary register-btn" data-translate="upcoming.register">Register Now - FREE</button>
+							<p class="limited-spots" data-translate="upcoming.limited">Limited to 100 participants</p>
+						</div>
+					</div>
+					<div class="spotlight-visual">
+						<div class="masterclass-preview">
+							<div class="preview-screen">
+								<div class="screen-header">
+									<div class="screen-dots">
+										<span></span><span></span><span></span>
+									</div>
+								</div>
+								<div class="screen-content">
+									<div class="instructor-avatar">👩‍🏫</div>
+									<h4 data-translate="upcoming.instructor">Leila Berzenishvili-Qahveji</h4>
+									<p data-translate="upcoming.instructorTitle">Digital Marketing Expert</p>
+									<div class="live-indicator">🔴 LIVE</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Past Masterclasses -->
+		<section class="section past-masterclasses bg-light">
+			<div class="container">
+				<div class="text-center mb-lg">
+					<h2 class="section-title" data-translate="past.title">Previous Masterclasses</h2>
+					<p class="section-subtitle" data-translate="past.subtitle">Catch up on what you missed</p>
+				</div>
+				<div class="grid grid-3 masterclass-grid">
+					<div class="masterclass-card">
+						<div class="card-header">
+							<div class="card-badge recorded" data-translate="past.recorded">Recorded</div>
+							<h3 data-translate="past.class1.title">TikTok for Business</h3>
+						</div>
+						<p data-translate="past.class1.description">
+							Master TikTok marketing for business growth and brand awareness.
+						</p>
+						<div class="card-stats">
+							<span data-translate="past.class1.attendees">250+ attendees</span>
+							<span data-translate="past.class1.rating">⭐ 4.9/5</span>
+						</div>
+						<button class="btn btn-secondary" data-translate="past.class1.watch">Watch Recording</button>
+					</div>
+
+					<div class="masterclass-card">
+						<div class="card-header">
+							<div class="card-badge recorded" data-translate="past.recorded">Recorded</div>
+							<h3 data-translate="past.class2.title">Facebook Ads Optimization</h3>
+						</div>
+						<p data-translate="past.class2.description">
+							Advanced strategies for maximizing Facebook ad performance and ROI.
+						</p>
+						<div class="card-stats">
+							<span data-translate="past.class2.attendees">180+ attendees</span>
+							<span data-translate="past.class2.rating">⭐ 4.8/5</span>
+						</div>
+						<button class="btn btn-secondary" data-translate="past.class2.watch">Watch Recording</button>
+					</div>
+
+					<div class="masterclass-card">
+						<div class="card-header">
+							<div class="card-badge recorded" data-translate="past.recorded">Recorded</div>
+							<h3 data-translate="past.class3.title">Content Creation Secrets</h3>
+						</div>
+						<p data-translate="past.class3.description">
+							Create engaging content that converts followers into customers.
+						</p>
+						<div class="card-stats">
+							<span data-translate="past.class3.attendees">320+ attendees</span>
+							<span data-translate="past.class3.rating">⭐ 4.9/5</span>
+						</div>
+						<button class="btn btn-secondary" data-translate="past.class3.watch">Watch Recording</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Newsletter Signup -->
+		<section class="section newsletter-section">
+			<div class="container">
+				<div class="newsletter-card">
+					<div class="newsletter-content">
+						<h2 data-translate="newsletter.title">Never Miss a Masterclass</h2>
+						<p data-translate="newsletter.description">
+							Get notified about upcoming free masterclasses and receive exclusive marketing tips.
+						</p>
+						<form class="newsletter-form">
+							<input type="email" placeholder="Enter your email" data-translate-placeholder="newsletter.placeholder" required>
+							<button type="submit" class="btn btn-primary" data-translate="newsletter.subscribe">Subscribe</button>
+						</form>
+						<p class="newsletter-note" data-translate="newsletter.note">
+							Join 2,500+ marketers receiving our weekly insights
+						</p>
+					</div>
+					<div class="newsletter-visual">
+						<div class="email-preview">
+							<div class="email-header">
+								<div class="email-subject" data-translate="newsletter.emailSubject">🎯 New Masterclass Alert!</div>
+							</div>
+							<div class="email-body">
+								<p data-translate="newsletter.emailBody">Your next masterclass is ready...</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Why Attend -->
+		<section class="section why-attend bg-light">
+			<div class="container">
+				<div class="text-center mb-lg">
+					<h2 class="section-title" data-translate="why.title">Why Attend Our Masterclasses?</h2>
+				</div>
+				<div class="grid grid-4 benefits-grid">
+					<div class="benefit-card">
+						<div class="benefit-icon">🎓</div>
+						<h3 data-translate="why.benefit1.title">Expert Instructors</h3>
+						<p data-translate="why.benefit1.description">
+							Learn from PR Wave's experienced team with proven track records.
+						</p>
+					</div>
+					<div class="benefit-card">
+						<div class="benefit-icon">💡</div>
+						<h3 data-translate="why.benefit2.title">Actionable Strategies</h3>
+						<p data-translate="why.benefit2.description">
+							Get practical tips you can implement immediately.
+						</p>
+					</div>
+					<div class="benefit-card">
+						<div class="benefit-icon">🤝</div>
+						<h3 data-translate="why.benefit3.title">Live Q&A</h3>
+						<p data-translate="why.benefit3.description">
+							Get your specific questions answered by experts.
+						</p>
+					</div>
+					<div class="benefit-card">
+						<div class="benefit-icon">📚</div>
+						<h3 data-translate="why.benefit4.title">Free Resources</h3>
+						<p data-translate="why.benefit4.description">
+							Receive templates, checklists, and bonus materials.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA Section -->
+		<section class="section cta-section">
+			<div class="container text-center">
+				<h2 class="section-title" data-translate="cta.title">Ready to Level Up Your Marketing?</h2>
+				<p class="section-subtitle" data-translate="cta.subtitle">
+					Join our next masterclass or explore our comprehensive SMM PLUS course
+				</p>
+				<div class="cta-buttons">
+					<button class="btn btn-primary register-btn" data-translate="cta.register">Register for Next Masterclass</button>
+					<a href="/courses" class="btn btn-secondary" data-translate="cta.courses">Explore SMM PLUS Course</a>
+				</div>
+			</div>
+		</section>
+
+		<Footer />
+	</body>
+</html>
+
+<style>
+	/* Hero Section */
+	.hero {
+		background: var(--wave-gradient);
+		color: var(--white);
+		text-align: center;
+		padding: var(--spacing-xl) 0;
+	}
+
+	.hero-title {
+		font-size: 3rem;
+		font-weight: 800;
+		margin-bottom: var(--spacing-md);
+	}
+
+	.hero-description {
+		font-size: 1.2rem;
+		opacity: 0.9;
+		max-width: 600px;
+		margin: 0 auto var(--spacing-lg);
+	}
+
+	.hero-badge {
+		background: rgba(255, 255, 255, 0.2);
+		padding: var(--spacing-sm) var(--spacing-lg);
+		border-radius: var(--border-radius-lg);
+		display: inline-block;
+		font-weight: 500;
+	}
+
+	/* Upcoming Masterclass */
+	.upcoming-masterclass {
+		padding: var(--spacing-xl) 0;
+	}
+
+	.masterclass-spotlight {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--spacing-xl);
+		align-items: center;
+		background: var(--white);
+		border-radius: var(--border-radius-lg);
+		box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+		overflow: hidden;
+	}
+
+	.spotlight-content {
+		padding: var(--spacing-xl);
+	}
+
+	.spotlight-badge {
+		background: var(--success-color);
+		color: var(--white);
+		padding: var(--spacing-xs) var(--spacing-sm);
+		border-radius: var(--border-radius);
+		font-size: 0.8rem;
+		font-weight: 600;
+		width: fit-content;
+		margin-bottom: var(--spacing-md);
+	}
+
+	.spotlight-content h2 {
+		font-size: 2.2rem;
+		font-weight: 700;
+		margin-bottom: var(--spacing-md);
+		color: var(--text-heading);
+	}
+
+	.masterclass-details {
+		margin: var(--spacing-lg) 0;
+	}
+
+	.detail-item {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-md);
+		margin-bottom: var(--spacing-md);
+	}
+
+	.detail-icon {
+		font-size: 1.5rem;
+		width: 40px;
+		text-align: center;
+	}
+
+	.detail-info h4 {
+		margin-bottom: var(--spacing-xs);
+		color: var(--text-heading);
+		font-size: 0.9rem;
+		font-weight: 600;
+	}
+
+	.detail-info p {
+		margin: 0;
+		color: var(--text-secondary);
+	}
+
+	.what-you-learn {
+		margin: var(--spacing-lg) 0;
+	}
+
+	.what-you-learn h3 {
+		margin-bottom: var(--spacing-md);
+		color: var(--text-heading);
+	}
+
+	.what-you-learn ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	.what-you-learn li {
+		margin-bottom: var(--spacing-xs);
+		color: var(--text-primary);
+	}
+
+	.cta-section {
+		margin-top: var(--spacing-lg);
+	}
+
+	.register-btn {
+		font-size: 1.1rem;
+		padding: var(--spacing-md) var(--spacing-xl);
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.limited-spots {
+		color: var(--text-secondary);
+		font-size: 0.9rem;
+		margin: 0;
+	}
+
+	/* Spotlight Visual */
+	.spotlight-visual {
+		background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+		padding: var(--spacing-xl);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.masterclass-preview {
+		max-width: 300px;
+		width: 100%;
+	}
+
+	.preview-screen {
+		background: var(--white);
+		border-radius: var(--border-radius-lg);
+		box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+		overflow: hidden;
+	}
+
+	.screen-header {
+		background: #f5f5f5;
+		padding: var(--spacing-sm);
+		text-align: center;
+	}
+
+	.screen-dots {
+		display: flex;
+		gap: var(--spacing-xs);
+		justify-content: center;
+	}
+
+	.screen-dots span {
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background: #ddd;
+	}
+
+	.screen-content {
+		padding: var(--spacing-lg);
+		text-align: center;
+	}
+
+	.instructor-avatar {
+		font-size: 4rem;
+		margin-bottom: var(--spacing-md);
+	}
+
+	.screen-content h4 {
+		margin-bottom: var(--spacing-xs);
+		color: var(--text-heading);
+	}
+
+	.screen-content p {
+		color: var(--text-secondary);
+		font-size: 0.9rem;
+		margin-bottom: var(--spacing-md);
+	}
+
+	.live-indicator {
+		background: #ff4444;
+		color: var(--white);
+		padding: var(--spacing-xs) var(--spacing-sm);
+		border-radius: var(--border-radius);
+		font-size: 0.8rem;
+		font-weight: 600;
+		display: inline-block;
+	}
+
+	/* Past Masterclasses */
+	.masterclass-grid {
+		gap: var(--spacing-lg);
+	}
+
+	.masterclass-card {
+		background: var(--white);
+		border-radius: var(--border-radius-lg);
+		padding: var(--spacing-xl);
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+		transition: transform var(--transition-normal);
+	}
+
+	.masterclass-card:hover {
+		transform: translateY(-5px);
+	}
+
+	.card-header {
+		margin-bottom: var(--spacing-md);
+	}
+
+	.card-badge {
+		display: inline-block;
+		padding: var(--spacing-xs) var(--spacing-sm);
+		border-radius: var(--border-radius);
+		font-size: 0.8rem;
+		font-weight: 600;
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.card-badge.recorded {
+		background: #e8f5e8;
+		color: var(--success-color);
+	}
+
+	.card-header h3 {
+		color: var(--text-heading);
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.masterclass-card p {
+		color: var(--text-secondary);
+		line-height: 1.6;
+		margin-bottom: var(--spacing-lg);
+	}
+
+	.card-stats {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: var(--spacing-lg);
+		font-size: 0.9rem;
+		color: var(--text-secondary);
+	}
+
+	/* Newsletter Section */
+	.newsletter-section {
+		background: var(--wave-gradient);
+		color: var(--white);
+	}
+
+	.newsletter-card {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--spacing-xl);
+		align-items: center;
+	}
+
+	.newsletter-content h2 {
+		color: var(--white);
+		margin-bottom: var(--spacing-md);
+	}
+
+	.newsletter-content p {
+		color: rgba(255, 255, 255, 0.9);
+		margin-bottom: var(--spacing-lg);
+	}
+
+	.newsletter-form {
+		display: flex;
+		gap: var(--spacing-sm);
+		margin-bottom: var(--spacing-md);
+	}
+
+	.newsletter-form input {
+		flex: 1;
+		padding: var(--spacing-sm) var(--spacing-md);
+		border: none;
+		border-radius: var(--border-radius);
+		font-size: 1rem;
+	}
+
+	.newsletter-note {
+		color: rgba(255, 255, 255, 0.8);
+		font-size: 0.9rem;
+		margin: 0;
+	}
+
+	.newsletter-visual {
+		display: flex;
+		justify-content: center;
+	}
+
+	.email-preview {
+		background: var(--white);
+		border-radius: var(--border-radius);
+		overflow: hidden;
+		box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+		max-width: 280px;
+		width: 100%;
+	}
+
+	.email-header {
+		background: #f5f5f5;
+		padding: var(--spacing-md);
+	}
+
+	.email-subject {
+		font-weight: 600;
+		color: var(--text-heading);
+		font-size: 0.9rem;
+	}
+
+	.email-body {
+		padding: var(--spacing-md);
+	}
+
+	.email-body p {
+		color: var(--text-secondary);
+		font-size: 0.9rem;
+		margin: 0;
+	}
+
+	/* Benefits Grid */
+	.benefits-grid {
+		gap: var(--spacing-lg);
+	}
+
+	.benefit-card {
+		text-align: center;
+		padding: var(--spacing-lg);
+	}
+
+	.benefit-icon {
+		font-size: 3rem;
+		margin-bottom: var(--spacing-md);
+	}
+
+	.benefit-card h3 {
+		color: var(--text-heading);
+		margin-bottom: var(--spacing-md);
+	}
+
+	.benefit-card p {
+		color: var(--text-secondary);
+		line-height: 1.6;
+	}
+
+	/* Final CTA */
+	.section.cta-section {
+		background: var(--wave-gradient);
+		color: var(--white);
+		text-align: center;
+	}
+
+	.cta-section .section-title,
+	.cta-section .section-subtitle {
+		color: var(--white);
+	}
+
+	.cta-buttons {
+		display: flex;
+		gap: var(--spacing-md);
+		justify-content: center;
+		flex-wrap: wrap;
+		margin-top: var(--spacing-lg);
+	}
+
+	/* Responsive Design */
+	@media (max-width: 768px) {
+		.hero-title {
+			font-size: 2.5rem;
+		}
+
+		.masterclass-spotlight {
+			grid-template-columns: 1fr;
+		}
+
+		.spotlight-visual {
+			padding: var(--spacing-lg);
+		}
+
+		.newsletter-card {
+			grid-template-columns: 1fr;
+		}
+
+		.masterclass-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.benefits-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.cta-buttons {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.newsletter-form {
+			flex-direction: column;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.benefits-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
+
+<script>
+	// Translation functionality
+	let currentLanguage = localStorage.getItem('language') || 'en';
+
+	const translations = {
+		en: {
+			'hero.title': 'Free Masterclasses',
+			'hero.description': 'Join our exclusive seasonal masterclasses and learn the latest social media marketing strategies from industry experts.',
+			'hero.badge': '🎯 100% Free • 🎓 Expert-Led • 📈 Actionable Insights',
+			'upcoming.badge': 'Next Masterclass',
+			'upcoming.title': 'Instagram Reels Mastery: Go Viral in 2024',
+			'upcoming.description': 'Learn the secrets of creating viral Instagram Reels that drive engagement, followers, and sales. Perfect for businesses and content creators.',
+			'upcoming.date': 'Date',
+			'upcoming.dateValue': 'March 15, 2024 • 7:00 PM',
+			'upcoming.duration': 'Duration',
+			'upcoming.durationValue': '90 minutes + Q&A',
+			'upcoming.format': 'Format',
+			'upcoming.formatValue': 'Live Online + Recording',
+			'upcoming.whatYouLearn': 'What You\'ll Learn:',
+			'upcoming.learn1': '✓ Viral content formulas that work in 2024',
+			'upcoming.learn2': '✓ Instagram algorithm secrets revealed',
+			'upcoming.learn3': '✓ How to hook viewers in the first 3 seconds',
+			'upcoming.learn4': '✓ Trending audio and hashtag strategies',
+			'upcoming.learn5': '✓ Converting views into followers and sales',
+			'upcoming.register': 'Register Now - FREE',
+			'upcoming.limited': 'Limited to 100 participants',
+			'upcoming.instructor': 'Leila Berzenishvili-Qahveji',
+			'upcoming.instructorTitle': 'Digital Marketing Expert',
+			'past.title': 'Previous Masterclasses',
+			'past.subtitle': 'Catch up on what you missed',
+			'past.recorded': 'Recorded',
+			'past.class1.title': 'TikTok for Business',
+			'past.class1.description': 'Master TikTok marketing for business growth and brand awareness.',
+			'past.class1.attendees': '250+ attendees',
+			'past.class1.rating': '⭐ 4.9/5',
+			'past.class1.watch': 'Watch Recording',
+			'past.class2.title': 'Facebook Ads Optimization',
+			'past.class2.description': 'Advanced strategies for maximizing Facebook ad performance and ROI.',
+			'past.class2.attendees': '180+ attendees',
+			'past.class2.rating': '⭐ 4.8/5',
+			'past.class2.watch': 'Watch Recording',
+			'past.class3.title': 'Content Creation Secrets',
+			'past.class3.description': 'Create engaging content that converts followers into customers.',
+			'past.class3.attendees': '320+ attendees',
+			'past.class3.rating': '⭐ 4.9/5',
+			'past.class3.watch': 'Watch Recording',
+			'newsletter.title': 'Never Miss a Masterclass',
+			'newsletter.description': 'Get notified about upcoming free masterclasses and receive exclusive marketing tips.',
+			'newsletter.placeholder': 'Enter your email',
+			'newsletter.subscribe': 'Subscribe',
+			'newsletter.note': 'Join 2,500+ marketers receiving our weekly insights',
+			'newsletter.emailSubject': '🎯 New Masterclass Alert!',
+			'newsletter.emailBody': 'Your next masterclass is ready...',
+			'why.title': 'Why Attend Our Masterclasses?',
+			'why.benefit1.title': 'Expert Instructors',
+			'why.benefit1.description': 'Learn from PR Wave\'s experienced team with proven track records.',
+			'why.benefit2.title': 'Actionable Strategies',
+			'why.benefit2.description': 'Get practical tips you can implement immediately.',
+			'why.benefit3.title': 'Live Q&A',
+			'why.benefit3.description': 'Get your specific questions answered by experts.',
+			'why.benefit4.title': 'Free Resources',
+			'why.benefit4.description': 'Receive templates, checklists, and bonus materials.',
+			'cta.title': 'Ready to Level Up Your Marketing?',
+			'cta.subtitle': 'Join our next masterclass or explore our comprehensive SMM PLUS course',
+			'cta.register': 'Register for Next Masterclass',
+			'cta.courses': 'Explore SMM PLUS Course'
+		},
+		ka: {
+			'hero.title': 'უფასო მასტერკლასები',
+			'hero.description': 'შეუერთდით ჩვენს ექსკლუზიურ სეზონურ მასტერკლასებს და ისწავლეთ უახლესი სოციალური მედიის მარკეტინგის სტრატეგიები ინდუსტრიის ექსპერტებისგან.',
+			'hero.badge': '🎯 100% უფასო • 🎓 ექსპერტების მიერ • 📈 პრაქტიკული ცოდნა',
+			'upcoming.badge': 'შემდეგი მასტერკლასი',
+			'upcoming.title': 'Instagram Reels ოსტატობა: გახდი ვირუსული 2024-ში',
+			'upcoming.description': 'ისწავლეთ ვირუსული Instagram Reels-ის შექმნის საიდუმლოებები, რომლებიც იზრდება ჩართულობას, მიმდევრებს და გაყიდვებს. იდეალურია ბიზნესებისა და კონტენტ შემქმნელებისთვის.',
+			'upcoming.date': 'თარიღი',
+			'upcoming.dateValue': '15 მარტი, 2024 • 19:00',
+			'upcoming.duration': 'ხანგრძლივობა',
+			'upcoming.durationValue': '90 წუთი + კითხვა-პასუხი',
+			'upcoming.format': 'ფორმატი',
+			'upcoming.formatValue': 'ლაივ ონლაინ + ჩანაწერი',
+			'upcoming.whatYouLearn': 'რას ისწავლით:',
+			'upcoming.learn1': '✓ ვირუსული კონტენტის ფორმულები, რომლებიც მუშაობს 2024-ში',
+			'upcoming.learn2': '✓ Instagram ალგორითმის საიდუმლოებები',
+			'upcoming.learn3': '✓ როგორ მოიპოვოთ მაყურებლები პირველ 3 წამში',
+			'upcoming.learn4': '✓ ტრენდული აუდიო და ჰეშტეგების სტრატეგიები',
+			'upcoming.learn5': '✓ ნახვების მიმდევრებად და გაყიდვებად გარდაქმნა',
+			'upcoming.register': 'დარეგისტრირდით ახლავე - უფასო',
+			'upcoming.limited': 'შეზღუდულია 100 მონაწილემდე',
+			'upcoming.instructor': 'ლეილა ბერზენიშვილი-ყაჰვეჯი',
+			'upcoming.instructorTitle': 'ციფრული მარკეტინგის ექსპერტი',
+			'past.title': 'წინა მასტერკლასები',
+			'past.subtitle': 'ნახეთ რაც გამოგრჩათ',
+			'past.recorded': 'ჩაწერილი',
+			'past.class1.title': 'TikTok ბიზნესისთვის',
+			'past.class1.description': 'დაეუფლეთ TikTok მარკეტინგს ბიზნესის ზრდისა და ბრენდის ცნობადობისთვის.',
+			'past.class1.attendees': '250+ მონაწილე',
+			'past.class1.rating': '⭐ 4.9/5',
+			'past.class1.watch': 'ნახეთ ჩანაწერი',
+			'past.class2.title': 'Facebook რეკლამების ოპტიმიზაცია',
+			'past.class2.description': 'გაუმჯობესებული სტრატეგიები Facebook რეკლამის შესრულებისა და ROI-ის მაქსიმიზაციისთვის.',
+			'past.class2.attendees': '180+ მონაწილე',
+			'past.class2.rating': '⭐ 4.8/5',
+			'past.class2.watch': 'ნახეთ ჩანაწერი',
+			'past.class3.title': 'კონტენტის შექმნის საიდუმლოებები',
+			'past.class3.description': 'შექმენით მიმზიდველი კონტენტი, რომელიც მიმდევრებს მყიდველებად აქცევს.',
+			'past.class3.attendees': '320+ მონაწილე',
+			'past.class3.rating': '⭐ 4.9/5',
+			'past.class3.watch': 'ნახეთ ჩანაწერი',
+			'newsletter.title': 'არასოდეს გამოტოვოთ მასტერკლასი',
+			'newsletter.description': 'მიიღეთ შეტყობინება მომავალი უფასო მასტერკლასების შესახებ და მიიღეთ ექსკლუზიური მარკეტინგის რჩევები.',
+			'newsletter.placeholder': 'შეიყვანეთ თქვენი ელფოსტა',
+			'newsletter.subscribe': 'გამოწერა',
+			'newsletter.note': 'შეუერთდით 2,500+ მარკეტერს, რომლებიც იღებენ ჩვენს ყოველკვირეულ ინფორმაციას',
+			'newsletter.emailSubject': '🎯 ახალი მასტერკლასის ცნობა!',
+			'newsletter.emailBody': 'თქვენი შემდეგი მასტერკლასი მზადაა...',
+			'why.title': 'რატომ დაესწროთ ჩვენს მასტერკლასებს?',
+			'why.benefit1.title': 'ექსპერტი ინსტრუქტორები',
+			'why.benefit1.description': 'ისწავლეთ PR Wave-ის გამოცდილი გუნდისგან დადასტურებული შედეგებით.',
+			'why.benefit2.title': 'პრაქტიკული სტრატეგიები',
+			'why.benefit2.description': 'მიიღეთ პრაქტიკული რჩევები, რომლებსაც დაუყოვნებლივ შეძლებთ განხორციელებას.',
+			'why.benefit3.title': 'ლაივ კითხვა-პასუხი',
+			'why.benefit3.description': 'მიიღეთ პასუხები თქვენს კონკრეტულ კითხვებზე ექსპერტებისგან.',
+			'why.benefit4.title': 'უფასო რესურსები',
+			'why.benefit4.description': 'მიიღეთ შაბლონები, ჩეკლისტები და ბონუს მასალები.',
+			'cta.title': 'მზად ხართ გაუმჯობესოთ თქვენი მარკეტინგი?',
+			'cta.subtitle': 'შეუერთდით ჩვენს შემდეგ მასტერკლასს ან გაეცანით ჩვენს ყოვლისმომცველ SMM PLUS კურსს',
+			'cta.register': 'დარეგისტრირდით შემდეგ მასტერკლასზე',
+			'cta.courses': 'გაეცანით SMM PLUS კურსს'
+		}
+	};
+
+	function updateTranslations() {
+		const elementsToTranslate = document.querySelectorAll('[data-translate]');
+		
+		elementsToTranslate.forEach(element => {
+			const translationKey = element.getAttribute('data-translate');
+			const translatedText = translations[currentLanguage as keyof typeof translations]?.[translationKey as keyof typeof translations.en];
+			
+			if (translatedText) {
+				element.textContent = translatedText;
+			}
+		});
+
+		// Handle placeholder translations
+		const elementsWithPlaceholder = document.querySelectorAll('[data-translate-placeholder]');
+		elementsWithPlaceholder.forEach(element => {
+			const translationKey = element.getAttribute('data-translate-placeholder');
+			const translatedText = translations[currentLanguage as keyof typeof translations]?.[translationKey as keyof typeof translations.en];
+			
+			if (translatedText && element instanceof HTMLInputElement) {
+				element.placeholder = translatedText;
+			}
+		});
+	}
+
+	// Listen for language change events
+	window.addEventListener('languagechange', (e: Event) => {
+		const customEvent = e as CustomEvent;
+		currentLanguage = customEvent.detail.language;
+		updateTranslations();
+	});
+
+	// Initialize translations
+	updateTranslations();
+
+	// Registration functionality
+	document.addEventListener('DOMContentLoaded', function() {
+		const registerBtns = document.querySelectorAll('.register-btn');
+		const newsletterForm = document.querySelector('.newsletter-form');
+
+		registerBtns.forEach(btn => {
+			btn.addEventListener('click', function() {
+				// Here you would integrate with your registration system
+				alert(currentLanguage === 'ka' ? 
+					'რეგისტრაცია მალე იქნება ხელმისაწვდომი!' : 
+					'Registration will be available soon!');
+			});
+		});
+
+		if (newsletterForm) {
+			newsletterForm.addEventListener('submit', function(e) {
+				e.preventDefault();
+				// Here you would integrate with your email service
+				alert(currentLanguage === 'ka' ? 
+					'გმადლობთ გამოწერისთვის!' : 
+					'Thank you for subscribing!');
+			});
+		}
+	});
+</script>

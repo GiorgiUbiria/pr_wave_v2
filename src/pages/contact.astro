@@ -2,7 +2,11 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE, CONTACT_INFO } from '../consts';
+import { SITE_TITLE, CONTACT_INFO, SOCIAL_LINKS } from '../consts';
+import { getTranslation, getCurrentLanguage } from '../i18n';
+
+// Get current language (defaults to 'en' on server side)
+const currentLang = 'en'; // Server-side default, will be updated client-side
 ---
 
 <!doctype html>
@@ -17,8 +21,8 @@ import { SITE_TITLE, CONTACT_INFO } from '../consts';
 		<!-- Hero Section -->
 		<section class="hero">
 			<div class="container">
-				<h1>Get In Touch</h1>
-				<p>Ready to transform your digital presence? Let's start the conversation.</p>
+				<h1 data-translate="contact.title">Get In Touch</h1>
+				<p data-translate="contact.subtitle">Ready to transform your digital presence? Let's start the conversation.</p>
 			</div>
 		</section>
 
@@ -29,55 +33,55 @@ import { SITE_TITLE, CONTACT_INFO } from '../consts';
 					<!-- Contact Form -->
 					<div class="contact-form-container">
 						<div class="card">
-							<h2>Send Us a Message</h2>
+							<h2 data-translate="contact.formTitle">Send Us a Message</h2>
 							<form class="contact-form" id="contact-form">
 								<div class="form-group">
-									<label for="name">Full Name</label>
+									<label for="name" data-translate="contact.nameLabel">Full Name</label>
 									<input type="text" id="name" name="name" required>
 								</div>
 								
 								<div class="form-group">
-									<label for="email">Email Address</label>
+									<label for="email" data-translate="contact.emailLabel">Email Address</label>
 									<input type="email" id="email" name="email" required>
 								</div>
 								
 								<div class="form-group">
-									<label for="company">Company Name</label>
+									<label for="company" data-translate="contact.companyLabel">Company Name</label>
 									<input type="text" id="company" name="company">
 								</div>
 								
 								<div class="form-group">
-									<label for="service">Service Interest</label>
+									<label for="service" data-translate="contact.serviceLabel">Service Interest</label>
 									<select id="service" name="service" required>
-										<option value="">Select a service</option>
-										<option value="social-media">Social Media Management</option>
-										<option value="advertising">Digital Advertising</option>
-										<option value="mentorship">Business Mentorship</option>
-										<option value="content">Content Creation</option>
-										<option value="strategy">Brand Strategy</option>
-										<option value="analytics">Analytics & Reporting</option>
-										<option value="courses">Courses</option>
-										<option value="other">Other</option>
+										<option value="" data-translate="contact.selectService">Select a service</option>
+										<option value="social-media" data-translate="contact.socialMedia">Social Media Management</option>
+										<option value="advertising" data-translate="contact.advertising">Digital Advertising</option>
+										<option value="mentorship" data-translate="contact.mentorship">Business Mentorship</option>
+										<option value="content" data-translate="contact.content">Content Creation</option>
+										<option value="strategy" data-translate="contact.strategy">Brand Strategy</option>
+										<option value="analytics" data-translate="contact.analytics">Analytics & Reporting</option>
+										<option value="courses" data-translate="contact.courses">Courses</option>
+										<option value="other" data-translate="contact.other">Other</option>
 									</select>
 								</div>
 								
 								<div class="form-group">
-									<label for="budget">Budget Range</label>
+									<label for="budget" data-translate="contact.budgetLabel">Budget Range</label>
 									<select id="budget" name="budget">
-										<option value="">Select budget range</option>
-										<option value="under-1k">Under $1,000/month</option>
-										<option value="1k-5k">$1,000 - $5,000/month</option>
-										<option value="5k-10k">$5,000 - $10,000/month</option>
-										<option value="10k-plus">$10,000+/month</option>
+										<option value="" data-translate="contact.selectBudget">Select budget range</option>
+										<option value="under-1k" data-translate="contact.under1k">Under $1,000/month</option>
+										<option value="1k-5k" data-translate="contact.1k5k">$1,000 - $5,000/month</option>
+										<option value="5k-10k" data-translate="contact.5k10k">$5,000 - $10,000/month</option>
+										<option value="10k-plus" data-translate="contact.10kplus">$10,000+/month</option>
 									</select>
 								</div>
 								
 								<div class="form-group">
-									<label for="message">Message</label>
-									<textarea id="message" name="message" rows="5" placeholder="Tell us about your project and goals..." required></textarea>
+									<label for="message" data-translate="contact.messageLabel">Message</label>
+									<textarea id="message" name="message" rows="5" data-translate-placeholder="contact.messagePlaceholder" placeholder="Tell us about your project and goals..." required></textarea>
 								</div>
 								
-								<button type="submit" class="btn btn-primary btn-full">Send Message</button>
+								<button type="submit" class="btn btn-primary btn-full" data-translate="contact.sendButton">Send Message</button>
 							</form>
 						</div>
 					</div>
@@ -85,68 +89,72 @@ import { SITE_TITLE, CONTACT_INFO } from '../consts';
 					<!-- Contact Information -->
 					<div class="contact-info">
 						<div class="card">
-							<h3>Contact Information</h3>
+							<h3 data-translate="contact.infoTitle">Contact Information</h3>
 							<div class="contact-item">
 								<div class="contact-icon">📧</div>
 								<div>
-									<h4>Email</h4>
-									<a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a>
+									<h4 data-translate="contact.email">Email</h4>
+									{CONTACT_INFO.emails.map((email) => (
+										<div><a href={`mailto:${email}`}>{email}</a></div>
+									))}
 								</div>
 							</div>
 							
 							<div class="contact-item">
 								<div class="contact-icon">📞</div>
 								<div>
-									<h4>Phone</h4>
-									<a href={`tel:${CONTACT_INFO.phone}`}>{CONTACT_INFO.phone}</a>
+									<h4 data-translate="contact.phone">Phone</h4>
+									{CONTACT_INFO.phones.map((phone) => (
+										<div><a href={`tel:${phone}`}>{phone}</a></div>
+									))}
 								</div>
 							</div>
 							
 							<div class="contact-item">
 								<div class="contact-icon">📍</div>
 								<div>
-									<h4>Address</h4>
-									<p>{CONTACT_INFO.address}</p>
+									<h4 data-translate="contact.address">Address</h4>
+									<p>{CONTACT_INFO.location}</p>
 								</div>
 							</div>
 						</div>
 
 						<div class="card">
-							<h3>Business Hours</h3>
+							<h3 data-translate="contact.hoursTitle">Business Hours</h3>
 							<div class="hours-list">
 								<div class="hours-item">
-									<span>Monday - Friday</span>
-									<span>9:00 AM - 6:00 PM</span>
+									<span data-translate="contact.weekdays">Monday - Friday</span>
+									<span data-translate="contact.weekdayHours">9:00 AM - 6:00 PM</span>
 								</div>
 								<div class="hours-item">
-									<span>Saturday</span>
-									<span>10:00 AM - 4:00 PM</span>
+									<span data-translate="contact.saturday">Saturday</span>
+									<span data-translate="contact.saturdayHours">10:00 AM - 4:00 PM</span>
 								</div>
 								<div class="hours-item">
-									<span>Sunday</span>
-									<span>Closed</span>
+									<span data-translate="contact.sunday">Sunday</span>
+									<span data-translate="contact.sundayHours">Closed</span>
 								</div>
 							</div>
 						</div>
 
 						<div class="card">
-							<h3>Follow Us</h3>
+							<h3 data-translate="contact.followTitle">Follow Us</h3>
 							<div class="social-links">
-								<a href="#" class="social-link">
+								<a href={SOCIAL_LINKS.facebook} class="social-link" target="_blank" rel="noopener noreferrer">
 									<span class="social-icon">📘</span>
-									Facebook
+									<span data-translate="contact.facebook">Facebook</span>
 								</a>
-								<a href="#" class="social-link">
+								<a href={SOCIAL_LINKS.instagram} class="social-link" target="_blank" rel="noopener noreferrer">
 									<span class="social-icon">📷</span>
-									Instagram
+									<span data-translate="contact.instagram">Instagram</span>
 								</a>
-								<a href="#" class="social-link">
-									<span class="social-icon">🐦</span>
-									Twitter
+								<a href={`https://${SOCIAL_LINKS.telegram}`} class="social-link" target="_blank" rel="noopener noreferrer">
+									<span class="social-icon">💬</span>
+									<span>Telegram</span>
 								</a>
-								<a href="#" class="social-link">
+								<a href={SOCIAL_LINKS.linkedin} class="social-link" target="_blank" rel="noopener noreferrer">
 									<span class="social-icon">💼</span>
-									LinkedIn
+									<span data-translate="contact.linkedin">LinkedIn</span>
 								</a>
 							</div>
 						</div>
@@ -330,21 +338,162 @@ import { SITE_TITLE, CONTACT_INFO } from '../consts';
 </style>
 
 <script>
-	const contactForm = document.getElementById('contact-form') as HTMLFormElement;
-	contactForm?.addEventListener('submit', function(e) {
-		e.preventDefault();
+	// Get current language
+	let currentLanguage = localStorage.getItem('language') || 'en';
+
+	// Simplified translation object for contact page
+	const contactTranslations = {
+		en: {
+			'contact.title': 'Get In Touch',
+			'contact.subtitle': 'Ready to transform your digital presence? Let\'s start the conversation.',
+			'contact.formTitle': 'Send Us a Message',
+			'contact.nameLabel': 'Full Name',
+			'contact.emailLabel': 'Email Address',
+			'contact.companyLabel': 'Company Name',
+			'contact.serviceLabel': 'Service Interest',
+			'contact.selectService': 'Select a service',
+			'contact.socialMedia': 'Social Media Management',
+			'contact.advertising': 'Digital Advertising',
+			'contact.mentorship': 'Business Mentorship',
+			'contact.content': 'Content Creation',
+			'contact.strategy': 'Brand Strategy',
+			'contact.analytics': 'Analytics & Reporting',
+			'contact.courses': 'Courses',
+			'contact.other': 'Other',
+			'contact.budgetLabel': 'Budget Range',
+			'contact.selectBudget': 'Select budget range',
+			'contact.under1k': 'Under $1,000/month',
+			'contact.1k5k': '$1,000 - $5,000/month',
+			'contact.5k10k': '$5,000 - $10,000/month',
+			'contact.10kplus': '$10,000+/month',
+			'contact.messageLabel': 'Message',
+			'contact.messagePlaceholder': 'Tell us about your project and goals...',
+			'contact.sendButton': 'Send Message',
+			'contact.infoTitle': 'Contact Information',
+			'contact.email': 'Email',
+			'contact.phone': 'Phone',
+			'contact.address': 'Address',
+			'contact.hoursTitle': 'Business Hours',
+			'contact.weekdays': 'Monday - Friday',
+			'contact.weekdayHours': '9:00 AM - 6:00 PM',
+			'contact.saturday': 'Saturday',
+			'contact.saturdayHours': '10:00 AM - 4:00 PM',
+			'contact.sunday': 'Sunday',
+			'contact.sundayHours': 'Closed',
+			'contact.followTitle': 'Follow Us',
+			'contact.facebook': 'Facebook',
+			'contact.instagram': 'Instagram',
+			'contact.linkedin': 'LinkedIn'
+		},
+		ka: {
+			'contact.title': 'დაგვიკავშირდით',
+			'contact.subtitle': 'მზად ხართ გარდაქმნათ თქვენი ციფრული პრეზენსი? მოდით დავიწყოთ საუბარი.',
+			'contact.formTitle': 'გამოგვიგზავნეთ შეტყობინება',
+			'contact.nameLabel': 'სრული სახელი',
+			'contact.emailLabel': 'ელ-ფოსტის მისამართი',
+			'contact.companyLabel': 'კომპანიის სახელი',
+			'contact.serviceLabel': 'სერვისის ინტერესი',
+			'contact.selectService': 'აირჩიეთ სერვისი',
+			'contact.socialMedia': 'სოციალური მედიის მართვა',
+			'contact.advertising': 'ციფრული რეკლამა',
+			'contact.mentorship': 'ბიზნეს მენტორობა',
+			'contact.content': 'კონტენტის შექმნა',
+			'contact.strategy': 'ბრენდის სტრატეგია',
+			'contact.analytics': 'ანალიტიკა და რეპორტინგი',
+			'contact.courses': 'კურსები',
+			'contact.other': 'სხვა',
+			'contact.budgetLabel': 'ბიუჯეტის დიაპაზონი',
+			'contact.selectBudget': 'აირჩიეთ ბიუჯეტის დიაპაზონი',
+			'contact.under1k': '$1,000-ზე ნაკლები/თვეში',
+			'contact.1k5k': '$1,000 - $5,000/თვეში',
+			'contact.5k10k': '$5,000 - $10,000/თვეში',
+			'contact.10kplus': '$10,000+/თვეში',
+			'contact.messageLabel': 'შეტყობინება',
+			'contact.messagePlaceholder': 'მოგვითხარით თქვენი პროექტისა და მიზნების შესახებ...',
+			'contact.sendButton': 'შეტყობინების გაგზავნა',
+			'contact.infoTitle': 'საკონტაქტო ინფორმაცია',
+			'contact.email': 'ელ-ფოსტა',
+			'contact.phone': 'ტელეფონი',
+			'contact.address': 'მისამართი',
+			'contact.hoursTitle': 'სამუშაო საათები',
+			'contact.weekdays': 'ორშაბათი - პარასკევი',
+			'contact.weekdayHours': '9:00 - 18:00',
+			'contact.saturday': 'შაბათი',
+			'contact.saturdayHours': '10:00 - 16:00',
+			'contact.sunday': 'კვირა',
+			'contact.sundayHours': 'დახურულია',
+			'contact.followTitle': 'გამოგვყევით',
+			'contact.facebook': 'ფეისბუკი',
+			'contact.instagram': 'ინსტაგრამი',
+			'contact.linkedin': 'ლინკდინი'
+		}
+	};
+
+	function updateTranslations() {
+		const elementsToTranslate = document.querySelectorAll('[data-translate]');
 		
-		// Get form data
-		const formData = new FormData(this);
-		const data = Object.fromEntries(formData);
-		
-		// Here you would typically send the data to your backend
-		console.log('Form submitted:', data);
-		
-		// Show success message (replace with actual implementation)
-		alert('Thank you for your message! We\'ll get back to you within 24 hours.');
-		
-		// Reset form
-		this.reset();
+		elementsToTranslate.forEach(element => {
+			const translationKey = element.getAttribute('data-translate');
+			if (translationKey && (currentLanguage === 'en' || currentLanguage === 'ka')) {
+				const translatedText = (contactTranslations[currentLanguage] as any)[translationKey];
+				
+				if (translatedText) {
+					element.textContent = translatedText;
+				}
+			}
+		});
+
+		// Handle placeholder translations separately
+		const placeholderElements = document.querySelectorAll('[data-translate-placeholder]');
+		placeholderElements.forEach(element => {
+			const translationKey = element.getAttribute('data-translate-placeholder');
+			if (translationKey && (currentLanguage === 'en' || currentLanguage === 'ka')) {
+				const translatedText = (contactTranslations[currentLanguage] as any)[translationKey];
+				
+				if (translatedText && (element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement)) {
+					element.placeholder = translatedText;
+				}
+			}
+		});
+	}
+
+	// Listen for language change events
+	window.addEventListener('languagechange', (e: any) => {
+		if (e.detail && e.detail.language) {
+			currentLanguage = e.detail.language;
+			updateTranslations();
+		}
+	});
+
+	// Initialize translations based on current language
+	document.addEventListener('DOMContentLoaded', () => {
+		currentLanguage = localStorage.getItem('language') || 'en';
+		updateTranslations();
+	});
+
+	// Contact form functionality
+	document.addEventListener('DOMContentLoaded', () => {
+		const contactForm = document.getElementById('contact-form');
+		if (contactForm instanceof HTMLFormElement) {
+			contactForm.addEventListener('submit', function(e) {
+				e.preventDefault();
+				
+				// Get form data
+				const formData = new FormData(this);
+				const data = Object.fromEntries(formData);
+				
+				// Here you would typically send the data to your backend
+				console.log('Form submitted:', data);
+				
+				// Show success message (replace with actual implementation)
+				const successMessage = currentLanguage === 'ka' 
+					? 'გმადლობთ თქვენი შეტყობინებისთვის! ჩვენ დაგიკავშირდებით 24 საათის განმავლობაში.'
+					: 'Thank you for your message! We\'ll get back to you within 24 hours.';
+				alert(successMessage);
+				
+				// Reset form
+				this.reset();
+			});
+		}
 	});
 </script> 

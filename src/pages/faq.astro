@@ -1,0 +1,453 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+import { getTranslation } from '../i18n';
+
+// Get current language (defaults to 'en' on server side)
+const currentLang = 'en'; // Server-side default, will be updated client-side
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`FAQ - ${SITE_TITLE}`} description="Frequently asked questions about PR Wave's SMM PLUS course and social media marketing services in Georgia." />
+		<link rel="stylesheet" href="/src/styles/global.css" />
+	</head>
+	<body>
+		<Header />
+		
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="container">
+				<h1 data-translate="faq.title">Frequently Asked Questions</h1>
+				<p data-translate="faq.subtitle">Find answers to common questions about our services and courses</p>
+			</div>
+		</section>
+
+		<!-- FAQ Section -->
+		<section class="section">
+			<div class="container">
+				<div class="faq-container">
+					
+					<!-- FAQ Item 1 -->
+					<div class="faq-item">
+						<button class="faq-question" onclick="toggleFAQ(this)">
+							<span data-translate="faq.q1.question">What will I learn in the course?</span>
+							<span class="faq-icon">+</span>
+						</button>
+						<div class="faq-answer">
+							<p data-translate="faq.q1.answer">
+								During the course, you will learn identically to an individual course. Your cases will be fully reviewed. You will learn both technical and professional setup of social networks, advertising in Ads Manager and advertising campaigns, photo-video shooting, which is carried out during visits to real clients. Also, photo-video material processing in various applications. Additional online meetings 1-2 times per week in case of additional questions. You will learn copywriting, branding, and various "tricks" for brand popularization.
+							</p>
+						</div>
+					</div>
+
+					<!-- FAQ Item 2 -->
+					<div class="faq-item">
+						<button class="faq-question" onclick="toggleFAQ(this)">
+							<span data-translate="faq.q2.question">How much does social media marketing service cost?</span>
+							<span class="faq-icon">+</span>
+						</button>
+						<div class="faq-answer">
+							<p data-translate="faq.q2.answer">
+								The basic package for social media management costs 1200 GEL.
+							</p>
+						</div>
+					</div>
+
+					<!-- FAQ Item 3 -->
+					<div class="faq-item">
+						<button class="faq-question" onclick="toggleFAQ(this)">
+							<span data-translate="faq.q3.question">How much does the course cost?</span>
+							<span class="faq-icon">+</span>
+						</button>
+						<div class="faq-answer">
+							<p data-translate="faq.q3.answer">
+								The complete SMM PLUS course costs 1350 GEL.
+							</p>
+						</div>
+					</div>
+
+					<!-- FAQ Item 4 -->
+					<div class="faq-item">
+						<button class="faq-question" onclick="toggleFAQ(this)">
+							<span data-translate="faq.q4.question">What do I need for the course?</span>
+							<span class="faq-icon">+</span>
+						</button>
+						<div class="faq-answer">
+							<div data-translate="faq.q4.answer">
+								<p><strong>Essential Requirements:</strong></p>
+								<ul>
+									<li><strong>Most important:</strong> Dedication and commitment</li>
+									<li><strong>Weekly commitment:</strong> 2 hours online + additional time for exercises</li>
+								</ul>
+								<p><strong>Equipment needed:</strong></p>
+								<ul>
+									<li>Computer (laptop/desktop)</li>
+									<li>Mobile phone</li>
+									<li>Tripod (recommended)</li>
+									<li>Good lighting (recommended)</li>
+									<li>Phone microphone</li>
+								</ul>
+								<p><strong>Language requirement:</strong> English knowledge at minimum A1 level</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Additional FAQ Items -->
+					<div class="faq-item">
+						<button class="faq-question" onclick="toggleFAQ(this)">
+							<span data-translate="faq.q5.question">How long is the SMM PLUS course?</span>
+							<span class="faq-icon">+</span>
+						</button>
+						<div class="faq-answer">
+							<p data-translate="faq.q5.answer">
+								The SMM PLUS course consists of 20 sessions over 7-8 weeks, with 3 meetings per week. It includes both online and offline sessions for comprehensive learning.
+							</p>
+						</div>
+					</div>
+
+					<div class="faq-item">
+						<button class="faq-question" onclick="toggleFAQ(this)">
+							<span data-translate="faq.q6.question">Do you work with real clients during the course?</span>
+							<span class="faq-icon">+</span>
+						</button>
+						<div class="faq-answer">
+							<p data-translate="faq.q6.answer">
+								Yes! One of the unique aspects of our course is that students work with real clients during the training. This provides hands-on experience with actual photo-video shooting and campaign management.
+							</p>
+						</div>
+					</div>
+
+					<div class="faq-item">
+						<button class="faq-question" onclick="toggleFAQ(this)">
+							<span data-translate="faq.q7.question">What platforms do you cover in your services?</span>
+							<span class="faq-icon">+</span>
+						</button>
+						<div class="faq-answer">
+							<p data-translate="faq.q7.answer">
+								Our BASIC service package covers management of Facebook, Instagram, and TikTok channels. We also provide training on LinkedIn and other platforms during the course.
+							</p>
+						</div>
+					</div>
+
+					<div class="faq-item">
+						<button class="faq-question" onclick="toggleFAQ(this)">
+							<span data-translate="faq.q8.question">Do you offer free masterclasses?</span>
+							<span class="faq-icon">+</span>
+						</button>
+						<div class="faq-answer">
+							<p data-translate="faq.q8.answer">
+								Yes! We conduct free online masterclasses every season, providing small business owners with valuable information about effective social media management and PR campaigns.
+							</p>
+						</div>
+					</div>
+
+				</div>
+
+				<!-- CTA Section -->
+				<div class="faq-cta">
+					<h2 data-translate="faq.cta.title">Still have questions?</h2>
+					<p data-translate="faq.cta.subtitle">Don't hesitate to reach out to our team for personalized assistance.</p>
+					<div class="cta-buttons">
+						<a href="/contact" class="btn btn-primary" data-translate="faq.cta.contact">Contact Us</a>
+						<a href="/courses" class="btn btn-secondary" data-translate="faq.cta.courses">View Courses</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<Footer />
+
+		<script>
+			// FAQ Toggle Functionality
+			function toggleFAQ(button: { parentElement: any; querySelector: (arg0: string) => any; }) {
+				const faqItem = button.parentElement;
+				const answer = faqItem?.querySelector('.faq-answer');
+				const icon = button.querySelector('.faq-icon');
+				if (!faqItem || !answer) return;
+				
+				// Close all other FAQ items
+				document.querySelectorAll('.faq-item').forEach(item => {
+					if (item !== faqItem) {
+						item.classList.remove('active');
+						const itemAnswer = item.querySelector('.faq-answer') as HTMLElement | null;
+						const itemIcon = item.querySelector('.faq-icon');
+						if (itemAnswer) itemAnswer.style.maxHeight = '';
+						if (itemIcon) itemIcon.textContent = '+';
+					}
+				});
+				// Toggle current FAQ item
+				if (faqItem.classList.contains('active')) {
+					faqItem.classList.remove('active');
+					answer.style.maxHeight = '';
+					if (icon) icon.textContent = '+';
+				} else {
+					faqItem.classList.add('active');
+					answer.style.maxHeight = answer.scrollHeight + 'px';
+					if (icon) icon.textContent = '−';
+				}
+			}
+
+			// Get current language
+			let currentLanguage = localStorage.getItem('language') || 'en';
+
+			// Simplified translation object for FAQ page
+			const faqTranslations = {
+				en: {
+					'faq.title': 'Frequently Asked Questions',
+					'faq.subtitle': 'Find answers to common questions about our services and courses',
+					'faq.q1.question': 'What will I learn in the course?',
+					'faq.q1.answer': 'During the course, you will learn identically to an individual course. Your cases will be fully reviewed. You will learn both technical and professional setup of social networks, advertising in Ads Manager and advertising campaigns, photo-video shooting, which is carried out during visits to real clients. Also, photo-video material processing in various applications. Additional online meetings 1-2 times per week in case of additional questions. You will learn copywriting, branding, and various "tricks" for brand popularization.',
+					'faq.q2.question': 'How much does social media marketing service cost?',
+					'faq.q2.answer': 'The basic package for social media management costs 1200 GEL.',
+					'faq.q3.question': 'How much does the course cost?',
+					'faq.q3.answer': 'The complete SMM PLUS course costs 1350 GEL.',
+					'faq.q4.question': 'What do I need for the course?',
+					'faq.q4.answer': '<p><strong>Essential Requirements:</strong></p><ul><li><strong>Most important:</strong> Dedication and commitment</li><li><strong>Weekly commitment:</strong> 2 hours online + additional time for exercises</li></ul><p><strong>Equipment needed:</strong></p><ul><li>Computer (laptop/desktop)</li><li>Mobile phone</li><li>Tripod (recommended)</li><li>Good lighting (recommended)</li><li>Phone microphone</li></ul><p><strong>Language requirement:</strong> English knowledge at minimum A1 level</p>',
+					'faq.q5.question': 'How long is the SMM PLUS course?',
+					'faq.q5.answer': 'The SMM PLUS course consists of 20 sessions over 7-8 weeks, with 3 meetings per week. It includes both online and offline sessions for comprehensive learning.',
+					'faq.q6.question': 'Do you work with real clients during the course?',
+					'faq.q6.answer': 'Yes! One of the unique aspects of our course is that students work with real clients during the training. This provides hands-on experience with actual photo-video shooting and campaign management.',
+					'faq.q7.question': 'What platforms do you cover in your services?',
+					'faq.q7.answer': 'Our BASIC service package covers management of Facebook, Instagram, and TikTok channels. We also provide training on LinkedIn and other platforms during the course.',
+					'faq.q8.question': 'Do you offer free masterclasses?',
+					'faq.q8.answer': 'Yes! We conduct free online masterclasses every season, providing small business owners with valuable information about effective social media management and PR campaigns.',
+					'faq.cta.title': 'Still have questions?',
+					'faq.cta.subtitle': 'Don\'t hesitate to reach out to our team for personalized assistance.',
+					'faq.cta.contact': 'Contact Us',
+					'faq.cta.courses': 'View Courses'
+				},
+				ka: {
+					'faq.title': 'ხშირად დასმული კითხვები',
+					'faq.subtitle': 'იპოვეთ პასუხები ჩვენი სერვისებისა და კურსების შესახებ ხშირად დასმულ კითხვებზე',
+					'faq.q1.question': 'რას ვისწავლი კურსზე?',
+					'faq.q1.answer': 'კურსის განმავლობაში სწავლობთ ინდივიდუალური კურსის იდენტურად. სრულად, თქვენი ქეისები განიხილება. ისწავლება როგორც სოც. ქსელების ტექნიკურად პროფესიონალურად გამართვა, რეკლამირება Ads Manager - ში და სარეკლამო კამპანიები, ფოტო-ვიდეო გადაღება, რომელიც უშუალოდ რეალურ დამკვეთებთან ვიზიტისას ხორციელდება. ასევე, ფოტო-ვიდეო მასალის დამუშავება სხვადასხვა აპლიკაციაში. კვირაში 1-2 ჯერ დამატებით ონლაინ შეხვედრები, დამატებითი კითხვების შემთხვევაში. ისწავლება ქოფირაინგი, ბრენდინგი და ბრენდის პოპულარიზაციისთვის სხვადასხვა "ხრიკები" ☺️',
+					'faq.q2.question': 'რა ღირს სოც. მედია მარკეტინგული მომსახურება?',
+					'faq.q2.answer': 'სოციალური არხების მართვის საბაზისო პაკეტის საფასური 1200 ლარია.',
+					'faq.q3.question': 'რა ღირს კურსი?',
+					'faq.q3.answer': 'სრულყოფილი კურსის SMM PLUS საფასური 1350 ლარია.',
+					'faq.q4.question': 'რა მჭირდება კურსის გასავლელად?',
+					'faq.q4.answer': '<p><strong>აუცილებელი მოთხოვნები:</strong></p><ul><li><strong>მთავარი:</strong> მონდომება და ერთგულება</li><li><strong>კვირეული ვალდებულება:</strong> 2 საათი ონლაინ + დამატებითი დრო სავარჯიშოებისთვის</li></ul><p><strong>საჭირო აღჭურვილობა:</strong></p><ul><li>კომპიუტერი (ლეპტოპი/პერსონალური)</li><li>მობილური ტელეფონი</li><li>ტრიპოდი (სასურველია)</li><li>კარგი განათება (სასურველია)</li><li>ტელეფონის მიკროფონი</li></ul><p><strong>ენობრივი მოთხოვნა:</strong> ინგლისური ენის ცოდნა მინიმუმ A1 დონეზე</p>',
+					'faq.q5.question': 'რამდენ ხანს გრძელდება SMM PLUS კურსი?',
+					'faq.q5.answer': 'SMM PLUS კურსი შედგება 20 სესიისგან 7-8 კვირის განმავლობაში, კვირაში 3 შეხვედრით. იგი მოიცავს როგორც ონლაინ, ისე ოფლაინ სესიებს ყოვლისმომცველი სწავლებისთვის.',
+					'faq.q6.question': 'მუშაობთ რეალურ კლიენტებთან კურსის განმავლობაში?',
+					'faq.q6.answer': 'დიახ! ჩვენი კურსის ერთ-ერთი უნიკალური ასპექტია, რომ სტუდენტები მუშაობენ რეალურ კლიენტებთან ტრენინგის განმავლობაში. ეს უზრუნველყოფს პრაქტიკულ გამოცდილებას რეალური ფოტო-ვიდეო გადაღებისა და კამპანიების მართვის.',
+					'faq.q7.question': 'რომელ პლატფორმებს მოიცავს თქვენი სერვისები?',
+					'faq.q7.answer': 'ჩვენი BASIC სერვისის პაკეტი მოიცავს Facebook, Instagram და TikTok არხების მართვას. ასევე, კურსის განმავლობაში ვაწვდით ტრენინგს LinkedIn-ზე და სხვა პლატფორმებზე.',
+					'faq.q8.question': 'გთავაზობთ უფასო მასტერკლასებს?',
+					'faq.q8.answer': 'დიახ! ჩვენ ვატარებთ უფასო ონლაინ მასტერკლასებს ყოველ სეზონზე, რომლებიც მცირე ბიზნესის მფლობელებს აწვდის ღირებულ ინფორმაციას სოციალური მედიის ეფექტური მართვისა და PR კამპანიების შესახებ.',
+					'faq.cta.title': 'კვლავ გაქვთ კითხვები?',
+					'faq.cta.subtitle': 'ნუ ყოყმანობთ დაუკავშირდეთ ჩვენს გუნდს პერსონალიზებული დახმარებისთვის.',
+					'faq.cta.contact': 'დაგვიკავშირდით',
+					'faq.cta.courses': 'იხილეთ კურსები'
+				}
+			};
+			
+			function updateTranslations() {
+				const elementsToTranslate = document.querySelectorAll('[data-translate]');
+				
+				elementsToTranslate.forEach(element => {
+					const translationKey = element.getAttribute('data-translate');
+					if (translationKey && (currentLanguage === 'en' || currentLanguage === 'ka')) {
+						const translatedText = (faqTranslations[currentLanguage] as any)[translationKey];
+						
+						if (translatedText) {
+							if (translationKey === 'faq.q4.answer') {
+								element.innerHTML = translatedText;
+							} else {
+								element.textContent = translatedText;
+							}
+						}
+					}
+				});
+				
+				// Fix open FAQ items after translation update
+				setTimeout(() => {
+					document.querySelectorAll('.faq-item.active').forEach(item => {
+						const answer = item.querySelector('.faq-answer') as HTMLElement;
+						if (answer) {
+							answer.style.maxHeight = answer.scrollHeight + 'px';
+						}
+					});
+				}, 50);
+			}
+			
+			// Listen for language change events
+			window.addEventListener('languagechange', (e: any) => {
+				if (e.detail && e.detail.language) {
+					currentLanguage = e.detail.language;
+					updateTranslations();
+				}
+			});
+			
+			// Initialize translations on page load
+			document.addEventListener('DOMContentLoaded', () => {
+				currentLanguage = localStorage.getItem('language') || 'en';
+				updateTranslations();
+			});
+			
+			// Make functions global for onclick handlers
+			(window as any).toggleFAQ = toggleFAQ;
+		</script>
+	</body>
+</html>
+
+<style>
+	.hero {
+		background: var(--wave-gradient);
+		color: var(--white);
+		text-align: center;
+		padding: var(--spacing-xl) 0;
+	}
+
+	.hero h1 {
+		color: var(--white);
+		font-size: 3rem;
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.hero p {
+		font-size: 1.2rem;
+		opacity: 0.9;
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.faq-container {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.faq-item {
+		background: var(--white);
+		border-radius: var(--radius-lg);
+		margin-bottom: var(--spacing-md);
+		box-shadow: var(--shadow-md);
+		border: 2px solid transparent;
+		transition: all 0.3s ease;
+	}
+
+	.faq-item:hover {
+		border-color: var(--ocean-blue);
+		transform: translateY(-2px);
+	}
+
+	.faq-item.active {
+		border-color: var(--ocean-blue);
+	}
+
+	.faq-question {
+		width: 100%;
+		padding: var(--spacing-lg);
+		background: none;
+		border: none;
+		text-align: left;
+		font-size: 1.1rem;
+		font-weight: 600;
+		color: var(--ocean-blue);
+		cursor: pointer;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		transition: color 0.3s ease;
+	}
+
+	.faq-question:hover {
+		color: var(--wave-teal);
+	}
+
+	.faq-icon {
+		font-size: 1.5rem;
+		font-weight: 300;
+		transition: transform 0.3s ease;
+		color: var(--ocean-blue);
+	}
+
+	.faq-item.active .faq-icon {
+		transform: rotate(45deg);
+		color: var(--wave-teal);
+	}
+
+	.faq-answer {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.3s ease;
+	}
+
+	.faq-answer p, .faq-answer ul {
+		padding: 0 var(--spacing-lg) var(--spacing-lg);
+		margin: 0;
+		color: var(--dark-gray);
+		line-height: 1.6;
+	}
+
+	.faq-answer ul {
+		padding-left: calc(var(--spacing-lg) + var(--spacing-md));
+	}
+
+	.faq-answer li {
+		margin-bottom: var(--spacing-xs);
+	}
+
+	.faq-answer strong {
+		color: var(--ocean-blue);
+	}
+
+	.faq-cta {
+		text-align: center;
+		margin-top: var(--spacing-xl);
+		padding: var(--spacing-xl);
+		background: var(--light-blue);
+		border-radius: var(--radius-lg);
+	}
+
+	.faq-cta h2 {
+		color: var(--ocean-blue);
+		margin-bottom: var(--spacing-md);
+	}
+
+	.faq-cta p {
+		color: var(--dark-gray);
+		margin-bottom: var(--spacing-lg);
+		font-size: 1.1rem;
+	}
+
+	.cta-buttons {
+		display: flex;
+		gap: var(--spacing-md);
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	@media (max-width: 768px) {
+		.hero h1 {
+			font-size: 2rem;
+		}
+
+		.faq-question {
+			font-size: 1rem;
+			padding: var(--spacing-md);
+		}
+
+		.faq-answer p, .faq-answer ul {
+			padding: 0 var(--spacing-md) var(--spacing-md);
+		}
+
+		.faq-answer ul {
+			padding-left: calc(var(--spacing-md) + var(--spacing-sm));
+		}
+
+		.cta-buttons {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.cta-buttons .btn {
+			width: 100%;
+			max-width: 300px;
+		}
+	}
+</style> 

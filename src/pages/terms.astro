@@ -1,0 +1,415 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+import { getTranslation } from '../i18n';
+
+// Get current language (defaults to 'en' on server side)
+const currentLang = 'en'; // Server-side default, will be updated client-side
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Terms and Conditions - ${SITE_TITLE}`} description="Terms and conditions for using PR Wave's website and services. Legal information about copyright, personal data, and service usage." />
+		<link rel="stylesheet" href="/src/styles/global.css" />
+	</head>
+	<body>
+		<Header />
+		
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="container">
+				<h1 data-translate="terms.title">Terms and Conditions</h1>
+				<p data-translate="terms.subtitle">Please read these terms carefully before using our website and services</p>
+				<p class="last-updated" data-translate="terms.lastUpdated">Last updated: 2024</p>
+			</div>
+		</section>
+
+		<!-- Terms Content -->
+		<section class="section">
+			<div class="container">
+				<div class="terms-content">
+					
+					<!-- Preamble Section -->
+					<div class="terms-section">
+						<h2 data-translate="terms.preamble.title">1. Preamble</h2>
+						<div class="terms-text">
+							<div class="language-content" data-lang="en">
+								<p>The use of this website www.prwave.net (hereinafter referred to as the website) is regulated by the following terms and conditions established by "PR Wave" (hereinafter referred to as the company).</p>
+								<p>Please carefully review these terms and conditions, which regulate the user's use of the website. For the purposes of this document, a user is any natural and/or legal person, organizational entity that uses and/or will use the website in the future, and/or benefits from the company's services.</p>
+								<p>By entering this website, you agree to and confirm these terms and conditions for using the website. You also confirm that you are aware of and agree to any changes and additions that may periodically be made to these terms and conditions.</p>
+							</div>
+							<div class="language-content" data-lang="ka" style="display: none;">
+								<p>წინამდებარე ვებ-გვერდის www.prwave.net (შემდგომში ვებ-გვერდი) გამოყენება რეგულირდება "პიარ ტალღის" (შემდეგში კომპანია), მიერ დადგენილი წინამდებარე წესებითა და პირობებით.</p>
+								<p>გთხოვთ, დეტალურად გაეცნოთ წინამდებარე წესებსა და პირობებს, რომელიც არეგულირებს მომხმარებლის მიერ ვებ-გვერდის გამოყენებას. წინამდებარე დოკუმენტის მიზნებისათვის მომხმარებელი არის ნებისმიერი ფიზიკური ან/და იურიდიული პირი, ორგანიზაციული წარმონაქმნი, რომელიც იყენებს ან/და მომავალში გამოიყენებს ვებ-გვერდს, ან/და სარგებლობს კომპანიის სერვისებით.</p>
+								<p>წინამდებარე ვებ-გვერდზე შესვლით თქვენ ეთანხმებით და ადასტურებთ ვებ-გვერდის გამოყენების წინამდებარე წესებსა და პირობებს. ასევე, ადასტურებთ რომ იცნობთ და ეთანხმებით იმ ცვლილებებსა და დამატებებს, რომლებიც შესაძლოა პერიოდულად შევიდეს აღნიშნულ წესებსა და პირობებში.</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Amendment Section -->
+					<div class="terms-section">
+						<h2 data-translate="terms.amendment.title">1.1. Unilateral Amendment of Terms and Conditions</h2>
+						<div class="terms-text">
+							<div class="language-content" data-lang="en">
+								<p>The company is authorized to unilaterally change the terms and conditions, which come into force 24 (twenty-four) hours after their publication on the website.</p>
+								<p>In case the provisions contained in these terms and conditions and specific terms of the contract contradict each other, priority is given to the later published change.</p>
+							</div>
+							<div class="language-content" data-lang="ka" style="display: none;">
+								<p>კომპანია უფლებამოსილია ცალმხრივად შეცვალოს წესები და პირობები, რომლებიც ძალაში შედის მათი ვებ-გვერდზე გამოქვეყნებიდან 24 (ოცდაოთხ) საათში.</p>
+								<p>იმ შემთხვევაში, თუ წინამდებარე წესებსა და პირობებში მოცემული დანაწესი და ხელშეკრულების კონკრეტული პირობა ერთმანეთს ეწინააღმდეგება, უპირატესობა ენიჭება უფრო გვიან გამოქვეყნებულ ცვლილებას.</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Services Section -->
+					<div class="terms-section">
+						<h2 data-translate="terms.services.title">1.2. Use of Services</h2>
+						<div class="terms-text">
+							<div class="language-content" data-lang="en">
+								<p>For the purposes of this article, service means any service provided by the company, including but not limited to paid and unpaid training services and social media marketing services. For the purpose of delivering these services, the company performs, including but not limited to:</p>
+								<ul>
+									<li>(a) Placement of video, textual and visual materials prepared within unpaid services on the website</li>
+									<li>(b) Sharing of video, textual and visual materials within paid services via email and/or other online platforms</li>
+									<li>(c) Placement of visual, textual and/or video materials of any content on the website for website users, including but not limited to any graphic work, design, photo material, blog post, animation</li>
+								</ul>
+							</div>
+							<div class="language-content" data-lang="ka" style="display: none;">
+								<p>წინამდებარე მუხლის მიზნებისათვის სერვისი გულისხმობს კომპანიის მიერ გაწეულ ნებისმიერ მომსახურებას, მათ შორის და არა მხოლოდ, ანაზღაურებადი და არაანაზღაურებადი სატრენინგო მომსახურების გაწევა და სოციალური მედიის მარკეტინგული მომსახურების სერვისი. აღნიშნული სერვისების მიწოდების მიზნით კომპანია ახორციელებს, მათ შორის და არა მხოლოდ:</p>
+								<ul>
+									<li>(ა) არაანაზღაურებადი მომსახურების ფარგლებში მომზადებული ვიდეო, ტექსტუალური და ვიზუალური მასალის განთავსებას ვებ-გვერდზე</li>
+									<li>(ბ) ანაზღაურებადი მომსახურების ფარგლებში ვიდეო, ტექსტუალური და ვიზუალური მასალის გაზიარებას ელექტრონული ფოსტის ან/და სხვა ონლაინ პლატფორმის მეშვეობით</li>
+									<li>(გ) ნებისმიერი შინაარსის ვიზუალური, ტექსტუალური ან/და ვიდეომასალის, მათ შორის და არა მხოლოდ, ნებისმიერი გრაფიკული ნამუშევრის, დიზაინის, ფოტომასალის, ბლოგ პოსტის, ანიმაციის განთავსებას ვებ-გვერდზე, ვებ-გვერდის მომხმარებლისათვის</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<!-- Copyright Section -->
+					<div class="terms-section">
+						<h2 data-translate="terms.copyright.title">2. Copyright Protection</h2>
+						<div class="terms-text">
+							<div class="language-content" data-lang="en">
+								<p>Materials placed on this website, including but not limited to the list defined in article 1.2, are subject to the company's copyright and it is prohibited to process, publish (except sharing from the company's social media pages via the "share" button with full copyright protection), download personally and/or through any third party for commercial purposes and/or without it, download for distribution purposes and/or without it.</p>
+								<p>In case of violation of the provisions contained in this article, the company is authorized to demand full compensation for the damage caused by this action.</p>
+							</div>
+							<div class="language-content" data-lang="ka" style="display: none;">
+								<p>წინამდებარე ვებ-გვერდზე განთავსებულ მასალებზე, მათ შორის და არა მხოლოდ, 1.2 მუხლით განსაზღვრულ ჩამონათვალზე ვრცელდება კომპანიის საავტორო უფლებები და აკრძალულია აღნიშნული მასალის ან/და მისი ნაწილის გადამუშავება, გამოქვეყნება (გარდა პირად გვერდზე, კომპანიის სოციალური მედიის გვერდიდან აღნიშნული მასალის გაზიარებისა "გაზიარების" ღილაკის მეშვეობით, საავტორო უფლებათა სრული დაცვით), გადმოწერა პირადად ან/და ნებისმიერი მესამე პირის მეშვეობით კომერციული მიზნით ან/და მის გარეშე, გადმოწერა გავრცელების მიზნით ან/და მის გარეშე.</p>
+								<p>წინამდებარე მუხლში მოცემული დანაწესის დარღვევის შემთხვევაში, კომპანია უფლებამოსილია მოითხოვოს ამ ქმედებით მიყენებული ზიანის ანაზღაურება სრულად.</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- User Content Section -->
+					<div class="terms-section">
+						<h2 data-translate="terms.userContent.title">2.1. User-Generated Content</h2>
+						<div class="terms-text">
+							<div class="language-content" data-lang="en">
+								<p>In case of public sharing of any visual and/or textual and/or other material by a user in comments or in any other form on the company's social media pages, the user is personally responsible for copyright protection of the material they post. The company is not responsible for copyright protection of information shared by users, if any third party has unauthorized distribution, processing or violation of other obligations provided by Georgian law on copyright of material posted by users.</p>
+							</div>
+							<div class="language-content" data-lang="ka" style="display: none;">
+								<p>მომხმარებლის მიერ კომპანიის სოციალური მედიის გვერდზე ნებისმიერი ვიზუალური ან/და ტექსტუალური ან/და სხვა მასალის კომენტარში ან/და სხვა სახით საჯაროდ გაზიარების შემთხვევაში, მომხმარებელი თავად არის პასუხისმგებელი მის მიერ განთავსებული მასალზე საავტორო უფლებების დაცვაზე. კომპანია არ აგებს პასუხს, მომხმარებელთა მიერ გაზიარებული ინფორმაციის საავტორო უფლებების დაცვაზე, თუ ნებისმიერი მესამე პირის მიერ მოხდა მომხმარებლების მიერ განთავსებული მასალის უნებართვო გავრცელება, გადამუშავება ან/და საავტორო უფლებების შესახებ საქართველოს კანონით გათვალისწინებული სხვა ვალდებულებების დარღვევა.</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Personal Data Section -->
+					<div class="terms-section">
+						<h2 data-translate="terms.personalData.title">3. Personal Data</h2>
+						<div class="terms-text">
+							<div class="language-content" data-lang="en">
+								<p>The company stores personal information provided by you as specified in this document and is authorized to use it in the future for the purpose of offering the company's service(s) through direct marketing. The purpose of storing this information is to provide effective service to the user. The user can at any time request information from the company about personal information processing and request destruction of existing data about them.</p>
+							</div>
+							<div class="language-content" data-lang="ka" style="display: none;">
+								<p>კომპანია ახორციელებს თქვენ მიერ, წინამდებარე დოკუმენტში მითითებული პერსონალურ ინფორმაციის შენახვას და უფლებამოსილია სამომავლოდ განახორციელოს მისი გამოყენება კომპანიის მიერ მომსახურებ(ებ)ის პირდაპირი მარკეტინგული გზით შეთავაზების მიზნით. აღნიშნული ინფომრაციის შენახვის მიზანია, მომხმარებლისათვის ეფექტური მომსახურების გაწევა. მომხმარებელს ნებისმიერ დროს შეუძლია მოითხოვოს ინფორმაცია კომპანიისგან პერსონალური ინფორმაციის დამუშავების თაობაზე და მოითხოვოს მის შესახებ არსებული მონაცემების განადგურება.</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Liability Limitation Section -->
+					<div class="terms-section">
+						<h2 data-translate="terms.liability.title">4. Liability Limitation</h2>
+						<div class="terms-text">
+							<div class="language-content" data-lang="en">
+								<p>The company and its respective employees are not responsible for the resulting consequences, which include direct, indirect, special, incidental, consequential, non-contractual damages caused by incorrect and/or inappropriate use of information specified on the website.</p>
+							</div>
+							<div class="language-content" data-lang="ka" style="display: none;">
+								<p>კომპანია და მისი შესაბამისი თანამშრომლები არ არიან პასუხისმგებელნი დამდგარი შედეგისათვის, რომელიც მოიცავს პირდაპირ, არაპირდაპირ, სპეციალურ, შემთხვევით, მიზეზ-შედეგობრივ, არასახელშეკრულებო ზიანს, რაც გამოწვეულია ვებგვერდზე მითითებული ინფორმაციის არასწორი ან/და არამიზნობრივი გამოყენებით.</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Governing Law Section -->
+					<div class="terms-section">
+						<h2 data-translate="terms.governingLaw.title">5. Governing Law</h2>
+						<div class="terms-text">
+							<div class="language-content" data-lang="en">
+								<p>These terms and conditions are governed by Georgian legislation. In case of a dispute, the case will be considered by Tbilisi City Court.</p>
+								<p>By agreeing to these terms and conditions, the user confirms that they fully agree with them.</p>
+							</div>
+							<div class="language-content" data-lang="ka" style="display: none;">
+								<p>წინამდებარე წესები და პირობები რეგულირდება საქართველოს კანონმდებლობით. დავის წარმოშობის შემთხვევაში საქმეს განიხილავს თბილისის საქალაქო სასამართლო.</p>
+								<p>წინამდებარე წესებსა და პირობებზე დათანხმებით, მომხმარებელი ადასტურებს, რომ იგი ეთანხმება მას სრულად.</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Contact Section -->
+					<div class="terms-section">
+						<h2 data-translate="terms.contact.title">Contact Information</h2>
+						<div class="terms-text">
+							<div class="language-content" data-lang="en">
+								<p>If you have any questions about these Terms and Conditions, please contact us:</p>
+								<ul>
+									<li>Email: <a href="mailto:prwave.info@gmail.com">prwave.info@gmail.com</a></li>
+									<li>Email: <a href="mailto:foryou@prwave.com">foryou@prwave.com</a></li>
+									<li>Phone: <a href="tel:+995555182198">+995 555 18 21 98</a></li>
+									<li>Phone: <a href="tel:+995555003141">+995 555 00 31 41</a></li>
+									<li>Website: <a href="https://www.prwave.net" target="_blank">www.prwave.net</a></li>
+								</ul>
+							</div>
+							<div class="language-content" data-lang="ka" style="display: none;">
+								<p>თუ გაქვთ კითხვები ამ წესებისა და პირობების შესახებ, დაგვიკავშირდით:</p>
+								<ul>
+									<li>ელ-ფოსტა: <a href="mailto:prwave.info@gmail.com">prwave.info@gmail.com</a></li>
+									<li>ელ-ფოსტა: <a href="mailto:foryou@prwave.com">foryou@prwave.com</a></li>
+									<li>ტელეფონი: <a href="tel:+995555182198">+995 555 18 21 98</a></li>
+									<li>ტელეფონი: <a href="tel:+995555003141">+995 555 00 31 41</a></li>
+									<li>ვებ-საიტი: <a href="https://www.prwave.net" target="_blank">www.prwave.net</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+		<Footer />
+
+		<script>
+			// Get current language
+			let currentLanguage = localStorage.getItem('language') || 'en';
+
+			// Simplified translation object for terms page
+			const termsTranslations = {
+				en: {
+					'terms.title': 'Terms and Conditions',
+					'terms.subtitle': 'Please read these terms carefully before using our website and services',
+					'terms.lastUpdated': 'Last updated: 2024',
+					'terms.preamble.title': '1. Preamble',
+					'terms.amendment.title': '1.1. Unilateral Amendment of Terms and Conditions',
+					'terms.services.title': '1.2. Use of Services',
+					'terms.copyright.title': '2. Copyright Protection',
+					'terms.userContent.title': '2.1. User-Generated Content',
+					'terms.personalData.title': '3. Personal Data',
+					'terms.liability.title': '4. Liability Limitation',
+					'terms.governingLaw.title': '5. Governing Law',
+					'terms.contact.title': 'Contact Information'
+				},
+				ka: {
+					'terms.title': 'წესები და პირობები',
+					'terms.subtitle': 'გთხოვთ, ყურადღებით წაიკითხოთ ეს წესები ჩვენი ვებსაიტისა და სერვისების გამოყენებამდე',
+					'terms.lastUpdated': 'ბოლო განახლება: 2024',
+					'terms.preamble.title': '1. პრეამბულა',
+					'terms.amendment.title': '1.1. წესებისა და პირობების ცალმხრივი ცვლილება',
+					'terms.services.title': '1.2. სერვისების გამოყენება',
+					'terms.copyright.title': '2. საავტორო უფლებების დაცვა',
+					'terms.userContent.title': '2.1. მომხმარებელთა მიერ განთავსებული მასალა',
+					'terms.personalData.title': '3. პერსონალური მონაცემები',
+					'terms.liability.title': '4. პასუხისმგებლობის შეზღუდვა',
+					'terms.governingLaw.title': '5. მარეგულირებელი სამართალი',
+					'terms.contact.title': 'საკონტაქტო ინფორმაცია'
+				}
+			};
+
+			function updateContent() {
+				// Update section titles
+				const elementsToTranslate = document.querySelectorAll('[data-translate]');
+				
+				elementsToTranslate.forEach(element => {
+					const translationKey = element.getAttribute('data-translate');
+					if (translationKey && (currentLanguage === 'en' || currentLanguage === 'ka')) {
+						const translatedText = (termsTranslations[currentLanguage] as any)[translationKey];
+						
+						if (translatedText) {
+							element.textContent = translatedText;
+						}
+					}
+				});
+
+				// Show/hide language content
+				const languageContents = document.querySelectorAll('.language-content');
+				languageContents.forEach(content => {
+					if (content.getAttribute('data-lang') === currentLanguage) {
+						(content as HTMLElement).style.display = 'block';
+					} else {
+						(content as HTMLElement).style.display = 'none';
+					}
+				});
+			}
+
+			// Listen for language change events
+			window.addEventListener('languagechange', (e: any) => {
+				if (e.detail && e.detail.language) {
+					currentLanguage = e.detail.language;
+					updateContent();
+				}
+			});
+
+			// Initialize on page load
+			document.addEventListener('DOMContentLoaded', () => {
+				currentLanguage = localStorage.getItem('language') || 'en';
+				updateContent();
+			});
+		</script>
+	</body>
+</html>
+
+<style>
+	.hero {
+		background: var(--wave-gradient);
+		color: var(--white);
+		text-align: center;
+		padding: var(--spacing-xl) 0;
+	}
+
+	.hero h1 {
+		color: var(--white);
+		font-size: 3rem;
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.hero p {
+		font-size: 1.2rem;
+		opacity: 0.9;
+		max-width: 600px;
+		margin: 0 auto var(--spacing-xs);
+	}
+
+	.last-updated {
+		font-size: 1rem;
+		opacity: 0.8;
+		font-style: italic;
+	}
+
+	.terms-content {
+		max-width: 900px;
+		margin: 0 auto;
+		line-height: 1.7;
+	}
+
+	.terms-section {
+		margin-bottom: var(--spacing-xl);
+		background: var(--white);
+		border-radius: var(--radius-lg);
+		padding: var(--spacing-lg);
+		box-shadow: var(--shadow-md);
+		border-left: 4px solid var(--ocean-blue);
+	}
+
+	.terms-section h2 {
+		color: var(--ocean-blue);
+		font-size: 1.5rem;
+		margin-bottom: var(--spacing-md);
+		padding-bottom: var(--spacing-sm);
+		border-bottom: 2px solid var(--border-light);
+	}
+
+	.terms-text {
+		color: var(--text-body);
+		font-size: 1rem;
+	}
+
+	.terms-text p {
+		margin-bottom: var(--spacing-md);
+		text-align: justify;
+	}
+
+	.terms-text ul {
+		margin: var(--spacing-md) 0;
+		padding-left: var(--spacing-lg);
+	}
+
+	.terms-text li {
+		margin-bottom: var(--spacing-sm);
+		line-height: 1.6;
+	}
+
+	.terms-text a {
+		color: var(--ocean-blue);
+		text-decoration: none;
+		border-bottom: 1px solid transparent;
+		transition: border-color var(--transition-fast);
+	}
+
+	.terms-text a:hover {
+		border-bottom-color: var(--ocean-blue);
+	}
+
+	.language-content {
+		transition: opacity 0.3s ease;
+	}
+
+	/* Mobile responsiveness */
+	@media (max-width: 768px) {
+		.hero h1 {
+			font-size: 2.2rem;
+		}
+
+		.hero p {
+			font-size: 1rem;
+			padding: 0 var(--spacing-md);
+		}
+
+		.terms-section {
+			padding: var(--spacing-md);
+			margin-bottom: var(--spacing-lg);
+		}
+
+		.terms-section h2 {
+			font-size: 1.3rem;
+		}
+
+		.terms-text {
+			font-size: 0.95rem;
+		}
+	}
+
+	/* Dark mode support */
+	@media (prefers-color-scheme: dark) {
+		.terms-section {
+			background: var(--card-bg);
+			border-left-color: var(--coral-pink);
+		}
+
+		.terms-section h2 {
+			color: var(--coral-pink);
+			border-bottom-color: var(--border-color);
+		}
+
+		.terms-text a {
+			color: var(--coral-pink);
+		}
+
+		.terms-text a:hover {
+			border-bottom-color: var(--coral-pink);
+		}
+	}
+
+	/* Print styles */
+	@media print {
+		.hero {
+			background: none;
+			color: black;
+		}
+
+		.terms-section {
+			box-shadow: none;
+			border: 1px solid #ccc;
+			break-inside: avoid;
+		}
+	}
+</style> 

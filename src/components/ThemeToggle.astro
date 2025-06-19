@@ -1,0 +1,337 @@
+---
+export interface Props {
+	variant?: 'desktop' | 'mobile';
+	className?: string;
+}
+
+const { variant = 'desktop', className = '' } = Astro.props;
+---
+
+{variant === 'desktop' ? (
+	<button 
+		class={`theme-toggle ${className}`}
+		id="theme-toggle" 
+		aria-label="Toggle dark mode"
+		type="button"
+	>
+		<span class="theme-icon" aria-hidden="true">🌙</span>
+		<span class="theme-tooltip">Toggle Theme</span>
+	</button>
+) : (
+	<div class="mobile-theme-control">
+		<span class="control-label" data-translate="controls.theme">Theme</span>
+		<button 
+			class={`mobile-theme-button ${className}`}
+			id="mobile-theme-button"
+			aria-label="Toggle theme"
+			type="button"
+		>
+			<span class="mobile-theme-icon" aria-hidden="true">🌙</span>
+			<span class="theme-label" id="mobile-theme-label">Dark Mode</span>
+		</button>
+	</div>
+)}
+
+<style>
+	/* ===== DESKTOP THEME TOGGLE ===== */
+	.theme-toggle {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 48px;
+		height: 48px;
+		border: 2px solid var(--border-color);
+		border-radius: 50%;
+		background: var(--card-bg);
+		cursor: pointer;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		font-size: 1.25rem;
+		overflow: hidden;
+		flex-shrink: 0;
+		align-self: center;
+	}
+
+	.theme-toggle:hover {
+		background: var(--ocean-blue);
+		border-color: var(--ocean-blue);
+		transform: scale(1.1) rotate(5deg);
+		box-shadow: 0 4px 20px rgba(0, 119, 190, 0.3);
+	}
+
+	.theme-toggle:hover .theme-icon {
+		filter: invert(1);
+		transform: scale(1.1);
+	}
+
+	.theme-toggle:focus-visible {
+		outline: 2px solid var(--ocean-blue);
+		outline-offset: 4px;
+	}
+
+	.theme-icon {
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.theme-tooltip {
+		position: absolute;
+		top: calc(100% + 8px);
+		left: 50%;
+		transform: translateX(-50%);
+		background: var(--text-heading);
+		color: white;
+		padding: var(--spacing-xs) var(--spacing-sm);
+		border-radius: var(--radius-md);
+		font-size: 0.875rem;
+		font-weight: 500;
+		white-space: nowrap;
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.3s ease;
+		pointer-events: none;
+		z-index: 1000;
+	}
+
+	.theme-toggle:hover .theme-tooltip {
+		opacity: 1;
+		visibility: visible;
+		transform: translateX(-50%) translateY(-4px);
+	}
+
+	/* ===== MOBILE THEME TOGGLE ===== */
+	.mobile-theme-control {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+	}
+
+	.control-label {
+		font-weight: 600;
+		color: var(--text-heading);
+		font-size: 1rem;
+	}
+
+	.mobile-theme-button {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-sm);
+		background: var(--card-bg);
+		border: 2px solid var(--border-color);
+		border-radius: var(--radius-lg);
+		padding: var(--spacing-sm) var(--spacing-md);
+		cursor: pointer;
+		transition: all 0.3s ease;
+		font-size: 1rem;
+		color: var(--text-primary);
+		min-width: 120px;
+		justify-content: space-between;
+		position: relative;
+	}
+
+	.mobile-theme-button:hover {
+		border-color: var(--ocean-blue);
+		background: rgba(0, 119, 190, 0.05);
+		transform: scale(1.02);
+	}
+
+	.mobile-theme-button:focus-visible {
+		outline: 2px solid var(--ocean-blue);
+		outline-offset: 2px;
+	}
+
+	.mobile-theme-icon {
+		font-size: 1.2rem;
+		transition: all 0.3s ease;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.theme-label {
+		font-weight: 500;
+		transition: color 0.3s ease;
+	}
+
+	/* ===== ACCESSIBILITY & PREFERENCES ===== */
+	@media (prefers-reduced-motion: reduce) {
+		.theme-toggle,
+		.mobile-theme-button,
+		.theme-icon,
+		.mobile-theme-icon,
+		.theme-tooltip {
+			transition: none;
+		}
+
+		.theme-toggle:hover {
+			transform: none;
+		}
+
+		.mobile-theme-button:hover {
+			transform: none;
+		}
+	}
+
+	@media (prefers-contrast: high) {
+		.theme-toggle,
+		.mobile-theme-button {
+			border-width: 3px;
+		}
+	}
+
+	/* ===== RESPONSIVE ADJUSTMENTS ===== */
+	@media (max-width: 768px) {
+		.theme-toggle {
+			width: 44px;
+			height: 44px;
+			font-size: 1.1rem;
+		}
+
+		.theme-tooltip {
+			display: none;
+		}
+	}
+
+	/* ===== LANGUAGE-SPECIFIC ADJUSTMENTS ===== */
+	[data-lang="ka"] .control-label {
+		font-size: 0.95rem;
+		letter-spacing: 0.01em;
+	}
+
+	[data-lang="ka"] .theme-label {
+		font-size: 0.95rem;
+		letter-spacing: 0.01em;
+	}
+</style>
+
+<script>
+	// Theme Toggle functionality
+	class ThemeToggle {
+		private currentTheme: string = 'light';
+		private elements: {
+			desktopToggle: HTMLElement | null;
+			mobileToggle: HTMLElement | null;
+			themeIcon: HTMLElement | null;
+			mobileThemeIcon: HTMLElement | null;
+			themeLabel: HTMLElement | null;
+		};
+
+		constructor() {
+			this.elements = {
+				desktopToggle: document.getElementById('theme-toggle'),
+				mobileToggle: document.getElementById('mobile-theme-button'),
+				themeIcon: document.querySelector('.theme-icon'),
+				mobileThemeIcon: document.querySelector('.mobile-theme-icon'),
+				themeLabel: document.getElementById('mobile-theme-label')
+			};
+
+			this.init();
+		}
+
+		private init(): void {
+			this.loadSavedTheme();
+			this.setupEventListeners();
+			this.updateDisplay();
+		}
+
+		private loadSavedTheme(): void {
+			this.currentTheme = localStorage.getItem('theme') || 'light';
+			document.documentElement.setAttribute('data-theme', this.currentTheme);
+		}
+
+		private setupEventListeners(): void {
+			this.elements.desktopToggle?.addEventListener('click', this.toggleTheme.bind(this));
+			this.elements.mobileToggle?.addEventListener('click', this.toggleTheme.bind(this));
+
+			// Listen for external theme changes
+			window.addEventListener('storage', (e) => {
+				if (e.key === 'theme') {
+					this.currentTheme = e.newValue || 'light';
+					document.documentElement.setAttribute('data-theme', this.currentTheme);
+					this.updateDisplay();
+				}
+			});
+
+			// Listen for system theme changes
+			const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+			mediaQuery.addEventListener('change', () => {
+				if (!localStorage.getItem('theme')) {
+					this.currentTheme = mediaQuery.matches ? 'dark' : 'light';
+					document.documentElement.setAttribute('data-theme', this.currentTheme);
+					this.updateDisplay();
+				}
+			});
+		}
+
+		private toggleTheme(): void {
+			this.currentTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
+			document.documentElement.setAttribute('data-theme', this.currentTheme);
+			localStorage.setItem('theme', this.currentTheme);
+			this.updateDisplay();
+
+			// Dispatch custom event for other components
+			window.dispatchEvent(new CustomEvent('themechange', { 
+				detail: { theme: this.currentTheme } 
+			}));
+		}
+
+		private updateDisplay(): void {
+			const iconText = this.currentTheme === 'dark' ? '☀️' : '🌙';
+			const labelText = this.currentTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
+			
+			if (this.elements.themeIcon) {
+				this.elements.themeIcon.textContent = iconText;
+			}
+			
+			if (this.elements.mobileThemeIcon) {
+				this.elements.mobileThemeIcon.textContent = iconText;
+			}
+			
+			if (this.elements.themeLabel) {
+				this.elements.themeLabel.textContent = labelText;
+			}
+
+			// Update tooltip text
+			const tooltip = document.querySelector('.theme-tooltip');
+			if (tooltip) {
+				tooltip.textContent = `Switch to ${this.currentTheme === 'dark' ? 'Light' : 'Dark'} Mode`;
+			}
+
+			// Update aria-label
+			const desktopToggle = this.elements.desktopToggle;
+			const mobileToggle = this.elements.mobileToggle;
+			
+			if (desktopToggle) {
+				desktopToggle.setAttribute('aria-label', `Switch to ${this.currentTheme === 'dark' ? 'light' : 'dark'} mode`);
+			}
+			
+			if (mobileToggle) {
+				mobileToggle.setAttribute('aria-label', `Switch to ${this.currentTheme === 'dark' ? 'light' : 'dark'} mode`);
+			}
+		}
+
+		// Public method to get current theme
+		public getCurrentTheme(): string {
+			return this.currentTheme;
+		}
+
+		// Public method to set theme
+		public setTheme(theme: 'light' | 'dark'): void {
+			this.currentTheme = theme;
+			document.documentElement.setAttribute('data-theme', this.currentTheme);
+			localStorage.setItem('theme', this.currentTheme);
+			this.updateDisplay();
+		}
+	}
+
+	// Initialize theme toggle when DOM is ready
+	document.addEventListener('DOMContentLoaded', () => {
+		new ThemeToggle();
+	});
+
+	// Export for potential external use
+	(window as any).ThemeToggle = ThemeToggle;
+</script> 

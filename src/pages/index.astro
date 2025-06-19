@@ -51,63 +51,148 @@ const currentLang = 'en'; // Default for SSR
 					<p class="section-subtitle" data-translate="services.subtitle">Comprehensive digital marketing solutions tailored to your business needs</p>
 				</div>
 				<div class="grid grid-3">
-					{SERVICES.map((service, index) => (
-						<div class={`card service-card wave-animation animate-on-scroll stagger-${(index % 6) + 1}`}>
-							<div class="service-icon">
-								{service === 'Social Media Management' && '📱'}
-								{service === 'Digital Advertising' && '📊'}
-								{service === 'Business Mentorship' && '🎯'}
-								{service === 'Content Creation' && '✍️'}
-								{service === 'Brand Strategy' && '🎨'}
-								{service === 'Analytics & Reporting' && '📈'}
-							</div>
-							<h3>{service}</h3>
-							<p>Professional {service.toLowerCase()} services to help your business grow and succeed in the digital landscape.</p>
-						</div>
-					))}
+					<div class="card service-card wave-animation animate-on-scroll stagger-1">
+						<div class="service-icon">📱</div>
+						<h3 data-translate="services.socialMedia">Social Media Management</h3>
+						<p data-translate="services.socialMediaDesc">Professional social media management services to help your business grow and succeed in the digital landscape.</p>
+					</div>
+					<div class="card service-card wave-animation animate-on-scroll stagger-2">
+						<div class="service-icon">📊</div>
+						<h3 data-translate="services.advertising">Digital Advertising</h3>
+						<p data-translate="services.advertisingDesc">Professional digital advertising services to help your business grow and succeed in the digital landscape.</p>
+					</div>
+					<div class="card service-card wave-animation animate-on-scroll stagger-3">
+						<div class="service-icon">🎯</div>
+						<h3 data-translate="services.mentorship">Business Mentorship</h3>
+						<p data-translate="services.mentorshipDesc">Professional business mentorship services to help your business grow and succeed in the digital landscape.</p>
+					</div>
+					<div class="card service-card wave-animation animate-on-scroll stagger-4">
+						<div class="service-icon">✍️</div>
+						<h3 data-translate="services.content">Content Creation</h3>
+						<p data-translate="services.contentDesc">Professional content creation services to help your business grow and succeed in the digital landscape.</p>
+					</div>
+					<div class="card service-card wave-animation animate-on-scroll stagger-5">
+						<div class="service-icon">🎨</div>
+						<h3 data-translate="services.strategy">Brand Strategy</h3>
+						<p data-translate="services.strategyDesc">Professional brand strategy services to help your business grow and succeed in the digital landscape.</p>
+					</div>
+					<div class="card service-card wave-animation animate-on-scroll stagger-6">
+						<div class="service-icon">📈</div>
+						<h3 data-translate="services.analytics">Analytics & Reporting</h3>
+						<p data-translate="services.analyticsDesc">Professional analytics & reporting services to help your business grow and succeed in the digital landscape.</p>
+					</div>
 				</div>
 			</div>
 		</section>
 
-		<!-- About Preview Section with Parallax -->
-		<section class="section about-preview-section">
-			<div class="parallax-container">
-				<div class="parallax-layer parallax-back">
-					<div class="floating-elements">
-						<div class="floating-circle circle-1"></div>
-						<div class="floating-circle circle-2"></div>
-						<div class="floating-circle circle-3"></div>
+		<!-- Success Metrics Section -->
+		<section class="section stats-section">
+			<div class="container">
+				<div class="text-center mb-lg animate-on-scroll">
+					<h2 class="section-title" data-translate="stats.title">Our Success in Numbers</h2>
+					<p class="section-subtitle" data-translate="stats.subtitle">Proven results that speak for themselves</p>
+				</div>
+				<div class="grid grid-4 stats-grid">
+					<div class="stat-card animate-on-scroll stagger-1">
+						<div class="stat-number">150+</div>
+						<div class="stat-label" data-translate="stats.clients">Happy Clients</div>
+					</div>
+					<div class="stat-card animate-on-scroll stagger-2">
+						<div class="stat-number">500+</div>
+						<div class="stat-label" data-translate="stats.campaigns">Successful Campaigns</div>
+					</div>
+					<div class="stat-card animate-on-scroll stagger-3">
+						<div class="stat-number">95%</div>
+						<div class="stat-label" data-translate="stats.satisfaction">Client Satisfaction</div>
+					</div>
+					<div class="stat-card animate-on-scroll stagger-4">
+						<div class="stat-number">2022</div>
+						<div class="stat-label" data-translate="stats.founded">Founded</div>
 					</div>
 				</div>
-				<div class="parallax-layer parallax-base">
-					<div class="container">
-						<div class="grid grid-2 about-preview">
-							<div class="about-content animate-on-scroll">
-								<h2 class="section-title" data-translate="about.title">Meet Our Leaders</h2>
-								<p data-translate="about.description">
-									PR Wave is led by two passionate digital marketing experts with years of experience 
-									in social media management, advertising, and business growth strategies.
-								</p>
-								<p data-translate="about.experience">
-									Our founders bring together decades of combined experience in helping businesses 
-									establish a strong digital presence and achieve their marketing goals.
-								</p>
-								<a href="/about" class="btn btn-primary mt-md" data-translate="about.learnMore">Learn About Our Team</a>
-							</div>
-							<div class="leaders-preview animate-on-scroll">
-								<div class="leader-card animate-float">
-									<div class="leader-avatar">👩‍💼</div>
-									<h4>Sarah Johnson</h4>
-									<p>Co-Founder & Digital Strategy Expert</p>
-								</div>
-								<div class="leader-card animate-float" style="animation-delay: 1s;">
-									<div class="leader-avatar">👨‍💼</div>
-									<h4>Michael Chen</h4>
-									<p>Co-Founder & Social Media Specialist</p>
-								</div>
+			</div>
+		</section>
+
+		<!-- Free Masterclass Section -->
+		<section class="section masterclass-promo-section bg-light">
+			<div class="container">
+				<div class="grid grid-2 masterclass-promo">
+					<div class="masterclass-content animate-on-scroll">
+						<h2 class="section-title" data-translate="masterclass.title">Free Seasonal Masterclasses</h2>
+						<p data-translate="masterclass.description">
+							Join our free online masterclasses every season and learn valuable insights about 
+							effective social media management for small businesses.
+						</p>
+						<ul class="masterclass-features">
+							<li data-translate="masterclass.feature1">Expert-led sessions</li>
+							<li data-translate="masterclass.feature2">Practical tips and strategies</li>
+							<li data-translate="masterclass.feature3">Q&A with industry professionals</li>
+							<li data-translate="masterclass.feature4">Networking opportunities</li>
+						</ul>
+						<a href="/masterclasses" class="btn btn-primary mt-md" data-translate="masterclass.register">Register for Next Masterclass</a>
+					</div>
+					<div class="masterclass-visual animate-on-scroll">
+						<div class="masterclass-card">
+							<div class="masterclass-icon">🎓</div>
+							<h4 data-translate="masterclass.upcoming">Upcoming Masterclass</h4>
+							<p data-translate="masterclass.topic">Social Media Strategy for Small Business</p>
+							<div class="masterclass-badge" data-translate="masterclass.free">FREE</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Testimonials Section -->
+		<section class="section testimonials-section">
+			<div class="container">
+				<div class="text-center mb-lg animate-on-scroll">
+					<h2 class="section-title" data-translate="testimonials.title">What Our Clients Say</h2>
+					<p class="section-subtitle" data-translate="testimonials.subtitle">Real stories from businesses that transformed with PR Wave</p>
+				</div>
+				<div class="grid grid-3 testimonials-grid">
+					<div class="testimonial-card animate-on-scroll stagger-1">
+						<div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+						<p class="testimonial-text" data-translate="testimonials.client1.text">
+							"PR Wave transformed our social media presence completely. Our engagement increased by 300% in just 3 months!"
+						</p>
+						<div class="testimonial-author">
+							<div class="author-avatar">👨‍💼</div>
+							<div>
+								<h4 data-translate="testimonials.client1.name">Giorgi Beridze</h4>
+								<p data-translate="testimonials.client1.company">Local Restaurant Owner</p>
 							</div>
 						</div>
 					</div>
+					<div class="testimonial-card animate-on-scroll stagger-2">
+						<div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+						<p class="testimonial-text" data-translate="testimonials.client2.text">
+							"The SMM PLUS course gave me all the skills I needed to manage my business's social media professionally."
+						</p>
+						<div class="testimonial-author">
+							<div class="author-avatar">👩‍💼</div>
+							<div>
+								<h4 data-translate="testimonials.client2.name">Nana Kiknadze</h4>
+								<p data-translate="testimonials.client2.company">Course Graduate</p>
+							</div>
+						</div>
+					</div>
+					<div class="testimonial-card animate-on-scroll stagger-3">
+						<div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+						<p class="testimonial-text" data-translate="testimonials.client3.text">
+							"Professional service and amazing results. Our brand visibility increased significantly thanks to PR Wave."
+						</p>
+						<div class="testimonial-author">
+							<div class="author-avatar">👨‍💼</div>
+							<div>
+								<h4 data-translate="testimonials.client3.name">Levan Tsereteli</h4>
+								<p data-translate="testimonials.client3.company">Tech Startup Founder</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="text-center mt-lg animate-on-scroll">
+					<a href="/success-stories" class="btn btn-secondary" data-translate="testimonials.viewMore">View More Success Stories</a>
 				</div>
 			</div>
 		</section>
@@ -116,31 +201,62 @@ const currentLang = 'en'; // Default for SSR
 		<section class="section bg-light">
 			<div class="container">
 				<div class="text-center mb-lg animate-on-scroll">
-					<h2 class="section-title" data-translate="courses.title">Master Social Media</h2>
-					<p class="section-subtitle" data-translate="courses.subtitle">Learn the ins and outs of social media platforms with our comprehensive courses</p>
+					<h2 class="section-title" data-translate="courses.title">SMM PLUS Course</h2>
+					<p class="section-subtitle" data-translate="courses.subtitle">Comprehensive social media marketing training with real client experience</p>
 				</div>
-				<div class="grid grid-2">
-					<div class="card course-card wave-animation animate-on-scroll stagger-1">
-						<h3>Social Media Fundamentals</h3>
-						<p>Master the basics of social media marketing across all major platforms.</p>
-						<ul class="course-features">
-							<li>Platform-specific strategies</li>
-							<li>Content creation techniques</li>
-							<li>Audience engagement methods</li>
-							<li>Analytics and optimization</li>
-						</ul>
-						<a href="/courses" class="btn btn-primary mt-md">View Courses</a>
-					</div>
-					<div class="card course-card wave-animation animate-on-scroll stagger-2">
-						<h3>Advanced Advertising</h3>
-						<p>Take your advertising campaigns to the next level with advanced techniques.</p>
-						<ul class="course-features">
-							<li>Advanced targeting strategies</li>
-							<li>Campaign optimization</li>
-							<li>ROI maximization</li>
-							<li>Creative development</li>
-						</ul>
-						<a href="/courses" class="btn btn-primary mt-md">View Courses</a>
+				<div class="course-highlight">
+					<div class="card course-main-card wave-animation animate-on-scroll">
+						<div class="course-header">
+							<h3 data-translate="courses.smm.title">SMM PLUS - Social Media Marketing Course</h3>
+							<div class="course-price">
+								<span class="price-amount">1350</span>
+								<span class="price-currency" data-translate="courses.smm.currency">GEL</span>
+							</div>
+						</div>
+						<div class="course-details">
+							<div class="course-info-grid">
+								<div class="course-info-item">
+									<span class="info-icon">📅</span>
+									<div>
+										<strong data-translate="courses.smm.duration">Duration</strong>
+										<p data-translate="courses.smm.weeks">7-8 weeks</p>
+									</div>
+								</div>
+								<div class="course-info-item">
+									<span class="info-icon">📚</span>
+									<div>
+										<strong data-translate="courses.smm.sessions">Sessions</strong>
+										<p data-translate="courses.smm.sessionCount">20 meetings</p>
+									</div>
+								</div>
+								<div class="course-info-item">
+									<span class="info-icon">🎯</span>
+									<div>
+										<strong data-translate="courses.smm.frequency">Frequency</strong>
+										<p data-translate="courses.smm.weekly">3 times per week</p>
+									</div>
+								</div>
+								<div class="course-info-item">
+									<span class="info-icon">👥</span>
+									<div>
+										<strong data-translate="courses.smm.experience">Experience</strong>
+										<p data-translate="courses.smm.realClients">Real client work</p>
+									</div>
+								</div>
+							</div>
+							<ul class="course-features">
+								<li data-translate="courses.smm.feature1">Complete social media setup and automation</li>
+								<li data-translate="courses.smm.feature2">Content creation and copywriting</li>
+								<li data-translate="courses.smm.feature3">Photo-video shooting and editing</li>
+								<li data-translate="courses.smm.feature4">Facebook Ads Manager and campaign creation</li>
+								<li data-translate="courses.smm.feature5">Work with real clients during the course</li>
+								<li data-translate="courses.smm.feature6">AI tools and professional platforms</li>
+							</ul>
+						</div>
+						<div class="course-actions">
+							<a href="/courses" class="btn btn-primary" data-translate="courses.smm.learnMore">Learn More About SMM PLUS</a>
+							<a href="/contact" class="btn btn-secondary" data-translate="courses.smm.enroll">Enroll Now</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -380,92 +496,313 @@ const currentLang = 'en'; // Default for SSR
 		100% { transform: scale(1.2) rotate(5deg); }
 	}
 
-	/* Enhanced Leader Cards */
-	.about-preview-section {
-		position: relative;
-		overflow: visible;
-		padding: var(--spacing-xl) 0;
+	/* Stats Section */
+	.stats-section {
+		background: var(--wave-gradient);
+		color: var(--white);
 	}
 
-	.about-preview-section .parallax-container {
-		position: relative;
-		transform-style: preserve-3d;
-		min-height: 600px;
+	.stats-section .section-title {
+		color: var(--white);
 	}
 
-	.about-preview {
+	.stats-grid {
+		gap: var(--spacing-lg);
+	}
+
+	.grid-4 {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	.stat-card {
+		text-align: center;
+		padding: var(--spacing-lg);
+		background: rgba(255, 255, 255, 0.1);
+		border-radius: var(--border-radius-lg);
+		backdrop-filter: blur(10px);
+		transition: transform var(--transition-normal);
+	}
+
+	.stat-card:hover {
+		transform: translateY(-5px);
+	}
+
+	.stat-number {
+		font-size: 3rem;
+		font-weight: 800;
+		color: var(--white);
+		margin-bottom: var(--spacing-sm);
+		line-height: 1;
+	}
+
+	.stat-label {
+		font-size: 1rem;
+		color: rgba(255, 255, 255, 0.9);
+		font-weight: 500;
+	}
+
+	/* Masterclass Promo Section */
+	.masterclass-promo {
 		align-items: center;
 		gap: var(--spacing-xl);
+	}
+
+	.masterclass-features {
+		list-style: none;
+		padding: 0;
+		margin: var(--spacing-md) 0;
+	}
+
+	.masterclass-features li {
+		padding: var(--spacing-xs) 0;
 		position: relative;
-		z-index: 2;
-		padding: var(--spacing-lg) 0;
+		padding-left: var(--spacing-md);
 	}
 
-	.leaders-preview {
-		display: flex;
-		gap: var(--spacing-md);
-		justify-content: center;
+	.masterclass-features li::before {
+		content: '🎯';
+		position: absolute;
+		left: 0;
 	}
 
-	.leader-card {
+	.masterclass-card {
+		background: var(--wave-gradient);
+		color: var(--white);
+		padding: var(--spacing-xl);
+		border-radius: var(--border-radius-lg);
 		text-align: center;
-		padding: var(--spacing-md);
-		transition: transform var(--transition-normal);
+		position: relative;
+		overflow: hidden;
 	}
 
-	.animate-float {
-		animation: gentleFloat 6s ease-in-out infinite;
+	.masterclass-icon {
+		font-size: 3rem;
+		margin-bottom: var(--spacing-md);
 	}
 
-	@keyframes gentleFloat {
-		0%, 100% { transform: translateY(0); }
-		50% { transform: translateY(-10px); }
-	}
-
-	.leader-avatar {
-		font-size: 4rem;
+	.masterclass-card h4 {
+		color: var(--white);
 		margin-bottom: var(--spacing-sm);
+	}
+
+	.masterclass-badge {
+		position: absolute;
+		top: var(--spacing-md);
+		right: var(--spacing-md);
+		background: var(--success-color);
+		color: var(--white);
+		padding: var(--spacing-xs) var(--spacing-sm);
+		border-radius: var(--border-radius);
+		font-size: 0.8rem;
+		font-weight: 600;
+	}
+
+	/* Testimonials Section */
+	.testimonials-section {
+		background: var(--bg-secondary);
+	}
+
+	.testimonials-grid {
+		gap: var(--spacing-lg);
+	}
+
+	.testimonial-card {
+		background: var(--card-bg);
+		padding: var(--spacing-xl);
+		border-radius: var(--border-radius-lg);
+		box-shadow: var(--shadow-md);
 		transition: transform var(--transition-normal);
+		position: relative;
+		border: 1px solid var(--border-color);
 	}
 
-	.leader-card:hover .leader-avatar {
-		transform: scale(1.1);
+	.testimonial-card:hover {
+		transform: translateY(-5px);
+		box-shadow: var(--shadow-lg);
 	}
 
-	.leader-card h4 {
-		margin-bottom: var(--spacing-xs);
+	.testimonial-stars {
+		font-size: 1.2rem;
+		margin-bottom: var(--spacing-md);
+	}
+
+	.testimonial-text {
+		font-style: italic;
+		margin-bottom: var(--spacing-lg);
+		line-height: 1.6;
+		color: var(--text-primary);
+	}
+
+	.testimonial-author {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-md);
+	}
+
+	.author-avatar {
+		font-size: 2.5rem;
+		width: 60px;
+		height: 60px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: var(--wave-gradient);
+		border-radius: 50%;
+		flex-shrink: 0;
+	}
+
+	.testimonial-author h4 {
+		margin: 0;
 		color: var(--text-heading);
+		font-size: 1rem;
 	}
 
-	.leader-card p {
+	.testimonial-author p {
+		margin: 0;
 		color: var(--text-secondary);
 		font-size: 0.9rem;
 	}
 
-	/* Course Cards */
-	.course-card {
-		position: relative;
+	/* Enhanced Course Section */
+	.course-highlight {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.course-main-card {
+		background: var(--card-bg);
+		border-radius: var(--border-radius-lg);
+		overflow: hidden;
+		box-shadow: var(--shadow-lg);
 		transition: all var(--transition-normal);
+		border: 1px solid var(--border-color);
+	}
+
+	.course-main-card:hover {
+		transform: translateY(-5px);
+		box-shadow: var(--shadow-lg);
+	}
+
+	.course-header {
+		background: var(--wave-gradient);
+		color: var(--white);
+		padding: var(--spacing-xl);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: var(--spacing-md);
+	}
+
+	.course-header h3 {
+		color: var(--white);
+		margin: 0;
+		font-size: 1.8rem;
+		font-weight: 600;
+	}
+
+	.course-price {
+		display: flex;
+		align-items: baseline;
+		gap: var(--spacing-xs);
+	}
+
+	.price-amount {
+		font-size: 2.5rem;
+		font-weight: 800;
+		color: var(--white);
+	}
+
+	.price-currency {
+		font-size: 1.2rem;
+		color: rgba(255, 255, 255, 0.9);
+	}
+
+	.course-details {
+		padding: var(--spacing-xl);
+	}
+
+	.course-info-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--spacing-lg);
+		margin-bottom: var(--spacing-xl);
+	}
+
+	.course-info-item {
+		display: flex;
+		align-items: center;
+		gap: var(--spacing-md);
+	}
+
+	.info-icon {
+		font-size: 2rem;
+		width: 50px;
+		height: 50px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: var(--bg-secondary);
+		border: 2px solid var(--ocean-blue);
+		border-radius: 50%;
+		flex-shrink: 0;
+	}
+
+	.course-info-item strong {
+		display: block;
+		color: var(--text-heading);
+		margin-bottom: var(--spacing-xs);
+		font-size: 0.9rem;
+	}
+
+	.course-info-item p {
+		margin: 0;
+		color: var(--text-secondary);
+		font-size: 0.9rem;
 	}
 
 	.course-features {
 		list-style: none;
 		padding: 0;
 		margin: var(--spacing-md) 0;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--spacing-sm);
 	}
 
 	.course-features li {
-		padding: var(--spacing-xs) 0;
+		padding: var(--spacing-sm);
 		position: relative;
-		padding-left: var(--spacing-md);
+		padding-left: var(--spacing-xl);
+		background: var(--bg-secondary);
+		border-radius: var(--border-radius);
+		transition: background-color var(--transition-normal);
+		border: 1px solid var(--border-color);
+	}
+
+	.course-features li:hover {
+		background: var(--border-color);
 	}
 
 	.course-features li::before {
 		content: '✓';
 		position: absolute;
-		left: 0;
+		left: var(--spacing-sm);
+		top: 50%;
+		transform: translateY(-50%);
 		color: var(--ocean-blue);
 		font-weight: bold;
+		font-size: 1.1rem;
+	}
+
+	.course-actions {
+		padding: var(--spacing-xl);
+		background: var(--bg-secondary);
+		display: flex;
+		gap: var(--spacing-md);
+		justify-content: center;
+		flex-wrap: wrap;
+		border-top: 1px solid var(--border-color);
 	}
 
 	/* Enhanced CTA Section */
@@ -625,17 +962,29 @@ const currentLang = 'en'; // Default for SSR
 			font-size: 3rem;
 		}
 
-		.about-preview-section {
-			padding: var(--spacing-lg) 0;
+		.grid-4 {
+			grid-template-columns: repeat(2, 1fr);
 		}
 
-		.about-preview-section .parallax-container {
-			min-height: auto;
+		.stat-card {
+			padding: var(--spacing-md);
 		}
 
-		.about-content {
-			text-align: center;
-			margin-bottom: var(--spacing-lg);
+		.stat-number {
+			font-size: 2.5rem;
+		}
+
+		.masterclass-promo {
+			gap: var(--spacing-lg);
+		}
+
+		.testimonials-grid {
+			grid-template-columns: 1fr;
+			gap: var(--spacing-md);
+		}
+
+		.testimonial-card {
+			padding: var(--spacing-lg);
 		}
 
 		.section-title {
@@ -646,22 +995,23 @@ const currentLang = 'en'; // Default for SSR
 			font-size: 1rem;
 		}
 
-		.leaders-preview {
+		.course-header {
 			flex-direction: column;
-			gap: var(--spacing-lg);
-			margin-top: var(--spacing-lg);
+			text-align: center;
 		}
 
-		.leader-card {
-			padding: var(--spacing-md);
+		.course-info-grid {
+			grid-template-columns: 1fr;
+			gap: var(--spacing-md);
 		}
 
-		.leader-avatar {
-			font-size: 3rem;
+		.course-features {
+			grid-template-columns: 1fr;
 		}
 
-		.course-card {
-			padding: var(--spacing-lg);
+		.course-actions {
+			flex-direction: column;
+			align-items: center;
 		}
 
 		.hero-buttons,
@@ -769,12 +1119,66 @@ const currentLang = 'en'; // Default for SSR
 			'hero.learnMore': 'Learn More',
 			'services.title': 'Our Services',
 			'services.subtitle': 'Comprehensive digital marketing solutions tailored to your business needs',
-			'about.title': 'Meet Our Leaders',
-			'about.description': 'PR Wave is led by two passionate digital marketing experts with years of experience in social media management, advertising, and business growth strategies.',
-			'about.experience': 'Our founders bring together decades of combined experience in helping businesses establish a strong digital presence and achieve their marketing goals.',
-			'about.learnMore': 'Learn About Our Team',
-			'courses.title': 'Master Social Media',
-			'courses.subtitle': 'Learn the ins and outs of social media platforms with our comprehensive courses',
+			'services.socialMedia': 'Social Media Management',
+			'services.socialMediaDesc': 'Professional social media management services to help your business grow and succeed in the digital landscape.',
+			'services.advertising': 'Digital Advertising',
+			'services.advertisingDesc': 'Professional digital advertising services to help your business grow and succeed in the digital landscape.',
+			'services.mentorship': 'Business Mentorship',
+			'services.mentorshipDesc': 'Professional business mentorship services to help your business grow and succeed in the digital landscape.',
+			'services.content': 'Content Creation',
+			'services.contentDesc': 'Professional content creation services to help your business grow and succeed in the digital landscape.',
+			'services.strategy': 'Brand Strategy',
+			'services.strategyDesc': 'Professional brand strategy services to help your business grow and succeed in the digital landscape.',
+			'services.analytics': 'Analytics & Reporting',
+			'services.analyticsDesc': 'Professional analytics & reporting services to help your business grow and succeed in the digital landscape.',
+			'stats.title': 'Our Success in Numbers',
+			'stats.subtitle': 'Proven results that speak for themselves',
+			'stats.clients': 'Happy Clients',
+			'stats.campaigns': 'Successful Campaigns',
+			'stats.satisfaction': 'Client Satisfaction',
+			'stats.founded': 'Founded',
+			'masterclass.title': 'Free Seasonal Masterclasses',
+			'masterclass.description': 'Join our free online masterclasses every season and learn valuable insights about effective social media management for small businesses.',
+			'masterclass.feature1': 'Expert-led sessions',
+			'masterclass.feature2': 'Practical tips and strategies',
+			'masterclass.feature3': 'Q&A with industry professionals',
+			'masterclass.feature4': 'Networking opportunities',
+			'masterclass.register': 'Register for Next Masterclass',
+			'masterclass.upcoming': 'Upcoming Masterclass',
+			'masterclass.topic': 'Social Media Strategy for Small Business',
+			'masterclass.free': 'FREE',
+			'testimonials.title': 'What Our Clients Say',
+			'testimonials.subtitle': 'Real stories from businesses that transformed with PR Wave',
+			'testimonials.client1.text': 'PR Wave transformed our social media presence completely. Our engagement increased by 300% in just 3 months!',
+			'testimonials.client1.name': 'Giorgi Beridze',
+			'testimonials.client1.company': 'Local Restaurant Owner',
+			'testimonials.client2.text': 'The SMM PLUS course gave me all the skills I needed to manage my business\'s social media professionally.',
+			'testimonials.client2.name': 'Nana Kiknadze',
+			'testimonials.client2.company': 'Course Graduate',
+			'testimonials.client3.text': 'Professional service and amazing results. Our brand visibility increased significantly thanks to PR Wave.',
+			'testimonials.client3.name': 'Levan Tsereteli',
+			'testimonials.client3.company': 'Tech Startup Founder',
+			'testimonials.viewMore': 'View More Success Stories',
+			'courses.title': 'SMM PLUS Course',
+			'courses.subtitle': 'Comprehensive social media marketing training with real client experience',
+			'courses.smm.title': 'SMM PLUS - Social Media Marketing Course',
+			'courses.smm.currency': 'GEL',
+			'courses.smm.duration': 'Duration',
+			'courses.smm.weeks': '7-8 weeks',
+			'courses.smm.sessions': 'Sessions',
+			'courses.smm.sessionCount': '20 meetings',
+			'courses.smm.frequency': 'Frequency',
+			'courses.smm.weekly': '3 times per week',
+			'courses.smm.experience': 'Experience',
+			'courses.smm.realClients': 'Real client work',
+			'courses.smm.feature1': 'Complete social media setup and automation',
+			'courses.smm.feature2': 'Content creation and copywriting',
+			'courses.smm.feature3': 'Photo-video shooting and editing',
+			'courses.smm.feature4': 'Facebook Ads Manager and campaign creation',
+			'courses.smm.feature5': 'Work with real clients during the course',
+			'courses.smm.feature6': 'AI tools and professional platforms',
+			'courses.smm.learnMore': 'Learn More About SMM PLUS',
+			'courses.smm.enroll': 'Enroll Now',
 			'cta.title': 'Ready to Ride the Wave?',
 			'cta.subtitle': 'Join hundreds of businesses that have transformed their digital presence with PR Wave',
 			'cta.startJourney': 'Start Your Journey',
@@ -787,12 +1191,66 @@ const currentLang = 'en'; // Default for SSR
 			'hero.learnMore': 'მეტის შესწავლა',
 			'services.title': 'ჩვენი სერვისები',
 			'services.subtitle': 'ყოვლისმომცველი ციფრული მარკეტინგის გადაწყვეტები, რომლებიც მორგებულია თქვენი ბიზნესის საჭიროებებზე',
-			'about.title': 'გაიცანით ჩვენი ლიდერები',
-			'about.description': 'PR Wave-ს ხელმძღვანელობს ორი ვნებიანი ციფრული მარკეტინგის ექსპერტი, რომლებსაც წლების გამოცდილება აქვთ სოციალური მედიის მართვაში, რეკლამასა და ბიზნეს-ზრდის სტრატეგიებში.',
-			'about.experience': 'ჩვენი დამფუძნებლები ერთად აერთიანებენ ათწლეულების გამოცდილებას ბიზნესების დახმარებაში ძლიერი ციფრული პრეზენსის დამყარებისა და მარკეტინგული მიზნების მიღწევისთვის.',
-			'about.learnMore': 'გაიცანით ჩვენი გუნდი',
-			'courses.title': 'დაეუფლეთ სოციალურ მედიას',
-			'courses.subtitle': 'ისწავლეთ სოციალური მედიის პლატფორმების ყველა დეტალი ჩვენი ყოვლისმომცველი კურსებით',
+			'services.socialMedia': 'სოციალური მედიის მართვა',
+			'services.socialMediaDesc': 'პროფესიონალური სოციალური მედიის მართვის სერვისები, რომლებიც დაეხმარება თქვენს ბიზნესს ზრდასა და წარმატებას ციფრულ გარემოში.',
+			'services.advertising': 'ციფრული რეკლამა',
+			'services.advertisingDesc': 'პროფესიონალური ციფრული რეკლამის სერვისები, რომლებიც დაეხმარება თქვენს ბიზნესს ზრდასა და წარმატებას ციფრულ გარემოში.',
+			'services.mentorship': 'ბიზნეს მენტორობა',
+			'services.mentorshipDesc': 'პროფესიონალური ბიზნეს მენტორობის სერვისები, რომლებიც დაეხმარება თქვენს ბიზნესს ზრდასა და წარმატებას ციფრულ გარემოში.',
+			'services.content': 'კონტენტის შექმნა',
+			'services.contentDesc': 'პროფესიონალური კონტენტის შექმნის სერვისები, რომლებიც დაეხმარება თქვენს ბიზნესს ზრდასა და წარმატებას ციფრულ გარემოში.',
+			'services.strategy': 'ბრენდის სტრატეგია',
+			'services.strategyDesc': 'პროფესიონალური ბრენდის სტრატეგიის სერვისები, რომლებიც დაეხმარება თქვენს ბიზნესს ზრდასა და წარმატებას ციფრულ გარემოში.',
+			'services.analytics': 'ანალიტიკა და რეპორტინგი',
+			'services.analyticsDesc': 'პროფესიონალური ანალიტიკისა და რეპორტინგის სერვისები, რომლებიც დაეხმარება თქვენს ბიზნესს ზრდასა და წარმატებას ციფრულ გარემოში.',
+			'stats.title': 'ჩვენი წარმატება რიცხვებში',
+			'stats.subtitle': 'დადასტურებული შედეგები, რომლებიც საკუთარ თავზე ლაპარაკობენ',
+			'stats.clients': 'კმაყოფილი კლიენტი',
+			'stats.campaigns': 'წარმატებული კამპანია',
+			'stats.satisfaction': 'კლიენტის კმაყოფილება',
+			'stats.founded': 'დაარსდა',
+			'masterclass.title': 'უფასო სეზონური მასტერკლასები',
+			'masterclass.description': 'შემოუერთდით ჩვენს უფასო ონლაინ მასტერკლასებს ყოველ სეზონზე და ისწავლეთ ღირებული ინფორმაცია მცირე ბიზნესისთვის სოციალური მედიის ეფექტური მართვის შესახებ.',
+			'masterclass.feature1': 'ექსპერტების მიერ ჩატარებული სესიები',
+			'masterclass.feature2': 'პრაქტიკული რჩევები და სტრატეგიები',
+			'masterclass.feature3': 'კითხვა-პასუხი ინდუსტრიის პროფესიონალებთან',
+			'masterclass.feature4': 'ნეთვორკინგის შესაძლებლობები',
+			'masterclass.register': 'რეგისტრაცია შემდეგ მასტერკლასზე',
+			'masterclass.upcoming': 'მომავალი მასტერკლასი',
+			'masterclass.topic': 'სოციალური მედიის სტრატეგია მცირე ბიზნესისთვის',
+			'masterclass.free': 'უფასო',
+			'testimonials.title': 'რას ამბობენ ჩვენი კლიენტები',
+			'testimonials.subtitle': 'რეალური ისტორიები ბიზნესებისგან, რომლებმაც გარდაიქმნენ PR Wave-თან ერთად',
+			'testimonials.client1.text': 'PR Wave-მ სრულად გარდაქმნა ჩვენი სოციალური მედიის არსებობა. ჩვენი ჩართულობა გაიზარდა 300%-ით მხოლოდ 3 თვეში!',
+			'testimonials.client1.name': 'გიორგი ბერიძე',
+			'testimonials.client1.company': 'ადგილობრივი რესტორნის მფლობელი',
+			'testimonials.client2.text': 'SMM PLUS კურსმა მომცა ყველა ის უნარი, რაც მჭირდებოდა ჩემი ბიზნესის სოციალური მედიის პროფესიონალურად მართვისთვის.',
+			'testimonials.client2.name': 'ნანა კიკნაძე',
+			'testimonials.client2.company': 'კურსის კურსდამთავრებული',
+			'testimonials.client3.text': 'პროფესიონალური სერვისი და საოცარი შედეგები. ჩვენი ბრენდის ხილვადობა მნიშვნელოვნად გაიზარდა PR Wave-ს წყალობით.',
+			'testimonials.client3.name': 'ლევან წერეთელი',
+			'testimonials.client3.company': 'ტექ სტარტაპის დამფუძნებელი',
+			'testimonials.viewMore': 'მეტი წარმატების ისტორია',
+			'courses.title': 'SMM PLUS კურსი',
+			'courses.subtitle': 'ყოვლისმომცველი სოციალური მედიის მარკეტინგის ტრენინგი რეალური კლიენტების გამოცდილებით',
+			'courses.smm.title': 'SMM PLUS - სოციალური მედიის მარკეტინგის კურსი',
+			'courses.smm.currency': 'ლარი',
+			'courses.smm.duration': 'ხანგრძლივობა',
+			'courses.smm.weeks': '7-8 კვირა',
+			'courses.smm.sessions': 'სესიები',
+			'courses.smm.sessionCount': '20 შეხვედრა',
+			'courses.smm.frequency': 'სიხშირე',
+			'courses.smm.weekly': 'კვირაში 3-ჯერ',
+			'courses.smm.experience': 'გამოცდილება',
+			'courses.smm.realClients': 'რეალურ კლიენტებთან მუშაობა',
+			'courses.smm.feature1': 'სოციალური მედიის სრული მოწყობა და ავტომატიზაცია',
+			'courses.smm.feature2': 'კონტენტის შექმნა და კოპირაითინგი',
+			'courses.smm.feature3': 'ფოტო-ვიდეო გადაღება და რედაქტირება',
+			'courses.smm.feature4': 'Facebook Ads Manager და კამპანიების შექმნა',
+			'courses.smm.feature5': 'რეალურ კლიენტებთან მუშაობა კურსის განმავლობაში',
+			'courses.smm.feature6': 'AI ხელსაწყოები და პროფესიონალური პლატფორმები',
+			'courses.smm.learnMore': 'მეტი SMM PLUS-ის შესახებ',
+			'courses.smm.enroll': 'ახლავე ჩაირიცხე',
 			'cta.title': 'მზად ხართ ტალღას დაეშვათ?',
 			'cta.subtitle': 'შეუერთდით ასობით ბიზნესს, რომლებმაც გარდაქმნეს თავიანთი ციფრული პრეზენსი PR Wave-თან ერთად',
 			'cta.startJourney': 'დაიწყეთ თქვენი მგზავრობა',
